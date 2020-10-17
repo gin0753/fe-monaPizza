@@ -8,14 +8,14 @@ import Users from './pages/Users/Users';
 
 function App() {
     return (
-      <Router>
-      <Switch>
-          <Route path="/about" component={About} />
-          <Route path="/users" component={Users} />
-          <Route path="/" component={Home} />
+        <Router>
+            <Switch>
+                <Route path="/about" component={About} />
+                <Route path="/users" component={Users} />
+                <Route path="/" component={Home} />
             </Switch>
-            </Router>
-  );
+        </Router>
+    );
 }
 
 export default App;

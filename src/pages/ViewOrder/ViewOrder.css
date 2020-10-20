@@ -17,13 +17,15 @@ ul {
 }
 
 .viewOrder_page-title {
-    margin-left:10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .viewOrder_title {
     text-align: center;
     color: white;
     display: flex;
+    flex-wrap:wrap;
     justify-content: space-between;
     align-items: center;
 }

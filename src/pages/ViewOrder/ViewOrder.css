@@ -1,23 +1,37 @@
+﻿@font-face {
+    font-family: 'Commissioner', sans-serif;
+    src: url("https://fonts.googleapis.com/css2?family=Commissioner&display=swap") format('woff');
+
+}
+
 body {
-    padding-top: 20px;
+
     padding-left: 40px;
     padding-right: 40px;
-    background-color:black;
+    background-color: black;
+    font-weight: 600;
+
 }
 ul {
     list-style-type: none;
 }
 
+.viewOrder_page-title {
+    margin-left:10px;
+}
+
 .viewOrder_title {
-    text-align:center;
-    color:white;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .viewOrder_navbar {
-    margin: auto;
     width: 600px;
-    height: 55px;
     display: flex;
+    align-items:center;
     margin-bottom: 50px;
     margin-top: 50px;
     border-style: solid;
@@ -28,10 +42,10 @@ ul {
 }
 
 .viewOrder_navbar__element {
+    font-size:22px;
     font-weight:600;
     text-align:center;
     width:150px;
-    margin:10;
     border-style:solid;
     border-width:1px;
     border-color:forestgreen;    
@@ -42,21 +56,34 @@ ul {
 
 .viewOrder_order-container {
     display:flex;
+    flex-wrap:wrap;
 }
 
-.viewOrder_header {
+.viewOrder_order__header {
     display: flex;
     background-color: #dddddd;
-    justify-content: space-around;
+    justify-content: space-between;
 }
-.viewOrder_order-number::before{
-    content:"#"
+.viewOrder_order-number {
+    margin:10px;
+}
+.viewOrder_customer-name {
+    margin: 10px;
+}
+.viewOrder_countdown {
+    margin: 10px;
+}
+
+.viewOrder_order-number::before {
+    content: "#"
 }
 
 .viewOrder_order {
     width: 400px;
-    background-color:white;
-    margin:10px;
+    background-color: white;
+    margin: 10px;
+    position: relative;
+    padding-bottom:100px;
 }
 
 .viewOrder_details {
@@ -79,11 +106,33 @@ ul {
     margin-right:15px;
 }
 
-.viewOrder_total {
-    font-weight:600;
+.viewOrder_phone {
+    margin-left:40px;
+}
+    /*.viewOrder_phone::before {
+        content: "ph:  ";
+    }*/
+
+.viewOrder_earnings {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 50%;
+
     padding: 10px;
     list-style-type: none;
     text-align: right;
+    display: flex;
+}
+.viewOrder_earnings__detail {
+
 }
 
+.viewOrder_earnings__title {
+    text-align: left;
+}
+.viewOrder_earnings__total {
+    font-weight: 800;
+
+}
 

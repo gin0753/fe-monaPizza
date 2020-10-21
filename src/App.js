@@ -13,10 +13,7 @@ function App() {
             <Switch>
                 <Route path="/about" component={About} />
                 <Route path="/users" component={Users} />
-<<<<<<< HEAD
                 <Route path="/viewOrder" component={ViewOrder} />
-=======
->>>>>>> develop
                 <Route path="/" component={Home} />
             </Switch>
         </Router>

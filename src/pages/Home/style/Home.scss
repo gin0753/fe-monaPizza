@@ -22,367 +22,383 @@ $this-red: #d94f2b;
 
 .home {
   max-width: 1920px;
-  background-color: #161616;
-}
-//front page***********************************
-.frontPage {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  height: 1083px;
-  &_banner {
-    h1 {
-      margin-bottom: 30px;
-      font-family: "Fredericka the Great", cursive;
-      font-size: 72px;
-      color: #fff;
-      line-height: 90px;
-    }
-    h2 {
-      font-family: "Abril Fatface", cursive;
-      color: $this-yellow;
-      font-size: 36px;
-      width: 800px;
-      line-height: 46px;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 13px 32px;
-      font-family: "Josefin Sans", sans-serif;
-      color: $this-yellow;
-      font-size: 14px;
-      line-height: 14px;
-      vertical-align: middle;
-      background-color: #161616;
-      border: 1px solid $this-yellow;
-    }
-  }
-}
-//rest page*****************************************
-.restPage {
-  width: 100%;
-  height: 9400px;
   background: url(../img/Background.png) no-repeat center top;
-  header {
-    position: relative;
-    width: 100%;
-    height: 90px;
-    background: url(../img/Base.png) no-repeat center center;
-    img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-}
-//info section************
-.restPage_info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 946px;
-  // background-color: yellowgreen;
-  &_wrap {
+
+  //front page***********************************
+  .frontPage {
     display: flex;
-    flex-direction: column;
-    width: $wrap-width;
-    height: 70%;
-  }
-  &_top {
-    display: flex;
-    flex-direction: column;
+    text-align: center;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    flex: 1;
-    // background-color: #666;
-    h2 {
-      margin-bottom: 60px;
-      font-family: "Abril Fatface", cursive;
-      color: $this-yellow;
-      font-size: 48px;
-      // width: 1100px;
-    }
-    p {
-      margin-bottom: 20px;
-      font-family: "Josefin Sans", sans-serif;
-      font-size: 18px;
-      line-height: 30px;
-      color: #fff;
-      // width: 1200px;
+    height: 1083px;
+    background-color: #161616;
+    &_banner {
+      h1 {
+        margin-bottom: 30px;
+        font-family: "Fredericka the Great", cursive;
+        font-size: 72px;
+        color: #fff;
+        line-height: 90px;
+      }
+      h2 {
+        font-family: "Abril Fatface", cursive;
+        color: $this-yellow;
+        font-size: 36px;
+        width: 800px;
+        line-height: 46px;
+      }
+      .button {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 13px 32px;
+        font-family: "Josefin Sans", sans-serif;
+        color: $this-yellow;
+        font-size: 14px;
+        line-height: 14px;
+        vertical-align: middle;
+        background-color: #161616;
+        border: 1px solid $this-yellow;
+      }
     }
   }
-  &_bottom {
+  //rest page*****************************************
+  .restPage {
+    width: 100%;
+    // height: 9400px;
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 90px;
+      background: url(../img/Base.png) no-repeat center center;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  //info section************
+  .restPage_info {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex: 1;
-    // background-color: rgb(218, 188, 188);
-    li {
+    justify-content: center;
+    align-items: center;
+    height: 946px;
+    // background-color: yellowgreen;
+    &_wrap {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      width: 350px;
+      width: $wrap-width;
+      height: 70%;
     }
-    h2 {
-      font-family: "Abril Fatface", cursive;
-      color: $this-yellow;
-      font-size: 36px;
-    }
-    p {
-      font-family: "Josefin Sans", sans-serif;
-      font-size: 18px;
-      line-height: 30px;
-      color: #fff;
-    }
-  }
-}
-.icon_leaf {
-  width: 65px;
-  height: 77px;
-  background: url(../img/leaf.png) no-repeat center center;
-}
-.icon_badge {
-  width: 65px;
-  height: 77px;
-  background: url(../img/badge.png) no-repeat center center;
-}
-.icon_rocket {
-  width: 65px;
-  height: 77px;
-  background: url(../img/rocket.png) no-repeat center center;
-}
-
-//choices section************
-.restPage_choices {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 430px;
-  background: url(../img/Base.png) repeat-y left top;
-  span {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: 42px;
-
-    text-align: center;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    border: 4px solid$this-red;
-    h3 {
-      font-family: "Fredericka the Great", cursive;
-      font-size: 72px;
-      color: #fff;
-    }
-    p {
-      color: #fff;
-      text-transform: uppercase;
-      font-family: "Josefin Sans", sans-serif;
-      font-size: 14px;
-      line-height: 30px;
-    }
-  }
-}
-//feedBack section************
-.restPage_feedBack {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 1208px;
-  &_wrap {
-    // border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: $wrap-width;
-    height: 1024px;
-    // background-color: pink;
-    text-align: center;
-    h2 {
-      flex: 1;
-      font-family: "Abril Fatface", cursive;
-      color: $this-yellow;
-      font-size: 48px;
-      margin-bottom: -20px;
-    }
-    p {
-      flex: 1;
-      font-family: "Josefin Sans", sans-serif;
-      font-size: 18px;
-      line-height: 30px;
-      color: #fff;
-      // width: 85%;
-    }
-    ul {
+    &_top {
       display: flex;
-      // flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      // background-color: #666;
+      h2 {
+        margin-bottom: 60px;
+        font-family: "Abril Fatface", cursive;
+        color: $this-yellow;
+        font-size: 48px;
+        // width: 1100px;
+      }
+      p {
+        margin-bottom: 20px;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 18px;
+        line-height: 30px;
+        color: #fff;
+        // width: 1200px;
+      }
+    }
+    &_bottom {
+      display: flex;
       justify-content: space-between;
-      flex: 5;
-      width: 100%;
+      align-items: flex-start;
+      flex: 1;
+      // background-color: rgb(218, 188, 188);
       li {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 80%;
-        mark {
-          width: 160px;
-          height: 160px;
-          background-color: $this-red;
-          border-radius: 50%;
-        }
-        h4 {
-          font-family: "Abril Fatface", cursive;
-          font-size: 24px;
-          color: $this-yellow;
-        }
-        section {
-          font-size: 14px;
-          line-height: 30px;
-          color: $this-red;
-        }
-        main {
-          padding: 40px 37px;
-          width: 370px;
-          height: 201px;
-          background: url(../img/frame.png) no-repeat center center;
-          font-family: "Fredericka the Great", cursive;
-          font-size: 24px;
-          line-height: 30px;
-          color: #fff;
-        }
-        h5,
-        a {
-          text-decoration: none;
-          font-family: "Josefin Sans", sans-serif;
-          font-size: 18px;
-          line-height: 15px;
-        }
-        h5 {
-          color: #fff;
-        }
-        a {
-          color: $this-red;
-        }
+        justify-content: space-between;
+        height: 100%;
+        width: 350px;
       }
-    }
-
-    nav {
-      flex: 1;
-      font-weight: 900;
-      color: $this-red;
-      line-height: 50px;
-      font-family: "icomoon";
-      &::before {
-        display: inline-block;
-        width: 60px;
-        height: 60px;
-        border: 5px solid$this-red;
-        content: "\ea38";
+      h2 {
+        font-family: "Abril Fatface", cursive;
+        color: $this-yellow;
+        font-size: 36px;
       }
-      &::after {
-        margin-left: 20px;
-        display: inline-block;
-        width: 60px;
-        height: 60px;
-        border: 5px solid$this-red;
-        content: "\ea34";
-      }
-    }
-  }
-}
-//mobile app download section************
-.restPage_mobileApp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #080808;
-  height: 1014px;
-  width: 100%;
-}
-.restPage_mobileApp_wrap {
-  width: $wrap-width;
-  height: 750px;
-  aside {
-    float: left;
-    background: url(../img/iPhone6.png) no-repeat center center;
-    width: 369px;
-    height: 753px;
-  }
-  main {
-    float: left;
-    padding: 40px 80px;
-    width: 829px;
-    h2 {
-      font-family: "Abril Fatface", cursive;
-      font-size: 48px;
-      color: $this-yellow;
-    }
-    p {
-      margin: 40px 0;
-      font-family: "Josefin Sans", sans-serif;
-      font-size: 18px;
-      line-height: 30px;
-      color: #fff;
-    }
-    h3 {
-      margin-bottom: 40px;
-      font-family: "Abril Fatface", cursive;
-      font-size: 36px;
-      line-height: 30px;
-      color: $this-yellow;
-    }
-    ul {
-      li {
-        position: relative;
-        text-indent: 20px;
-        color: $this-red;
+      p {
+        font-family: "Josefin Sans", sans-serif;
         font-size: 18px;
         line-height: 30px;
+        color: #fff;
+      }
+    }
+  }
+  .icon_leaf {
+    width: 65px;
+    height: 77px;
+    background: url(../img/leaf.png) no-repeat center center;
+  }
+  .icon_badge {
+    width: 65px;
+    height: 77px;
+    background: url(../img/badge.png) no-repeat center center;
+  }
+  .icon_rocket {
+    width: 65px;
+    height: 77px;
+    background: url(../img/rocket.png) no-repeat center center;
+  }
+
+  //choices section************
+  .restPage_choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 430px;
+    background: url(../img/Base.png) repeat-y left top;
+    span {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 42px;
+
+      text-align: center;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid$this-red;
+      h3 {
+        font-family: "Fredericka the Great", cursive;
+        font-size: 72px;
+        color: #fff;
+      }
+      p {
+        color: #fff;
+        text-transform: uppercase;
         font-family: "Josefin Sans", sans-serif;
+        font-size: 14px;
+        line-height: 30px;
+      }
+    }
+  }
+  //feedBack section************
+  .restPage_feedBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1208px;
+    &_wrap {
+      // border: 1px solid red;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: $wrap-width;
+      height: 1024px;
+      // background-color: pink;
+      text-align: center;
+      h2 {
+        flex: 1;
+        font-family: "Abril Fatface", cursive;
+        color: $this-yellow;
+        font-size: 48px;
+        margin-bottom: -20px;
+      }
+      p {
+        flex: 1;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 18px;
+        line-height: 30px;
+        color: #fff;
+        // width: 85%;
+      }
+      ul {
+        display: flex;
+        // flex-direction: column;
+        justify-content: space-between;
+        flex: 5;
+        width: 100%;
+        li {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          height: 80%;
+          mark {
+            width: 160px;
+            height: 160px;
+            background-color: $this-red;
+            border-radius: 50%;
+          }
+          h4 {
+            font-family: "Abril Fatface", cursive;
+            font-size: 24px;
+            color: $this-yellow;
+          }
+          section {
+            font-size: 14px;
+            line-height: 30px;
+            color: $this-red;
+          }
+          main {
+            padding: 40px 37px;
+            width: 370px;
+            height: 201px;
+            background: url(../img/frame.png) no-repeat center center;
+            font-family: "Fredericka the Great", cursive;
+            font-size: 24px;
+            line-height: 30px;
+            color: #fff;
+          }
+          h5,
+          a {
+            text-decoration: none;
+            font-family: "Josefin Sans", sans-serif;
+            font-size: 18px;
+            line-height: 15px;
+          }
+          h5 {
+            color: #fff;
+          }
+          a {
+            color: $this-red;
+          }
+        }
+      }
+
+      nav {
+        flex: 1;
+        font-weight: 900;
+        color: $this-red;
+        line-height: 50px;
+        font-family: "icomoon";
         &::before {
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          content: "";
-          background-color: $this-red;
-          border-radius: 50%;
-          width: 10px;
-          height: 10px;
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          border: 5px solid$this-red;
+          content: "\ea38";
+        }
+        &::after {
+          margin-left: 20px;
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          border: 5px solid$this-red;
+          content: "\ea34";
         }
       }
     }
-    .ios,
-    .android {
+  }
+  //mobile app download section************
+  .restPage_mobileApp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #080808;
+    height: 1014px;
+    width: 100%;
+  }
+  .restPage_mobileApp_wrap {
+    width: $wrap-width;
+    height: 750px;
+    aside {
       position: relative;
-      margin: 60px 20px 0 0;
-      display: inline-block;
-      background-color: $this-yellow;
-      width: 255px;
-      height: 44px;
-      text-align: center;
-      text-transform: uppercase;
-      font-family: "Abril Fatface", cursive;
-      font-size: 14px;
-      line-height: 44px;
-      font-family: "icomoon";
+      float: left;
+      background: url(../img/iPhone6.png) no-repeat center center;
+      width: 369px;
+      height: 753px;
+      img {
+        position: absolute;
+        top: 91px;
+        left: 26px;
+        width: 321px;
+        height: 570px;
+      }
     }
-    .ios::before {
-      position: absolute;
-      left: 20px;
-      content: "\eabe";
+    main {
+      float: left;
+      padding: 40px 80px;
+      width: 829px;
+      h2 {
+        font-family: "Abril Fatface", cursive;
+        font-size: 48px;
+        color: $this-yellow;
+      }
+      p {
+        margin: 40px 0;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 18px;
+        line-height: 30px;
+        color: #fff;
+      }
+      h3 {
+        margin-bottom: 40px;
+        font-family: "Abril Fatface", cursive;
+        font-size: 36px;
+        line-height: 30px;
+        color: $this-yellow;
+      }
+      ul {
+        li {
+          position: relative;
+          text-indent: 20px;
+          color: $this-red;
+          font-size: 18px;
+          line-height: 30px;
+          font-family: "Josefin Sans", sans-serif;
+          &::before {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            content: "";
+            background-color: $this-red;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+      .ios,
+      .android {
+        position: relative;
+        margin: 60px 20px 0 0;
+        display: inline-block;
+        background-color: $this-yellow;
+        width: 255px;
+        height: 44px;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "Abril Fatface", cursive;
+        font-size: 14px;
+        line-height: 44px;
+        font-family: "icomoon";
+        cursor: pointer;
+      }
+      .ios::before {
+        position: absolute;
+        left: 20px;
+        content: "\eabe";
+      }
+      .android::before {
+        position: absolute;
+        left: 14px;
+        content: "\eac0";
+      }
     }
-    .android::before {
-      position: absolute;
-      left: 14px;
-      content: "\eac0";
-    }
+  }
+  .restPage_gallery {
+    width: 100%;
+    height: 280px;
+    background: url(../img/gallery.png) no-repeat left top;
   }
 }

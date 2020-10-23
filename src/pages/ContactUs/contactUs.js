@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import './style.css';
+import './contactUs.css';
 
 class ContactUs extends React.Component{
   render() {

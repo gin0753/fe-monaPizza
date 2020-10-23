@@ -36,49 +36,51 @@
 }
 .contact.header {
   width: 100%;
-  height: 45px;
+  height: 80px;
   background-color: #151515;
   font-family: RoyaChicken;
   color: #D94F2B;
   text-align: center;
-  font-size: 40px;
+  font-size: 60px;
 }
 .contact.menu {
-  width: 45px;
-  height: 45px;
+  width: 80px;
+  height: 80px;
   float: left;
   background-color: #000000;
   text-align: center;
 }
 .contact.menu.iconfont {
   display: block;
-  width: 45px;
-  height: 25px;
-  padding-top: 10px;
+  width: 80px;
+  height: 60px;
+  font-size: 32px;
+  padding-top: 20px;
   color: #fff;
 }
 .contact.shopcart {
-  width: 45px;
-  height: 45px;
+  width: 80px;
+  height: 80px;
   float: right;
   background-color: #FDBC2C;
 }
 .contact.shopcart.iconfont{
   display: block;
-  width: 45px;
-  height: 25px;
-  padding-top: 12px;
+  width: 80px;
+  height: 60px;
+  font-size: 32px;
+  padding-top: 20px;
   color: #fff;
 }
 .contact.bread-crumb {
   width: 100%;
-  height: 200px;
+  height: 300px;
   background-color: #1E1E1E;
 }
 .contact.bread-crumb_title {
   margin: 0 auto;
-  padding: 35px 0 0 0;
-  font-size: 48px;
+  padding: 70px 0 0 0;
+  font-size: 68px;
   font-family: "FrederickatheGreat";
   text-align: center;
   color: #fff; 
@@ -87,15 +89,15 @@
   border: 1px solid #FDBC2C;
   margin: 0 auto;
   padding: 4px 0;
-  margin-top: 10px;
-  height: 22px;
-  width: 150px;
-  line-height: 22px;
-  font-size: 12px;
+  margin-top: 20px;
+  height: 28px;
+  width: 180px;
+  line-height: 30px;
+  font-size: 15px;
   font-family: JosefinSans-Bold;
   color: #FDBC2C;
   text-align: center;
-  transform: scale(0.7);
+  /* transform: scale(0.7); */
   /* display: block;
   width: 60px;
   height: 20px;
@@ -104,19 +106,19 @@
 }
 .contact.message-board {
   width: 100%;
-  height: 820px;
+  height: 1020px;
   background-color: #181818;
   padding-top: 50px;
 }
 .contact .location {
-  width: 678px;
-  height: 398px;
+  width: 900px;
+  height: 528px;
   margin: 0 auto;
   background: url('../../images/location.jpg');
   background-size: contain;
 }
 .contact.board-wrapper {
-  width: 678px;
+  width: 900px;
   height: 500px;
   padding-top: 20px;
   margin: 0 auto;
@@ -129,24 +131,24 @@
   visibility: hidden;
 }
 .contact.board-left {
-  width: 440px;
+  width: 540px;
   height: 400px;
   float: left;
 }
 .contact.board-left h1 {
   font-family: AbrilFatface-Regular;
   color: #FDBC2C;
-  font-size: 22px;
+  font-size: 28px;
 }
 .contact.board-left p {
   font-family: JosefinSans-Regular;
   color: #F0F0F0;
-  font-size: 14px;
+  font-size: 16px;
 }
 .contact.board-left span {
   font-family: JosefinSans-Bold;
   color: #fff;
-  font-size: 14px;  
+  font-size: 22px;  
 }
 .contact.board-left input {
   display: block;
@@ -173,7 +175,7 @@
   float: left;
 }
 .contact.your-name span{
-  font-size: 12px;
+  font-size: 14px;
   color: #F0F0F0;
   font-family: JosefinSans-Bold;
 }
@@ -183,7 +185,7 @@
   float: right;  
 }
 .contact.email span {
-  font-size: 12px;
+  font-size: 14px;
   font-family: JosefinSans-Bold;
   color: #F0F0F0;
 }
@@ -192,7 +194,7 @@
   height: 70px;
 }
 .contact.subject span {
-  font-size: 12px;
+  font-size: 14px;
   font-family: JosefinSans-Bold;
   color: #F0F0F0;
 }
@@ -201,26 +203,26 @@
   height: 70px;  
 }
 .contact.message span {
-  font-size: 12px;
+  font-size: 14px;
   font-family: JosefinSans-Bold;
   color: #F0F0F0;
 }
 .contact.send-button {
   width: 140px;
-  height: 26px;
+  height: 30px;
   margin-top: 4px;
   background-color: #FDBC2C;
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-family: JosefinSans-Bold;
   color: #000000;
   border: none;
-  line-height: 26px;
+  line-height: 30px;
   padding-left: 10px;
 }
 .contact.board-right {
-  width: 208px;
-  height: 350px;
+  width: 308px;
+  height: 380px;
   margin-top: 10px;
   float: right;
   padding-left: 5px;
@@ -229,51 +231,51 @@
 .contact.board-right h1 {
   font-family: AbrilFatface-Regular;
   color: #FDBC2C;
-  font-size: 22px;
+  font-size: 24px;
   margin: 10px 0 10px 10px;
 }
 .contact.board-right h3 {
   font-family: JosefinSans-Bold;
   color: #F0F0F0;
-  font-size: 13px;
+  font-size: 15px;
   margin: 5px 0 5px 10px; 
 } 
 .contact.board-right p {
   font-family: JosefinSans-Bold;
   color: #F0F0F0;
-  font-size: 12px;
+  font-size: 15px;
   margin: 5px 0 5px 10px;
 }
 .contact.board-right span {
   font-family: JosefinSans-Bold;
   color: #D94F2B;
-  font-size: 14px; 
+  font-size: 16px; 
 }
 .contact.subscribe {
   width: 100%;
-  height: 140px;
+  height: 180px;
   background-color: #FDBC2C;
 }
 .contact.subscribe h1 {
-  font-size: 24px;
+  font-size: 30px;
   font-family: AbrilFatface-Regular;
   text-align: center;
   margin: 0;
-  padding-top: 30px;  
+  padding-top: 36px;  
 }
 .contact.subscribe-container {
   width: 270px;
   display: flex;
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 20px;
   justify-content: center;
 }
 .contact.subscribe input {
   display: block;
   width: 180px;
-  height: 22px;
-  padding: 2px 4px;
-  font-size: 13px;
+  height: 25px;
+  padding: 2px 6px;
+  font-size: 15px;
   font-family: JosefinSans-Regular;
   outline-style: none; 
   border: 1px solid #000000;
@@ -292,7 +294,7 @@
 .contact.subscribe button {
   display: block;
   width: 80px;
-  height: 28px;
+  height: 31px;
   margin-left: 5px;
   background-color: #000000;
   border: none;
@@ -370,6 +372,48 @@
   line-height: 36px;
   text-align: center;
 }
+@media only screen and (min-width:769px) and (max-width: 996px) {
+  .contact.message-board {
+    height: 878px;
+  }
+  .contact.location {
+    width: 748px;
+    height: 438px;
+  }
+  .contact.board-wrapper {
+    width: 768px;
+    height: 500px;
+  }
+  .contact.board-left {
+    width: 420px;
+    height: 430px;
+    padding: 0 10px;
+  }
+  .contact.board-left h1 {
+    font-size: 22px;
+  }
+  .contact.board-left p {
+    font-size: 15px;
+  }
+  .contact.your-name {
+    width: 170px;
+  }
+  .contact.email {
+    width: 170px;
+  }
+  .contact.board-right h1 {
+    font-size: 22px;
+  }
+  .contact.board-right h3 {
+    font-size: 13px;
+  }
+  .contact.board-right {
+    width: 268px;
+    height: 380px;
+    margin-right: 10px;
+  }
+
+}
 @media only screen and (max-width: 768px)  {
   .contact.message-board {
     height: 1188px;
@@ -383,10 +427,9 @@
   }
   .contact.board-left {
     width: 100%;
-    height: 430px;
+    height: 460px;
     padding: 0 30px;
     box-sizing: border-box;
-    
   }
   .contact.your-name {
     width: 100%;
@@ -396,7 +439,7 @@
   }
   .contact.board-right {
     width: 100%;
-    height: 350px;
+    height: 380px;
     padding: 0 20px;
     box-sizing: border-box;
     text-align: center;
@@ -409,12 +452,45 @@
   }
 }
 @media only screen and (max-width: 576px) {
+  .contact.header {
+    height: 60px;
+    font-size: 50px;
+  }
+  .contact.menu {
+    width: 60px;
+    height: 60px;
+  }
+  .contact.menu.iconfont {
+    width: 60px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .contact.shopcart {
+    width: 60px;
+    height: 60px;
+  }
+  .contact.shopcart.iconfont{
+    width: 60px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .contact.bread-crumb {
+    height: 200px;
+  }
+  .contact.bread-crumb_title {
+    padding: 35px 0 0 0;
+    font-size: 48px;
+  }
   .contact.message-board {
-    height: 1018px;
+    height: 1068px;
+    padding-top: 30px;
   }
   .contact.location {
     width: 356px;
     height: 208px;
+  }
+  .contact.board-left h1 {
+    font-size: 24px;
   }
   .contact.footer{
     height: 290px;
@@ -427,5 +503,17 @@
   }
   .contact.footer-contact-list {
     font-size: 14px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .contact.location {
+    width: 280px;
+    height: 168px;
+  }
+  .contact.board-left h1 {
+    font-size: 14px;
+  }
+  .contact.board-left p {
+    font-size: 12px;
   }
 }

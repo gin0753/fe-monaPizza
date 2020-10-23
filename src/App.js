@@ -5,7 +5,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import About from './pages/About/About';
 import Home from './pages/Home/Home';
 import Users from './pages/Users/Users';
-import ContactUs from './pages/ContactUs';
+import ContactUs from './pages/ContactUs/contactUs';
 
 function App() {
     return (

@@ -6,6 +6,11 @@ import About from './pages/About/About';
 import Home from './pages/Home/Home';
 import Users from './pages/Users/Users';
 import ViewOrder from './pages/ViewOrder/ViewOrder';
+import ContactUs from './pages/ContactUs/contactUs';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import Blog from './pages/Blog/Blog';
+
+
 
 function App() {
     return (
@@ -14,6 +19,9 @@ function App() {
                 <Route path="/about" component={About} />
                 <Route path="/users" component={Users} />
                 <Route path="/viewOrder" component={ViewOrder} />
+                <Route path="/contact-us" component={ContactUs} />
+                <Route path="/shopping-cart" component={ShoppingCart} />
+                <Route path="/blog" component={Blog} />
                 <Route path="/" component={Home} />
             </Switch>
         </Router>

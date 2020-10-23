@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Users from './pages/Users/Users';
 import ContactUs from './pages/ContactUs/contactUs';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import Blog from './pages/Blog/Blog';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/users" component={Users} />
                 <Route path="/contact-us" component={ContactUs} />
                 <Route path="/shopping-cart" component={ShoppingCart} />
+                <Route path="/blog" component={Blog} />
                 <Route path="/" component={Home} />
             </Switch>
         </Router>

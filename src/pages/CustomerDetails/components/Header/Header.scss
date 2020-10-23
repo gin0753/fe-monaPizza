@@ -1,0 +1,217 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face {
+font-family: 'RoyaChicken';
+src: local('RoyaChicken'), url(../../../../font/RoyaChicken.otf) format('opentype');
+}
+.Checkout{
+    width: 100%;
+    & .header{
+        min-width: 350px;
+        height: 80px;
+        background-color: #000000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        & .navbar button, & .cart button{
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        & .navbar button{
+            background-color: #000000;
+            transition: margin-left 500ms;
+            & img{
+                width: 35px;
+                height: 35px;
+            }
+        }
+        & .cart button{
+            background-color: #FDBC2C;
+            width: 80px;
+            height: 80px;
+            transition: margin-right 500ms;
+            & img{
+                width: 35px;
+                height: 35px;
+            }
+        }
+        & .logo span{
+            color: #d94f2b;
+            font-size: 65px;
+            font-family: "RoyaChicken";
+            @media screen and (max-width: 580px) {
+                display: none;
+            }
+        }
+        & .slideleft{
+            margin-left: 280px;
+        }
+        & .slideright{
+            margin-right: 280px;
+        }
+    }
+    & .sidebar{
+        width: 280px;
+        height: auto;
+        background-color: #181818;
+        color: #FFFFFF;
+        font-size: 13px;
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        left: -280px;
+        z-index: 1;
+        transition: 500ms;
+        & label{
+            position: relative;
+            & input[type="text"]{
+                background-color: #181818;
+                border: 1px solid rgba(255,255,255, 0.4);
+                color: #FFFFFF;
+                padding: 10px;
+                width: 235px;
+                outline: none;
+                font-size: 11px;
+            }
+            & a{
+                position: absolute;
+                right: 15px;
+                top: 0;
+                cursor: pointer;
+                & img{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+        & ul {
+            list-style-type: none;
+        }
+        & a{
+            cursor: pointer;
+            & h6{
+                margin: 25px 25px 25px 0;
+            }
+        }
+        & hr{
+            margin: 20px 0px;
+            border: 0.1px solid #eeeeee;
+            opacity: 0.2;
+        }
+    }
+    & .sidebaractive{
+        left: 0;
+        transition: 500ms;
+    }
+    & .carttotal{
+        width: 280px;
+        height: auto;
+        background-color: #181818;
+        color: #FFFFFF;
+        font-size: 13px;
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        right: -280px;
+        z-index: 1;
+        transition: 500ms;
+        & .red{
+            color: #d94f2b;
+        }
+        & h3{
+            font-size: 26px;
+            color: #FDBC2C;
+        }
+        & hr{
+            margin: 15px 0px;
+            border: 0.1px solid #eeeeee;
+            opacity: 0.2;
+        }
+        & ul{
+            list-style-type: none;
+            & li{
+                margin: 20px 20px 20px 0;
+                display: flex;
+                align-items: center;
+                & a, & img{
+                    margin-right: 10px;
+                }
+                & img{
+                    width: 65px;
+                    height: 65px;
+                }
+                & h5{
+                    font-size: 15px;
+                    color: #FDBC2C;
+                }
+                & h6{
+                    display: inline-block;
+                }
+                & p{
+                    font-size: 11px;
+                    margin-top: 10px;
+                }
+                & .subtitle{
+                    font-weight: 700;
+                    font-size: 13px;
+                }
+                & hr{
+                    margin: 20px 0px;
+                    border: 0.1px solid #eeeeee;
+                    opacity: 0.2;
+                }
+            }
+            & a{
+                cursor: pointer;
+                & img{
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+        & dl{
+            display: flex;
+            justify-content: space-between;
+            & dt, & dd{
+                display: inline-block;
+                margin: 10px 0;
+                & h5{
+                    font-size: 13px;
+                    color: #FFFFFF;
+                }
+                & h4{
+                    font-size: 18px;
+                }
+            }
+        }
+        & button{
+            display: block;
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #FDBC2C;
+            outline: none;
+            border: none;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            &:hover{
+                opacity: 0.9;
+            }
+        };
+        & .buttonblack{
+            background-color: #000000;
+            border: 1px solid #FDBC2C;
+            color: #FDBC2C;
+        }
+    }
+    & .cartactive{
+        right: 0;
+        transition: 500ms;
+    }
+}

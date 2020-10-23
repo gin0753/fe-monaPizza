@@ -1,16 +1,8 @@
-﻿@font-face {
-    font-family: 'Commissioner', sans-serif;
-    src: url("https://fonts.googleapis.com/css2?family=Commissioner&display=swap") format('woff');
-
-}
-
-body {
-
-    padding-left: 40px;
-    padding-right: 40px;
+﻿.viewOrder {
     background-color: black;
     font-weight: 600;
-
+    min-height:1080px;
+    min-width: 610px;
 }
 ul {
     list-style-type: none;
@@ -21,11 +13,13 @@ ul {
     margin-right: 10px;
 }
 
-.viewOrder_title {
+.viewOrder .title {
+    padding-bottom: 20px;
+    padding-top: 20px;
     text-align: center;
     color: white;
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -34,8 +28,7 @@ ul {
     width: 600px;
     display: flex;
     align-items:center;
-    margin-bottom: 50px;
-    margin-top: 50px;
+
     border-style: solid;
     border-width: 1px;
     border-color: forestgreen;
@@ -43,7 +36,7 @@ ul {
     color:white;
 }
 
-.viewOrder_navbar__element {
+.viewOrder .navbar__element {
     font-size:22px;
     font-weight:600;
     text-align:center;
@@ -52,15 +45,23 @@ ul {
     border-width:1px;
     border-color:forestgreen;    
 }
-.viewOrder_navbar__element:hover {
+.viewOrder .navbar__element:hover {
     background-color:forestgreen;
 }
 
 .viewOrder_order-container {
     display:flex;
     flex-wrap:wrap;
+    min-width:350px;
+    justify-content:center;
 }
-
+.viewOrder_order {
+    width: 350px;
+    background-color: white;
+    margin: 10px;
+    position: relative;
+    padding-bottom:100px;
+}
 .viewOrder_order__header {
     display: flex;
     background-color: #dddddd;
@@ -80,13 +81,7 @@ ul {
     content: "#"
 }
 
-.viewOrder_order {
-    width: 400px;
-    background-color: white;
-    margin: 10px;
-    position: relative;
-    padding-bottom:100px;
-}
+
 
 .viewOrder_details {
 }
@@ -106,6 +101,7 @@ ul {
 
 .viewOrder_item-name {
     margin-right:15px;
+    flex-wrap:nowrap;
 }
 
 .viewOrder_phone {
@@ -117,9 +113,8 @@ ul {
 
 .viewOrder_earnings {
     position: absolute;
-    right: 0px;
-    bottom: 0px;
-    width: 50%;
+    right: 0%;
+    bottom: 0%;
 
     padding: 10px;
     list-style-type: none;

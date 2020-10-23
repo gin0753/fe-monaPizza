@@ -8,14 +8,14 @@ class ViewOrder extends Component {
 
 
     render() {
-        return <>
-            <div className="viewOrder_title">
+        return <div className="viewOrder">
+            <div className="title">
                 <h1 className="viewOrder_page-title">Orders</h1>
                 <div className="viewOrder_navbar">
-                    <div className="viewOrder_navbar__element"><p>Incoming</p></div>
-                    <div className="viewOrder_navbar__element"><p>Preparing</p></div>
-                    <div className="viewOrder_navbar__element"><p>Ready</p></div>
-                    <div className="viewOrder_navbar__element"><p>History</p></div>
+                    <div className="navbar__element"><p>Incoming</p></div>
+                    <div className="navbar__element"><p>Preparing</p></div>
+                    <div className="navbar__element"><p>Ready</p></div>
+                    <div className="navbar__element"><p>History</p></div>
                 </div>
             </div>
 
@@ -36,7 +36,7 @@ class ViewOrder extends Component {
                                     Meat Lover
                             </div>
                                 <div className="viewOrder_item-size">
-                                    Large
+                                    L
                             </div>
                             </li>
                         </ul>
@@ -82,7 +82,7 @@ class ViewOrder extends Component {
                                     Hawaii
                             </div>
                                 <div className="viewOrder_item-size">
-                                    Medium
+                                    M
                             </div>
                             </li>
                             <li className="viewOrder_list">
@@ -93,7 +93,7 @@ class ViewOrder extends Component {
                                     Peperoni
                             </div>
                                 <div className="viewOrder_item-size">
-                                    Medium
+                                    M
                             </div>
                             </li>
                         </ul>
@@ -145,7 +145,7 @@ class ViewOrder extends Component {
                                     Hawaii
                             </div>
                                 <div className="viewOrder_item-size">
-                                    Medium
+                                    M
                             </div>
                             </li>
                             <li className="viewOrder_list">
@@ -156,7 +156,7 @@ class ViewOrder extends Component {
                                     Peperoni
                             </div>
                                 <div className="viewOrder_item-size">
-                                    Medium
+                                    M
                             </div>
                             </li>
                         </ul>
@@ -208,7 +208,7 @@ class ViewOrder extends Component {
                                     Hawaii
                             </div>
                                 <div className="viewOrder_item-size">
-                                    Medium
+                                    M
                             </div>
                             </li>
                             <li className="viewOrder_list">
@@ -219,7 +219,7 @@ class ViewOrder extends Component {
                                     Peperoni
                             </div>
                                 <div className="viewOrder_item-size">
-                                    Medium
+                                    M
                             </div>
                             </li>
                         </ul>
@@ -271,7 +271,7 @@ class ViewOrder extends Component {
                                     Hawaii
                             </div>
                                 <div className="viewOrder_item-size">
-                                    Medium
+                                    M
                             </div>
                             </li>
                             <li className="viewOrder_list">
@@ -282,7 +282,7 @@ class ViewOrder extends Component {
                                     Peperoni
                             </div>
                                 <div className="viewOrder_item-size">
-                                    Medium
+                                    M
                             </div>
                             </li>
                         </ul>
@@ -320,7 +320,7 @@ class ViewOrder extends Component {
                 </div>
             </div>
 
-        </>
+        </div>
     }
 }
 

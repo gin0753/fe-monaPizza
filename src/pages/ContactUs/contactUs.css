@@ -1,0 +1,519 @@
+@font-face{
+  font-family: 'RoyaChicken';
+  src: url('../../font/RoyaChicken.otf') format('truetype');
+}
+@font-face{
+  font-family: 'FrederickatheGreat';
+  src: url('../../font/Fredericka-the-Great.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'JosefinSans-Regular';
+  src: url('../../font/JosefinSans-Regular.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'JosefinSans-Bold';
+  src: url('../../font/JosefinSans-Bold.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'AbrilFatface-Regular';
+  src: url('../../font/AbrilFatface-Regular.otf') format('truetype');
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('./iconfont/iconfont.eot');
+  src: url('./iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+      url('./iconfont/iconfont.woff2') format('woff2'),
+      url('./iconfont/iconfont.woff') format('woff'),
+      url('./iconfont/iconfont.ttf') format('truetype'),
+      url('./iconfont/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.contact.header {
+  width: 100%;
+  height: 80px;
+  background-color: #151515;
+  font-family: RoyaChicken;
+  color: #D94F2B;
+  text-align: center;
+  font-size: 60px;
+}
+.contact.menu {
+  width: 80px;
+  height: 80px;
+  float: left;
+  background-color: #000000;
+  text-align: center;
+}
+.contact.menu.iconfont {
+  display: block;
+  width: 80px;
+  height: 60px;
+  font-size: 32px;
+  padding-top: 20px;
+  color: #fff;
+}
+.contact.shopcart {
+  width: 80px;
+  height: 80px;
+  float: right;
+  background-color: #FDBC2C;
+}
+.contact.shopcart.iconfont{
+  display: block;
+  width: 80px;
+  height: 60px;
+  font-size: 32px;
+  padding-top: 20px;
+  color: #fff;
+}
+.contact.bread-crumb {
+  width: 100%;
+  height: 300px;
+  background-color: #1E1E1E;
+}
+.contact.bread-crumb_title {
+  margin: 0 auto;
+  padding: 70px 0 0 0;
+  font-size: 68px;
+  font-family: "FrederickatheGreat";
+  text-align: center;
+  color: #fff; 
+}
+.contact.bread-crumb_path {
+  border: 1px solid #FDBC2C;
+  margin: 0 auto;
+  padding: 4px 0;
+  margin-top: 20px;
+  height: 28px;
+  width: 180px;
+  line-height: 30px;
+  font-size: 15px;
+  font-family: JosefinSans-Bold;
+  color: #FDBC2C;
+  text-align: center;
+  /* transform: scale(0.7); */
+  /* display: block;
+  width: 60px;
+  height: 20px;
+  margin: 0 auto;
+  color: #FDBC2C; */
+}
+.contact.message-board {
+  width: 100%;
+  height: 1020px;
+  background-color: #181818;
+  padding-top: 50px;
+}
+.contact .location {
+  width: 900px;
+  height: 528px;
+  margin: 0 auto;
+  background: url('../../images/location.jpg');
+  background-size: contain;
+}
+.contact.board-wrapper {
+  width: 900px;
+  height: 500px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+.contact.board-wrapper::after {
+  content: "";
+  display: block;
+  height: 0;
+  clear:both;
+  visibility: hidden;
+}
+.contact.board-left {
+  width: 540px;
+  height: 400px;
+  float: left;
+}
+.contact.board-left h1 {
+  font-family: AbrilFatface-Regular;
+  color: #FDBC2C;
+  font-size: 28px;
+}
+.contact.board-left p {
+  font-family: JosefinSans-Regular;
+  color: #F0F0F0;
+  font-size: 16px;
+}
+.contact.board-left span {
+  font-family: JosefinSans-Bold;
+  color: #fff;
+  font-size: 22px;  
+}
+.contact.board-left input {
+  display: block;
+  width: 100%;
+  height: 24px;
+  margin-top: 10px;
+  padding: 2px 4px;
+  font-size: 12px;
+  outline-style: none; 
+  border: 1px solid #F0F0F0;
+  background-color: transparent;
+  color: #F0F0F0;  
+}
+.contact.name-email-container:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear:both;
+  visibility: hidden;
+}
+.contact.your-name {
+  width: 210px;
+  height: 70px;
+  float: left;
+}
+.contact.your-name span{
+  font-size: 14px;
+  color: #F0F0F0;
+  font-family: JosefinSans-Bold;
+}
+.contact.email {
+  width: 210px;
+  height: 70px;
+  float: right;  
+}
+.contact.email span {
+  font-size: 14px;
+  font-family: JosefinSans-Bold;
+  color: #F0F0F0;
+}
+.contact.subject {
+  width: 100%;
+  height: 70px;
+}
+.contact.subject span {
+  font-size: 14px;
+  font-family: JosefinSans-Bold;
+  color: #F0F0F0;
+}
+.contact.message {
+  width: 100%;
+  height: 70px;  
+}
+.contact.message span {
+  font-size: 14px;
+  font-family: JosefinSans-Bold;
+  color: #F0F0F0;
+}
+.contact.send-button {
+  width: 140px;
+  height: 30px;
+  margin-top: 4px;
+  background-color: #FDBC2C;
+  display: block;
+  font-size: 14px;
+  font-family: JosefinSans-Bold;
+  color: #000000;
+  border: none;
+  line-height: 30px;
+  padding-left: 10px;
+}
+.contact.board-right {
+  width: 308px;
+  height: 380px;
+  margin-top: 10px;
+  float: right;
+  padding-left: 5px;
+  background-color: #141414;
+}
+.contact.board-right h1 {
+  font-family: AbrilFatface-Regular;
+  color: #FDBC2C;
+  font-size: 24px;
+  margin: 10px 0 10px 10px;
+}
+.contact.board-right h3 {
+  font-family: JosefinSans-Bold;
+  color: #F0F0F0;
+  font-size: 15px;
+  margin: 5px 0 5px 10px; 
+} 
+.contact.board-right p {
+  font-family: JosefinSans-Bold;
+  color: #F0F0F0;
+  font-size: 15px;
+  margin: 5px 0 5px 10px;
+}
+.contact.board-right span {
+  font-family: JosefinSans-Bold;
+  color: #D94F2B;
+  font-size: 16px; 
+}
+.contact.subscribe {
+  width: 100%;
+  height: 180px;
+  background-color: #FDBC2C;
+}
+.contact.subscribe h1 {
+  font-size: 30px;
+  font-family: AbrilFatface-Regular;
+  text-align: center;
+  margin: 0;
+  padding-top: 36px;  
+}
+.contact.subscribe-container {
+  width: 270px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+  justify-content: center;
+}
+.contact.subscribe input {
+  display: block;
+  width: 180px;
+  height: 25px;
+  padding: 2px 6px;
+  font-size: 15px;
+  font-family: JosefinSans-Regular;
+  outline-style: none; 
+  border: 1px solid #000000;
+  background-color: transparent;
+  color: #000000;
+} 
+.contact.subscribe input::-webkit-input-placeholder {
+  color: #000000;
+}
+.contact.subscribe input::-moz-input-placeholder {
+  color: #000000;
+}
+.contact.subscribe input::-ms-input-placeholder {
+  color: #000000;
+}
+.contact.subscribe button {
+  display: block;
+  width: 80px;
+  height: 31px;
+  margin-left: 5px;
+  background-color: #000000;
+  border: none;
+  color: #FDBC2C;
+  font-size: 12px;
+  font-family: JosefinSans-Bold;
+}
+.contact.footer {
+  width: 100%;
+  height: 330px;
+  background-color: #181818;
+}
+.contact.footer-contact-container {
+  height: 260px;
+  padding-top: 30px;
+}
+.contact.footer-contact-container h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 60px;
+  font-family: FrederickatheGreat;
+  color: #D94F2B;  
+}
+.contact.footer-contact-container h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 32px;
+  font-family: FrederickatheGreat;
+  color: #D94F2B;
+}
+.contact.footer-contact-icon {
+  width: 220px;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+.contact.footer-contact-icon hr {
+  height: 1px;
+  width: 60px;
+  margin-top: 20px;
+  border:none;
+  border-top:1px solid #fff;
+}
+.contact.footer-contact-icon div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  font-family: FrederickatheGreat;
+}
+.contact.footer-contact-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: FrederickatheGreat;
+  color: #fff;  
+}
+.contact.footer-contact-copyright {
+  width: 100%;
+  height: 36px;;
+  background-color: #000000;
+  color: #757575;
+  font-size: 12px;
+  font-family: JosefinSans-Bold;
+  line-height: 36px;
+  text-align: center;
+}
+@media only screen and (min-width:769px) and (max-width: 996px) {
+  .contact.message-board {
+    height: 878px;
+  }
+  .contact.location {
+    width: 748px;
+    height: 438px;
+  }
+  .contact.board-wrapper {
+    width: 768px;
+    height: 500px;
+  }
+  .contact.board-left {
+    width: 420px;
+    height: 430px;
+    padding: 0 10px;
+  }
+  .contact.board-left h1 {
+    font-size: 22px;
+  }
+  .contact.board-left p {
+    font-size: 15px;
+  }
+  .contact.your-name {
+    width: 170px;
+  }
+  .contact.email {
+    width: 170px;
+  }
+  .contact.board-right h1 {
+    font-size: 22px;
+  }
+  .contact.board-right h3 {
+    font-size: 13px;
+  }
+  .contact.board-right {
+    width: 268px;
+    height: 380px;
+    margin-right: 10px;
+  }
+
+}
+@media only screen and (max-width: 768px)  {
+  .contact.message-board {
+    height: 1188px;
+  }
+  .contact.location {
+    width: 556px;
+    height: 328px;
+  }
+  .contact.board-wrapper {
+    width: 100%;
+  }
+  .contact.board-left {
+    width: 100%;
+    height: 460px;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+  .contact.your-name {
+    width: 100%;
+  }
+  .contact.email {
+    width: 100%;
+  }
+  .contact.board-right {
+    width: 100%;
+    height: 380px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .contact.subscribe h1 {
+    font-size: 20px;
+  }
+  .contact.footer-contact-list {
+    width: 100%
+  }
+}
+@media only screen and (max-width: 576px) {
+  .contact.header {
+    height: 60px;
+    font-size: 50px;
+  }
+  .contact.menu {
+    width: 60px;
+    height: 60px;
+  }
+  .contact.menu.iconfont {
+    width: 60px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .contact.shopcart {
+    width: 60px;
+    height: 60px;
+  }
+  .contact.shopcart.iconfont{
+    width: 60px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .contact.bread-crumb {
+    height: 200px;
+  }
+  .contact.bread-crumb_title {
+    padding: 35px 0 0 0;
+    font-size: 48px;
+  }
+  .contact.message-board {
+    height: 1068px;
+    padding-top: 30px;
+  }
+  .contact.location {
+    width: 356px;
+    height: 208px;
+  }
+  .contact.board-left h1 {
+    font-size: 24px;
+  }
+  .contact.footer{
+    height: 290px;
+  }
+  .contact.footer-contact-container h1 {
+    font-size: 38px;
+  }
+  .contact.footer-contact-container{
+    height: 220px;
+  }
+  .contact.footer-contact-list {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .contact.location {
+    width: 280px;
+    height: 168px;
+  }
+  .contact.board-left h1 {
+    font-size: 14px;
+  }
+  .contact.board-left p {
+    font-size: 12px;
+  }
+}

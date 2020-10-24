@@ -3,10 +3,20 @@
     "",
     "\\public",
     "\\src",
+<<<<<<< HEAD
+    "\\src\\config",
+    "\\src\\pages",
+    "\\src\\pages\\About",
+    "\\src\\pages\\About\\About.css",
+    "\\src\\pages\\Home",
+    "\\src\\pages\\Users",
+    "\\src\\pages\\ViewOrder"
+=======
     "\\src\\pages",
     "\\src\\pages\\About",
     "\\src\\pages\\Home",
     "\\src\\pages\\Users"
+>>>>>>> develop
   ],
   "SelectedNode": "\\src\\App.js",
   "PreviewInSolutionExplorer": false

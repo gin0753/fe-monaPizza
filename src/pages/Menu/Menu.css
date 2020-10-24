@@ -4,13 +4,13 @@ body {
   height: fit-content;
 }
 
-/* .menu {
+.menu {
   width: 100%;
-  background-image: url("./images/pizza-bg.png");
+  background-image: url("../../images/Pizza-bg.png");
   background-size: 100% 100%;
   background-repeat: repeat-y;
   height: fit-content;
-} */
+}
 
 
 .menu .navbar {
@@ -398,14 +398,13 @@ body {
   color: #fff;
 }
 
-/* .menu .catelogue__product {
+.menu .catelogue__product {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   height: fit-content;
   width: 100%;
-  background-image: url("../images/pizza-bg.png");
-} */
+}
 
 .menu .catelogue__product img {
   height: 200px;

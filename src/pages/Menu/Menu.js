@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './index.css';
-import Header from './images/pizza-header.jpg'
-import Orange from './images/orange.svg'
+import './Menu.css';
+import Header from '../../images/pizza-header.jpg'
+import Orange from '../../images/Orange.jpg'
 
 class Menu extends Component {
   render() {

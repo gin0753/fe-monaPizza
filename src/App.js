@@ -23,7 +23,7 @@ function App() {
                 <Route path="/contact-us" component={ContactUs} />
                 <Route path="/shopping-cart" component={ShoppingCart} />
                 <Route path="/blog" component={Blog} />
-                <Route path="/" component={Home} />
+                <Route path="/Home" component={Home} />
                 <Route path="/Menu" component={Menu} />
             </Switch>
         </Router>

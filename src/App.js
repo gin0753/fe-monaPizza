@@ -9,6 +9,7 @@ import ViewOrder from './pages/ViewOrder/ViewOrder';
 import ContactUs from './pages/ContactUs/contactUs';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import Blog from './pages/Blog/Blog';
+import Menu from './pages/Menu/Menu'
 
 
 
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/shopping-cart" component={ShoppingCart} />
                 <Route path="/blog" component={Blog} />
                 <Route path="/" component={Home} />
+                <Route path="/Menu" component={Menu} />
             </Switch>
         </Router>
     );

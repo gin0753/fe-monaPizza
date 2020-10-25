@@ -30,7 +30,14 @@ class Home extends React.Component {
           <Choices />
           <FeedBack />
           <MobileApp />
-          <section className='restPage_gallery'></section>
+          <section className='restPage_gallery'>
+            <div className='restPage_gallery_show'></div>
+            <div className='restPage_gallery_nav'>
+              <h5>
+                follow us on instagram <span>#margherita pizza</span>
+              </h5>
+            </div>
+          </section>
         </div>
       </section>
     );

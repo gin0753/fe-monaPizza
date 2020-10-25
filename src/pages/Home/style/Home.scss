@@ -16,12 +16,14 @@
   font-display: block;
 }
 
-$wrap-width: 1200px;
+$wrap-width: 62%;
 $this-yellow: #fdbc2c;
 $this-red: #d94f2b;
 
 .home {
   max-width: 1920px;
+  min-width: 750px;
+  margin: 0 auto;
   background: url(../img/Background.png) no-repeat center top;
 
   //front page***********************************
@@ -31,7 +33,7 @@ $this-red: #d94f2b;
     justify-content: center;
     align-items: center;
     height: 1083px;
-    background-color: #161616;
+    background: #161616 url(../img/cover.jpg) no-repeat left top;
     &_banner {
       h1 {
         margin-bottom: 30px;
@@ -54,10 +56,10 @@ $this-red: #d94f2b;
         font-family: "Josefin Sans", sans-serif;
         color: $this-yellow;
         font-size: 14px;
+        font-weight: 700;
         line-height: 14px;
         vertical-align: middle;
-        background-color: #161616;
-        border: 1px solid $this-yellow;
+        border: 4px solid $this-yellow;
       }
     }
   }
@@ -81,22 +83,13 @@ $this-red: #d94f2b;
   }
   //info section************
   .restPage_info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 946px;
     // background-color: yellowgreen;
     &_wrap {
-      display: flex;
-      flex-direction: column;
+      margin: 0 auto;
       width: $wrap-width;
-      height: 70%;
     }
     &_top {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      margin-top: 50px;
       text-align: center;
       flex: 1;
       // background-color: #666;
@@ -108,7 +101,7 @@ $this-red: #d94f2b;
         // width: 1100px;
       }
       p {
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         font-family: "Josefin Sans", sans-serif;
         font-size: 18px;
         line-height: 30px;
@@ -117,61 +110,59 @@ $this-red: #d94f2b;
       }
     }
     &_bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex: 1;
-      // background-color: rgb(218, 188, 188);
+      overflow: hidden;
+      margin-bottom: 50px;
+
       li {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        width: 350px;
-      }
-      h2 {
-        font-family: "Abril Fatface", cursive;
-        color: $this-yellow;
-        font-size: 36px;
-      }
-      p {
-        font-family: "Josefin Sans", sans-serif;
-        font-size: 18px;
-        line-height: 30px;
-        color: #fff;
+        float: left;
+        padding: 0 10px;
+        height: 380px;
+        width: 33%;
+        .icon_leaf {
+          width: 65px;
+          height: 77px;
+          background: url(../img/leaf.png) no-repeat center center;
+        }
+        .icon_badge {
+          width: 65px;
+          height: 77px;
+          background: url(../img/badge.png) no-repeat center center;
+        }
+        .icon_rocket {
+          width: 65px;
+          height: 77px;
+          background: url(../img/rocket.png) no-repeat center center;
+        }
+        h2 {
+          margin: 40px 0;
+          font-family: "Abril Fatface", cursive;
+          color: $this-yellow;
+          font-size: 36px;
+        }
+        p {
+          font-family: "Josefin Sans", sans-serif;
+          font-size: 18px;
+          line-height: 30px;
+          color: #fff;
+        }
       }
     }
-  }
-  .icon_leaf {
-    width: 65px;
-    height: 77px;
-    background: url(../img/leaf.png) no-repeat center center;
-  }
-  .icon_badge {
-    width: 65px;
-    height: 77px;
-    background: url(../img/badge.png) no-repeat center center;
-  }
-  .icon_rocket {
-    width: 65px;
-    height: 77px;
-    background: url(../img/rocket.png) no-repeat center center;
   }
 
   //choices section************
   .restPage_choices {
     display: flex;
+    padding: 20px 0;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 430px;
-    background: url(../img/Base.png) repeat-y left top;
+    // height: 430px;
+    background: url(../img/cover2.jpg) repeat-y left top;
     span {
       display: flex;
       flex-direction: column;
       justify-content: center;
       margin-right: 42px;
-
       text-align: center;
       width: 160px;
       height: 160px;
@@ -187,34 +178,27 @@ $this-red: #d94f2b;
         text-transform: uppercase;
         font-family: "Josefin Sans", sans-serif;
         font-size: 14px;
+        font-weight: 700;
         line-height: 30px;
       }
     }
   }
   //feedBack section************
   .restPage_feedBack {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1208px;
     &_wrap {
-      // border: 1px solid red;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 0 auto;
       width: $wrap-width;
-      height: 1024px;
       // background-color: pink;
       text-align: center;
       h2 {
-        flex: 1;
+        margin-top: 120px;
         font-family: "Abril Fatface", cursive;
         color: $this-yellow;
         font-size: 48px;
-        margin-bottom: -20px;
       }
       p {
-        flex: 1;
+        margin-top: 60px;
+
         font-family: "Josefin Sans", sans-serif;
         font-size: 18px;
         line-height: 30px;
@@ -222,38 +206,41 @@ $this-red: #d94f2b;
         // width: 85%;
       }
       ul {
-        display: flex;
-        // flex-direction: column;
-        justify-content: space-between;
-        flex: 5;
+        margin-top: 90px;
         width: 100%;
+        overflow: hidden;
         li {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: center;
-          height: 80%;
+          display: inline-block;
+          padding-right: 10px;
+          border: 1px solid red;
+          height: 560px;
+          width: 262px;
           mark {
+            display: inline-block;
             width: 160px;
             height: 160px;
             background-color: $this-red;
             border-radius: 50%;
           }
           h4 {
+            margin-top: 20px;
             font-family: "Abril Fatface", cursive;
             font-size: 24px;
             color: $this-yellow;
           }
           section {
+            margin-top: 20px;
+
             font-size: 14px;
             line-height: 30px;
             color: $this-red;
           }
-          main {
-            padding: 40px 37px;
-            width: 370px;
-            height: 201px;
-            background: url(../img/frame.png) no-repeat center center;
+          p {
+            border: 4px solid $this-red;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 20px 17px;
+            // background: url(../img/frame.png) no-repeat center center;
             font-family: "Fredericka the Great", cursive;
             font-size: 24px;
             line-height: 30px;
@@ -267,16 +254,21 @@ $this-red: #d94f2b;
             line-height: 15px;
           }
           h5 {
+            margin-top: 20px;
+
             color: #fff;
           }
           a {
+            display: inline-block;
+            margin-top: 10px;
+
             color: $this-red;
           }
         }
       }
 
       nav {
-        flex: 1;
+        margin: 55px;
         font-weight: 900;
         color: $this-red;
         line-height: 50px;
@@ -304,13 +296,14 @@ $this-red: #d94f2b;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #080808;
+    background: url(../img/cover3.jpg);
     height: 1014px;
     width: 100%;
   }
   .restPage_mobileApp_wrap {
     width: $wrap-width;
     height: 750px;
+    border: 1px solid red;
     aside {
       position: relative;
       float: left;
@@ -326,9 +319,10 @@ $this-red: #d94f2b;
       }
     }
     main {
-      float: left;
-      padding: 40px 80px;
-      width: 829px;
+      display: inline-block;
+      padding: 40px 0 40px 40px;
+      width: 50%;
+      border: 1px solid green;
       h2 {
         font-family: "Abril Fatface", cursive;
         font-size: 48px;
@@ -359,7 +353,7 @@ $this-red: #d94f2b;
           &::before {
             position: absolute;
             left: 0;
-            bottom: 0;
+            bottom: 12px;
             content: "";
             background-color: $this-red;
             border-radius: 50%;
@@ -378,18 +372,20 @@ $this-red: #d94f2b;
         height: 44px;
         text-align: center;
         text-transform: uppercase;
-        font-family: "Abril Fatface", cursive;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 700;
         font-size: 14px;
         line-height: 44px;
-        font-family: "icomoon";
         cursor: pointer;
       }
       .ios::before {
+        font-family: "icomoon";
         position: absolute;
         left: 20px;
         content: "\eabe";
       }
       .android::before {
+        font-family: "icomoon";
         position: absolute;
         left: 14px;
         content: "\eac0";
@@ -398,7 +394,95 @@ $this-red: #d94f2b;
   }
   .restPage_gallery {
     width: 100%;
-    height: 280px;
-    background: url(../img/gallery.png) no-repeat left top;
+    height: 720px;
+    &_show {
+      margin-top: 230px;
+      width: 100%;
+      height: 280px;
+      background: url(../img/gallery.png) no-repeat left top;
+    }
+    &_nav {
+      position: relative;
+      margin: 150px auto;
+      width: $wrap-width;
+      height: 56px;
+      border: 2px solid $this-red;
+      text-transform: uppercase;
+      h5 {
+        margin: 0 auto;
+        width: 88%;
+        height: 100%;
+        font-family: "Josefin Sans", sans-serif;
+        border-left: 2px solid $this-red;
+        border-right: 2px solid $this-red;
+        color: #fff;
+        font-size: 14px;
+        line-height: 60px;
+        text-align: center;
+        span {
+          color: $this-red;
+        }
+      }
+      &::before,
+      &::after {
+        position: absolute;
+        font-family: "icomoon";
+        color: $this-red;
+      }
+      &::before {
+        left: 27px;
+        top: 20px;
+        content: "\ea38";
+      }
+      &::after {
+        right: 27px;
+        top: 20px;
+        content: "\ea34";
+      }
+    }
   }
+}
+
+@media screen and (max-width: 1920px) {
+  .home {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1800px) {
+  .home {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .home {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .home {
+    width: 100%;
+    .restPage_choices {
+      flex-wrap: wrap;
+      span {
+        margin-right: 42px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid$this-red;
+        h3 {
+          font-size: 40px;
+        }
+        p {
+          font-size: 8px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
 }

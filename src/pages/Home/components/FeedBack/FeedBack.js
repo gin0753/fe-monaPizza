@@ -24,10 +24,10 @@ class FeedBack extends React.Component {
                 <AiFillStar />
                 <AiOutlineStar />
               </section>
-              <main>
+              <p>
                 “ We are serving pizza, your pizza is the fave of our family.
                 Pick us as the pizza winner! ”
-              </main>
+              </p>
               <h5 className='customerName'>Daniela Black</h5>
               <a href='#'>www.pizzatempo.com</a>
             </li>
@@ -41,10 +41,10 @@ class FeedBack extends React.Component {
                 <AiFillStar />
                 <AiOutlineStar />
               </section>
-              <main>
+              <p>
                 “ We are serving pizza, your pizza is the fave of our family.
                 Pick us as the pizza winner! ”
-              </main>
+              </p>
               <h5 className='customerName'>Daniela Black</h5>
               <a href='#'>www.pizzatempo.com</a>
             </li>
@@ -58,10 +58,10 @@ class FeedBack extends React.Component {
                 <AiFillStar />
                 <AiOutlineStar />
               </section>
-              <main>
+              <p>
                 “ We are serving pizza, your pizza is the fave of our family.
                 Pick us as the pizza winner! ”
-              </main>
+              </p>
               <h5 className='customerName'>Daniela Black</h5>
               <a href='#'>www.pizzatempo.com</a>
             </li>

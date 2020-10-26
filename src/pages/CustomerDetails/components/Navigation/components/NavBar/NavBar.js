@@ -6,8 +6,7 @@ function NavBar() {
   
     return (
       <div className="container__navBar">
-            <i><img src={border} alt="fa-bars" /></i>
-            <h5>Home > Checkout</h5>
+          <a href="#" className="container__navBar--content">Home</a>
       </div>
     );
 }

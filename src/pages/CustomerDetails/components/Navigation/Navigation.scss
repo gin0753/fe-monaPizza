@@ -15,62 +15,59 @@
     width: 100%;
     & .navigation{
         min-width: 350px;
+        height: 400px;
         background-image: url('../../../../images/pizza-header.jpg');
         background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
         & .container{
-            position: relative;
-            padding-bottom: 5%;
+            text-align: center;
             &__title h2{
                 font-size: 60px;
                 color: #FFFFFF;
                 font-family: 'Fredericka-the-Great';
+                margin-bottom: 20px;
             }
             &__navBar{
-                position: absolute;
-                left: 11%;
-                top: 0;
-                font-family: 'JosefinSans-Regular';
-                & h5{
+                display: flex;
+                justify-content: center;
+                &--content {
+                    position: relative;
+                    width:auto;
+                    height: 40px;
                     color: #FDBC2C;
-                    font-size: 14px;
+                    border: 2px solid #FDBC2C;
+                    border-left: none;
+                    border-right: none;
+                    text-align: center;
+                    font-size: 12px;
+                    padding: 10px 50px 0px 50px;
+                }
+                &--content:before, &--content:after{
+                    content:"";
                     position: absolute;
-                    left: 22%;
-                    top: 45%;
+                    top:3.75px;
+                    width:26px;
+                    height:26px;
+                    transform: rotate(45deg);
+                }
+                &--content:before {
+                    left: -14px;
+                    border-top: 2px solid #FDBC2C;
+                    border-left: 0px solid #FDBC2C;
+                    border-bottom: 0px solid #FDBC2C;
+                    border-right: 2px solid #FDBC2C;
+                }
+                &--content:after {
+                    right: -14px;
+                    border-top: 0px solid #FDBC2C;
+                    border-left: 2px solid #FDBC2C;
+                    border-bottom: 2px solid #FDBC2C;
+                    border-right: 0px solid #FDBC2C;
                 }
             }
         }
     }    
-}
-.navigation{
-    width: 100%;
-    min-width: 350px;
-    height: 400px;
-    background-color: pink;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & .container{
-        position: relative;
-        padding-bottom: 5%;
-        &__title h2{
-            font-size: 50px;
-            color: #FFFFFF;
-        }
-        &__navBar{
-            position: absolute;
-            left: 11%;
-            top: 0;
-            & h5{
-                color: #FDBC2C;
-                font-size: 14px;
-                position: absolute;
-                left: 20%;
-                top: 45%;
-            }
-        }
-    }
 }
 

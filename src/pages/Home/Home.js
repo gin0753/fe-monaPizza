@@ -15,7 +15,7 @@ class Home extends React.Component {
     return (
       <section className='home'>
         <div className='frontPage'>
-          <div className='frontPage_banner'>
+          <div className='frontPage_wrap'>
             <h1>Get it while it’s hot!</h1>
             <h2>
               We create custom, personal pizzas with quality ingredients in only
@@ -33,9 +33,15 @@ class Home extends React.Component {
           <section className='restPage_gallery'>
             <div className='restPage_gallery_show'></div>
             <div className='restPage_gallery_nav'>
+              <a className='nav_left' href='#'>
+                
+              </a>
               <h5>
-                follow us on instagram <span>#margherita pizza</span>
+                follow us on instagram <a href='#'>#margherita pizza</a>
               </h5>
+              <a className='nav_right' href='#'>
+                
+              </a>
             </div>
           </section>
         </div>

@@ -20,6 +20,10 @@ $wrap-width: 62%;
 $this-yellow: #fdbc2c;
 $this-red: #d94f2b;
 
+* {
+  text-decoration: none;
+}
+
 .home {
   max-width: 1920px;
   min-width: 750px;
@@ -34,7 +38,7 @@ $this-red: #d94f2b;
     align-items: center;
     height: 1083px;
     background: #161616 url(../img/cover.jpg) no-repeat left top;
-    &_banner {
+    &_wrap {
       h1 {
         margin-bottom: 30px;
         font-family: "Fredericka the Great", cursive;
@@ -52,14 +56,16 @@ $this-red: #d94f2b;
       .button {
         display: inline-block;
         margin-top: 40px;
-        padding: 13px 32px;
+        padding: 0 30px;
+        height: 40px;
+        line-height: 40px;
         font-family: "Josefin Sans", sans-serif;
         color: $this-yellow;
         font-size: 14px;
         font-weight: 700;
-        line-height: 14px;
         vertical-align: middle;
-        border: 4px solid $this-yellow;
+        border: 1px solid $this-yellow;
+        cursor: pointer;
       }
     }
   }
@@ -91,7 +97,6 @@ $this-red: #d94f2b;
     &_top {
       margin-top: 50px;
       text-align: center;
-      flex: 1;
       // background-color: #666;
       h2 {
         margin-bottom: 60px;
@@ -210,17 +215,20 @@ $this-red: #d94f2b;
         width: 100%;
         overflow: hidden;
         li {
+          vertical-align: top;
           display: inline-block;
           padding-right: 10px;
-          border: 1px solid red;
-          height: 560px;
-          width: 262px;
+          // border: 1px solid red;
+          height: auto;
+          // width: 262px;
+          width: 33%;
           mark {
             display: inline-block;
             width: 160px;
             height: 160px;
             background-color: $this-red;
             border-radius: 50%;
+            overflow: hidden;
           }
           h4 {
             margin-top: 20px;
@@ -261,7 +269,6 @@ $this-red: #d94f2b;
           a {
             display: inline-block;
             margin-top: 10px;
-
             color: $this-red;
           }
         }
@@ -279,6 +286,7 @@ $this-red: #d94f2b;
           height: 60px;
           border: 5px solid$this-red;
           content: "\ea38";
+          cursor: pointer;
         }
         &::after {
           margin-left: 20px;
@@ -287,6 +295,7 @@ $this-red: #d94f2b;
           height: 60px;
           border: 5px solid$this-red;
           content: "\ea34";
+          cursor: pointer;
         }
       }
     }
@@ -301,9 +310,9 @@ $this-red: #d94f2b;
     width: 100%;
   }
   .restPage_mobileApp_wrap {
+    display: flex;
     width: $wrap-width;
-    height: 750px;
-    border: 1px solid red;
+    height: auto;
     aside {
       position: relative;
       float: left;
@@ -313,16 +322,14 @@ $this-red: #d94f2b;
       img {
         position: absolute;
         top: 91px;
-        left: 26px;
+        left: 21px;
         width: 321px;
         height: 570px;
       }
     }
     main {
-      display: inline-block;
-      padding: 40px 0 40px 40px;
-      width: 50%;
-      border: 1px solid green;
+      padding-left: 40px;
+      width: 55%;
       h2 {
         font-family: "Abril Fatface", cursive;
         font-size: 48px;
@@ -343,6 +350,7 @@ $this-red: #d94f2b;
         color: $this-yellow;
       }
       ul {
+        margin-bottom: 40px;
         li {
           position: relative;
           text-indent: 20px;
@@ -350,6 +358,8 @@ $this-red: #d94f2b;
           font-size: 18px;
           line-height: 30px;
           font-family: "Josefin Sans", sans-serif;
+          font-weight: bold;
+
           &::before {
             position: absolute;
             left: 0;
@@ -362,10 +372,14 @@ $this-red: #d94f2b;
           }
         }
       }
+      .appDownload {
+        width: 300px;
+        // overflow: hidden;
+      }
       .ios,
       .android {
         position: relative;
-        margin: 60px 20px 0 0;
+        margin-bottom: 10px;
         display: inline-block;
         background-color: $this-yellow;
         width: 255px;
@@ -396,48 +410,40 @@ $this-red: #d94f2b;
     width: 100%;
     height: 720px;
     &_show {
-      margin-top: 230px;
+      margin-top: 190px;
       width: 100%;
       height: 280px;
       background: url(../img/gallery.png) no-repeat left top;
     }
     &_nav {
       position: relative;
+      display: flex;
       margin: 150px auto;
       width: $wrap-width;
       height: 56px;
       border: 2px solid $this-red;
       text-transform: uppercase;
+      .nav_right,
+      .nav_left {
+        flex: 1;
+        font-family: "icomoon";
+        color: $this-red;
+        text-align: center;
+        line-height: 52px;
+      }
       h5 {
-        margin: 0 auto;
-        width: 88%;
+        flex: 8;
         height: 100%;
         font-family: "Josefin Sans", sans-serif;
         border-left: 2px solid $this-red;
         border-right: 2px solid $this-red;
         color: #fff;
         font-size: 14px;
-        line-height: 60px;
+        line-height: 56px;
         text-align: center;
-        span {
+        a {
           color: $this-red;
         }
-      }
-      &::before,
-      &::after {
-        position: absolute;
-        font-family: "icomoon";
-        color: $this-red;
-      }
-      &::before {
-        left: 27px;
-        top: 20px;
-        content: "\ea38";
-      }
-      &::after {
-        right: 27px;
-        top: 20px;
-        content: "\ea34";
       }
     }
   }
@@ -460,21 +466,168 @@ $this-red: #d94f2b;
 }
 
 @media screen and (max-width: 1200px) {
+  $wrap-width: 82%;
   .home {
     width: 100%;
+
+    .restPage_info {
+      // background-color: yellowgreen;
+      &_wrap {
+        margin: 0 auto;
+        width: $wrap-width;
+      }
+      &_top {
+        p {
+          margin-bottom: 0;
+          font-size: 22px;
+        }
+      }
+      &_bottom {
+        li {
+          // border: 1px solid red;
+          height: auto;
+          width: 100%;
+          .icon_leaf,
+          .icon_badge,
+          .icon_rocket {
+            display: none;
+          }
+          text-align: center;
+          p {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+
+    .restPage_feedBack {
+      &_wrap {
+        width: $wrap-width;
+
+        h2 {
+          margin-top: 90px;
+          font-size: 48px;
+        }
+        p {
+          margin-top: 60px;
+          font-size: 32px;
+          line-height: 30px;
+        }
+
+        ul {
+          margin-top: 50px;
+          border-top: 1px solid transparent;
+          li {
+            padding: 0;
+            display: block;
+            margin: 20px auto;
+            height: auto;
+            width: 100%;
+            // border: 1px solid red;
+            mark {
+              display: none;
+            }
+            h4 {
+              margin-top: 10px;
+              font-size: 20px;
+            }
+            section {
+              margin-top: 10px;
+              font-size: 10px;
+              line-height: 20px;
+            }
+            p {
+              margin: 0 auto;
+              margin-top: 10px;
+              padding: 13px 8px;
+              font-size: 17px;
+              line-height: 17px;
+              height: auto;
+            }
+            h5,
+            a {
+              display: none;
+            }
+          }
+        }
+      }
+    }
     .restPage_choices {
-      flex-wrap: wrap;
+      // flex-wrap: wrap;
+      justify-content: space-around;
       span {
-        margin-right: 42px;
-        width: 120px;
-        height: 120px;
+        margin-right: 0;
+        width: 123px;
+        height: 123px;
         border-radius: 50%;
         border: 4px solid$this-red;
         h3 {
-          font-size: 40px;
+          font-size: 48px;
         }
         p {
-          font-size: 8px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .restPage_mobileApp {
+      height: auto;
+      width: 100%;
+    }
+    .restPage_mobileApp_wrap {
+      display: block;
+      width: $wrap-width;
+      height: auto;
+      aside {
+        display: none;
+      }
+      main {
+        padding: 0;
+        width: 100%;
+        h2 {
+          margin-top: 50px;
+          text-align: center;
+          font-size: 48px;
+        }
+        p {
+          font-size: 22px;
+        }
+        h3 {
+          text-align: center;
+        }
+        ul {
+          margin: 0 auto;
+          width: 400px;
+          li {
+            margin-left: 38px;
+            font-size: 32px;
+            &::before {
+              bottom: 13px;
+            }
+          }
+        }
+        .appDownload {
+          margin: 50px auto;
+          width: 600px;
+          overflow: hidden;
+        }
+        .ios,
+        .android {
+          margin-bottom: 0;
+          font-size: 14px;
+          line-height: 48px;
+        }
+        .ios {
+          float: left;
+        }
+        .android {
+          float: right;
+        }
+
+        .ios::before,
+        .android::before {
+          top: -2px;
         }
       }
     }
@@ -482,7 +635,126 @@ $this-red: #d94f2b;
 }
 
 @media screen and (max-width: 992px) {
-}
+  $wrap-width: 92%;
 
-@media screen and (max-width: 768px) {
+  .home {
+    width: 100%;
+    .frontPage {
+      height: 1083px;
+      &_wrap {
+        h1 {
+          margin-bottom: 30px;
+          font-size: 62px;
+          line-height: 90px;
+        }
+        h2 {
+          font-size: 36px;
+          width: 600px;
+          line-height: 46px;
+        }
+        .button {
+          margin-top: 105px;
+          padding: 0 20px;
+          width: 220px;
+          height: 68px;
+          line-height: 68px;
+          font-size: 21px;
+          color: black;
+          background-color: $this-yellow;
+        }
+      }
+    }
+
+    .restPage_info {
+      // background-color: yellowgreen;
+      &_wrap {
+        width: $wrap-width;
+      }
+      &_top {
+        p {
+          font-size: 32px;
+        }
+      }
+      &_bottom {
+        li {
+          p {
+            font-size: 32px;
+          }
+        }
+      }
+    }
+
+    .restPage_feedBack {
+      &_wrap {
+        width: $wrap-width;
+        h2 {
+          margin-top: 90px;
+          font-size: 48px;
+        }
+        p {
+          margin-top: 60px;
+          font-size: 32px;
+          line-height: 30px;
+        }
+
+        ul {
+          margin-top: 50px;
+          border-top: 1px solid transparent;
+          li {
+            padding: 0;
+            display: block;
+            margin: 20px auto;
+            height: auto;
+            width: 100%;
+            // border: 1px solid red;
+            mark {
+              display: none;
+            }
+            h4 {
+              margin-top: 10px;
+              font-size: 20px;
+            }
+            section {
+              margin-top: 10px;
+              font-size: 10px;
+              line-height: 20px;
+            }
+            p {
+              margin: 0 auto;
+              margin-top: 10px;
+              padding: 13px 8px;
+              font-size: 17px;
+              line-height: 17px;
+              height: auto;
+            }
+            h5,
+            a {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .restPage_mobileApp {
+      height: auto;
+      width: 100%;
+    }
+    .restPage_mobileApp_wrap {
+      width: $wrap-width;
+
+      main {
+        padding: 0;
+        width: 100%;
+        p {
+          font-size: 32px;
+        }
+        ul {
+          li {
+            font-size: 32px;
+          }
+        }
+      }
+    }
+  }
 }

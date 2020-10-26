@@ -6,8 +6,8 @@ import cross from '../../../images/times-solid.svg';
 class CartTotal extends React.Component{
 
     render(){
-        return <>
-                    <div className="carttotal">
+        return <div className="Checkout">
+                    <div className={this.props.cartstatus? "carttotal cartactive": "carttotal"}>
                     <h3>Cart Totals</h3>
                     <hr/>
                     <ul className="carttotal--pizza">
@@ -39,7 +39,7 @@ class CartTotal extends React.Component{
                     <button className="buttonblack">VIEW SHOPPING CART</button>
                     <button>CHECKOUT</button>
                     </div>  
-               </>   
+               </div>   
     } 
 }
 

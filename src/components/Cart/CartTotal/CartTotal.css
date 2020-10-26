@@ -13,7 +13,7 @@
   padding: 20px;
   position: fixed;
   top: 0;
-  right: 0px;
+  right: -280px;
   z-index: 1;
   transition: 500ms;
 }

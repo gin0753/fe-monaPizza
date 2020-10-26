@@ -1,13 +1,13 @@
 import React from 'react';
 import './CustomerDetails.css';
-import Header from './components/Header/Header';
+import Header from '../../components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
 import Form from './components/Form/Form';
 import Newsletter from './components/Newsletter/Newsletter';
 import Media from './components/Media/Media';
-import Footer from './components/Footer/Footer';
-import SideBar from './components/Header/components/Menu/components/SideBar/SideBar';
-import CartTotals from './components/Header/components/Cart/components/CartTotal/CartTotal';
+import Footer from '../../components/Footer/Footer';
+import SideBar from '../../components/SideBar/SideBar/SideBar';
+import CartTotals from '../../components/Cart/CartTotal/CartTotal';
 
 class CustomerDetails extends React.Component{
     constructor(props){

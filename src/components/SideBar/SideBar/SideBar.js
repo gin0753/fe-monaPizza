@@ -6,9 +6,9 @@ import {SideBarBottomItems} from '../SideBarItems/SideBarItems';
 
 class SideBar extends React.Component{
     render(){
-        return <>
+        return <div className="Checkout">
                     <h1>{this.props.isClicked}</h1>
-                    <nav className="sidebar">
+                    <nav className={this.props.sidestatus ? "sidebar sidebaractive": "sidebar"}>
                     <label>
                         <input type="text" name="search" placeholder="search"/>
                         <a><img src={search} alt="searchButton"/></a>
@@ -33,7 +33,7 @@ class SideBar extends React.Component{
                         })}
                     </ul>
                     </nav>     
-               </>
+               </div>
     } 
 }
 

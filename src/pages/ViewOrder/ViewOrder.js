@@ -1,14 +1,40 @@
 import React, { Component } from 'react';
 import './ViewOrder.css';
+import Header from '../../components/Header/Header';
+import Newsletter from '../../components/Newsletter/Newsletter';
+import Media from '../../components/Media/Media';
+import Footer from '../../components/Footer/Footer';
+import SideBar from '../../components/SideBar/SideBar/SideBar';
+import CartTotals from '../../components/Cart/CartTotal/CartTotal';
 
 class ViewOrder extends Component {
-    constructor() {
-        super()
-    }
 
+    constructor(props){
+        super(props);
+        this.state = {
+          sidebarIsClicked: false,
+          cartIsClicked: false
+        }
+      }
+    
+      toggleSideBar = () => {
+        this.setState({
+          sidebarIsClicked: !this.state.sidebarIsClicked
+        })
+      }
+    
+      toggleCart = () => {
+        this.setState({
+          cartIsClicked: !this.state.cartIsClicked
+        })
+      }
 
     render() {
         return <div className="viewOrder">
+            <SideBar sidestatus={this.state.sidebarIsClicked}/>
+            <CartTotals cartstatus={this.state.cartIsClicked}/>
+            <Header toggleSideBar={this.toggleSideBar} toggleCart={this.toggleCart} 
+            sidestatus={this.state.sidebarIsClicked} cartstatus={this.state.cartIsClicked}/>
             <div className="title">
                 <h1 className="viewOrder_page-title">Orders</h1>
                 <div className="viewOrder_navbar">
@@ -319,7 +345,9 @@ class ViewOrder extends Component {
                     </p>
                 </div>
             </div>
-
+            <Newsletter />
+            <Media />
+            <Footer />
         </div>
     }
 }

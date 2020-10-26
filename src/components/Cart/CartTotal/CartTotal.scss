@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.carttotal{
+    width: 280px;
+    height: auto;
+    background-color: #181818;
+    color: #FFFFFF;
+    font-size: 13px;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: -280px;
+    z-index: 1;
+    transition: 500ms;
+    & .red{
+        color: #d94f2b;
+    }
+    & h3{
+        font-size: 26px;
+        color: #FDBC2C;
+    }
+    & hr{
+        margin: 15px 0px;
+        border: 0.1px solid #eeeeee;
+        opacity: 0.2;
+    }
+    & ul{
+        list-style-type: none;
+        & li{
+            margin: 20px 20px 20px 0;
+            display: flex;
+            align-items: center;
+            & a, & img{
+                margin-right: 10px;
+            }
+            & img{
+                width: 65px;
+                height: 65px;
+            }
+            & h5{
+                font-size: 15px;
+                color: #FDBC2C;
+            }
+            & h6{
+                display: inline-block;
+            }
+            & p{
+                font-size: 11px;
+                margin-top: 10px;
+            }
+            & .subtitle{
+                font-weight: 700;
+                font-size: 13px;
+            }
+            & hr{
+                margin: 20px 0px;
+                border: 0.1px solid #eeeeee;
+                opacity: 0.2;
+            }
+        }
+        & a{
+            cursor: pointer;
+            & img{
+                width: 12px;
+                height: 12px;
+            }
+        }
+    }
+    & dl{
+        display: flex;
+        justify-content: space-between;
+        & dt, & dd{
+            display: inline-block;
+            margin: 10px 0;
+            & h5{
+                font-size: 13px;
+                color: #FFFFFF;
+            }
+            & h4{
+                font-size: 18px;
+            }
+        }
+    }
+    & button{
+        display: block;
+        margin-top: 15px;
+        width: 100%;
+        padding: 12px 0;
+        background-color: #FDBC2C;
+        outline: none;
+        border: none;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.9;
+        }
+    };
+    & .buttonblack{
+        background-color: #000000;
+        border: 1px solid #FDBC2C;
+        color: #FDBC2C;
+    }
+}
+.cartactive{
+    right: 0;
+    transition: 500ms;
+}

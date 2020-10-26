@@ -1,0 +1,23 @@
+{
+  "id": "2144003",
+  "name": "JR-P3",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "233820",
+      "name": "菜单",
+      "font_class": "1",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "15175971",
+      "name": "购物 车",
+      "font_class": "gouwuche",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    }
+  ]
+}

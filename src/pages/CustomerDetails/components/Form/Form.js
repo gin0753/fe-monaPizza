@@ -4,16 +4,17 @@ import Address from './components/Address/Address';
 import Billing from './components/Billing/Billing';
 import Order from './components/Order/Order';
 import Payment from './components/Payment/Payment';
-import Login from './components/Login/Login';
+import Loginbtn from './components/Login/Login';
 import Coupon from './components/Coupon/Coupon';
+import Login from '../../../../components/Login/Login';
 
 class Form extends React.Component{
 
     render(){
-        return <div className="Checkout">
+        return <div className="Checkout"> 
                     <section className="form">
                     <div className="billcontainer">
-                            <Login />
+                            <Loginbtn />  
                         <div className="billwrapper">
                             <Billing/>
                             <Address />
@@ -26,7 +27,7 @@ class Form extends React.Component{
                             <Payment />
                         </div>
                     </div>
-                    </section>    
+                    </section> 
                </div> 
     }
 }

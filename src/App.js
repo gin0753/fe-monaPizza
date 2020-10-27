@@ -9,7 +9,9 @@ import ContactUs from './pages/ContactUs/contactUs';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import CustomerDetails from './pages/CustomerDetails/CustomerDetails';
 import Blog from './pages/Blog/Blog';
-import Menu from './pages/Menu/Menu'
+import Menu from './pages/Menu/Menu';
+import Login from './components/Login/Login';
+
 
 
 
@@ -27,6 +29,7 @@ function App() {
                 <Route path="/blog" component={Blog} />
                 <Route path="/Home" component={Home} />
                 <Route path="/Menu" component={Menu} />
+                <Route path="/Login" component={Login} />
             </Switch>
         </Router>
     );

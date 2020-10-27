@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.Login{
+    background-color: #181818;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    color: #FFFFFF;
+    &__login{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        &--logincontainer{
+            text-align: center;
+            width: 600px;
+            & input, button{
+                display: block;
+                margin: 0 auto;
+            }
+            & input{
+                border-radius: 20px;
+                border: none;
+                background-color: #FDBC2C;
+                color: #FFFFFF;
+                width: 70%;
+                height: 45px;
+                outline: none;
+                padding: 15px;
+            }
+            & hr{
+                display: inline-block;
+                width: 45%;
+                border: 1px solid red;
+            };
+            & h5, input, button, hr{
+                margin-bottom: 20px;
+            }
+            & h1{
+                font-size: 45px;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-bottom: 5px;
+            }
+            & h5{
+                font-size: 20px;
+                font-weight: 400;
+                color: #e0e0e0;
+            }
+            & i{
+                margin: 0px 10px;
+            }
+            & div{
+                margin-bottom: 24px;
+            }
+            & a{
+                cursor: pointer;
+                & img{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+            & button{
+                width: 225px;
+                height: 50px;
+                border-radius: 25px;
+                font-size: 14px;
+                font-weight: 600;
+                color: #FDBC2C;
+                background-color: #000000;
+                cursor: pointer;
+                border: 2px solid #FDBC2C;
+                outline: none;
+                &:hover{
+                    opacity: 90%;
+                }
+            }
+        }
+        &--titlewrapper{
+            width: 70%;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255, 0.3);
+            line-height: 0;
+            & span{
+                color: #e0e0e0;
+                background-color: #181818;
+                padding: 8px;
+            }
+        }
+    }
+    &__asksignup{
+        width: 30%;
+        height: 100%;
+        background-image: url("../../images//background.jpg");
+    }
+}

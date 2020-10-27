@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../Form.css';
 
-class Login extends React.Component{
+class Loginbtn extends React.Component{
 
     render(){
         return <div className="billcontainer__login">
@@ -10,5 +10,5 @@ class Login extends React.Component{
     }
 }
 
-export default Login;
+export default Loginbtn;
 

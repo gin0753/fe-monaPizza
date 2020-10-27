@@ -21,7 +21,7 @@ class Menu extends Component {
             </header>
           </div>
           <div className="nav__logo"><h2>Margherita</h2></div>
-          <div className="nav__sidebar--cart"><span className="pe-7s-cart"></span></div>
+          <div className="nav__sidebar--cart"><span> </span></div>
         </nav>
         <div className="page__header">
           <div className="header__image">
@@ -697,6 +697,15 @@ class Menu extends Component {
                 <h2 className="phonenumber">+34 9 368 7050</h2>
                 <h3 className="emailaddress">order@pizza.com</h3>
               </div>
+            </div>
+            <div class="socialmedia">
+              <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">Flickr</a></li>
+              </ul>
             </div>
             <div className="footer">
               <h3>Copyright @ 2015 Mixer All rights reserved</h3>

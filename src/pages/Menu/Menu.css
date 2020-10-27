@@ -30,29 +30,34 @@ body {
 
 .menu #nav__sidebar--left {
   display: none;
+  position: relative;
 }
 
 .menu .hamburger-container {
   display: block;
-  width: 90px;
-  height: 80px;
-  position: relative;
-  top: 25%;
+  width: 30px;
+  height: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 
 .menu .hamburger-container span {
   display: block;
   border: solid 2px #fff;
-  height: 3px;
-  width: 50px;
+  height: 1px;
+  width: 28px;
 }
 
 .menu .hamburger-container span:nth-child(2) {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .menu .hamburger-container span:nth-child(3) {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .menu .navbar header {
@@ -174,7 +179,7 @@ body {
 
 
 .menu .catelogue {
-  width: 100%;
+  width: 60%;
   height: fit-content;
   margin: auto;
 }
@@ -225,19 +230,19 @@ body {
 
 .menu .filter__title {
   padding-left: 5px;
-  font-size: 15px;
+  font-size: 20px;
   font-family: Josefin Sans;
   font-weight: 900;
 }
 
 .menu .filter__result {
-  font-size: 10px;
+  font-size: 15px;
   margin-left: 20px;
 }
 
 .menu .filter-container span {
   display: block;
-  border: solid 1px #fff;
+  border: solid 2px #fff;
   height: 0px;
   width: 15px;
 }
@@ -378,14 +383,14 @@ body {
   position: absolute;
   height: 100%;
   width: 200px;
-  right: 0;
+  right: 8px;
   text-align: right;
 }
 
 .menu .catelogue__default .sorting {
   position: absolute;
   height: fit-content;
-  font-size: 15px;
+  font-size: 20px;
   font-family: Josefin Sans;
   font-weight: bold;
   top: 0;
@@ -414,8 +419,8 @@ body {
 
 .menu .catelogue__product--name {
   height: fit-content;
-  width: 280px;
-  margin: 20px 5px;
+  width: 25%;
+  margin: 0;
   text-align: center;
   box-sizing: border-box;
 }
@@ -444,6 +449,10 @@ body {
   font-weight: bold;
   font-size: 30px;
   margin: 10px;
+}
+
+.menu .pizza__description p {
+  font-size: 20px;
 }
 
 .menu .product__price {
@@ -489,6 +498,58 @@ body {
 }
 .menu .catelogue__product--name:hover .product__size {
   visibility: visible;
+}
+
+
+.menu .pagination {
+  border: solid 4px #b24427;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  display: inline-block;
+  height: 60px;
+  text-align: center;
+  position: relative;
+}
+
+.menu .pagination__links {
+  widows: 100%;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.menu .pagination a {
+  color: #d94f2b;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0 16px;
+  font-weight: bolder;
+}
+
+.menu .pagination a.actived {
+  color: white;
+}
+
+.menu .pagination a:hover {
+  color: white;
+}
+
+.menu .previouspage {
+  left: 0;
+  position: absolute;
+  border-right: solid 4px #b24427;
+  height: 60px;
+}
+
+.menu .nextpage {
+  right: 0;
+  position: absolute;
+  border-left: solid 4px #b24427;
 }
 
 
@@ -647,23 +708,6 @@ body {
     height: 70px;
   }
 
-  .menu .hamburger-container {
-    top: 40%;
-  }
-  .menu .hamburger-container span {
-    display: block;
-    border: solid 2px #fff;
-    height: 2px;
-    width: 55%;
-  }
-
-  .menu .hamburger-container span:nth-child(2) {
-    margin-top: 8px;
-  }
-
-  .menu .hamburger-container span:nth-child(3) {
-    margin-top: 8px;
-  }
   .menu .page__header {
     height: 290px;
   }
@@ -910,7 +954,7 @@ body {
   }
 
   .menu .filter__result {
-    font-size: 8px;
+    font-size: 12px;
     margin-left: 10px;
   }
 

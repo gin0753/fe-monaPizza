@@ -783,7 +783,7 @@ body {
   .menu .filter__result {
     font-size: 16px;
   }
-
+ 
   .menu .filter-container span {
     display: block;
     border: solid 1px #fff;
@@ -1320,4 +1320,3 @@ body {
     margin: 0 15px;
   }
 }
-

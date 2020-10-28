@@ -67,7 +67,6 @@ class Menu extends Component {
                           <h4>Small</h4>
                           <span className="checkmark"></span>
                         </label>
-
                         <label className="filter__options">
                           <input type="radio" name="radio" />
                           <h4>Medium</h4>

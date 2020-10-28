@@ -281,14 +281,14 @@ body {
 .menu .filter__items {
   background-color: #151515;
   height: 380px;
-  width: 1440px;
+  width: 1296px;
   position: absolute;
   top: 0px;
   left: 0;
-  transform: scaleY(0);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.1s ease-in-out;
   transform-origin: 50% 0;
   color: #eeeeee;
+  display: none;
 }
 
 .menu .filter__items ul {
@@ -298,6 +298,9 @@ body {
   display: flex;
   justify-content: space-around;
   height: fit-content;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  margin-left: 40px;
 }
 
 .menu .filter__items li {
@@ -305,7 +308,7 @@ body {
 }
 
 .menu .filter__options {
-  margin: 20px;
+  margin: 20px 4px;
 }
 
 .menu .filter__options input {
@@ -375,9 +378,10 @@ body {
 }
 
 .menu .filter:checked ~ .filter__items {
-  transform: scaleY(1);
-  transform: translate(0px, 104px);
+  transform: scaleY(0);
+  transform: translate(0px, 95px);
   position: absolute;
+  display: block;
 }
 
 .menu .filter__options {
@@ -792,19 +796,24 @@ body {
   }
 
   .menu .filter__items {
-    height: 400px;
+    height: 420px;
     width: 921.6px;
   }
   
-  
+  .menu .filter:checked ~ .filter__items ul {
+    margin-right: 60px;
+  }
+
   .menu .filter__items li {
     width: 20px;
   }
   
   .menu .filter__options {
-    margin: 20px 0;
-    width: min-content;
+    margin: 20px 0 20px 0;
+    width: 140px;
   }
+
+
   
   .menu .filter__options input {
     position: absolute;
@@ -872,9 +881,10 @@ body {
     padding-left: 40px;
   }
   
+
   .menu .filter:checked ~ .filter__items {
-    transform: scaleY(1);
-    transform: translate(0, 20%);
+    transform: scaleY(0);
+    transform: translate(0px, 80px);
     position: absolute;
   }
   
@@ -954,8 +964,10 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+
   .menu .filter:checked ~ .filter__items {
-    width: 768px;
+    width: 691px;
+    height: 700px;
   }
 
   .menu .filter__radio .filter__options .checkmark {
@@ -987,6 +999,14 @@ body {
     background-color: #d94f2b;
   }
 
+  .menu .filter__items ul {
+    display: flex;
+    justify-content: flex-start;
+    height: fit-content;
+    margin-top: 15px;
+    margin-left: 20px;
+    flex-wrap: wrap;
+  }
   .menu .filter__items li {
     width: 150px;
   }
@@ -1157,6 +1177,14 @@ body {
     display: block;
     height: fit-content;
     padding: 0;
+
+  }
+
+  .menu .filter:checked ~ .filter__items {
+    transform: scaleY(0);
+    transform: translate(0px, 95px);
+    position: absolute;
+    display: block;
   }
 
   .menu .filter-container span {
@@ -1175,9 +1203,9 @@ body {
   }
 
   .menu .filter:checked ~ .filter__items {
-    width: 375px;
-    height: fit-content;
-    transform: translate(0px, 50px);
+    width: 337.5px;
+    height: 1900px;
+    transform: translate(0px, 40px);
   }
 
   .menu .filter__radio .filter__options .checkmark {
@@ -1187,8 +1215,8 @@ body {
   }
 
   .menu .filter__radio .filter__options .checkmark:after {
-    top: 4px;
-    left: 4px;
+    top: 3px;
+    left: 3px;
     width: 5px;
     height: 5px;
     border-radius: 50%;
@@ -1206,8 +1234,8 @@ body {
   }
 
   .menu .filter__options .checkmark:after {
-    left: 4px;
-    top: 4px;
+    left: 3px;
+    top: 3px;
     width: 5px;
     height: 5px;
     border: solid 1px #d94f2b;
@@ -1231,6 +1259,7 @@ body {
   }
   .menu .filter__items li h3 {
     font-size: 25px;
+    margin-top: 5px;
   }
 
   .menu .filter__options h4 {
@@ -1244,7 +1273,7 @@ body {
   }
 
   .menu .filter__items li .more-vegetable {
-    display: none;
+    margin-top: 2px;
   }
 
   .menu .filter__items .more-options {

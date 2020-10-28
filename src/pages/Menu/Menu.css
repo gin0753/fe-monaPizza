@@ -1,3 +1,24 @@
+@font-face{
+  font-family: 'RoyalChicken';
+  src: url('../../font/RoyaChicken.otf') format('truetype');
+}
+@font-face{
+  font-family: 'FrederickatheGreat';
+  src: url('../../font/Fredericka-the-Great.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'JosefinSans-Regular';
+  src: url('../../font/JosefinSans-Regular.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'JosefinSans-Bold';
+  src: url('../../font/JosefinSans-Bold.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'AbrilFatface-Regular';
+  src: url('../../font/AbrilFatface-Regular.otf') format('truetype');
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -6,7 +27,6 @@ body {
 
 .menu {
   width: 100%;
-  background-image: url("../../images/Pizza-bg.png");
   background-size: 100% 100%;
   background-repeat: repeat-y;
   height: fit-content;
@@ -69,7 +89,7 @@ body {
 
 .menu .nav__logo {
   text-align: center;
-  font-family: Royal chicken;
+  font-family: RoyalChicken;
 }
 
 .menu .nav__logo h2 {
@@ -139,7 +159,7 @@ body {
   margin-top: 0;
   color: #c3c3c3;
   font-size: 54px;
-  font-family: Fredericka the Great;
+  font-family: FrederickatheGreat;
 }
 
 .menu .page__header--breadscrumb {
@@ -161,7 +181,7 @@ body {
   display: inline;
   font-size: 18px;
   padding: 0;
-  font-family: Josefin Sans;
+  font-family: JosefinSans-Regular;
 }
 .menu .page__header--breadscrumb li + li:before {
   padding: 10px;
@@ -179,7 +199,7 @@ body {
 
 
 .menu .catelogue {
-  width: 60%;
+  width: 90%;
   height: fit-content;
   margin: auto;
 }
@@ -187,7 +207,6 @@ body {
 .menu .catelogue__topbar {
   width: 100%;
   height: 95px;
-  background-color: #1b1b1b;
   border-bottom: solid 6px #d94f2b;
   position: relative;
 }
@@ -197,7 +216,7 @@ body {
   height: 100%;
   width: 160px;
   left: 0;
-  font-family: Josefin Sans;
+  font-family: JosefinSans-Bold;
 }
 
 
@@ -231,12 +250,12 @@ body {
 .menu .filter__title {
   padding-left: 5px;
   font-size: 20px;
-  font-family: Josefin Sans;
+  font-family: JosefinSans-Bold;
   font-weight: 900;
 }
 
 .menu .filter__result {
-  font-size: 15px;
+  font-size: 18px;
   margin-left: 20px;
 }
 
@@ -261,8 +280,8 @@ body {
 
 .menu .filter__items {
   background-color: #151515;
-  height: 450px;
-  width: 1100px;
+  height: 380px;
+  width: 1440px;
   position: absolute;
   top: 0px;
   left: 0;
@@ -285,6 +304,10 @@ body {
   width: 200px;
 }
 
+.menu .filter__options {
+  margin: 20px;
+}
+
 .menu .filter__options input {
   position: absolute;
   opacity: 0;
@@ -305,8 +328,8 @@ body {
 }
 
 .menu .filter__radio .filter__options .checkmark:after {
-  left: 8px;
-  top: 8px;
+  left: 6px;
+  top: 6px;
   width: 8px;
   height: 8px;
   border: solid 1px #d94f2b;
@@ -339,8 +362,8 @@ body {
 }
 
 .menu .filter__options .checkmark:after {
-  left: 9px;
-  top: 9px;
+  left: 7px;
+  top: 7px;
   width: 5px;
   height: 5px;
   border: solid 1px #d94f2b;
@@ -365,7 +388,6 @@ body {
 .menu .filter--selected {
   text-align: center;
   margin: -20px auto;
-  padding-top: 20px;
   height: 45px;
 }
 
@@ -375,6 +397,7 @@ body {
   background-color: #fdbc2c;
   color: #000000;
   font-size: 10px;
+  margin: 40px;
 }
 
 
@@ -391,8 +414,7 @@ body {
   position: absolute;
   height: fit-content;
   font-size: 20px;
-  font-family: Josefin Sans;
-  font-weight: bold;
+  font-family: JosefinSans-Bold;
   top: 0;
   right: 0;
   left: auto;
@@ -418,23 +440,23 @@ body {
 }
 
 .menu .catelogue__product--name {
-  height: fit-content;
-  width: 25%;
+  height: 560px;
+  width: 292px;
   margin: 0;
   text-align: center;
   box-sizing: border-box;
 }
 
 .menu .catelogue__product--name h3 {
-  font-family: Abril Fatface;
+  font-family: AbrilFatface-Regular;
 }
 
 .menu .catelogue__product--name h4 {
-  font-family: Fredericka the Great;
+  font-family: FrederickatheGreat;
 }
 
 .menu .catelogue__product--name p {
-  font-family: Josefin Sans;
+  font-family: JosefinSans-Regular;
 }
 
 .menu .pizza__description {
@@ -452,7 +474,7 @@ body {
 }
 
 .menu .pizza__description p {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .menu .product__price {
@@ -462,7 +484,7 @@ body {
 }
 
 .menu .size--selection {
-  padding: 40px 10px;
+  padding: 10px 0 ;
 }
 
 .menu .product__size {
@@ -470,18 +492,19 @@ body {
   color: #ffffff;
   background-color: #1c1c1c;
   width: 150px;
-  height: 36px;
+  height: 30px;
   margin-top: 5px;
-  font-size: 20px;
+  font-size: 18px;
   padding: 5px 10px;
   visibility: hidden;
   box-sizing: border-box;
+  font-weight: bold;
 }
 
 .menu .catelogue__product .add-button {
   visibility: hidden;
-  height: 36px;
-  width: 75px;
+  height: 30px;
+  width: 80px;
   text-align: center;
   margin: 5px;
   font-size: 20px;
@@ -502,33 +525,21 @@ body {
 
 
 .menu .pagination {
-  border: solid 4px #b24427;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 100px;
-  display: inline-block;
-  height: 60px;
+  border: solid 3px #d94f2b;
+  display: flex;
+  flex-direction: row;
   text-align: center;
-  position: relative;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+  margin: 80px 0;
 }
 
-.menu .pagination__links {
-  widows: 100%;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
 
 .menu .pagination a {
   color: #d94f2b;
   text-decoration: none;
   font-size: 20px;
-  margin: 0 16px;
-  font-weight: bolder;
 }
 
 .menu .pagination a.actived {
@@ -540,16 +551,31 @@ body {
 }
 
 .menu .previouspage {
-  left: 0;
-  position: absolute;
-  border-right: solid 4px #b24427;
-  height: 60px;
+  border-right: solid 3px #d94f2b;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+}
+
+.menu .pagenumber {
+  height: fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+.menu .pagenumber a {
+  margin: 15px;
 }
 
 .menu .nextpage {
-  right: 0;
-  position: absolute;
-  border-left: solid 4px #b24427;
+  border-left: solid 3px #d94f2b;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
 }
 
 
@@ -576,7 +602,8 @@ body {
   color: #000000;
   font-weight: bold;
   font-size: 35px;
-  font-family: Abril Fatface;
+  font-family: AbrilFatface-Regular;
+  margin-bottom: 20px;
 }
 
 .menu .subscription input {
@@ -587,7 +614,7 @@ body {
   color: #000000;
   font-weight: bold;
   font-size: 15px;
-  font-family: Josefin Sans;
+  font-family: JosefinSans-Regular;
 }
 .menu .subscription button {
   height: 45px;
@@ -596,7 +623,7 @@ body {
   border: none;
   background-color: #000000;
   color: #fdbc2c;
-  font-family: Josefin Sans;
+  font-family: JosefinSans-Regular;
 }
 
 
@@ -607,7 +634,7 @@ body {
   text-align: center;
   color: #d94f2b;
   padding-top: 100px;
-  font-family: Fredericka the Great;
+  font-family: FrederickatheGreat;
   overflow: hidden;
 }
 
@@ -660,7 +687,7 @@ body {
   margin: 0 30px;
   font-size: 30px;
   font-weight: 1200px;
-  font-family: Fredericka the Great;
+  font-family: FrederickatheGreat;
 }
 
 .menu .socialmedia a:link {
@@ -680,7 +707,9 @@ body {
   color: yellow;
 }
 
-
+.menu .arrow-left {
+  color: #d94f2b;
+}
 .menu .footer {
   background-color: #000000;
   height: 90px;
@@ -698,7 +727,7 @@ body {
   right: 0;
   margin: auto;
   font-size: 10px;
-  font-family: Josefin Sans;
+  font-family: JosefinSans-Bold;
   color: white;
 }
 
@@ -709,11 +738,12 @@ body {
   }
 
   .menu .page__header {
-    height: 290px;
+    height: 200px;
   }
 
   .menu .page__header img {
-    height: 290px;
+    height: 200px;
+    width: 100%;
   }
 
   .menu .page__header h1 {
@@ -739,13 +769,154 @@ body {
   }
 
   .menu .filter:checked ~ .filter__items {
-    width: 1024px;
+    width: 921.6px;
   }
+
+  .menu .catelogue__default .sorting {
+    font-size: 15px;
+  }
+
+  .menu .filter__title {
+    font-size: 16px;
+  }
+
+  .menu .filter__result {
+    font-size: 16px;
+  }
+
+  .menu .filter-container span {
+    display: block;
+    border: solid 1px #fff;
+    height: 0px;
+    width: 15px;
+  }
+
+  .menu .filter__items {
+    height: 400px;
+    width: 921.6px;
+  }
+  
+  
+  .menu .filter__items li {
+    width: 20px;
+  }
+  
+  .menu .filter__options {
+    margin: 20px 0;
+    width: min-content;
+  }
+  
+  .menu .filter__options input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .menu .filter__radio .filter__options .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgba(238, 238, 238, 0);
+    border: solid 2px #d94f2b;
+    border-radius: 50%;
+  }
+  
+  .menu .filter__radio .filter__options .checkmark:after {
+    left: 6px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border: solid 1px #d94f2b;
+    background-color: #d94f2b;
+    border-radius: 40%;
+  }
+  
+  .menu .filter__options .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgba(238, 238, 238, 0);
+    border: solid 2px #d94f2b;
+  }
+  
+  .menu .filter__options .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .menu .filter__options input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .menu .filter__options input:checked ~ h4 {
+    color: #d94f2b;
+  }
+  
+  .menu .filter__options .checkmark:after {
+    left: 7px;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border: solid 1px #d94f2b;
+    background-color: #d94f2b;
+  }
+  
+  .menu .filter__options h4 {
+    padding-left: 40px;
+  }
+  
+  .menu .filter:checked ~ .filter__items {
+    transform: scaleY(1);
+    transform: translate(0, 20%);
+    position: absolute;
+  }
+  
+  .menu .filter__options {
+    display: block;
+    position: relative;
+  }
+  
+  .menu .filter--selected {
+    text-align: center;
+    margin: -20px auto;
+    height: 45px;
+  }
+  
+  .menu .filter__button--selected {
+    width: 230px;
+    height: 45px;
+    background-color: #fdbc2c;
+    color: #000000;
+    font-size: 10px;
+    margin: 40px;
+  } */
+  
 
   .menu .catelogue__product--name {
     height: fit-content;
-    width: 325px;
-    margin: 20px 60px;
+    width: 250px;
+  }
+
+  .menu .product__size {
+    width: 120px;
+    height: 30px;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-right: 4px;
+  }
+
+  .menu .catelogue__product .add-button {
+    height: 30px;
+    width: 50px;
+    margin: 2px;
+    font-size: 14px;
   }
 
   .menu .subscription {
@@ -753,6 +924,7 @@ body {
   }
   .menu .subscription h2 {
     font-size: 25px;
+    margin-bottom: 20px;
   }
 
   .menu .subscription input {
@@ -825,8 +997,8 @@ body {
 
   .menu .catelogue__product--name {
     height: fit-content;
-    width: 80%;
-    margin: 20px 60px;
+    width: 240px;
+    margin: 10px 40px;
   }
 
   .menu .subscription {
@@ -834,6 +1006,7 @@ body {
   }
   .menu .subscription h2 {
     font-size: 20px;
+    margin-bottom: 20px;
   }
 
   .menu .subscription input {
@@ -888,7 +1061,7 @@ body {
     display: block;
     border: solid 1px #fff;
     height: 2px;
-    width: 35%;
+    width: 33%;
   }
 
   .menu .hamburger-container span:nth-child(2) {
@@ -903,9 +1076,6 @@ body {
     width: 70px;
   }
 
-  .menu .nav__sidebar--cart .pe-7s-cart:before {
-    font-size: 40px;
-  }
 
   .menu .page__header {
     height: 100px;
@@ -943,6 +1113,7 @@ body {
 
   .menu .catelogue__topbar {
     height: 40px;
+    border-bottom: solid 2px #d94f2b;
   }
 
   .menu .filter-container {
@@ -950,16 +1121,16 @@ body {
   }
 
   .menu .filter__title {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .menu .filter__result {
-    font-size: 12px;
+    font-size: 11px;
     margin-left: 10px;
   }
 
   .menu .catelogue__default .sorting {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .menu .filter__items ul {
@@ -969,6 +1140,21 @@ body {
     display: block;
     height: fit-content;
     padding: 0;
+  }
+
+  .menu .filter-container span {
+    display: block;
+    border: solid 1px #fff;
+    height: 0px;
+    width: 15px;
+  }
+  
+  .menu .filter-container span:nth-child(2) {
+    margin-top: 2px;
+  }
+  
+  .menu .filter-container span:nth-child(3) {
+    margin-top: 2px;
   }
 
   .menu .filter:checked ~ .filter__items {
@@ -1050,14 +1236,15 @@ body {
 
   .menu .catelogue__product--name {
     height: fit-content;
-    width: 60%;
+    width: 230px;
     margin: 10px 30px;
   }
 
   .menu .catelogue__product img {
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
   }
+
 
   .menu .pizza__description h3 {
     font-size: 20px;
@@ -1068,7 +1255,7 @@ body {
   }
 
   .menu .catelogue__product--name p {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .menu .size--selection {
@@ -1076,18 +1263,18 @@ body {
   }
 
   .menu .product__size {
-    width: 100px;
-    height: 20px;
+    width: 140px;
+    height: 30px;
     margin-top: 5px;
-    font-size: 8px;
+    font-size: 14px;
     padding: 1px 10px;
   }
 
   .menu .catelogue__product .add-button {
-    height: 20px;
-    width: 40px;
+    height: 30px;
+    width: 50px;
     margin: 2px;
-    font-size: 10px;
+    font-size: 14px;
   }
   .menu .subscription {
     height: 100px;

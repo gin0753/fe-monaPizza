@@ -905,7 +905,7 @@ body {
   }
 
   .menu .product__size {
-    width: 120px;
+    width: 170px;
     height: 30px;
     margin-top: 5px;
     font-size: 14px;
@@ -914,7 +914,7 @@ body {
 
   .menu .catelogue__product .add-button {
     height: 30px;
-    width: 50px;
+    width: 60px;
     margin: 2px;
     font-size: 14px;
   }
@@ -1252,12 +1252,10 @@ body {
   }
 
   .menu .catelogue__product--name {
-    height: fit-content;
+    height: 580px;
     width: 300px;
     margin: 10px 30px;
   }
-
-
 
   .menu .catelogue__product img {
     height: 200px;
@@ -1275,7 +1273,7 @@ body {
   }
   
   .menu .pizza__description p {
-    font-size: 23px;
+    font-size: 21px;
     height: 150px;
   }
   
@@ -1289,12 +1287,8 @@ body {
     font-size: 20px;
   }
 
-  .menu .size--selection {
-    padding: 8px 5px;
-  }
-
   .menu .product__size {
-    width: 140px;
+    width: 170px;
     height: 30px;
     margin-top: 5px;
     font-size: 14px;
@@ -1303,7 +1297,7 @@ body {
 
   .menu .catelogue__product .add-button {
     height: 30px;
-    width: 50px;
+    width: 60px;
     margin: 2px;
     font-size: 14px;
   }

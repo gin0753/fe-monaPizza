@@ -440,7 +440,7 @@ body {
 }
 
 .menu .catelogue__product--name {
-  height: 560px;
+  height: 600px;
   width: 292px;
   margin: 0;
   text-align: center;
@@ -468,13 +468,13 @@ body {
 
 .menu .pizza__description h3 {
   color: #fdbc2c;
-  font-weight: bold;
-  font-size: 30px;
+  font-size: 24px;
   margin: 10px;
 }
 
 .menu .pizza__description p {
   font-size: 25px;
+  height: 190px;
 }
 
 .menu .product__price {
@@ -997,8 +997,25 @@ body {
 
   .menu .catelogue__product--name {
     height: fit-content;
-    width: 240px;
+    width: 265px;
     margin: 10px 40px;
+  }
+
+  .menu .pizza__description h3 {
+    color: #fdbc2c;
+    font-size: 22px;
+    margin: 20px 0;
+  }
+  
+  .menu .pizza__description p {
+    font-size: 23px;
+    height: 200px;
+  }
+  
+  .menu .product__price {
+    color: #b24427;
+    font-size: 30px;
+    margin: 5px auto;
   }
 
   .menu .subscription {
@@ -1236,9 +1253,11 @@ body {
 
   .menu .catelogue__product--name {
     height: fit-content;
-    width: 230px;
+    width: 300px;
     margin: 10px 30px;
   }
+
+
 
   .menu .catelogue__product img {
     height: 200px;
@@ -1250,12 +1269,24 @@ body {
     font-size: 20px;
   }
 
-  .menu .catelogue__product--name h4 {
-    font-size: 20px;
+  .menu .pizza__description h3 {
+    font-size: 22px;
+    margin: 20px 0;
+  }
+  
+  .menu .pizza__description p {
+    font-size: 23px;
+    height: 150px;
+  }
+  
+  .menu .product__price {
+    color: #b24427;
+    font-size: 30px;
+    margin: 5px auto;
   }
 
-  .menu .catelogue__product--name p {
-    font-size: 15px;
+  .menu .catelogue__product--name h4 {
+    font-size: 20px;
   }
 
   .menu .size--selection {

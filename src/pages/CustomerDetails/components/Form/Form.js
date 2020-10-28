@@ -6,7 +6,6 @@ import Order from './components/Order/Order';
 import Payment from './components/Payment/Payment';
 import Loginbtn from './components/Login/Login';
 import Coupon from './components/Coupon/Coupon';
-import Login from '../../../../components/Login/Login';
 
 class Form extends React.Component{
 

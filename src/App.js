@@ -10,7 +10,7 @@ import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import CustomerDetails from './pages/CustomerDetails/CustomerDetails';
 import Blog from './pages/Blog/Blog';
 import Menu from './pages/Menu/Menu';
-import Login from './components/Login/Login';
+import Registration from './components/Rigistration/Registration';
 
 
 
@@ -29,7 +29,7 @@ function App() {
                 <Route path="/blog" component={Blog} />
                 <Route path="/Home" component={Home} />
                 <Route path="/Menu" component={Menu} />
-                <Route path="/Login" component={Login} />
+                <Route path="/Registration" component={Registration} />
             </Switch>
         </Router>
     );

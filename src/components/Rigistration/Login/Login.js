@@ -10,56 +10,52 @@ class Login extends React.Component{
         this.state = {isClicked: false};
     }
 
-    // selectWrapper = (props) => {
-    //     if(this.state.isClicked){
-    //         return(<div className={!this.props.SignupClicked ? "Login__asksignup sidewrapper-right" : "Login__asksignup sidewrapper-left"}>
-    //         </div>)
-    //     }
-    //     else{
-    //         return (<div className="Login__asksignup"></div>)
-    //     }
-    // }
-
     toggleLogin = (props) => {
         if(!this.props.SignupClicked){
             return(
-                <div className="Login__login--logincontainer move-left">
-                <h1>Login to Your Account</h1>
-                <h5>Login using social networks</h5>
-                <div className="Login__login--logincontainer--social">
-                    <i><a><img src={facebook} alt="facebook_icon"/></a></i>
-                    <i><a><img src={google} alt="google_icon"/></a></i>
-                    <i><a><img src={wechat} alt="wechat_icon"/></a></i>
+                <div className="Login__login container-left">
+                    <div className="Login__login--logincontainer move-left">
+                        <h1>Login to Your Account</h1>
+                        <h5>Login using social networks</h5>
+                        <div className="Login__login--logincontainer--social">
+                            <i><a><img src={facebook} alt="facebook_icon"/></a></i>
+                            <i><a><img src={google} alt="google_icon"/></a></i>
+                            <i><a><img src={wechat} alt="wechat_icon"/></a></i>
+                        </div>
+                        <div className="Login__login--logincontainer--titlewrapper">
+                            <span>OR</span>
+                        </div>
+                        <input type="text" id="username" name="username" placeholder="Email"/>
+                        <input type="password" id="password" name="password" placeholder="Password"/>
+                        <button>Sign In</button>
+                    </div>
                 </div>
-                <div className="Login__login--logincontainer--titlewrapper">
-                    <span>OR</span>
-                </div>
-                <input type="text" id="username" name="username" placeholder="Email"/>
-                <input type="password" id="password" name="password" placeholder="Password"/>
-                <button>Sign In</button>
-            </div>
             )
         }
         else{
             return (
-                <div className="Login__login--registercontainer move-right">
-                    <h1>Create Free Account</h1>
-                    <h5>Sign up using social networks</h5>
-                    <div className="Login__login--logincontainer--social">
-                        <i><a><img src={facebook} alt="facebook_icon"/></a></i>
-                        <i><a><img src={google} alt="google_icon"/></a></i>
-                        <i><a><img src={wechat} alt="wechat_icon"/></a></i>
+                <div className="Login__login container-right">
+                    <div className="Login__login--registercontainer move-right">
+                        <h1>Create Free Account</h1>
+                        <h5>Sign up using social networks</h5>
+                        <div className="Login__login--logincontainer--social">
+                            <i><a><img src={facebook} alt="facebook_icon"/></a></i>
+                            <i><a><img src={google} alt="google_icon"/></a></i>
+                            <i><a><img src={wechat} alt="wechat_icon"/></a></i>
+                        </div>
+                        <div className="Login__login--registercontainer--titlewrapper">
+                            <span>OR</span>
+                        </div>
+                        <input type="text" id="username" name="username" placeholder="Username"/>
+                        <input type="text" id="surname" name="surname" placeholder="Surname"/>
+                        <input type="text" id="email" name="email" placeholder="Email"/>
+                        <input type="password" id="password" name="password" placeholder="Password"/>
+                        <div>
+                            <input type="checkbox" id="term" name="term" value="term"/>
+                            <label>I have read the <a>Term & Conditions</a></label>
+                        </div>
+                        <button>Sign In</button>
                     </div>
-                    <div className="Login__login--registercontainer--titlewrapper">
-                        <span>OR</span>
-                    </div>
-                    <input type="text" id="username" name="username" placeholder="Username"/>
-                    <input type="text" id="surname" name="surname" placeholder="Surname"/>
-                    <input type="text" id="email" name="email" placeholder="Email"/>
-                    <input type="password" id="password" name="password" placeholder="Password"/>
-                    <input type="checkbox" id="term" name="term" value="term"/>
-                    <label>I have read the <a>Term & Conditions</a></label>
-                    <button>Sign In</button>
                 </div>
             )
         }
@@ -68,7 +64,6 @@ class Login extends React.Component{
     handleRegister = () => {
         this.props.switchLogin();
         this.setState({isClicked: true});
-        // this.selectWrapper();
     }
 
 

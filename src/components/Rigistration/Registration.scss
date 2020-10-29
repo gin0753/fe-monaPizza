@@ -6,15 +6,20 @@
 .Login{
     background-color: #181818;
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 100vh;
+    min-width: 280px;
+    height: 720px;
     color: #FFFFFF;
     position: relative;
     overflow: hidden;
     align-items: center;
+    @media screen and (max-width: 640px) {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
     &__signincontainer, &__signupcontainer{
         width: 30%;
-        min-width: 350px;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -23,9 +28,16 @@
     }
     &__signincontainer{
         margin-left: -30%;
+        @media screen and (max-width: 640px) {
+            margin-left: 0;
+        }
     }
     &__signupcontainer{
         margin-right: -30%;
+        @media screen and (max-width: 640px) {
+            margin-right: 0;
+            display: none;
+        }
     }
     &__signupcontainer, &__signincontainer{
         text-align: center;
@@ -34,6 +46,9 @@
         }
         & h4{
             font-size: 25px;
+            @media screen and (max-width: 1080px) {
+                font-size: 20px;
+            }
         }
         & button{
             width: 225px;
@@ -45,6 +60,18 @@
             background-color: #000000;
             cursor: pointer;
             outline: none;
+            @media screen and (max-width: 960px) {
+                width: 190px;
+                height: 50px;
+            }
+            @media screen and (max-width: 800px) {
+                width: 150px;
+                height: 45px;
+            }
+            @media screen and (max-width: 640px) {
+                width: 225px;
+                height: 55px;
+            }
             &:hover{
                 opacity: 80%;
             }
@@ -52,37 +79,71 @@
         &--textwrapper{
             text-align: center;
             width: 80%;
+            @media screen and (max-width: 640px) {
+                width: auto;
+                max-width: 280px;
+                height: auto;
+                position: absolute;
+                top: 10%;
+            }
         }
     }
     & h1{
         font-size: 45px;
         font-family: Arial, Helvetica, sans-serif;
         margin-bottom: 5px;
+        @media screen and (max-width: 1450px) {
+            font-size: 40px;
+        }
+        @media screen and (max-width: 1180px) {
+            font-size: 35px;
+        }
+        @media screen and (max-width: 750px) {
+            font-size: 30px;
+        }
+        @media screen and (max-width: 640px) {
+            font-size: 45px;
+        }
     }
     & .sidewrapper-left{
         position: absolute;
         left: 0;
         animation: 1000ms linear right-to-left;
+        @media screen and (max-width: 640px) {
+            animation: unset;
+        }
     }
     & .sidewrapper-right{
         position: absolute;
         right: 0;
         animation: 1000ms linear left-to-right;
+        @media screen and (max-width: 640px) {
+            animation: unset;
+        }
     }
     & .signin-right{
         animation: 300ms 700ms linear signin-right both;
+        @media screen and (max-width: 640px) {
+            animation: unset;
+        }
     }
     & .signup-right{
         animation: 300ms linear signup-right both;
+        @media screen and (max-width: 640px) {
+            animation: unset;
+        }
     }
     & .signin-left{
         animation: 300ms linear signin-left both;
+        @media screen and (max-width: 640px) {
+            animation: unset;
+        }
     }
     & .signup-left{
         animation: 300ms 700ms linear signup-left both;
-    }
-    & .d-none{
-        display: none;
+        @media screen and (max-width: 640px) {
+            animation: unset;
+        }
     }
     &__login{
         width: 70%;
@@ -91,11 +152,37 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        @media screen and (max-width: 640px) {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            bottom: 0;
+        }
+        & .container-left{
+            position: absolute;
+            left: 0;
+            @media screen and (max-width: 640px) {
+                top: 10%;
+            }
+        }
+        & .container-right{
+            position: absolute;
+            right: 0;
+            @media screen and (max-width: 640px) {
+                top: 10%;
+            }
+        }
         & .move-left{
-            animation: 1000ms ease-in-out move-left both;
+            animation: 900ms 100ms ease-in-out move-left both;
+            @media screen and (max-width: 640px) {
+                animation: unset;
+            }
         }
         & .move-right{
-            animation: 1000ms ease-in-out move-right both;
+            animation: 900ms 100ms ease-in-out move-right both;
+            @media screen and (max-width: 640px) {
+                animation: unset;
+            }
         }
         &--logincontainer{
             & input{
@@ -114,12 +201,17 @@
             & input[type=text], & input[type=password]{
                 width: 46%;
                 margin: 0px 10px 30px 10px;
+                @media screen and (max-width: 1050px) {
+                    width: 70%;
+                }
             }
             & input[type=checkbox]{
+                display: inline-block;
                 margin-right: 10px;
                 margin-bottom: 30px;
             }
             & label{
+                display: inline-block;
                 font-size: 13px;
                 & a{
                     color: #FDBC2C;
@@ -132,6 +224,9 @@
         &--logincontainer, &--registercontainer {
             text-align: center;
             width: 600px;
+            @media screen and (max-width: 640px) {
+                width: 100%;
+            }
             & button{
                 display: block;
                 margin: 0 auto;
@@ -207,6 +302,12 @@
         justify-content: center;
         align-items: center;
         color: #181818;
+        @media screen and (max-width: 640px) {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+        }
     }
 }
 @keyframes right-to-left{
@@ -307,10 +408,7 @@
 }
 @keyframes move-left{
     0%{
-        transform: translateX(80%);
-        opacity: 1;
-    }
-    50%{
+        transform: translateX(50%);
         opacity: 0;
     }
     100%{
@@ -320,14 +418,11 @@
 }
 @keyframes move-right{
     0%{
-        transform: translateX(0%);
-        opacity: 1;
-    }
-    50%{
+        transform: translateX(-50%);
         opacity: 0;
     }
     100%{
-        transform: translateX(80%);
+        transform: translateX(0%);
         opacity: 1;
     }
 }

@@ -90,7 +90,7 @@
   margin: 0 auto;
   padding: 4px 0;
   margin-top: 20px;
-  height: 28px;
+  height: 34px;
   width: 180px;
   line-height: 30px;
   font-size: 15px;
@@ -134,6 +134,7 @@
   width: 540px;
   height: 400px;
   float: left;
+  margin-top: 10px;
 }
 .contact.board-left h1 {
   font-family: AbrilFatface-Regular;
@@ -144,6 +145,7 @@
   font-family: JosefinSans-Regular;
   color: #F0F0F0;
   font-size: 16px;
+  margin: 5px 0;
 }
 .contact.board-left span {
   font-family: JosefinSans-Bold;
@@ -273,7 +275,7 @@
 .contact.subscribe input {
   display: block;
   width: 180px;
-  height: 25px;
+  height: 31px;
   padding: 2px 6px;
   font-size: 15px;
   font-family: JosefinSans-Regular;
@@ -304,11 +306,11 @@
 }
 .contact.footer {
   width: 100%;
-  height: 330px;
+  height: 307px;
   background-color: #181818;
 }
 .contact.footer-contact-container {
-  height: 260px;
+  height: 270px;
   padding-top: 30px;
 }
 .contact.footer-contact-container h1 {
@@ -374,7 +376,7 @@
 }
 @media only screen and (min-width:769px) and (max-width: 996px) {
   .contact.message-board {
-    height: 878px;
+    height: 918px;
   }
   .contact.location {
     width: 748px;
@@ -390,7 +392,7 @@
     padding: 0 10px;
   }
   .contact.board-left h1 {
-    font-size: 22px;
+    font-size: 21px;
   }
   .contact.board-left p {
     font-size: 15px;
@@ -416,7 +418,7 @@
 }
 @media only screen and (max-width: 768px)  {
   .contact.message-board {
-    height: 1188px;
+    height: 1268px;
   }
   .contact.location {
     width: 556px;
@@ -444,8 +446,17 @@
     box-sizing: border-box;
     text-align: center;
   }
+  .contact.subscribe {
+    height: 160px;
+  }
   .contact.subscribe h1 {
-    font-size: 20px;
+    font-size: 22px;
+  }
+  .contact.subscribe input {
+    height: 27px;
+  }
+  .contact.subscribe button {
+    height: 27px;
   }
   .contact.footer-contact-list {
     width: 100%
@@ -489,17 +500,30 @@
     width: 356px;
     height: 208px;
   }
+  .contact.board-left {
+    height: 425px;
+  }
   .contact.board-left h1 {
-    font-size: 24px;
+    font-size: 20px;
+  }
+  .contact.board-right {
+    margin-bottom: 5px;
+  }
+  .contact.subscribe {
+    padding-top: 5px;
+  }
+  .contact.subscribe h1 {
+    font-size: 20px;
+    padding-top: 33px;
   }
   .contact.footer{
-    height: 290px;
+    height: 273px;
   }
   .contact.footer-contact-container h1 {
     font-size: 38px;
   }
   .contact.footer-contact-container{
-    height: 220px;
+    height: 235px;
   }
   .contact.footer-contact-list {
     font-size: 14px;

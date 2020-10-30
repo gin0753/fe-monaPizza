@@ -25,8 +25,8 @@ function App() {
                 <Route path="/shopping-cart" component={ShoppingCart} />
                 <Route path="/customer-details" component={CustomerDetails} />
                 <Route path="/blog" component={Blog} />
+                <Route path="/Home" component={Home} />
                 <Route path="/menu" component={Menu} />
-                <Route path="/" component={Home} />
             </Switch>
         </Router>
     );

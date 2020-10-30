@@ -173,13 +173,13 @@
             }
         }
         & .move-left{
-            animation: 900ms 100ms ease-in-out move-left both;
+            animation: 800ms 200ms ease-in-out move-left both;
             @media screen and (max-width: 640px) {
                 animation: unset;
             }
         }
         & .move-right{
-            animation: 900ms 100ms ease-in-out move-right both;
+            animation: 800ms 200ms ease-in-out move-right both;
             @media screen and (max-width: 640px) {
                 animation: unset;
             }

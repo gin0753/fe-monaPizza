@@ -22,185 +22,21 @@
 body {
   padding: 0;
   margin: 0;
-  height: fit-content;
 }
 
 .menu {
   width: 100%;
   background-size: 100% 100%;
   background-repeat: repeat-y;
+  margin: 0;
   height: fit-content;
-}
-
-
-.menu .navbar {
-  position: relative;
-  height: 90px;
-  width: 100%;
-  background-color: #151515;
-}
-
-.menu .nav__sidebar--left {
-  position: absolute;
-  height: 100%;
-  width: 90px;
-  background-color: #000000;
-  left: 0;
-}
-
-.menu #nav__sidebar--left {
-  display: none;
-  position: relative;
-}
-
-.menu .hamburger-container {
-  display: block;
-  width: 30px;
-  height: 25px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-
-.menu .hamburger-container span {
-  display: block;
-  border: solid 2px #fff;
-  height: 1px;
-  width: 28px;
-}
-
-.menu .hamburger-container span:nth-child(2) {
-  margin-top: 5px;
-}
-
-.menu .hamburger-container span:nth-child(3) {
-  margin-top: 5px;
-}
-
-.menu .navbar header {
-  background-color: #000;
-  height: 44px;
-  padding: 0 18px;
-}
-
-
-.menu .nav__logo {
-  text-align: center;
-  font-family: RoyalChicken;
-}
-
-.menu .nav__logo h2 {
-  position: absolute;
-  height: 45px;
-  font-size: 45px;
-  color: #d94f2b;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.menu .account:before {
-  content: " ";
-  display: block;
-  width: 225px;
-  height: 1px;
-  margin: 30px 0;
-  border: solid 1px #383838;
-}
-
-.menu .nav__sidebar--cart {
-  position: absolute;
-  height: 100%;
-  width: 90px;
-  background-color: #fdbc2c;
-  right: 0;
-  top: 0;
-  text-align: center;
-}
-
-.menu .nav__sidebar--cart .pe-7s-cart:before {
-  font-size: 50px;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.menu .page__header {
-  text-align: center;
-  height: 390px;
-  width: 100%;
-  position: relative;
-}
-
-.menu .page__header img {
-  height: 390px;
-  width: 100%;
-}
-
-.menu .page__header--details {
-  height: 120px;
-  width: 300px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-}
-
-.menu .page__header h1 {
-  margin-top: 0;
-  color: #c3c3c3;
-  font-size: 54px;
-  font-family: FrederickatheGreat;
-}
-
-.menu .page__header--breadscrumb {
-  height: fit-content;
-  width: fit-content;
-  border: solid 1px #d49f29;
-  margin: auto;
-}
-
-.menu .page__header--breadscrumb ul {
-  width: fit-content;
-  height: fit-content;
-  padding: 0 30px;
-  margin: 10px;
-}
-
-.menu .page__header--breadscrumb li {
-  list-style-type: none;
-  display: inline;
-  font-size: 18px;
-  padding: 0;
-  font-family: JosefinSans-Regular;
-}
-.menu .page__header--breadscrumb li + li:before {
-  padding: 10px;
-  color: #d49f29;
-  content: "\003e";
-}
-.menu .page__header--breadscrumb li a {
-  color: #d49f29;
-  text-decoration: none;
-}
-.menu .page__header--breadscrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
+  padding: 60px 0;
 }
 
 
 .menu .catelogue {
   width: 90%;
-  height: fit-content;
+  height: 100%;
   margin: auto;
 }
 
@@ -216,7 +52,7 @@ body {
   height: 100%;
   width: 160px;
   left: 0;
-  font-family: JosefinSans-Bold;
+  font-family: JosefinSans-Regular;
 }
 
 
@@ -224,9 +60,6 @@ body {
   display: none;
 }
 
-.menu .catelogue__filter input:checked li ~ h4 {
-  color: #d94f2b;
-}
 
 .menu .filter-container {
   width: 400px;
@@ -326,7 +159,7 @@ body {
   height: 25px;
   width: 25px;
   background-color: rgba(238, 238, 238, 0);
-  border: solid 2px #d94f2b;
+  border: solid 2px whitesmoke;
   border-radius: 50%;
 }
 
@@ -347,7 +180,7 @@ body {
   height: 25px;
   width: 25px;
   background-color: rgba(238, 238, 238, 0);
-  border: solid 2px #d94f2b;
+  border: solid 2px whitesmoke;
 }
 
 .menu .filter__options .checkmark:after {
@@ -356,12 +189,12 @@ body {
   display: none;
 }
 
-.menu .filter__options input:checked ~ .checkmark:after {
-  display: block;
+.menu .filter__options input:checked ~ .checkmark {
+  border-color: #d94f2b;
 }
 
-.menu .filter__options input:checked ~ h4 {
-  color: #d94f2b;
+.menu .filter__options input:checked ~ .checkmark:after {
+  display: block;
 }
 
 .menu .filter__options .checkmark:after {
@@ -373,9 +206,11 @@ body {
   background-color: #d94f2b;
 }
 
-.menu .filter__options h4 {
-  padding-left: 40px;
+.menu .filter__options input:checked ~ h4 {
+  color: #d94f2b;
+  font-family: JosefinSans-Bold;
 }
+
 
 .menu .filter:checked ~ .filter__items {
   transform: scaleY(0);
@@ -387,6 +222,10 @@ body {
 .menu .filter__options {
   display: block;
   position: relative;
+}
+
+.menu .filter__options h4 {
+  padding-left: 40px;
 }
 
 .menu .filter--selected {
@@ -403,7 +242,6 @@ body {
   font-size: 10px;
   margin: 40px;
 }
-
 
 .menu .catelogue__default {
   box-sizing: border-box;
@@ -440,14 +278,15 @@ body {
 .menu .catelogue__product img {
   height: 200px;
   width: 200px;
-  margin: 15px auto;
+  margin: 25px auto;
 }
 
 .menu .catelogue__product--name {
-  height: 600px;
+  height: 640px;
   width: 292px;
-  margin: 0;
+  margin-top: 10px;
   text-align: center;
+  border: solid 3px transparent;
   box-sizing: border-box;
 }
 
@@ -484,7 +323,7 @@ body {
 .menu .product__price {
   color: #b24427;
   font-size: 30px;
-  margin: 5px auto;
+  margin: 15px auto;
 }
 
 .menu .size--selection {
@@ -497,20 +336,18 @@ body {
   background-color: #1c1c1c;
   width: 150px;
   height: 30px;
-  margin-top: 5px;
   font-size: 18px;
-  padding: 5px 10px;
   visibility: hidden;
   box-sizing: border-box;
   font-weight: bold;
+  margin: 6px;
 }
 
 .menu .catelogue__product .add-button {
   visibility: hidden;
-  height: 30px;
+  height: 32px;
   width: 80px;
   text-align: center;
-  margin: 5px;
   font-size: 20px;
   box-sizing: border-box;
   background-color: #fdbc2c;
@@ -583,186 +420,7 @@ body {
 }
 
 
-.menu .subscription {
-  width: 100%;
-  height: 250px;
-  background-color: #fdbc2c;
-  position: relative;
-}
-
-.menu .subscription__details {
-  height: fit-content;
-  width: 60%;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-
-.menu .subscription h2 {
-  color: #000000;
-  font-weight: bold;
-  font-size: 35px;
-  font-family: AbrilFatface-Regular;
-  margin-bottom: 20px;
-}
-
-.menu .subscription input {
-  text-indent: 1em;
-  height: 45px;
-  width: 295px;
-  border: none;
-  color: #000000;
-  font-weight: bold;
-  font-size: 15px;
-  font-family: JosefinSans-Regular;
-}
-.menu .subscription button {
-  height: 45px;
-  width: 130px;
-  padding: 0;
-  border: none;
-  background-color: #000000;
-  color: #fdbc2c;
-  font-family: JosefinSans-Regular;
-}
-
-
-.menu .contact {
-  width: 100%;
-  height: 250px;
-  position: relative;
-  text-align: center;
-  color: #d94f2b;
-  padding-top: 100px;
-  font-family: FrederickatheGreat;
-  overflow: hidden;
-}
-
-.menu .contact__box {
-  width: 60%;
-  height: fit-content;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-
-.menu .contact .phonenumber {
-  font-size: 80px;
-  margin: 0;
-}
-
-.menu .contact .emailaddress {
-  font-size: 50px;
-  margin: 0;
-}
-
-.menu .socialmedia {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 36px;
-  padding-bottom: 50px;
-}
-
-.menu .socialmedia ul {
-  list-style-type: none;
-  color: #ffffff;
-  height: min-content;
-  width: fit-content;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 20px;
-}
-
-.menu .socialmedia li {
-  display: inline-block;
-  margin: 0 30px;
-  font-size: 30px;
-  font-weight: 1200px;
-  font-family: FrederickatheGreat;
-}
-
-.menu .socialmedia a:link {
-  text-decoration: none;
-  color: #eeeeee;
-}
-
-.menu .socialmedia a:visited {
-  color: #eeeeee;
-}
-
-.menu .socialmedia a:hover {
-  color: blue;
-}
-
-.menu .socialmedia a:active {
-  color: yellow;
-}
-
-.menu .arrow-left {
-  color: #d94f2b;
-}
-.menu .footer {
-  background-color: #000000;
-  height: 90px;
-  color: #373737;
-  position: relative;
-}
-
-.menu .footer h3 {
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 10px;
-  font-family: JosefinSans-Bold;
-  color: white;
-}
-
-
 @media only screen and (max-width: 1024px) {
-  .menu .navbar {
-    height: 70px;
-  }
-
-  .menu .page__header {
-    height: 200px;
-  }
-
-  .menu .page__header img {
-    height: 200px;
-    width: 100%;
-  }
-
-  .menu .page__header h1 {
-    font-size: 30px;
-  }
-
-  .menu .page__header--breadscrumb ul {
-    width: fit-content;
-    height: fit-content;
-    padding: 0 10px;
-    margin: 5px;
-  }
-  .menu .page__header--breadscrumb li {
-    font-size: 15px;
-  }
 
   .menu .catelogue__topbar {
     height: 70px;
@@ -830,7 +488,7 @@ body {
     height: 25px;
     width: 25px;
     background-color: rgba(238, 238, 238, 0);
-    border: solid 2px #d94f2b;
+    border: solid 2px whitesmoke;
     border-radius: 50%;
   }
   
@@ -851,7 +509,7 @@ body {
     height: 25px;
     width: 25px;
     background-color: rgba(238, 238, 238, 0);
-    border: solid 2px #d94f2b;
+    border: solid 2px whitesmoke;
   }
   
   .menu .filter__options .checkmark:after {
@@ -862,10 +520,6 @@ body {
   
   .menu .filter__options input:checked ~ .checkmark:after {
     display: block;
-  }
-  
-  .menu .filter__options input:checked ~ h4 {
-    color: #d94f2b;
   }
   
   .menu .filter__options .checkmark:after {
@@ -906,7 +560,7 @@ body {
     color: #000000;
     font-size: 10px;
     margin: 40px;
-  } */
+  }
   
 
   .menu .catelogue__product--name {
@@ -1037,117 +691,10 @@ body {
     font-size: 30px;
     margin: 5px auto;
   }
-
-  .menu .subscription {
-    height: 200px;
-  }
-  .menu .subscription h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  .menu .subscription input {
-    height: 30px;
-    width: 250px;
-  }
-  .menu .subscription button {
-    height: 30px;
-    width: 100px;
-  }
-
-  .menu .contact {
-    height: 150px;
-    padding: 20px;
-  }
-
-  .menu .contact .phonenumber {
-    font-size: 40px;
-  }
-
-  .menu .contact .emailaddress {
-    font-size: 20px;
-  }
-
-  .menu .socialmedia {
-    padding: 0;
-  }
-  .menu .socialmedia ul {
-    margin: 0;
-    width: 100%;
-    padding: 0;
-  }
-  .menu .socialmedia li {
-    font-size: 15px;
-  }
 }
 
 @media only screen and (max-width: 375px) {
-  .menu .navbar {
-    height: 40px;
-  }
-
-  .menu .nav__sidebar--left {
-    position: absolute;
-    height: 100%;
-    width: 70px;
-  }
-  .menu .hamburger-container {
-    top: 25%;
-  }
-  .menu .hamburger-container span {
-    display: block;
-    border: solid 1px #fff;
-    height: 2px;
-    width: 33%;
-  }
-
-  .menu .hamburger-container span:nth-child(2) {
-    margin-top: 5px;
-  }
-
-  .menu .hamburger-container span:nth-child(3) {
-    margin-top: 5px;
-  }
-
-  .menu .nav__sidebar--cart {
-    width: 70px;
-  }
-
-
-  .menu .page__header {
-    height: 100px;
-  }
-
-  .menu .page__header--details {
-    height: fit-content;
-    width: 300px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-  }
-
-  .menu .page__header img {
-    height: 100px;
-  }
-
-  .menu .page__header h1 {
-    font-size: 20px;
-  }
-
-  .menu .page__header--breadscrumb ul {
-    height: fit-content;
-    padding: 0 4px;
-    margin: 2px 4px;
-  }
-
-  .menu .page__header--breadscrumb li {
-    font-size: 10px;
-    padding: 0;
-  }
-
+  
   .menu .catelogue__topbar {
     height: 40px;
     border-bottom: solid 2px #d94f2b;
@@ -1329,48 +876,5 @@ body {
     width: 60px;
     margin: 2px;
     font-size: 14px;
-  }
-  .menu .subscription {
-    height: 100px;
-  }
-  .menu .subscription h2 {
-    font-size: 10px;
-  }
-
-  .menu .subscription input {
-    height: 20px;
-    width: 150px;
-    font-size: 10px;
-  }
-  .menu .subscription button {
-    height: 20px;
-    width: 60px;
-    font-size: 8px;
-  }
-
-  .menu .contact {
-    height: 80px;
-    padding: 0;
-  }
-
-  .menu .contact .phonenumber {
-    font-size: 25px;
-  }
-
-  .menu .contact .emailaddress {
-    font-size: 15px;
-  }
-
-  .menu .socialmedia {
-    height: 30px;
-  }
-  .menu .socialmedia ul {
-    height: 30px;
-    margin: 0;
-  }
-
-  .menu .socialmedia li {
-    font-size: 5px;
-    margin: 0 15px;
   }
 }

@@ -15,30 +15,6 @@ class Menu extends Component {
   render() {
     return (
       <div className="menu" style={{ backgroundImage: `url(${Bgi})` }}>
-        <nav className="navbar">
-          <div className="nav__sidebar--left">
-            <header>
-              <input type="checkbox" id="nav__sidebar--left" />
-              <label htmlFor="nav__sidebar--left">
-                <div className="hamburger-container">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </label>
-            </header>
-          </div>
-          <div className="nav__logo"><h2>Margherita</h2></div>
-          <div className="nav__sidebar--cart"><span> </span></div>
-        </nav>
-        <div className="page__header">
-          <div className="header__image">
-            <img src={Header} alt="page-header" />
-          </div>
-          <div className="page__header--details">
-            <h1>Pizza Menu</h1>
-          </div>
-        </div>
         <div className="catelogue">
           <div className="catelogue__topbar">
             <div className="catelogue__filter">
@@ -86,7 +62,7 @@ class Menu extends Component {
                         </label>
 
                         <label className="filter__options">
-                          <input type="radio" defaultChecked="checked" name="radio" />
+                          <input type="radio" name="radio" />
                           <h4>Party</h4>
                           <span className="checkmark"></span>
                         </label>
@@ -142,7 +118,7 @@ class Menu extends Component {
                       <h3>CHEESES</h3>
                       <div>
                         <label className="filter__options">
-                          <input type="checkbox" defaultChecked="checked" />
+                          <input type="checkbox" />
                           <h4>Mozzarella</h4>
                           <span className="checkmark"></span>
                         </label>
@@ -649,37 +625,6 @@ class Menu extends Component {
               <a href="#">5</a>
             </div>
             <div className="nextpage"><a href="#">{ArrowRight}</a></div>
-          </div>
-        </div>
-        <div className="subscription">
-          <div className="subscription__details">
-            <h2>Sign up for the newsletter and get exclusive deals.</h2>
-            <input
-              type="text"
-              placeholder="Enter your email address"
-              name="subscribe"
-            />
-            <button type="subscribe">SUBSCRIBE</button>
-          </div>
-        </div>
-        <div>
-          <div className="contact">
-            <div className="contact__box">
-              <h2 className="phonenumber">+34 9 368 7050</h2>
-              <h3 className="emailaddress">order@pizza.com</h3>
-            </div>
-          </div>
-          <div className="socialmedia">
-            <ul>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">Pinterest</a></li>
-              <li><a href="#">Flickr</a></li>
-            </ul>
-          </div>
-          <div className="footer">
-            <h3>Copyright @ 2015 Mixer All rights reserved </h3>
           </div>
         </div>
       </div>);

@@ -8,7 +8,7 @@ class ProductDetails extends React.Component {
 
     render() {
         return (
-            <div className="product-details">
+            <div className="product-details-page">
                 <PizzaIntro />
                 <PizzaInfo />
                 <RelatedPizza />

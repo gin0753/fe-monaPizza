@@ -19,6 +19,9 @@ class RelatedPizza extends React.Component {
                             Cherry Tomatoes & Feta served with Cracked Pepper
                             & Sea salt
                         </p>
+                        <p className="pizza-price">
+                            $18.00
+                        </p>
                     </div>
                     <div className="related-pizza-second flex-item">
                         <img src={rpSecond} alt="pizza" />
@@ -27,6 +30,9 @@ class RelatedPizza extends React.Component {
                             Margherita with Authentic Buffalo Mazzarella and Cherry
                             Tomatoes on a Tomato base, garnished with Fresh Basil, served
                             with Cracked Pepper & Sea salt.
+                        </p>
+                        <p className="pizza-price">
+                            $16.00
                         </p>
                     </div>
                     <div className="related-pizza-third flex-item">
@@ -37,6 +43,9 @@ class RelatedPizza extends React.Component {
                             Capsicum, Mushrooms, Sundried Tomatoes & Bocconcini on a Tomato
                             base, Pesto Aioli.
                         </p>
+                        <p className="pizza-price">
+                            $22.00
+                        </p>
                     </div>
                     <div className="related-pizza-fourth flex-item">
                         <img src={rpFourth} alt="pizza" />
@@ -44,6 +53,9 @@ class RelatedPizza extends React.Component {
                         <p className="pizza-ingrd">
                             Slowcooked Roasted Beetroot, Baby spinach, Bocconcini on a Harissa
                             Infused Hummus base, topped with Crushed Walnuts and Honey
+                        </p>
+                        <p className="pizza-price">
+                            $21.00
                         </p>
                     </div>
                 </div>

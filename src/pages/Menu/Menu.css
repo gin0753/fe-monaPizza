@@ -1,188 +1,47 @@
+@font-face{
+  font-family: 'RoyalChicken';
+  src: url('../../font/RoyaChicken.otf') format('truetype');
+}
+@font-face{
+  font-family: 'FrederickatheGreat';
+  src: url('../../font/Fredericka-the-Great.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'JosefinSans-Regular';
+  src: url('../../font/JosefinSans-Regular.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'JosefinSans-Bold';
+  src: url('../../font/JosefinSans-Bold.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'AbrilFatface-Regular';
+  src: url('../../font/AbrilFatface-Regular.otf') format('truetype');
+}
+
 body {
   padding: 0;
   margin: 0;
-  height: fit-content;
 }
 
 .menu {
   width: 100%;
-  background-image: url("../../images/Pizza-bg.png");
   background-size: 100% 100%;
   background-repeat: repeat-y;
+  margin: 0;
   height: fit-content;
-}
-
-
-.menu .navbar {
-  position: relative;
-  height: 90px;
-  width: 100%;
-  background-color: #151515;
-}
-
-.menu .nav__sidebar--left {
-  position: absolute;
-  height: 100%;
-  width: 90px;
-  background-color: #000000;
-  left: 0;
-}
-
-.menu #nav__sidebar--left {
-  display: none;
-}
-
-.menu .hamburger-container {
-  display: block;
-  width: 90px;
-  height: 80px;
-  position: relative;
-  top: 25%;
-}
-
-.menu .hamburger-container span {
-  display: block;
-  border: solid 2px #fff;
-  height: 3px;
-  width: 50px;
-}
-
-.menu .hamburger-container span:nth-child(2) {
-  margin-top: 10px;
-}
-
-.menu .hamburger-container span:nth-child(3) {
-  margin-top: 10px;
-}
-
-.menu .navbar header {
-  background-color: #000;
-  height: 44px;
-  padding: 0 18px;
-}
-
-
-.menu .nav__logo {
-  text-align: center;
-  font-family: Royal chicken;
-}
-
-.menu .nav__logo h2 {
-  position: absolute;
-  height: 45px;
-  font-size: 45px;
-  color: #d94f2b;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.menu .account:before {
-  content: " ";
-  display: block;
-  width: 225px;
-  height: 1px;
-  margin: 30px 0;
-  border: solid 1px #383838;
-}
-
-.menu .nav__sidebar--cart {
-  position: absolute;
-  height: 100%;
-  width: 90px;
-  background-color: #fdbc2c;
-  right: 0;
-  top: 0;
-  text-align: center;
-}
-
-.menu .nav__sidebar--cart .pe-7s-cart:before {
-  font-size: 50px;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.menu .page__header {
-  text-align: center;
-  height: 390px;
-  width: 100%;
-  position: relative;
-}
-
-.menu .page__header img {
-  height: 390px;
-  width: 100%;
-}
-
-.menu .page__header--details {
-  height: 120px;
-  width: 300px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-}
-
-.menu .page__header h1 {
-  margin-top: 0;
-  color: #c3c3c3;
-  font-size: 54px;
-  font-family: Fredericka the Great;
-}
-
-.menu .page__header--breadscrumb {
-  height: fit-content;
-  width: fit-content;
-  border: solid 1px #d49f29;
-  margin: auto;
-}
-
-.menu .page__header--breadscrumb ul {
-  width: fit-content;
-  height: fit-content;
-  padding: 0 30px;
-  margin: 10px;
-}
-
-.menu .page__header--breadscrumb li {
-  list-style-type: none;
-  display: inline;
-  font-size: 18px;
-  padding: 0;
-  font-family: Josefin Sans;
-}
-.menu .page__header--breadscrumb li + li:before {
-  padding: 10px;
-  color: #d49f29;
-  content: "\003e";
-}
-.menu .page__header--breadscrumb li a {
-  color: #d49f29;
-  text-decoration: none;
-}
-.menu .page__header--breadscrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
 }
 
 
 .menu .catelogue {
-  width: 100%;
-  height: fit-content;
+  width: 90%;
+  height: 100%;
   margin: auto;
 }
 
 .menu .catelogue__topbar {
   width: 100%;
   height: 95px;
-  background-color: #1b1b1b;
   border-bottom: solid 6px #d94f2b;
   position: relative;
 }
@@ -192,7 +51,7 @@ body {
   height: 100%;
   width: 160px;
   left: 0;
-  font-family: Josefin Sans;
+  font-family: JosefinSans-Regular;
 }
 
 
@@ -200,9 +59,6 @@ body {
   display: none;
 }
 
-.menu .catelogue__filter input:checked li ~ h4 {
-  color: #d94f2b;
-}
 
 .menu .filter-container {
   width: 400px;
@@ -225,19 +81,19 @@ body {
 
 .menu .filter__title {
   padding-left: 5px;
-  font-size: 15px;
-  font-family: Josefin Sans;
+  font-size: 20px;
+  font-family: JosefinSans-Bold;
   font-weight: 900;
 }
 
 .menu .filter__result {
-  font-size: 10px;
+  font-size: 18px;
   margin-left: 20px;
 }
 
 .menu .filter-container span {
   display: block;
-  border: solid 1px #fff;
+  border: solid 2px #fff;
   height: 0px;
   width: 15px;
 }
@@ -256,15 +112,15 @@ body {
 
 .menu .filter__items {
   background-color: #151515;
-  height: 450px;
-  width: 1100px;
+  height: 380px;
+  width: 1296px;
   position: absolute;
   top: 0px;
   left: 0;
-  transform: scaleY(0);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.1s ease-in-out;
   transform-origin: 50% 0;
   color: #eeeeee;
+  display: none;
 }
 
 .menu .filter__items ul {
@@ -274,10 +130,17 @@ body {
   display: flex;
   justify-content: space-around;
   height: fit-content;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  margin-left: 40px;
 }
 
 .menu .filter__items li {
   width: 200px;
+}
+
+.menu .filter__options {
+  margin: 20px 4px;
 }
 
 .menu .filter__options input {
@@ -295,13 +158,13 @@ body {
   height: 25px;
   width: 25px;
   background-color: rgba(238, 238, 238, 0);
-  border: solid 2px #d94f2b;
+  border: solid 2px whitesmoke;
   border-radius: 50%;
 }
 
 .menu .filter__radio .filter__options .checkmark:after {
-  left: 8px;
-  top: 8px;
+  left: 6px;
+  top: 6px;
   width: 8px;
   height: 8px;
   border: solid 1px #d94f2b;
@@ -316,7 +179,7 @@ body {
   height: 25px;
   width: 25px;
   background-color: rgba(238, 238, 238, 0);
-  border: solid 2px #d94f2b;
+  border: solid 2px whitesmoke;
 }
 
 .menu .filter__options .checkmark:after {
@@ -325,31 +188,34 @@ body {
   display: none;
 }
 
+.menu .filter__options input:checked ~ .checkmark {
+  border-color: #d94f2b;
+}
+
 .menu .filter__options input:checked ~ .checkmark:after {
   display: block;
 }
 
-.menu .filter__options input:checked ~ h4 {
-  color: #d94f2b;
-}
-
 .menu .filter__options .checkmark:after {
-  left: 9px;
-  top: 9px;
+  left: 7px;
+  top: 7px;
   width: 5px;
   height: 5px;
   border: solid 1px #d94f2b;
   background-color: #d94f2b;
 }
 
-.menu .filter__options h4 {
-  padding-left: 40px;
+.menu .filter__options input:checked ~ h4 {
+  color: #d94f2b;
+  font-family: JosefinSans-Bold;
 }
 
+
 .menu .filter:checked ~ .filter__items {
-  transform: scaleY(1);
-  transform: translate(0px, 104px);
+  transform: scaleY(0);
+  transform: translate(0px, 95px);
   position: absolute;
+  display: block;
 }
 
 .menu .filter__options {
@@ -357,10 +223,13 @@ body {
   position: relative;
 }
 
+.menu .filter__options h4 {
+  padding-left: 40px;
+}
+
 .menu .filter--selected {
   text-align: center;
   margin: -20px auto;
-  padding-top: 20px;
   height: 45px;
 }
 
@@ -370,24 +239,23 @@ body {
   background-color: #fdbc2c;
   color: #000000;
   font-size: 10px;
+  margin: 40px;
 }
-
 
 .menu .catelogue__default {
   box-sizing: border-box;
   position: absolute;
   height: 100%;
   width: 200px;
-  right: 0;
+  right: 8px;
   text-align: right;
 }
 
 .menu .catelogue__default .sorting {
   position: absolute;
   height: fit-content;
-  font-size: 15px;
-  font-family: Josefin Sans;
-  font-weight: bold;
+  font-size: 20px;
+  font-family: JosefinSans-Bold;
   top: 0;
   right: 0;
   left: auto;
@@ -409,27 +277,28 @@ body {
 .menu .catelogue__product img {
   height: 200px;
   width: 200px;
-  margin: 15px auto;
+  margin: 25px auto;
 }
 
 .menu .catelogue__product--name {
-  height: fit-content;
-  width: 280px;
-  margin: 20px 5px;
+  height: 640px;
+  width: 292px;
+  margin-top: 10px;
   text-align: center;
+  border: solid 3px transparent;
   box-sizing: border-box;
 }
 
 .menu .catelogue__product--name h3 {
-  font-family: Abril Fatface;
+  font-family: AbrilFatface-Regular;
 }
 
 .menu .catelogue__product--name h4 {
-  font-family: Fredericka the Great;
+  font-family: FrederickatheGreat;
 }
 
 .menu .catelogue__product--name p {
-  font-family: Josefin Sans;
+  font-family: JosefinSans-Regular;
 }
 
 .menu .pizza__description {
@@ -441,19 +310,23 @@ body {
 
 .menu .pizza__description h3 {
   color: #fdbc2c;
-  font-weight: bold;
-  font-size: 30px;
+  font-size: 24px;
   margin: 10px;
+}
+
+.menu .pizza__description p {
+  font-size: 25px;
+  height: 190px;
 }
 
 .menu .product__price {
   color: #b24427;
   font-size: 30px;
-  margin: 5px auto;
+  margin: 15px auto;
 }
 
 .menu .size--selection {
-  padding: 40px 10px;
+  padding: 10px 0 ;
 }
 
 .menu .product__size {
@@ -461,20 +334,19 @@ body {
   color: #ffffff;
   background-color: #1c1c1c;
   width: 150px;
-  height: 36px;
-  margin-top: 5px;
-  font-size: 20px;
-  padding: 5px 10px;
+  height: 30px;
+  font-size: 18px;
   visibility: hidden;
   box-sizing: border-box;
+  font-weight: bold;
+  margin: 6px;
 }
 
 .menu .catelogue__product .add-button {
   visibility: hidden;
-  height: 36px;
-  width: 75px;
+  height: 32px;
+  width: 80px;
   text-align: center;
-  margin: 5px;
   font-size: 20px;
   box-sizing: border-box;
   background-color: #fdbc2c;
@@ -492,199 +364,62 @@ body {
 }
 
 
-.menu .subscription {
-  width: 100%;
-  height: 250px;
-  background-color: #fdbc2c;
-  position: relative;
-}
-
-.menu .subscription__details {
-  height: fit-content;
-  width: 60%;
+.menu .pagination {
+  border: solid 3px #d94f2b;
+  display: flex;
+  flex-direction: row;
   text-align: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-
-.menu .subscription h2 {
-  color: #000000;
-  font-weight: bold;
-  font-size: 35px;
-  font-family: Abril Fatface;
-}
-
-.menu .subscription input {
-  text-indent: 1em;
-  height: 45px;
-  width: 295px;
-  border: none;
-  color: #000000;
-  font-weight: bold;
-  font-size: 15px;
-  font-family: Josefin Sans;
-}
-.menu .subscription button {
-  height: 45px;
-  width: 130px;
-  padding: 0;
-  border: none;
-  background-color: #000000;
-  color: #fdbc2c;
-  font-family: Josefin Sans;
-}
-
-
-.menu .contact {
+  justify-content: space-between;
+  height: 60px;
   width: 100%;
-  height: 250px;
-  position: relative;
-  text-align: center;
+  margin: 80px 0;
+}
+
+
+.menu .pagination a {
   color: #d94f2b;
-  padding-top: 100px;
-  font-family: Fredericka the Great;
-  overflow: hidden;
-}
-
-.menu .contact__box {
-  width: 60%;
-  height: fit-content;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-
-.menu .contact .phonenumber {
-  font-size: 80px;
-  margin: 0;
-}
-
-.menu .contact .emailaddress {
-  font-size: 50px;
-  margin: 0;
-}
-
-.menu .socialmedia {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 36px;
-  padding-bottom: 50px;
-}
-
-.menu .socialmedia ul {
-  list-style-type: none;
-  color: #ffffff;
-  height: min-content;
-  width: fit-content;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  text-decoration: none;
   font-size: 20px;
 }
 
-.menu .socialmedia li {
-  display: inline-block;
-  margin: 0 30px;
-  font-size: 30px;
-  font-weight: 1200px;
-  font-family: Fredericka the Great;
-}
-
-.menu .socialmedia a:link {
-  text-decoration: none;
-  color: #eeeeee;
-}
-
-.menu .socialmedia a:visited {
-  color: #eeeeee;
-}
-
-.menu .socialmedia a:hover {
-  color: blue;
-}
-
-.menu .socialmedia a:active {
-  color: yellow;
-}
-
-
-.menu .footer {
-  background-color: #000000;
-  height: 90px;
-  color: #373737;
-  position: relative;
-}
-
-.menu .footer h3 {
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 10px;
-  font-family: Josefin Sans;
+.menu .pagination a.actived {
   color: white;
+}
+
+.menu .pagination a:hover {
+  color: white;
+}
+
+.menu .previouspage {
+  border-right: solid 3px #d94f2b;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+}
+
+.menu .pagenumber {
+  height: fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+.menu .pagenumber a {
+  margin: 15px;
+}
+
+.menu .nextpage {
+  border-left: solid 3px #d94f2b;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
 }
 
 
 @media only screen and (max-width: 1024px) {
-  .menu .navbar {
-    height: 70px;
-  }
-
-  .menu .hamburger-container {
-    top: 40%;
-  }
-  .menu .hamburger-container span {
-    display: block;
-    border: solid 2px #fff;
-    height: 2px;
-    width: 55%;
-  }
-
-  .menu .hamburger-container span:nth-child(2) {
-    margin-top: 8px;
-  }
-
-  .menu .hamburger-container span:nth-child(3) {
-    margin-top: 8px;
-  }
-  .menu .page__header {
-    height: 290px;
-  }
-
-  .menu .page__header img {
-    height: 290px;
-  }
-
-  .menu .page__header h1 {
-    font-size: 30px;
-  }
-
-  .menu .page__header--breadscrumb ul {
-    width: fit-content;
-    height: fit-content;
-    padding: 0 10px;
-    margin: 5px;
-  }
-  .menu .page__header--breadscrumb li {
-    font-size: 15px;
-  }
 
   .menu .catelogue__topbar {
     height: 70px;
@@ -695,13 +430,156 @@ body {
   }
 
   .menu .filter:checked ~ .filter__items {
-    width: 1024px;
+    width: 921.6px;
   }
+
+  .menu .catelogue__default .sorting {
+    font-size: 15px;
+  }
+
+  .menu .filter__title {
+    font-size: 16px;
+  }
+
+  .menu .filter__result {
+    font-size: 16px;
+  }
+ 
+  .menu .filter-container span {
+    display: block;
+    border: solid 1px #fff;
+    height: 0px;
+    width: 15px;
+  }
+
+  .menu .filter__items {
+    height: 420px;
+    width: 921.6px;
+  }
+  
+  .menu .filter:checked ~ .filter__items ul {
+    margin-right: 60px;
+  }
+
+  .menu .filter__items li {
+    width: 20px;
+  }
+  
+  .menu .filter__options {
+    margin: 20px 0 20px 0;
+    width: 140px;
+  }
+
+
+  
+  .menu .filter__options input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .menu .filter__radio .filter__options .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgba(238, 238, 238, 0);
+    border: solid 2px whitesmoke;
+    border-radius: 50%;
+  }
+  
+  .menu .filter__radio .filter__options .checkmark:after {
+    left: 6px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border: solid 1px #d94f2b;
+    background-color: #d94f2b;
+    border-radius: 40%;
+  }
+  
+  .menu .filter__options .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgba(238, 238, 238, 0);
+    border: solid 2px whitesmoke;
+  }
+  
+  .menu .filter__options .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .menu .filter__options input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .menu .filter__options .checkmark:after {
+    left: 7px;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border: solid 1px #d94f2b;
+    background-color: #d94f2b;
+  }
+  
+  .menu .filter__options h4 {
+    padding-left: 40px;
+  }
+  
+
+  .menu .filter:checked ~ .filter__items {
+    transform: scaleY(0);
+    transform: translate(0px, 80px);
+    position: absolute;
+  }
+  
+  .menu .filter__options {
+    display: block;
+    position: relative;
+  }
+  
+  .menu .filter--selected {
+    text-align: center;
+    margin: -20px auto;
+    height: 45px;
+  }
+  
+  .menu .filter__button--selected {
+    width: 230px;
+    height: 45px;
+    background-color: #fdbc2c;
+    color: #000000;
+    font-size: 10px;
+    margin: 40px;
+  }
+  
 
   .menu .catelogue__product--name {
     height: fit-content;
-    width: 325px;
-    margin: 20px 60px;
+    width: 250px;
+  }
+
+  .menu .product__size {
+    width: 170px;
+    height: 30px;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-right: 4px;
+  }
+
+  .menu .catelogue__product .add-button {
+    height: 30px;
+    width: 60px;
+    margin: 2px;
+    font-size: 14px;
   }
 
   .menu .subscription {
@@ -709,6 +587,7 @@ body {
   }
   .menu .subscription h2 {
     font-size: 25px;
+    margin-bottom: 20px;
   }
 
   .menu .subscription input {
@@ -738,8 +617,10 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+
   .menu .filter:checked ~ .filter__items {
-    width: 768px;
+    width: 691px;
+    height: 700px;
   }
 
   .menu .filter__radio .filter__options .checkmark {
@@ -771,6 +652,14 @@ body {
     background-color: #d94f2b;
   }
 
+  .menu .filter__items ul {
+    display: flex;
+    justify-content: flex-start;
+    height: fit-content;
+    margin-top: 15px;
+    margin-left: 20px;
+    flex-wrap: wrap;
+  }
   .menu .filter__items li {
     width: 150px;
   }
@@ -781,124 +670,33 @@ body {
 
   .menu .catelogue__product--name {
     height: fit-content;
-    width: 80%;
-    margin: 20px 60px;
+    width: 265px;
+    margin: 10px 40px;
   }
 
-  .menu .subscription {
+  .menu .pizza__description h3 {
+    color: #fdbc2c;
+    font-size: 22px;
+    margin: 20px 0;
+  }
+  
+  .menu .pizza__description p {
+    font-size: 23px;
     height: 200px;
   }
-  .menu .subscription h2 {
-    font-size: 20px;
-  }
-
-  .menu .subscription input {
-    height: 30px;
-    width: 250px;
-  }
-  .menu .subscription button {
-    height: 30px;
-    width: 100px;
-  }
-
-  .menu .contact {
-    height: 150px;
-    padding: 20px;
-  }
-
-  .menu .contact .phonenumber {
-    font-size: 40px;
-  }
-
-  .menu .contact .emailaddress {
-    font-size: 20px;
-  }
-
-  .menu .socialmedia {
-    padding: 0;
-  }
-  .menu .socialmedia ul {
-    margin: 0;
-    width: 100%;
-    padding: 0;
-  }
-  .menu .socialmedia li {
-    font-size: 15px;
+  
+  .menu .product__price {
+    color: #b24427;
+    font-size: 30px;
+    margin: 5px auto;
   }
 }
 
 @media only screen and (max-width: 375px) {
-  .menu .navbar {
-    height: 40px;
-  }
-
-  .menu .nav__sidebar--left {
-    position: absolute;
-    height: 100%;
-    width: 70px;
-  }
-  .menu .hamburger-container {
-    top: 25%;
-  }
-  .menu .hamburger-container span {
-    display: block;
-    border: solid 1px #fff;
-    height: 2px;
-    width: 35%;
-  }
-
-  .menu .hamburger-container span:nth-child(2) {
-    margin-top: 5px;
-  }
-
-  .menu .hamburger-container span:nth-child(3) {
-    margin-top: 5px;
-  }
-
-  .menu .nav__sidebar--cart {
-    width: 70px;
-  }
-
-  .menu .nav__sidebar--cart .pe-7s-cart:before {
-    font-size: 40px;
-  }
-
-  .menu .page__header {
-    height: 100px;
-  }
-
-  .menu .page__header--details {
-    height: fit-content;
-    width: 300px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-  }
-
-  .menu .page__header img {
-    height: 100px;
-  }
-
-  .menu .page__header h1 {
-    font-size: 20px;
-  }
-
-  .menu .page__header--breadscrumb ul {
-    height: fit-content;
-    padding: 0 4px;
-    margin: 2px 4px;
-  }
-
-  .menu .page__header--breadscrumb li {
-    font-size: 10px;
-    padding: 0;
-  }
-
+  
   .menu .catelogue__topbar {
     height: 40px;
+    border-bottom: solid 2px #d94f2b;
   }
 
   .menu .filter-container {
@@ -906,16 +704,16 @@ body {
   }
 
   .menu .filter__title {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .menu .filter__result {
-    font-size: 8px;
+    font-size: 11px;
     margin-left: 10px;
   }
 
   .menu .catelogue__default .sorting {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .menu .filter__items ul {
@@ -925,12 +723,35 @@ body {
     display: block;
     height: fit-content;
     padding: 0;
+
   }
 
   .menu .filter:checked ~ .filter__items {
-    width: 375px;
-    height: fit-content;
-    transform: translate(0px, 50px);
+    transform: scaleY(0);
+    transform: translate(0px, 95px);
+    position: absolute;
+    display: block;
+  }
+
+  .menu .filter-container span {
+    display: block;
+    border: solid 1px #fff;
+    height: 0px;
+    width: 15px;
+  }
+  
+  .menu .filter-container span:nth-child(2) {
+    margin-top: 2px;
+  }
+  
+  .menu .filter-container span:nth-child(3) {
+    margin-top: 2px;
+  }
+
+  .menu .filter:checked ~ .filter__items {
+    width: 337.5px;
+    height: 1900px;
+    transform: translate(0px, 40px);
   }
 
   .menu .filter__radio .filter__options .checkmark {
@@ -940,8 +761,8 @@ body {
   }
 
   .menu .filter__radio .filter__options .checkmark:after {
-    top: 4px;
-    left: 4px;
+    top: 3px;
+    left: 3px;
     width: 5px;
     height: 5px;
     border-radius: 50%;
@@ -959,8 +780,8 @@ body {
   }
 
   .menu .filter__options .checkmark:after {
-    left: 4px;
-    top: 4px;
+    left: 3px;
+    top: 3px;
     width: 5px;
     height: 5px;
     border: solid 1px #d94f2b;
@@ -984,6 +805,7 @@ body {
   }
   .menu .filter__items li h3 {
     font-size: 25px;
+    margin-top: 5px;
   }
 
   .menu .filter__options h4 {
@@ -997,7 +819,7 @@ body {
   }
 
   .menu .filter__items li .more-vegetable {
-    display: none;
+    margin-top: 2px;
   }
 
   .menu .filter__items .more-options {
@@ -1005,88 +827,53 @@ body {
   }
 
   .menu .catelogue__product--name {
-    height: fit-content;
-    width: 60%;
+    height: 580px;
+    width: 300px;
     margin: 10px 30px;
   }
 
   .menu .catelogue__product img {
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
   }
+
 
   .menu .pizza__description h3 {
     font-size: 20px;
+  }
+
+  .menu .pizza__description h3 {
+    font-size: 22px;
+    margin: 20px 0;
+  }
+  
+  .menu .pizza__description p {
+    font-size: 21px;
+    height: 150px;
+  }
+  
+  .menu .product__price {
+    color: #b24427;
+    font-size: 30px;
+    margin: 5px auto;
   }
 
   .menu .catelogue__product--name h4 {
     font-size: 20px;
   }
 
-  .menu .catelogue__product--name p {
-    font-size: 10px;
-  }
-
-  .menu .size--selection {
-    padding: 8px 5px;
-  }
-
   .menu .product__size {
-    width: 100px;
-    height: 20px;
+    width: 170px;
+    height: 30px;
     margin-top: 5px;
-    font-size: 8px;
+    font-size: 14px;
     padding: 1px 10px;
   }
 
   .menu .catelogue__product .add-button {
-    height: 20px;
-    width: 40px;
-    margin: 2px;
-    font-size: 10px;
-  }
-  .menu .subscription {
-    height: 100px;
-  }
-  .menu .subscription h2 {
-    font-size: 10px;
-  }
-
-  .menu .subscription input {
-    height: 20px;
-    width: 150px;
-    font-size: 10px;
-  }
-  .menu .subscription button {
-    height: 20px;
+    height: 30px;
     width: 60px;
-    font-size: 8px;
-  }
-
-  .menu .contact {
-    height: 80px;
-    padding: 0;
-  }
-
-  .menu .contact .phonenumber {
-    font-size: 25px;
-  }
-
-  .menu .contact .emailaddress {
-    font-size: 15px;
-  }
-
-  .menu .socialmedia {
-    height: 30px;
-  }
-  .menu .socialmedia ul {
-    height: 30px;
-    margin: 0;
-  }
-
-  .menu .socialmedia li {
-    font-size: 5px;
-    margin: 0 15px;
+    margin: 2px;
+    font-size: 14px;
   }
 }
-

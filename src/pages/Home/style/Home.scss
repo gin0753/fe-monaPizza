@@ -73,19 +73,6 @@ $this-red: #d94f2b;
   .restPage {
     width: 100%;
     // height: 9400px;
-
-    header {
-      position: relative;
-      width: 100%;
-      height: 90px;
-      background: url(../img/Base.png) no-repeat center center;
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
   }
   //info section************
   .restPage_info {
@@ -267,31 +254,6 @@ $this-red: #d94f2b;
             margin-top: 10px;
             color: $this-red;
           }
-        }
-      }
-
-      nav {
-        margin: 55px;
-        font-weight: 900;
-        color: $this-red;
-        line-height: 50px;
-        font-family: "icomoon";
-        &::before {
-          display: inline-block;
-          width: 60px;
-          height: 60px;
-          border: 5px solid$this-red;
-          content: "\ea38";
-          cursor: pointer;
-        }
-        &::after {
-          margin-left: 20px;
-          display: inline-block;
-          width: 60px;
-          height: 60px;
-          border: 5px solid$this-red;
-          content: "\ea34";
-          cursor: pointer;
         }
       }
     }

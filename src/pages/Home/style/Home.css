@@ -1,0 +1,703 @@
+@import url(c:\Users\Owner\Desktop\project 3\fe.pizza\src\pages\Home\style\normalize.css);
+@import url(c:\Users\Owner\Desktop\project 3\fe.pizza\src\pages\Home\style\reset.css);
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap");
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?s005lk");
+  src: url("fonts/icomoon.eot?s005lk#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?s005lk") format("truetype"), url("fonts/icomoon.woff?s005lk") format("woff"), url("fonts/icomoon.svg?s005lk#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+* {
+  text-decoration: none;
+}
+
+.home {
+  max-width: 1920px;
+  min-width: 750px;
+  margin: 0 auto;
+  background: url(../img/Background.png) no-repeat center top;
+}
+
+.home .frontPage {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 1083px;
+  background: #161616 url(../img/cover.jpg) no-repeat left top;
+}
+
+.home .frontPage_wrap h1 {
+  margin-bottom: 30px;
+  font-family: "Fredericka the Great", cursive;
+  font-size: 72px;
+  color: #fff;
+  line-height: 90px;
+}
+
+.home .frontPage_wrap h2 {
+  font-family: "Abril Fatface", cursive;
+  color: #fdbc2c;
+  font-size: 36px;
+  width: 800px;
+  line-height: 46px;
+}
+
+.home .frontPage_wrap .button {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 0 30px;
+  height: 40px;
+  line-height: 40px;
+  font-family: "Josefin Sans", sans-serif;
+  color: #fdbc2c;
+  font-size: 14px;
+  font-weight: 700;
+  vertical-align: middle;
+  border: 1px solid #fdbc2c;
+  cursor: pointer;
+}
+
+.home .restPage {
+  width: 100%;
+}
+
+.home .restPage_info_wrap {
+  margin: 0 auto;
+  width: 62%;
+}
+
+.home .restPage_info_top {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.home .restPage_info_top h2 {
+  margin-bottom: 60px;
+  font-family: "Abril Fatface", cursive;
+  color: #fdbc2c;
+  font-size: 48px;
+}
+
+.home .restPage_info_top p {
+  margin-bottom: 50px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.home .restPage_info_bottom {
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.home .restPage_info_bottom li {
+  float: left;
+  padding: 0 10px;
+  height: 380px;
+  width: 33%;
+}
+
+.home .restPage_info_bottom li .icon_leaf {
+  width: 65px;
+  height: 77px;
+  background: url(../img/leaf.png) no-repeat center center;
+}
+
+.home .restPage_info_bottom li .icon_badge {
+  width: 65px;
+  height: 77px;
+  background: url(../img/badge.png) no-repeat center center;
+}
+
+.home .restPage_info_bottom li .icon_rocket {
+  width: 65px;
+  height: 77px;
+  background: url(../img/rocket.png) no-repeat center center;
+}
+
+.home .restPage_info_bottom li h2 {
+  margin: 40px 0;
+  font-family: "Abril Fatface", cursive;
+  color: #fdbc2c;
+  font-size: 36px;
+}
+
+.home .restPage_info_bottom li p {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.home .restPage_choices {
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: url(../img/cover2.jpg) repeat-y left top;
+}
+
+.home .restPage_choices span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 42px;
+  text-align: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #d94f2b;
+}
+
+.home .restPage_choices span h3 {
+  font-family: "Fredericka the Great", cursive;
+  font-size: 72px;
+  color: #fff;
+}
+
+.home .restPage_choices span p {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.home .restPage_feedBack_wrap {
+  margin: 0 auto;
+  width: 62%;
+  text-align: center;
+}
+
+.home .restPage_feedBack_wrap h2 {
+  margin-top: 120px;
+  font-family: "Abril Fatface", cursive;
+  color: #fdbc2c;
+  font-size: 48px;
+}
+
+.home .restPage_feedBack_wrap p {
+  margin-top: 60px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.home .restPage_feedBack_wrap ul {
+  margin-top: 90px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home .restPage_feedBack_wrap ul li {
+  vertical-align: top;
+  display: inline-block;
+  padding-right: 10px;
+  height: auto;
+  width: 33%;
+}
+
+.home .restPage_feedBack_wrap ul li mark {
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  background-color: #d94f2b;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.home .restPage_feedBack_wrap ul li h4 {
+  margin-top: 20px;
+  font-family: "Abril Fatface", cursive;
+  font-size: 24px;
+  color: #fdbc2c;
+}
+
+.home .restPage_feedBack_wrap ul li section {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #d94f2b;
+}
+
+.home .restPage_feedBack_wrap ul li p {
+  border: 4px solid #d94f2b;
+  height: 180px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px 17px;
+  font-family: "Fredericka the Great", cursive;
+  font-size: 24px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.home .restPage_feedBack_wrap ul li h5,
+.home .restPage_feedBack_wrap ul li a {
+  text-decoration: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  line-height: 15px;
+}
+
+.home .restPage_feedBack_wrap ul li h5 {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.home .restPage_feedBack_wrap ul li a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #d94f2b;
+}
+
+.home .restPage_mobileApp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../img/cover3.jpg);
+  height: 1014px;
+  width: 100%;
+}
+
+.home .restPage_mobileApp_wrap {
+  display: flex;
+  width: 62%;
+  height: auto;
+}
+
+.home .restPage_mobileApp_wrap aside {
+  position: relative;
+  float: left;
+  background: url(../img/iPhone6.png) no-repeat center center;
+  width: 369px;
+  height: 753px;
+}
+
+.home .restPage_mobileApp_wrap aside img {
+  position: absolute;
+  top: 91px;
+  left: 21px;
+  width: 321px;
+  height: 570px;
+}
+
+.home .restPage_mobileApp_wrap main {
+  padding-left: 40px;
+  width: 55%;
+}
+
+.home .restPage_mobileApp_wrap main h2 {
+  font-family: "Abril Fatface", cursive;
+  font-size: 48px;
+  color: #fdbc2c;
+}
+
+.home .restPage_mobileApp_wrap main p {
+  margin: 40px 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.home .restPage_mobileApp_wrap main h3 {
+  margin-bottom: 40px;
+  font-family: "Abril Fatface", cursive;
+  font-size: 36px;
+  line-height: 30px;
+  color: #fdbc2c;
+}
+
+.home .restPage_mobileApp_wrap main ul {
+  margin-bottom: 40px;
+}
+
+.home .restPage_mobileApp_wrap main ul li {
+  position: relative;
+  text-indent: 20px;
+  color: #d94f2b;
+  font-size: 18px;
+  line-height: 30px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: bold;
+}
+
+.home .restPage_mobileApp_wrap main ul li::before {
+  position: absolute;
+  left: 0;
+  bottom: 12px;
+  content: "";
+  background-color: #d94f2b;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.home .restPage_mobileApp_wrap main .appDownload {
+  width: 300px;
+}
+
+.home .restPage_mobileApp_wrap main .ios,
+.home .restPage_mobileApp_wrap main .android {
+  position: relative;
+  margin-bottom: 10px;
+  display: inline-block;
+  background-color: #fdbc2c;
+  width: 255px;
+  height: 44px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 44px;
+  cursor: pointer;
+}
+
+.home .restPage_mobileApp_wrap main .ios::before {
+  font-family: "icomoon";
+  position: absolute;
+  left: 20px;
+  content: "\eabe";
+}
+
+.home .restPage_mobileApp_wrap main .android::before {
+  font-family: "icomoon";
+  position: absolute;
+  left: 14px;
+  content: "\eac0";
+}
+
+.home .restPage_gallery {
+  width: 100%;
+  height: 720px;
+  overflow: hidden;
+}
+
+.home .restPage_gallery_show {
+  margin-top: 190px;
+  width: 800%;
+  height: 282px;
+}
+
+.home .restPage_gallery_nav {
+  position: relative;
+  display: flex;
+  margin: 150px auto;
+  width: 62%;
+  height: 56px;
+  border: 2px solid #d94f2b;
+  text-transform: uppercase;
+}
+
+.home .restPage_gallery_nav .nav_right,
+.home .restPage_gallery_nav .nav_left {
+  flex: 1;
+  font-family: "icomoon";
+  color: #d94f2b;
+  text-align: center;
+  line-height: 52px;
+}
+
+.home .restPage_gallery_nav h5 {
+  flex: 8;
+  height: 100%;
+  font-family: "Josefin Sans", sans-serif;
+  border-left: 2px solid #d94f2b;
+  border-right: 2px solid #d94f2b;
+  color: #fff;
+  font-size: 14px;
+  line-height: 56px;
+  text-align: center;
+}
+
+.home .restPage_gallery_nav h5 a {
+  color: #d94f2b;
+}
+
+@media screen and (max-width: 1920px) {
+  .home {
+    width: 100%;
+  }
+  .home .restPage_feedBack_wrap ul li p {
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .home {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .home {
+    width: 100%;
+  }
+  .home .restPage_feedBack_wrap ul li p {
+    height: 240px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .home {
+    width: 100%;
+  }
+  .home .restPage_info_wrap {
+    margin: 0 auto;
+    width: 82%;
+  }
+  .home .restPage_info_top p {
+    margin-bottom: 0;
+    font-size: 22px;
+  }
+  .home .restPage_info_bottom li {
+    height: auto;
+    width: 100%;
+    text-align: center;
+  }
+  .home .restPage_info_bottom li .icon_leaf,
+  .home .restPage_info_bottom li .icon_badge,
+  .home .restPage_info_bottom li .icon_rocket {
+    display: none;
+  }
+  .home .restPage_info_bottom li p {
+    font-size: 22px;
+  }
+  .home .restPage_feedBack_wrap {
+    width: 82%;
+  }
+  .home .restPage_feedBack_wrap h2 {
+    margin-top: 90px;
+    font-size: 48px;
+  }
+  .home .restPage_feedBack_wrap p {
+    margin-top: 60px;
+    font-size: 32px;
+    line-height: 30px;
+  }
+  .home .restPage_feedBack_wrap ul {
+    margin-top: 50px;
+    border-top: 1px solid transparent;
+  }
+  .home .restPage_feedBack_wrap ul li {
+    padding: 0;
+    display: block;
+    margin: 20px auto;
+    height: auto;
+    width: 100%;
+  }
+  .home .restPage_feedBack_wrap ul li mark {
+    display: none;
+  }
+  .home .restPage_feedBack_wrap ul li h4 {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .home .restPage_feedBack_wrap ul li section {
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 20px;
+  }
+  .home .restPage_feedBack_wrap ul li p {
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 13px 8px;
+    font-size: 17px;
+    line-height: 17px;
+    height: auto;
+  }
+  .home .restPage_feedBack_wrap ul li h5,
+  .home .restPage_feedBack_wrap ul li a {
+    display: none;
+  }
+  .home .restPage_choices {
+    justify-content: space-around;
+  }
+  .home .restPage_choices span {
+    margin-right: 0;
+    width: 123px;
+    height: 123px;
+    border-radius: 50%;
+    border: 4px solid #d94f2b;
+  }
+  .home .restPage_choices span h3 {
+    font-size: 48px;
+  }
+  .home .restPage_choices span p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .home .restPage_mobileApp {
+    height: auto;
+    width: 100%;
+  }
+  .home .restPage_mobileApp_wrap {
+    display: block;
+    width: 82%;
+    height: auto;
+  }
+  .home .restPage_mobileApp_wrap aside {
+    display: none;
+  }
+  .home .restPage_mobileApp_wrap main {
+    padding: 0;
+    width: 100%;
+  }
+  .home .restPage_mobileApp_wrap main h2 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 48px;
+  }
+  .home .restPage_mobileApp_wrap main p {
+    font-size: 22px;
+  }
+  .home .restPage_mobileApp_wrap main h3 {
+    text-align: center;
+  }
+  .home .restPage_mobileApp_wrap main ul {
+    margin: 0 auto;
+    width: 400px;
+  }
+  .home .restPage_mobileApp_wrap main ul li {
+    margin-left: 38px;
+    font-size: 32px;
+  }
+  .home .restPage_mobileApp_wrap main ul li::before {
+    bottom: 13px;
+  }
+  .home .restPage_mobileApp_wrap main .appDownload {
+    margin: 50px auto;
+    width: 600px;
+    overflow: hidden;
+  }
+  .home .restPage_mobileApp_wrap main .ios,
+  .home .restPage_mobileApp_wrap main .android {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 48px;
+  }
+  .home .restPage_mobileApp_wrap main .ios {
+    float: left;
+  }
+  .home .restPage_mobileApp_wrap main .android {
+    float: right;
+  }
+  .home .restPage_mobileApp_wrap main .ios::before,
+  .home .restPage_mobileApp_wrap main .android::before {
+    top: -2px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .home {
+    width: 100%;
+  }
+  .home .frontPage {
+    height: 1083px;
+  }
+  .home .frontPage_wrap h1 {
+    margin-bottom: 30px;
+    font-size: 62px;
+    line-height: 90px;
+  }
+  .home .frontPage_wrap h2 {
+    font-size: 36px;
+    width: 600px;
+    line-height: 46px;
+  }
+  .home .frontPage_wrap .button {
+    margin-top: 105px;
+    padding: 0 20px;
+    width: 220px;
+    height: 68px;
+    line-height: 68px;
+    font-size: 21px;
+    color: black;
+    background-color: #fdbc2c;
+  }
+  .home .restPage_info_wrap {
+    width: 92%;
+  }
+  .home .restPage_info_top p {
+    font-size: 32px;
+  }
+  .home .restPage_info_bottom li p {
+    font-size: 32px;
+  }
+  .home .restPage_feedBack_wrap {
+    width: 92%;
+  }
+  .home .restPage_feedBack_wrap h2 {
+    margin-top: 90px;
+    font-size: 48px;
+  }
+  .home .restPage_feedBack_wrap p {
+    margin-top: 60px;
+    font-size: 32px;
+    line-height: 30px;
+  }
+  .home .restPage_feedBack_wrap ul {
+    margin-top: 50px;
+    border-top: 1px solid transparent;
+  }
+  .home .restPage_feedBack_wrap ul li {
+    padding: 0;
+    display: block;
+    margin: 20px auto;
+    height: auto;
+    width: 100%;
+  }
+  .home .restPage_feedBack_wrap ul li mark {
+    display: none;
+  }
+  .home .restPage_feedBack_wrap ul li h4 {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .home .restPage_feedBack_wrap ul li section {
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 20px;
+  }
+  .home .restPage_feedBack_wrap ul li p {
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 13px 8px;
+    font-size: 17px;
+    line-height: 17px;
+    height: auto;
+  }
+  .home .restPage_feedBack_wrap ul li h5,
+  .home .restPage_feedBack_wrap ul li a {
+    display: none;
+  }
+  .home .restPage_mobileApp {
+    height: auto;
+    width: 100%;
+  }
+  .home .restPage_mobileApp_wrap {
+    width: 92%;
+  }
+  .home .restPage_mobileApp_wrap main {
+    padding: 0;
+    width: 100%;
+  }
+  .home .restPage_mobileApp_wrap main p {
+    font-size: 32px;
+  }
+  .home .restPage_mobileApp_wrap main ul li {
+    font-size: 32px;
+  }
+}

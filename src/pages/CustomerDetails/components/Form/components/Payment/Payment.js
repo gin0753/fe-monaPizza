@@ -9,9 +9,8 @@ class Payment extends React.Component{
                     <h3>Payment Methods</h3>
 
                     <form>
-                        <div className="radio">
+                        <div>
                             <input type="radio" id="bank" name="payment" value="bank" />
-                            <div className="radio__custom"></div>
                             <label className="inlinelabel" htmlFor="bank">Direct Bank Transfer</label>
                         </div>
 
@@ -22,15 +21,13 @@ class Payment extends React.Component{
                         until the funds have cleared in our account.
                         </div>
 
-                        <div  className="radio">
+                        <div>
                             <input type="radio" id="cheque" name="payment" value="cheque" />
-                            <div className="radio__custom"></div>
                             <label className="inlinelabel" htmlFor="cheque">Cheque Payment</label>
                         </div>
 
-                        <div  className="radio">
+                        <div>
                             <input type="radio" id="paypal" name="payment" value="paypal" />
-                            <div className="radio__custom"></div>
                             <label className="inlinelabel" htmlFor="paypal">PayPal</label>
                         </div>
 

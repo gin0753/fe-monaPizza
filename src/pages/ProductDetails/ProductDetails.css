@@ -176,7 +176,7 @@
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child div {
@@ -193,7 +193,7 @@
 
 @media only screen and (max-width: 1800px) {
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child {
-    margin-right: 10px;
+    margin-right: 20px;
   }
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child div {
     width: 40px;
@@ -217,6 +217,7 @@
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
+    margin: 0 auto;
   }
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child p {
     text-align: center;
@@ -224,7 +225,7 @@
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) div {
@@ -241,7 +242,7 @@
 
 @media only screen and (max-width: 1800px) {
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) {
-    margin-right: 10px;
+    margin-right: 20px;
   }
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) div {
     width: 50px;
@@ -249,6 +250,7 @@
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
+    margin: 0px auto;
   }
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) p {
     text-align: center;
@@ -272,7 +274,7 @@
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) div {
@@ -289,7 +291,7 @@
 
 @media only screen and (max-width: 1800px) {
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) {
-    margin-right: 10px;
+    margin-right: 20px;
   }
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) div {
     width: 60px;
@@ -320,7 +322,7 @@
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) div {
@@ -337,7 +339,7 @@
 
 @media only screen and (max-width: 1800px) {
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) {
-    margin-right: 10px;
+    margin-right: 20px;
   }
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) div {
     width: 70px;
@@ -368,7 +370,7 @@
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) div {
@@ -385,7 +387,7 @@
 
 @media only screen and (max-width: 1800px) {
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) {
-    margin-right: 10px;
+    margin-right: 20px;
   }
   .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) div {
     width: 80px;
@@ -433,14 +435,15 @@
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details .pizza-quantity .flex-item {
-  width: 30px;
-  line-height: 30px;
+  width: 50px;
+  line-height: 50px;
   border: 1px solid white;
   text-align: center;
 }
 
 .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details .pizza-quantity .flex-item:last-child {
-  width: 120px;
+  width: 200px;
+  height: 50px;
   margin-left: 30px;
   background-color: #FBB92D;
   border: none;

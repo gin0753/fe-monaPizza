@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Registration.css';
+import '../SignIn.css';
 import facebook from '../../../images/facebook_icon.svg';
 import wechat from '../../../images/wechat_icon.svg';
 import google from '../../../images/google_icon.svg';

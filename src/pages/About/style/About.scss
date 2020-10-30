@@ -16,7 +16,7 @@
   font-display: block;
 }
 
-$wrap-width: 62%;
+$wrap-width: 72%;
 $this-yellow: #fdbc2c;
 $this-red: #d94f2b;
 
@@ -24,7 +24,7 @@ $this-red: #d94f2b;
   text-decoration: none;
 }
 
-.home {
+.about {
   max-width: 1920px;
   min-width: 750px;
   margin: 0 auto;
@@ -32,47 +32,14 @@ $this-red: #d94f2b;
 
   //front page***********************************
   .frontPage {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    height: 1083px;
-    background: #161616 url(../img/cover.jpg) no-repeat left top;
-    &_wrap {
-      h1 {
-        margin-bottom: 30px;
-        font-family: "Fredericka the Great", cursive;
-        font-size: 72px;
-        color: #fff;
-        line-height: 90px;
-      }
-      h2 {
-        font-family: "Abril Fatface", cursive;
-        color: $this-yellow;
-        font-size: 36px;
-        width: 800px;
-        line-height: 46px;
-      }
-      .button {
-        display: inline-block;
-        margin-top: 40px;
-        padding: 0 30px;
-        height: 40px;
-        line-height: 40px;
-        font-family: "Josefin Sans", sans-serif;
-        color: $this-yellow;
-        font-size: 14px;
-        font-weight: 700;
-        vertical-align: middle;
-        border: 1px solid $this-yellow;
-        cursor: pointer;
-      }
-    }
+    width: 100%;
+    height: 389px;
+    background: url(../img/banner_about_us.png) center top no-repeat;
   }
   //rest page*****************************************
   .restPage {
     width: 100%;
-    // height: 9400px;
+    // border: 1px solid transparent;
   }
   //info section************
   .restPage_info {
@@ -139,39 +106,95 @@ $this-red: #d94f2b;
         }
       }
     }
-  }
-
-  //choices section************
-  .restPage_choices {
-    display: flex;
-    padding: 20px 0;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    // height: 430px;
-    background: url(../img/cover2.jpg) repeat-y left top;
-    span {
+    &_last {
+      margin-bottom: 50px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-right: 42px;
-      text-align: center;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid$this-red;
-      h3 {
-        font-family: "Fredericka the Great", cursive;
-        font-size: 72px;
-        color: #fff;
+      h2 {
+        margin-right: 20px;
+        flex: 5;
+        font-family: "Abril Fatface", cursive;
+        color: $this-yellow;
+        font-size: 36px;
+        line-height: 48px;
       }
-      p {
-        color: #fff;
-        text-transform: uppercase;
+      main {
+        flex: 6;
         font-family: "Josefin Sans", sans-serif;
-        font-size: 14px;
-        font-weight: 700;
+        font-size: 18px;
         line-height: 30px;
+        color: #fff;
+        p {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  //display section**********
+  .restPage_display {
+    height: 500px;
+    width: 100%;
+    background: url(../img/display_background.png) repeat-x 0 0;
+    border: 1px solid transparent;
+    font-family: "icomoon";
+    &_wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin: 50px auto;
+      width: 68%;
+      height: 400px;
+      &::before,
+      &::after {
+        position: absolute;
+        top: 170px;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        line-height: 50px;
+        text-align: center;
+        border: 5px solid #fff;
+        color: #fff;
+        cursor: pointer;
+      }
+      &::before {
+        left: -96px;
+        content: "\ea38";
+      }
+      &::after {
+        right: -96px;
+        content: "\ea34";
+      }
+      article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 50px;
+        min-width: 300px;
+        max-width: 410px;
+        height: 500px;
+        h2 {
+          flex: 1;
+          font-family: "Abril Fatface", cursive;
+          font-size: 48px;
+          color: #fff;
+        }
+        p {
+          flex: 3;
+          font-family: "Josefin Sans", sans-serif;
+          font-size: 18px;
+          line-height: 30px;
+          color: #fff;
+        }
+      }
+      section {
+        border: 6px solid black;
+        width: 600px;
+        height: 100%;
+      }
+      img {
+        display: block;
+        margin: 0 auto;
+        margin-top: -57px;
       }
     }
   }
@@ -189,7 +212,6 @@ $this-red: #d94f2b;
       }
       p {
         margin-top: 60px;
-
         font-family: "Josefin Sans", sans-serif;
         font-size: 18px;
         line-height: 30px;
@@ -256,121 +278,141 @@ $this-red: #d94f2b;
           }
         }
       }
+
+      nav {
+        margin: 55px;
+        font-weight: 900;
+        color: $this-red;
+        line-height: 50px;
+        font-family: "icomoon";
+        &::before {
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          border: 5px solid$this-red;
+          content: "\ea38";
+          cursor: pointer;
+        }
+        &::after {
+          margin-left: 20px;
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          border: 5px solid$this-red;
+          content: "\ea34";
+          cursor: pointer;
+        }
+      }
     }
   }
-  //mobile app download section************
-  .restPage_mobileApp {
+
+  //choices section************
+  .restPage_choices {
     display: flex;
+    margin: 100px 0;
+    padding: 150px 0;
     justify-content: center;
     align-items: center;
-    background: url(../img/cover3.jpg);
-    height: 1014px;
     width: 100%;
-  }
-  .restPage_mobileApp_wrap {
-    display: flex;
-    width: $wrap-width;
-    height: auto;
-    aside {
-      position: relative;
-      float: left;
-      background: url(../img/iPhone6.png) no-repeat center center;
-      width: 369px;
-      height: 753px;
-      img {
-        position: absolute;
-        top: 91px;
-        left: 21px;
-        width: 321px;
-        height: 570px;
-      }
-    }
-    main {
-      padding-left: 40px;
-      width: 66%;
-      h2 {
-        font-family: "Abril Fatface", cursive;
-        font-size: 48px;
-        color: $this-yellow;
+    // height: 430px;
+    background: url(../img/cover2.jpg) repeat-y left top;
+    span {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 42px;
+      text-align: center;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid$this-red;
+      h3 {
+        font-family: "Fredericka the Great", cursive;
+        font-size: 72px;
+        color: #fff;
       }
       p {
-        margin: 40px 0;
+        color: #fff;
+        text-transform: uppercase;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 30px;
+      }
+    }
+  }
+
+  //questions section************
+  .restPage_questions {
+    height: auto;
+    &_wrap {
+      margin: 0 auto;
+      width: $wrap-width;
+
+      h2 {
+        font-family: "Abril Fatface", cursive;
+        color: #fdbc2c;
+        font-size: 48px;
+        text-align: center;
+      }
+      h5 {
+        margin: 50px auto;
         font-family: "Josefin Sans", sans-serif;
         font-size: 18px;
         line-height: 30px;
         color: #fff;
+        text-align: center;
       }
-      h3 {
-        margin-bottom: 40px;
+      li {
+        position: relative;
+        margin-top: -1px;
+        height: 124px;
         font-family: "Abril Fatface", cursive;
-        font-size: 36px;
-        line-height: 30px;
-        color: $this-yellow;
-      }
-      ul {
-        margin-bottom: 40px;
-        li {
-          position: relative;
-          text-indent: 20px;
-          color: $this-red;
+        color: #fdbc2c;
+        font-size: 24px;
+        border-top: 1px solid #383838;
+        border-bottom: 1px solid #383838;
+        span {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 90%;
+          line-height: 30px;
+        }
+        i {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          border: 2px solid #fff;
+          height: 50px;
+          width: 50px;
+          line-height: 40px;
+          text-align: center;
+          font-size: 50px;
+          border-radius: 50%;
+          color: #fff;
+          cursor: pointer;
+        }
+        main {
+          margin: 124px 75px 80px 0;
+          font-family: "Josefin Sans", sans-serif;
           font-size: 18px;
           line-height: 30px;
-          font-family: "Josefin Sans", sans-serif;
-          font-weight: bold;
-
-          &::before {
-            position: absolute;
-            left: 0;
-            bottom: 12px;
-            content: "";
-            background-color: $this-red;
-            border-radius: 50%;
-            width: 10px;
-            height: 10px;
-          }
+          color: #fff;
         }
-      }
-      .appDownload {
-        width: 300px;
-        // overflow: hidden;
-      }
-      .ios,
-      .android {
-        position: relative;
-        margin-bottom: 10px;
-        display: inline-block;
-        background-color: $this-yellow;
-        width: 255px;
-        height: 44px;
-        text-align: center;
-        text-transform: uppercase;
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 44px;
-        cursor: pointer;
-      }
-      .ios::before {
-        font-family: "icomoon";
-        position: absolute;
-        left: 20px;
-        content: "\eabe";
-      }
-      .android::before {
-        font-family: "icomoon";
-        position: absolute;
-        left: 14px;
-        content: "\eac0";
       }
     }
   }
+
+  //gallery section************
   .restPage_gallery {
     width: 100%;
-    height: 720px;
+    height: 888px;
     overflow: hidden;
 
     &_show {
-      margin-top: 190px;
+      margin-top: 145px;
       width: 800%;
       height: 282px;
     }
@@ -409,7 +451,7 @@ $this-red: #d94f2b;
 }
 
 @media screen and (max-width: 1920px) {
-  .home {
+  .about {
     width: 100%;
 
     .restPage_feedBack {
@@ -426,12 +468,12 @@ $this-red: #d94f2b;
   }
 }
 @media screen and (max-width: 1800px) {
-  .home {
+  .about {
     width: 100%;
   }
 }
 @media screen and (max-width: 1500px) {
-  .home {
+  .about {
     width: 100%;
 
     .restPage_feedBack {
@@ -450,7 +492,7 @@ $this-red: #d94f2b;
 
 @media screen and (max-width: 1200px) {
   $wrap-width: 82%;
-  .home {
+  .about {
     width: 100%;
 
     .restPage_info {
@@ -462,12 +504,12 @@ $this-red: #d94f2b;
       &_top {
         p {
           margin-bottom: 0;
-          font-size: 22px;
+          font-size: 32px;
+          text-align: left;
         }
       }
       &_bottom {
         li {
-          // border: 1px solid red;
           height: auto;
           width: 100%;
           .icon_leaf,
@@ -477,60 +519,80 @@ $this-red: #d94f2b;
           }
           text-align: center;
           p {
-            font-size: 22px;
+            font-size: 32px;
+            text-align: left;
           }
+        }
+      }
+      &_last {
+        display: block;
+        h2 {
+          margin-bottom: 50px;
+          margin-right: 0;
+          text-align: center;
+        }
+        p {
+          font-size: 32px;
         }
       }
     }
 
-    .restPage_feedBack {
-      &_wrap {
-        width: $wrap-width;
+    .restPage_display_wrap {
+      section {
+        display: none;
+      }
+      h2 {
+        text-align: center;
+        margin-top: 41px;
+      }
+    }
 
-        h2 {
-          margin-top: 90px;
-          font-size: 48px;
-        }
-        p {
-          margin-top: 60px;
-          font-size: 32px;
-          line-height: 30px;
-        }
+    .restPage_feedBack_wrap {
+      width: $wrap-width;
 
-        ul {
-          margin-top: 50px;
-          border-top: 1px solid transparent;
-          li {
-            padding: 0;
-            display: block;
-            margin: 20px auto;
+      h2 {
+        margin-top: 90px;
+        font-size: 48px;
+      }
+      p {
+        margin-top: 60px;
+        font-size: 32px;
+        line-height: 30px;
+      }
+
+      ul {
+        margin-top: 50px;
+        border-top: 1px solid transparent;
+        li {
+          padding: 0;
+          display: block;
+          margin: 20px auto;
+          height: auto;
+          width: 100%;
+          // border: 1px solid red;
+          mark {
+            display: none;
+          }
+          h4 {
+            margin-top: 10px;
+            font-size: 20px;
+          }
+          section {
+            margin-top: 10px;
+            font-size: 10px;
+            line-height: 20px;
+          }
+          p {
+            margin: 0 auto;
+            margin-top: 10px;
+            padding: 13px 8px;
+            font-size: 17px;
+            line-height: 17px;
             height: auto;
-            width: 100%;
-            // border: 1px solid red;
-            mark {
-              display: none;
-            }
-            h4 {
-              margin-top: 10px;
-              font-size: 20px;
-            }
-            section {
-              margin-top: 10px;
-              font-size: 10px;
-              line-height: 20px;
-            }
-            p {
-              margin: 0 auto;
-              margin-top: 10px;
-              padding: 13px 8px;
-              font-size: 17px;
-              line-height: 17px;
-              height: auto;
-            }
-            h5,
-            a {
-              display: none;
-            }
+          }
+          h5,
+          a {
+            display: none;
           }
         }
       }
@@ -554,64 +616,10 @@ $this-red: #d94f2b;
       }
     }
 
-    .restPage_mobileApp {
-      height: auto;
-      width: 100%;
-    }
-    .restPage_mobileApp_wrap {
-      display: block;
-      width: $wrap-width;
-      height: auto;
-      aside {
-        display: none;
-      }
-      main {
-        padding: 0;
-        width: 100%;
-        h2 {
-          margin-top: 50px;
-          text-align: center;
-          font-size: 48px;
-        }
-        p {
-          font-size: 22px;
-        }
-        h3 {
-          text-align: center;
-        }
-        ul {
-          margin: 0 auto;
-          width: 400px;
-          li {
-            margin-left: 38px;
-            font-size: 32px;
-            &::before {
-              bottom: 13px;
-            }
-          }
-        }
-        .appDownload {
-          margin: 50px auto;
-          width: 600px;
-          overflow: hidden;
-        }
-        .ios,
-        .android {
-          margin-bottom: 0;
-          font-size: 14px;
-          line-height: 48px;
-        }
-        .ios {
-          float: left;
-        }
-        .android {
-          float: right;
-        }
-
-        .ios::before,
-        .android::before {
-          top: -2px;
-        }
+    .restPage_questions_wrap {
+      h5,
+      li main {
+        font-size: 32px;
       }
     }
   }
@@ -620,10 +628,9 @@ $this-red: #d94f2b;
 @media screen and (max-width: 992px) {
   $wrap-width: 92%;
 
-  .home {
+  .about {
     width: 100%;
     .frontPage {
-      height: 1083px;
       &_wrap {
         h1 {
           margin-bottom: 30px;
@@ -719,10 +726,6 @@ $this-red: #d94f2b;
       }
     }
 
-    .restPage_mobileApp {
-      height: auto;
-      width: 100%;
-    }
     .restPage_mobileApp_wrap {
       width: $wrap-width;
 

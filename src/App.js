@@ -28,9 +28,10 @@ function App() {
                 <Route path="/product-details" component={ProductDetails} />
                 <Route path="/customer-details" component={CustomerDetails} />
                 <Route path="/blog" component={Blog} />
-                <Route path="/Home" component={Home} />
+                <Route path="/home" component={Home} />
                 <Route path="/menu" component={Menu} />
-                <Route path="/signIn" component={SignIn} />
+                <Route path="/sign-in" component={SignIn} />
+                <Route path="/" component={Home} />
             </Switch>
         </Router>
     );

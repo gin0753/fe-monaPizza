@@ -1,0 +1,781 @@
+@import "./normalize.css";
+@import "./reset.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap");
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?s005lk");
+  src: url("fonts/icomoon.eot?s005lk#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?s005lk") format("truetype"),
+    url("fonts/icomoon.woff?s005lk") format("woff"),
+    url("fonts/icomoon.svg?s005lk#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+$wrap-width: 62%;
+$this-yellow: #fdbc2c;
+$this-red: #d94f2b;
+
+* {
+  text-decoration: none;
+}
+
+.home {
+  max-width: 1920px;
+  min-width: 750px;
+  margin: 0 auto;
+  background: url(../img/Background.png) no-repeat center top;
+
+  //front page***********************************
+  .frontPage {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 1083px;
+    background: #161616 url(../img/cover.jpg) no-repeat left top;
+    &_wrap {
+      h1 {
+        margin-bottom: 30px;
+        font-family: "Fredericka the Great", cursive;
+        font-size: 72px;
+        color: #fff;
+        line-height: 90px;
+      }
+      h2 {
+        font-family: "Abril Fatface", cursive;
+        color: $this-yellow;
+        font-size: 36px;
+        width: 800px;
+        line-height: 46px;
+      }
+      .button {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 0 30px;
+        height: 40px;
+        line-height: 40px;
+        font-family: "Josefin Sans", sans-serif;
+        color: $this-yellow;
+        font-size: 14px;
+        font-weight: 700;
+        vertical-align: middle;
+        border: 1px solid $this-yellow;
+        cursor: pointer;
+      }
+    }
+  }
+  //rest page*****************************************
+  .restPage {
+    width: 100%;
+    // height: 9400px;
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 90px;
+      background: url(../img/Base.png) no-repeat center center;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  //info section************
+  .restPage_info {
+    // background-color: yellowgreen;
+    &_wrap {
+      margin: 0 auto;
+      width: $wrap-width;
+    }
+    &_top {
+      margin-top: 50px;
+      text-align: center;
+      // background-color: #666;
+      h2 {
+        margin-bottom: 60px;
+        font-family: "Abril Fatface", cursive;
+        color: $this-yellow;
+        font-size: 48px;
+        // width: 1100px;
+      }
+      p {
+        margin-bottom: 50px;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 18px;
+        line-height: 30px;
+        color: #fff;
+        // width: 1200px;
+      }
+    }
+    &_bottom {
+      overflow: hidden;
+      margin-bottom: 50px;
+
+      li {
+        float: left;
+        padding: 0 10px;
+        height: 380px;
+        width: 33%;
+        .icon_leaf {
+          width: 65px;
+          height: 77px;
+          background: url(../img/leaf.png) no-repeat center center;
+        }
+        .icon_badge {
+          width: 65px;
+          height: 77px;
+          background: url(../img/badge.png) no-repeat center center;
+        }
+        .icon_rocket {
+          width: 65px;
+          height: 77px;
+          background: url(../img/rocket.png) no-repeat center center;
+        }
+        h2 {
+          margin: 40px 0;
+          font-family: "Abril Fatface", cursive;
+          color: $this-yellow;
+          font-size: 36px;
+        }
+        p {
+          font-family: "Josefin Sans", sans-serif;
+          font-size: 18px;
+          line-height: 30px;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  //choices section************
+  .restPage_choices {
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    // height: 430px;
+    background: url(../img/cover2.jpg) repeat-y left top;
+    span {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 42px;
+      text-align: center;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid$this-red;
+      h3 {
+        font-family: "Fredericka the Great", cursive;
+        font-size: 72px;
+        color: #fff;
+      }
+      p {
+        color: #fff;
+        text-transform: uppercase;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 30px;
+      }
+    }
+  }
+  //feedBack section************
+  .restPage_feedBack {
+    &_wrap {
+      margin: 0 auto;
+      width: $wrap-width;
+      text-align: center;
+      h2 {
+        margin-top: 120px;
+        font-family: "Abril Fatface", cursive;
+        color: $this-yellow;
+        font-size: 48px;
+      }
+      p {
+        margin-top: 60px;
+
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 18px;
+        line-height: 30px;
+        color: #fff;
+      }
+      ul {
+        margin-top: 90px;
+        width: 100%;
+        overflow: hidden;
+        li {
+          vertical-align: top;
+          display: inline-block;
+          padding-right: 10px;
+          height: auto;
+          width: 33%;
+          mark {
+            display: inline-block;
+            width: 160px;
+            height: 160px;
+            background-color: $this-red;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+          h4 {
+            margin-top: 20px;
+            font-family: "Abril Fatface", cursive;
+            font-size: 24px;
+            color: $this-yellow;
+          }
+          section {
+            margin-top: 20px;
+
+            font-size: 14px;
+            line-height: 30px;
+            color: $this-red;
+          }
+          p {
+            border: 4px solid $this-red;
+            height: 180px;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 20px 17px;
+            font-family: "Fredericka the Great", cursive;
+            font-size: 24px;
+            line-height: 30px;
+            color: #fff;
+          }
+          h5,
+          a {
+            text-decoration: none;
+            font-family: "Josefin Sans", sans-serif;
+            font-size: 18px;
+            line-height: 15px;
+          }
+          h5 {
+            margin-top: 20px;
+
+            color: #fff;
+          }
+          a {
+            display: inline-block;
+            margin-top: 10px;
+            color: $this-red;
+          }
+        }
+      }
+
+      nav {
+        margin: 55px;
+        font-weight: 900;
+        color: $this-red;
+        line-height: 50px;
+        font-family: "icomoon";
+        &::before {
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          border: 5px solid$this-red;
+          content: "\ea38";
+          cursor: pointer;
+        }
+        &::after {
+          margin-left: 20px;
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          border: 5px solid$this-red;
+          content: "\ea34";
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  //mobile app download section************
+  .restPage_mobileApp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/cover3.jpg);
+    height: 1014px;
+    width: 100%;
+  }
+  .restPage_mobileApp_wrap {
+    display: flex;
+    width: $wrap-width;
+    height: auto;
+    aside {
+      position: relative;
+      float: left;
+      background: url(../img/iPhone6.png) no-repeat center center;
+      width: 369px;
+      height: 753px;
+      img {
+        position: absolute;
+        top: 91px;
+        left: 21px;
+        width: 321px;
+        height: 570px;
+      }
+    }
+    main {
+      padding-left: 40px;
+      width: 55%;
+      h2 {
+        font-family: "Abril Fatface", cursive;
+        font-size: 48px;
+        color: $this-yellow;
+      }
+      p {
+        margin: 40px 0;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 18px;
+        line-height: 30px;
+        color: #fff;
+      }
+      h3 {
+        margin-bottom: 40px;
+        font-family: "Abril Fatface", cursive;
+        font-size: 36px;
+        line-height: 30px;
+        color: $this-yellow;
+      }
+      ul {
+        margin-bottom: 40px;
+        li {
+          position: relative;
+          text-indent: 20px;
+          color: $this-red;
+          font-size: 18px;
+          line-height: 30px;
+          font-family: "Josefin Sans", sans-serif;
+          font-weight: bold;
+
+          &::before {
+            position: absolute;
+            left: 0;
+            bottom: 12px;
+            content: "";
+            background-color: $this-red;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+      .appDownload {
+        width: 300px;
+        // overflow: hidden;
+      }
+      .ios,
+      .android {
+        position: relative;
+        margin-bottom: 10px;
+        display: inline-block;
+        background-color: $this-yellow;
+        width: 255px;
+        height: 44px;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 44px;
+        cursor: pointer;
+      }
+      .ios::before {
+        font-family: "icomoon";
+        position: absolute;
+        left: 20px;
+        content: "\eabe";
+      }
+      .android::before {
+        font-family: "icomoon";
+        position: absolute;
+        left: 14px;
+        content: "\eac0";
+      }
+    }
+  }
+  .restPage_gallery {
+    width: 100%;
+    height: 720px;
+    overflow: hidden;
+
+    &_show {
+      margin-top: 190px;
+      width: 800%;
+      height: 282px;
+    }
+    &_nav {
+      position: relative;
+      display: flex;
+      margin: 150px auto;
+      width: $wrap-width;
+      height: 56px;
+      border: 2px solid $this-red;
+      text-transform: uppercase;
+      .nav_right,
+      .nav_left {
+        flex: 1;
+        font-family: "icomoon";
+        color: $this-red;
+        text-align: center;
+        line-height: 52px;
+      }
+      h5 {
+        flex: 8;
+        height: 100%;
+        font-family: "Josefin Sans", sans-serif;
+        border-left: 2px solid $this-red;
+        border-right: 2px solid $this-red;
+        color: #fff;
+        font-size: 14px;
+        line-height: 56px;
+        text-align: center;
+        a {
+          color: $this-red;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .home {
+    width: 100%;
+
+    .restPage_feedBack {
+      &_wrap {
+        ul {
+          li {
+            p {
+              height: 180px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1800px) {
+  .home {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .home {
+    width: 100%;
+
+    .restPage_feedBack {
+      &_wrap {
+        ul {
+          li {
+            p {
+              height: 240px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  $wrap-width: 82%;
+  .home {
+    width: 100%;
+
+    .restPage_info {
+      // background-color: yellowgreen;
+      &_wrap {
+        margin: 0 auto;
+        width: $wrap-width;
+      }
+      &_top {
+        p {
+          margin-bottom: 0;
+          font-size: 22px;
+        }
+      }
+      &_bottom {
+        li {
+          // border: 1px solid red;
+          height: auto;
+          width: 100%;
+          .icon_leaf,
+          .icon_badge,
+          .icon_rocket {
+            display: none;
+          }
+          text-align: center;
+          p {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+
+    .restPage_feedBack {
+      &_wrap {
+        width: $wrap-width;
+
+        h2 {
+          margin-top: 90px;
+          font-size: 48px;
+        }
+        p {
+          margin-top: 60px;
+          font-size: 32px;
+          line-height: 30px;
+        }
+
+        ul {
+          margin-top: 50px;
+          border-top: 1px solid transparent;
+          li {
+            padding: 0;
+            display: block;
+            margin: 20px auto;
+            height: auto;
+            width: 100%;
+            // border: 1px solid red;
+            mark {
+              display: none;
+            }
+            h4 {
+              margin-top: 10px;
+              font-size: 20px;
+            }
+            section {
+              margin-top: 10px;
+              font-size: 10px;
+              line-height: 20px;
+            }
+            p {
+              margin: 0 auto;
+              margin-top: 10px;
+              padding: 13px 8px;
+              font-size: 17px;
+              line-height: 17px;
+              height: auto;
+            }
+            h5,
+            a {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .restPage_choices {
+      // flex-wrap: wrap;
+      justify-content: space-around;
+      span {
+        margin-right: 0;
+        width: 123px;
+        height: 123px;
+        border-radius: 50%;
+        border: 4px solid$this-red;
+        h3 {
+          font-size: 48px;
+        }
+        p {
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .restPage_mobileApp {
+      height: auto;
+      width: 100%;
+    }
+    .restPage_mobileApp_wrap {
+      display: block;
+      width: $wrap-width;
+      height: auto;
+      aside {
+        display: none;
+      }
+      main {
+        padding: 0;
+        width: 100%;
+        h2 {
+          margin-top: 50px;
+          text-align: center;
+          font-size: 48px;
+        }
+        p {
+          font-size: 22px;
+        }
+        h3 {
+          text-align: center;
+        }
+        ul {
+          margin: 0 auto;
+          width: 400px;
+          li {
+            margin-left: 38px;
+            font-size: 32px;
+            &::before {
+              bottom: 13px;
+            }
+          }
+        }
+        .appDownload {
+          margin: 50px auto;
+          width: 600px;
+          overflow: hidden;
+        }
+        .ios,
+        .android {
+          margin-bottom: 0;
+          font-size: 14px;
+          line-height: 48px;
+        }
+        .ios {
+          float: left;
+        }
+        .android {
+          float: right;
+        }
+
+        .ios::before,
+        .android::before {
+          top: -2px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  $wrap-width: 92%;
+
+  .home {
+    width: 100%;
+    .frontPage {
+      height: 1083px;
+      &_wrap {
+        h1 {
+          margin-bottom: 30px;
+          font-size: 62px;
+          line-height: 90px;
+        }
+        h2 {
+          font-size: 36px;
+          width: 600px;
+          line-height: 46px;
+        }
+        .button {
+          margin-top: 105px;
+          padding: 0 20px;
+          width: 220px;
+          height: 68px;
+          line-height: 68px;
+          font-size: 21px;
+          color: black;
+          background-color: $this-yellow;
+        }
+      }
+    }
+
+    .restPage_info {
+      // background-color: yellowgreen;
+      &_wrap {
+        width: $wrap-width;
+      }
+      &_top {
+        p {
+          font-size: 32px;
+        }
+      }
+      &_bottom {
+        li {
+          p {
+            font-size: 32px;
+          }
+        }
+      }
+    }
+
+    .restPage_feedBack {
+      &_wrap {
+        width: $wrap-width;
+        h2 {
+          margin-top: 90px;
+          font-size: 48px;
+        }
+        p {
+          margin-top: 60px;
+          font-size: 32px;
+          line-height: 30px;
+        }
+
+        ul {
+          margin-top: 50px;
+          border-top: 1px solid transparent;
+          li {
+            padding: 0;
+            display: block;
+            margin: 20px auto;
+            height: auto;
+            width: 100%;
+            // border: 1px solid red;
+            mark {
+              display: none;
+            }
+            h4 {
+              margin-top: 10px;
+              font-size: 20px;
+            }
+            section {
+              margin-top: 10px;
+              font-size: 10px;
+              line-height: 20px;
+            }
+            p {
+              margin: 0 auto;
+              margin-top: 10px;
+              padding: 13px 8px;
+              font-size: 17px;
+              line-height: 17px;
+              height: auto;
+            }
+            h5,
+            a {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .restPage_mobileApp {
+      height: auto;
+      width: 100%;
+    }
+    .restPage_mobileApp_wrap {
+      width: $wrap-width;
+
+      main {
+        padding: 0;
+        width: 100%;
+        p {
+          font-size: 32px;
+        }
+        ul {
+          li {
+            font-size: 32px;
+          }
+        }
+      }
+    }
+  }
+}

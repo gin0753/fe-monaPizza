@@ -1,10 +1,10 @@
 import React from 'react';
 import './CustomerDetails.css';
 import Header from '../../components/Header/Header';
-import Navigation from './components/Navigation/Navigation';
+import Navigation from '../../components/Navigation/Navigation';
 import Form from './components/Form/Form';
-import Newsletter from './components/Newsletter/Newsletter';
-import Media from './components/Media/Media';
+import Newsletter from '../../components/Newsletter/Newsletter';
+import Media from '../../components/Media/Media';
 import Footer from '../../components/Footer/Footer';
 import SideBar from '../../components/SideBar/SideBar/SideBar';
 import CartTotals from '../../components/Cart/CartTotal/CartTotal';

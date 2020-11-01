@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'RoyaChicken';
-  src: local("RoyaChicken"), url(../../font//RoyaChicken.otf) format("opentype");
+  src: local("RoyaChicken"), url(../../font/RoyaChicken.otf) format("opentype");
 }
 
 .header {

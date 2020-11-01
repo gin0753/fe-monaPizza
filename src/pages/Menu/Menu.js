@@ -20,15 +20,46 @@ import Bgi from '../../images/Pizza-bg.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import Header from '../../components/Header/Header';
+import Newsletter from '../../components/Newsletter/Newsletter';
+import Media from '../../components/Media/Media';
+import Footer from '../../components/Footer/Footer';
+import SideBar from '../../components/SideBar/SideBar/SideBar';
+import CartTotals from '../../components/Cart/CartTotal/CartTotal';
 
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />
 const ArrowRight = <FontAwesomeIcon icon={faArrowRight} />
 
 class Menu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarIsClicked: false,
+      cartIsClicked: false
+    }
+  }
+
+  toggleSideBar = () => {
+    this.setState({
+      sidebarIsClicked: !this.state.sidebarIsClicked
+    })
+  }
+
+  toggleCart = () => {
+    this.setState({
+      cartIsClicked: !this.state.cartIsClicked
+    })
+  }
+
   render() {
     return (
+
       <div className="menu" style={{ backgroundImage: `url(${Bgi})` }}>
+        <SideBar sidestatus={this.state.sidebarIsClicked} />
+        <CartTotals cartstatus={this.state.cartIsClicked} />
+        <Header toggleSideBar={this.toggleSideBar} toggleCart={this.toggleCart}
+          sidestatus={this.state.sidebarIsClicked} cartstatus={this.state.cartIsClicked} />
         <div className="catelogue">
           <div className="catelogue__topbar">
             <div className="catelogue__filter">
@@ -641,6 +672,9 @@ class Menu extends Component {
             <div className="nextpage"><a href="#">{ArrowRight}</a></div>
           </div>
         </div>
+        <Newsletter />
+        <Media />
+        <Footer />
       </div>);
   }
 }

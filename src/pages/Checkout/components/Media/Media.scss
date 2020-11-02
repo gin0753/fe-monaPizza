@@ -1,0 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Fredericka-the-Great';
+    src: local('Fredericka-the-Great'), url(../../../../font/Fredericka-the-Great.ttf) format('opentype');
+}
+.Checkout{
+    width: 100%;
+    & .media{
+        min-width: 350px;
+        background-color: #181818;
+        height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-family: "Fredericka-the-Great";
+        & .contactdetails{
+            & h2, & h3{
+                color: #d94f2b;
+                text-align: center;
+            }
+            & h2{
+                font-size: 60px;
+                @media screen and (max-width: 530px) {
+                    font-size: 40px;
+                }
+            }
+            & h3{
+                font-size: 40px;
+                @media screen and (max-width: 530px) {
+                    font-size: 25px;
+                }
+            }
+            & img{
+                margin-top: 30px;
+                margin-left: 25%;
+                width: 50%;
+                height: 50%;
+                @media screen and (max-width: 530px) {
+                    margin-top: 15px;
+                }
+            } 
+        }
+        & .socialmedia{
+            text-align: center;
+            & h5{
+                color: #FFFFFF;
+                margin: 15px;
+                font-size: 20px;
+                display: inline-block;
+                @media screen and (max-width: 530px) {
+                    margin: 10px;
+                    font-size: 13px;
+                }
+            }  
+        }
+    }
+}

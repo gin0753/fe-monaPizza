@@ -8,10 +8,10 @@ import ViewOrder from './pages/ViewOrder/ViewOrder';
 import ContactUs from './pages/ContactUs/contactUs';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
-import CustomerDetails from './pages/CustomerDetails/CustomerDetails';
 import Blog from './pages/Blog/Blog';
 import Menu from './pages/Menu/Menu';
 import SignIn from './components/SignIn/SignIn';
+import Checkout from './pages/Checkout/Checkout';
 
 
 
@@ -26,11 +26,11 @@ function App() {
                 <Route path="/contact-us" component={ContactUs} />
                 <Route path="/shopping-cart" component={ShoppingCart} />
                 <Route path="/product-details" component={ProductDetails} />
-                <Route path="/customer-details" component={CustomerDetails} />
                 <Route path="/blog" component={Blog} />
                 <Route path="/home" component={Home} />
                 <Route path="/menu" component={Menu} />
                 <Route path="/sign-in" component={SignIn} />
+                <Route path="/checkout" component={Checkout} />
                 <Route path="/" component={Home} />
             </Switch>
         </Router>

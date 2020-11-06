@@ -1,263 +1,257 @@
 @charset "UTF-8";
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.Checkout {
-  width: 100%;
-}
-.Checkout .form {
-  background-color: #181818;
-  min-width: 350px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.Checkout .form .clear {
-  clear: both;
-}
-.Checkout .form .billcontainer {
-  width: 40%;
-  margin-right: 30px;
-}
-.Checkout .form .billcontainer span {
-  color: #d94f2b;
-}
-@media screen and (max-width: 770px) {
-  .Checkout .form .billcontainer {
-    width: 80%;
+/**{
+    padding: 0;
     margin: 0;
-  }
+    box-sizing: border-box;
 }
-.Checkout .form .billcontainer__bill--leftwrapper, .Checkout .form .billcontainer__bill--rightwrapper {
-  width: 48%;
-  margin-bottom: 12px;
-}
-.Checkout .form .billcontainer__bill--leftwrapper {
-  float: left;
-}
-.Checkout .form .billcontainer__bill--rightwrapper {
-  float: right;
-}
-.Checkout .form .billcontainer__bill--afterwrapper {
-  margin-top: -12px;
-}
-.Checkout .form .ordercontainer {
-  width: 25%;
-}
-@media screen and (max-width: 1225px) {
-  .Checkout .form .ordercontainer {
-    width: 40%;
-  }
-}
-@media screen and (max-width: 770px) {
-  .Checkout .form .ordercontainer {
-    width: 80%;
-  }
-}
-.Checkout .form .ordercontainer span {
-  color: #d94f2b;
-}
-.Checkout .form .ordercontainer__order {
-  font-size: 11px;
-  color: #eeeeee;
-}
-.Checkout .form .ordercontainer__order dl {
-  display: flex;
-  justify-content: space-between;
-}
-.Checkout .form .ordercontainer__order dl dt, .Checkout .form .ordercontainer__order dl dd {
-  display: inline-block;
-  margin: 10px 0;
-}
-.Checkout .form .ordercontainer__order dl dt h5, .Checkout .form .ordercontainer__order dl dd h5 {
-  font-size: 13px;
-  color: #FFFFFF;
-}
-.Checkout .form .ordercontainer__order dl dt h4, .Checkout .form .ordercontainer__order dl dd h4 {
-  font-size: 18px;
-}
-.Checkout .form .ordercontainer__order hr {
-  margin: 12px 0;
-  border: 0.1px solid #eeeeee;
-  opacity: 0.2;
-}
-.Checkout .form .ordercontainer__payment {
-  color: #FFFFFF;
-  font-size: 11px;
-}
-.Checkout .form .ordercontainer__payment--optionwrapper {
-  position: relative;
-}
-.Checkout .form .ordercontainer__payment--optionwrapper img {
-  width: 50%;
-  height: 50%;
-  margin-left: 20px;
-}
-.Checkout .form .ordercontainer__payment--optionwrapper h6 {
-  position: absolute;
-  left: 58%;
-  top: 25%;
-  font-size: 5px;
-}
-.Checkout .form .ordercontainer__payment--paymentintro {
-  padding: 0 25px;
-}
-.Checkout .form .ordercontainer__payment--orderbutton {
-  margin-top: 20px;
-  width: 100%;
-  padding: 12px 0;
-  background-color: #FDBC2C;
-  outline: none;
-  border: none;
-  font-size: 12px;
-  cursor: pointer;
-  font-weight: 700;
-}
-.Checkout .form .ordercontainer__payment--orderbutton:hover {
-  opacity: 0.9;
-}
-.Checkout .form .ordercontainer__payment p > span {
-  margin-left: 30px;
-}
-.Checkout .form .billcontainer__login, .Checkout .form .ordercontainer__coupon {
-  border-bottom: 3px solid #d94f2b;
-  color: #FFFFFF;
-  padding: 30px 0;
-  font-size: 20px;
-}
-.Checkout .form .billcontainer__login a, .Checkout .form .ordercontainer__coupon a {
-  text-decoration: none;
-}
-.Checkout .form .billcontainer__address, .Checkout .form .ordercontainer__payment {
-  margin-top: 35px;
-}
-.Checkout .form .billcontainer__bill h3, .Checkout .form .billcontainer__address h3, .Checkout .form .ordercontainer__order h3, .Checkout .form .ordercontainer__payment h3 {
-  color: #FDBC2C;
-  font-size: 30px;
-  margin-bottom: 12px;
-}
-.Checkout .form .billcontainer__bill form, .Checkout .form .billcontainer__address form, .Checkout .form .ordercontainer__order form, .Checkout .form .ordercontainer__payment form {
-  overflow: hidden;
-}
-.Checkout .form .billcontainer__bill form label, .Checkout .form .billcontainer__address form label, .Checkout .form .ordercontainer__order form label, .Checkout .form .ordercontainer__payment form label {
-  font-size: 13px;
-  color: #FFFFFF;
-  display: block;
-  margin: 12px 0;
-}
-.Checkout .form .billcontainer__bill form select, .Checkout .form .billcontainer__bill form input, .Checkout .form .billcontainer__bill form textarea, .Checkout .form .billcontainer__address form select, .Checkout .form .billcontainer__address form input, .Checkout .form .billcontainer__address form textarea, .Checkout .form .ordercontainer__order form select, .Checkout .form .ordercontainer__order form input, .Checkout .form .ordercontainer__order form textarea, .Checkout .form .ordercontainer__payment form select, .Checkout .form .ordercontainer__payment form input, .Checkout .form .ordercontainer__payment form textarea {
-  background-color: #181818;
-  border: 1px solid #FFFFFF;
-  color: #FFFFFF;
-  padding: 10px;
-  margin-bottom: 8px;
-  outline: none;
-  font-size: 11px;
-}
-.Checkout .form .billcontainer__bill form select, .Checkout .form .billcontainer__bill form textarea, .Checkout .form .billcontainer__address form select, .Checkout .form .billcontainer__address form textarea, .Checkout .form .ordercontainer__order form select, .Checkout .form .ordercontainer__order form textarea, .Checkout .form .ordercontainer__payment form select, .Checkout .form .ordercontainer__payment form textarea {
-  width: 100%;
-}
-.Checkout .form .billcontainer__bill form input[type=text], .Checkout .form .billcontainer__address form input[type=text], .Checkout .form .ordercontainer__order form input[type=text], .Checkout .form .ordercontainer__payment form input[type=text] {
-  width: 100%;
-}
-.Checkout .form .billcontainer__bill form .inlinelabel, .Checkout .form .billcontainer__address form .inlinelabel, .Checkout .form .ordercontainer__order form .inlinelabel, .Checkout .form .ordercontainer__payment form .inlinelabel {
-  display: inline-block;
-  margin-left: 12px;
-}
-.Checkout .form .billwrapper {
-  margin: 50px 0 100px 0;
-  padding-top: 30px;
-}
-@media screen and (max-width: 770px) {
-  .Checkout .form .billwrapper {
-    margin: 50px 0 35px 0;
-  }
-}
-.Checkout .form .orderwrapper {
-  width: 100%;
-  background-color: #000000;
-  padding: 30px;
-  margin-top: 50px;
-}
-@media screen and (max-width: 770px) {
-  .Checkout .form .orderwrapper {
-    margin-bottom: 50px;
-  }
-}
-.Checkout .form .radio {
-  display: block;
-}
-.Checkout .form .radio__custom {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.75em;
-  height: 1.75em;
-  border: 1px solid #FFFFFF;
-  border-radius: 50%;
-}
-.Checkout .form .radio__custom::after {
-  content: "";
-  width: 35%;
-  height: 35%;
-  display: block;
-  background: #d94f2b;
-  border-radius: 50%;
-  transform: scale(0);
-}
-.Checkout .form .radio__custom + label {
-  cursor: pointer;
-}
-.Checkout .form input[type=radio]:checked + .radio__custom {
-  border: 1px solid #d94f2b;
-}
-.Checkout .form input[type=radio]:checked + .radio__custom::after {
-  transform: scale(1);
-  transition: 0.3s;
-}
-.Checkout .form input[type=radio]:checked + .radio__custom + label {
-  color: #d94f2b;
-  transition: 0.3s;
-}
-.Checkout .form input[type=radio], .Checkout .form input[type=checkbox] {
-  display: none;
-}
-.Checkout .form input[type=checkbox] + label {
-  display: inline-flex;
-  cursor: pointer;
-}
-.Checkout .form input[type=checkbox] + label:before {
-  content: "✔";
-  border-radius: 0.2em;
-  padding-left: 0.2em;
-  padding-bottom: 0.3em;
-}
-.Checkout .form input[type=checkbox] + label:before {
-  color: transparent;
-  border: 1px solid #FFFFFF;
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  margin-right: 0.9em;
-  margin-left: -0.9em;
-  vertical-align: middle;
-  cursor: default;
-}
-.Checkout .form input[type=checkbox]:checked + label:before {
-  background-color: #d94f2b;
-  color: #FFFFFF;
-}
-.Checkout .form input[type=checkbox]:checked + label:before {
-  border: 0.1em solid #d94f2b;
-  transition: 0.3s;
-}
-.Checkout .form input[type=checkbox] + label:active:before {
-  transform: scale(0);
-}
+.Checkout{
+    width: 100%;
+    & .form{
+        background-color: #181818;
+        min-width: 350px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        & .clear{
+            clear: both;
+        }
+        & .billcontainer{
+            width: 40%;
+            margin-right: 30px;
+            & span{
+                color: #d94f2b;
+            }
+            @media screen and (max-width: 770px) {
+                width: 80%;
+                margin: 0;
+            }
+            &__bill{
+                &--leftwrapper, &--rightwrapper{
+                    width: 48%;
+                    margin-bottom:12px;
+                }
+                &--leftwrapper{
+                    float: left;
+                }
+                &--rightwrapper{
+                    float: right;
+                }
+                &--afterwrapper{
+                    margin-top: -12px;
+                }
+            }
+        }
+        & .ordercontainer{
+            width: 25%;
+            @media screen and (max-width: 1225px) {
+                width: 40%;
+            }
+            @media screen and (max-width: 770px) {
+                width: 80%;
+            }
+            & span{
+                color: #d94f2b;
+            }
+            &__order{
+                font-size: 11px;
+                color: #eeeeee;
+                & dl{
+                    display: flex;
+                    justify-content: space-between;
+                    & dt, & dd{
+                        display: inline-block;
+                        margin: 10px 0;
+                        & h5{
+                            font-size: 13px;
+                            color: #FFFFFF;
+                        }
+                        & h4{
+                            font-size: 18px;
+                        }
+                    }
+                }
+                hr{
+                    margin: 12px 0;
+                    border: 0.1px solid #eeeeee;
+                    opacity: 0.2;
+                }
+            }
+            &__payment{
+                color: #FFFFFF;
+                font-size: 11px;
+                &--optionwrapper{
+                    position: relative;
+                    & img{
+                        width: 50%;
+                        height: 50%;
+                        margin-left: 20px;
+                    }
+                    & h6{
+                        position: absolute;
+                        left: 58%;
+                        top: 25%;
+                        font-size: 5px;
+                    }
+                }
+                &--paymentintro{
+                    padding: 0 25px;
+                }
+                &--orderbutton{
+                    margin-top: 20px;
+                    width: 100%;
+                    padding: 12px 0;
+                    background-color: #FDBC2C;
+                    outline: none;
+                    border: none;
+                    font-size: 12px;
+                    cursor: pointer;
+                    font-weight: 700;
+                    &:hover{
+                        opacity: 0.9;
+                    }
+                }
+                p > span{
+                    margin-left: 30px;
+                }
+            }
+        }
+        & .billcontainer__login, & .ordercontainer__coupon{
+            border-bottom: 3px solid #d94f2b;
+            color: #FFFFFF;
+            padding: 30px 0;
+            font-size: 20px;
 
+            & a{
+                text-decoration: none;
+            }
+        }
+        & .billcontainer__address, & .ordercontainer__payment{
+            margin-top: 35px;
+        }
+        & .billcontainer__bill, & .billcontainer__address, 
+        & .ordercontainer__order,  & .ordercontainer__payment{
+            & h3{
+                color: #FDBC2C;
+                font-size: 30px;
+                margin-bottom: 12px;
+            }
+            & form{
+                overflow: hidden;
+                & label{
+                    font-size: 13px;
+                    color: #FFFFFF;
+                    display: block;
+                    margin: 12px 0;
+                }
+                & select, input, textarea{
+                    background-color: #181818;
+                    border: 1px solid #FFFFFF;
+                    color: #FFFFFF;
+                    padding: 10px;
+                    margin-bottom: 8px;
+                    outline: none;
+                    font-size: 11px;
+                }
+                & select, textarea{
+                    width: 100%;
+                }
+                & input[type="text"]{
+                    width: 100%;
+                }
+                & .inlinelabel{
+                    display: inline-block;
+                    margin-left: 12px;
+                }
+            }
+        }
+        & .billwrapper{
+            margin: 50px 0 100px 0;
+            padding-top: 30px;
+            @media screen and (max-width: 770px) {
+                margin: 50px 0 35px 0;
+            }
+        }
+        & .orderwrapper{
+            width: 100%;
+            background-color: #000000;
+            padding: 30px;
+            margin-top: 50px;
+            @media screen and (max-width: 770px) {
+                margin-bottom: 50px;
+            }
+        }
+        & .radio{
+            display: block;
+        }
+        & .radio__custom{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center; 
+            width: 1.75em;
+            height: 1.75em;
+            border: 1px solid #FFFFFF;
+            border-radius: 50%;
+            &::after{
+                content: "";
+                width: 35%;
+                height: 35%;
+                display: block;
+                background: #d94f2b;
+                border-radius: 50%;
+                transform: scale(0);
+            }
+            & + label{
+                cursor: pointer;
+            }
+        }
+        & input[type=radio]:checked + .radio__custom{
+            border: 1px solid #d94f2b;
+        }
+        & input[type=radio]:checked + .radio__custom::after{
+            transform: scale(1);
+            transition: 0.3s;
+        }
+        & input[type=radio]:checked + .radio__custom + label{
+            color: #d94f2b;
+            transition: 0.3s;
+        }
+        & input[type=radio], & input[type=checkbox]{
+            display: none;
+        }
+        & input[type=checkbox] + label{
+            display: inline-flex;
+            cursor: pointer;
+        }
+        & input[type=checkbox] + label:before{
+            content: "\2714";
+            border-radius: 0.2em;
+            padding-left: 0.2em;
+            padding-bottom: 0.3em;
+        }
+        & input[type=checkbox] + label:before{
+            color: transparent;
+            border: 1px solid #FFFFFF;
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            margin-right: 0.9em;
+            margin-left: -0.9em;
+            vertical-align: middle;
+            cursor: default;
+        }
+        & input[type=checkbox]:checked + label:before{
+            background-color:#d94f2b;
+            color: #FFFFFF;
+        }
+        & input[type=checkbox]:checked + label:before{
+            border: 0.1em solid #d94f2b;
+            transition: 0.3s;
+        }
+        & input[type=checkbox] + label:active:before{
+            transform: scale(0);
+        }
+    }
+}*/
 * {
   padding: 0;
   margin: 0;
@@ -459,14 +453,14 @@
 .Checkout .form input[type=radio] + label:before {
   content: "●";
   border-radius: 50%;
-  padding-left: 0.4em;
-  padding-bottom: 0.6em;
+  padding-left: 0.07em;
+  padding-bottom: 1.1em;
 }
 .Checkout .form input[type=checkbox] + label:before {
   content: "✔";
   border-radius: 0.2em;
-  padding-left: 0.2em;
-  padding-bottom: 0.3em;
+  padding-left: 0em;
+  padding-bottom: 0em;
 }
 .Checkout .form input[type=radio] + label:before, .Checkout .form input[type=checkbox] + label:before {
   color: transparent;

@@ -1,12 +1,13 @@
 import React from 'react';
 import '../../Form.css';
+import { Link } from 'react-router-dom';
 
-class Loginbtn extends React.Component{
+class Loginbtn extends React.Component {
 
-    render(){
+    render() {
         return <div className="billcontainer__login">
-                    <h6>Returning customer? <a href="#"><span>Click here to login</span></a></h6>
-               </div>     
+            <h6>Returning customer?<Link to="/sign-in"><span>Click here to login</span></Link></h6>
+        </div>
     }
 }
 

@@ -26,6 +26,7 @@ import Media from '../../components/Media/Media';
 import Footer from '../../components/Footer/Footer';
 import SideBar from '../../components/SideBar/SideBar/SideBar';
 import CartTotals from '../../components/Cart/CartTotal/CartTotal';
+import { Route, Link } from 'react-router';
 
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />

@@ -16,7 +16,7 @@ import Checkout from './pages/Checkout/Checkout';
 
 
 function App() {
-    
+
     return (
         <Router>
             <Switch>

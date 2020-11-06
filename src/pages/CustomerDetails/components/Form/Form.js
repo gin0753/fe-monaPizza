@@ -15,7 +15,7 @@ class Form extends React.Component{
                     <div className="billcontainer">
                             <Loginbtn />  
                         <div className="billwrapper">
-                            <Billing/>
+                            <Billing />
                             <Address />
                         </div>
                     </div>

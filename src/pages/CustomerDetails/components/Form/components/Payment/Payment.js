@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../Form.css';
-import options from '../../../../../../images/payment-options.png'
+import options from '../../../../../../images/payment-options.png';
 
 class Payment extends React.Component{
-
+    
     render(){
         return <div className="ordercontainer__payment">
                     <h3>Payment Methods</h3>
@@ -40,7 +40,7 @@ class Payment extends React.Component{
                         <label className="inlinelabel" htmlFor="accepterm">I have read and accept the</label>
                         <p><span>Term & Conditions</span></p>
                         
-                        <button className="ordercontainer__payment--orderbutton" type="button">PLACE ORDER</button>
+                        <button className="ordercontainer__payment--orderbutton" form="billingDetails" type="submit" >PLACE ORDER</button>
                     </form>
 
                </div>     

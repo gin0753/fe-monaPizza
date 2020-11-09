@@ -4,7 +4,7 @@ import '../../Header.css';
 function CheckOut() {
     return (
       <div className="logo">
-          <span>Margherita</span>
+          <span>Mona Pizza</span>
       </div>
     );
 }

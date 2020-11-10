@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-*{
+/**{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -251,9 +250,8 @@
             transform: scale(0);
         }
     }
-}
-||||||| 8e9c4d8
-=======
+}*/
+
 *{
     padding: 0;
     margin: 0;
@@ -448,14 +446,14 @@
         & input[type=radio] + label:before{
             content: "●";
             border-radius: 50%;
-            padding-left: 0.4em;
-            padding-bottom: 0.6em;
+            padding-left: 0.07em;
+            padding-bottom: 1.1em;
         }
         & input[type=checkbox] + label:before{
             content: "\2714";
             border-radius: 0.2em;
-            padding-left: 0.2em;
-            padding-bottom: 0.3em;
+            padding-left: 0em;
+            padding-bottom: 0em;
         }
         & input[type=radio] + label:before, & input[type=checkbox] + label:before{
             color: transparent;
@@ -484,4 +482,3 @@
         }
     }
 }
->>>>>>> develop

@@ -17,7 +17,7 @@ class StarRatings extends React.Component {
     render() {
         const { rating } = this.state;
 
-        let realRating = this.props.num?this.props.num:rating;
+        let realRating = this.props.num ? this.props.num : rating;
 
         return (
             <div>

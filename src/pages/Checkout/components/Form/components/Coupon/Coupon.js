@@ -5,7 +5,7 @@ class Coupon extends React.Component{
 
     render(){
         return <div className="ordercontainer__coupon">
-                    <h6>Have a coupon? <a href="#"><span>Click here to enter your code</span></a></h6>
+                    <h6>Have a coupon? <a href="#"><span>  Enter your code</span></a></h6>
                </div>     
     }
 }

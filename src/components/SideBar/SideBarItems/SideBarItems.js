@@ -31,7 +31,7 @@ export const SideBarTopItems = [
     },
     {
         title: 'CONTACT',
-        path: '/contact',
+        path: '/contact-us',
         cName: 'nav-text'
     }
 ];
@@ -39,17 +39,17 @@ export const SideBarTopItems = [
 export const SideBarBottomItems = [
     {
         title: 'LOGIN',
-        path: '/',
+        path: '/sign-in',
         cName: 'nav-text'
     },
     {
         title: 'My ACCOUNT',
-        path: '/menu',
+        path: '/users',
         cName: 'nav-text'
     },
     {
         title: 'CHECKOUT',
-        path: '/menu',
+        path: '/checkout',
         cName: 'nav-text'
     }
 ];

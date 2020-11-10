@@ -186,29 +186,32 @@
             }
         }
         &--logincontainer{
+            & .withIcon{
+                width: 100%;
+                & i{
+                    position: absolute;
+                    top: 15px;
+                    right: 100px;
+                    border: none;
+                }
+            }
             & input{
                 display: block;
                 margin: 0 auto;
             }
             & input{
                 width: 70%;
-                margin-bottom: 30px;
             }
             &--titlewrapper {
                 width: 70%;
             }
         }
         &--registercontainer{
-            #visibility{
+            #visibility3{
                 cursor: pointer;
             }
             & .withIcon{
                 width: 50%;
-                display: inline-block;
-                position: relative;
-                @media screen and (max-width: 1050px) {
-                    width: 75%;
-                }
                 & i{
                     position: absolute;
                     top: 15px;
@@ -284,13 +287,20 @@
                 font-size: 15px;
                 border: 2px solid #FFFFFF;
             }
-            & .errRed{
+            & .Red{
                 color: #d94f2b;
                 border: 2px solid #d94f2b;
             }
-            & .errGreen{
+            & .Green{
                 color: #1FC36A;
                 border: 2px solid #1FC36A;
+            }
+            & .withIcon{
+                display: inline-block;
+                position: relative;
+                @media screen and (max-width: 1050px) {
+                    width: 75%;
+                }
             }
             &--titlewrapper {
                 margin: 0 auto;

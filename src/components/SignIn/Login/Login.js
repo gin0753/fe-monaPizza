@@ -19,6 +19,7 @@ class Login extends React.Component{
             checkSurname: '',
             checkEmail: '',
             checkPassword: '',
+            confirmPassword: '',
             checkIcon: null,
             isVisible: false,
             readTerm: false,
@@ -51,7 +52,7 @@ class Login extends React.Component{
             this.setState({checkUsername: ''});
         }
         else{
-            this.setState({checkUsername: 'errGreen'});
+            this.setState({checkUsername: 'Green'});
         }
     }
 
@@ -61,10 +62,10 @@ class Login extends React.Component{
             this.setState({checkSurname: ''});
         }
         else if(surnameValue.match(this.namePattern)){
-            this.setState({checkSurname: 'errGreen'});
+            this.setState({checkSurname: 'Green'});
         }
         else{
-            this.setState({checkSurname: 'errRed'});
+            this.setState({checkSurname: 'Red'});
         }
     }
 
@@ -74,23 +75,37 @@ class Login extends React.Component{
             this.setState({checkEmail: ''});
         }
         else if(emailValue.match(this.emailPattern)){
-            this.setState({checkEmail: 'errGreen'});
+            this.setState({checkEmail: 'Green'});
         }
         else{
-            this.setState({checkEmail: 'errRed'});
+            this.setState({checkEmail: 'Red'});
         }
     }
-
-    checkPassword = (password) =>{
+    
+    checkPassword = (password) => {
         const passwordValue = password;
         if(passwordValue === '' ){
             this.setState({checkPassword: ''});
         }
         else if(passwordValue.length > 8 && passwordValue.length < 25 && passwordValue.match(this.passwordPattern)){
-            this.setState({checkPassword: 'errGreen'});
+            this.setState({checkPassword: 'Green'});
         }
         else{
-            this.setState({checkPassword: 'errRed'});
+            this.setState({checkPassword: 'Red'});
+        }
+    }
+
+    verifyPassword = (password) => {
+        const passwordValue = password;
+        if(passwordValue === '' ){
+            this.setState({confirmPassword: ''});
+        }
+        else if(passwordValue.length > 8 && passwordValue.length < 25 && passwordValue.match(this.passwordPattern)
+        && passwordValue === this.loginPassword.current.value){
+            this.setState({confirmPassword: 'Green'});
+        }
+        else{
+            this.setState({confirmPassword: 'Red'});
         }
     }
 
@@ -143,6 +158,7 @@ class Login extends React.Component{
 
         this.checkEmail(this.loginEmail.current.value);
         this.checkPassword(this.loginPassword.current.value);
+        this.verifyPassword(this.confirmPassword.current.value);
     }
 
     clickRegister = async (e) => {
@@ -154,7 +170,7 @@ class Login extends React.Component{
             Email: this.state.Email,
             Password: this.state.Password
         }
-        if(this.state.checkEmail === 'errGreen' && this.state.checkPassword === 'errGreen'){
+        if(this.state.checkEmail === 'Green' && this.state.checkPassword === 'Green'){
             try{
                 const response = await axios.post('/register', RegisterInfo);
                 if(response.status === 201){
@@ -168,7 +184,7 @@ class Login extends React.Component{
         }
     }
 
-    clickSignIn = (e) => {
+    clickSignIn = async (e) => {
         e.preventDefault();
 
         const LoginInfo = {
@@ -181,10 +197,8 @@ class Login extends React.Component{
         //         Authorization: `Bearer ${sessionStorage.getItem('login-token')}`
         //     }
         // }
-
-        const loginRequest = async () => {
+        if(this.state.checkEmail === 'Green' && this.state.checkPassword === 'Green' && this.state.confirmPassword === 'Green'){
             try{
-                // console.log(config)
                 const response = await axios.post(
                     '/login', 
                     LoginInfo,
@@ -205,9 +219,8 @@ class Login extends React.Component{
                 sessionStorage.setItem('login-token', null);
             }
         }
-        
-        loginRequest();  
     }
+
     responseGoogle = async (res) => {
 
         let { googleId, profileObj, tokenObj } = res;
@@ -240,6 +253,10 @@ class Login extends React.Component{
     handleRegister = () => {
         this.props.switchLogin();
         this.setState({isClicked: true});
+        this.setState({readTerm: false});
+        this.setState({checkEmail: ''});
+        this.setState({checkPassword: ''});
+        this.setState({confirmPassword: ''});
         this.form.current.reset();
     }
 
@@ -252,6 +269,7 @@ class Login extends React.Component{
     }
 
     toggleLogin = (props) => {
+        const {checkEmail, checkPassword, confirmPassword, checkUsername, checkSurname} = this.state;
         if(!this.props.SignupClicked){
             return(
                 <div className="Login__login container-left">
@@ -276,9 +294,24 @@ class Login extends React.Component{
                             <span>OR</span>
                         </div>
                         <form ref={this.form}>
-                            <input ref={this.loginEmail} type="text" name="Email" placeholder="Email" onChange={this.loginChange}/>
-                            <input ref={this.loginPassword} type="password" name="Password" placeholder="Password" onChange={this.loginChange}/>
-                            <input ref={this.confirmPassword} type="password" name="confirmPassword" placeholder="Confirm Your Password" onChange={this.loginChange}/>
+                            <div className="withIcon">
+                                <input ref={this.loginEmail} className={checkEmail} type="text" name="Email" placeholder="Email" onChange={this.loginChange}/>
+                                {checkEmail === 'Green' && <i className={checkEmail}><FaRegCheckCircle /></i>}
+                                {checkEmail === 'Red' && <i className={checkEmail}><FaRegTimesCircle /></i>}
+                                {checkEmail === '' && <i></i>}
+                            </div>
+                            <div className="withIcon">
+                                <input ref={this.loginPassword} className={checkPassword} type="password" name="Password" placeholder="Password" onChange={this.loginChange}/>
+                                {checkPassword === 'Green' && <i className={checkPassword}><FaRegCheckCircle /></i>}
+                                {checkPassword === 'Red' && <i className={checkPassword}><FaRegTimesCircle /></i>}
+                                {checkPassword === '' && <i></i>}
+                            </div>
+                            <div className="withIcon">
+                                <input ref={this.confirmPassword} className={confirmPassword} type="password" name="confirmPassword" placeholder="Confirm Login" onChange={this.loginChange}/>
+                                {confirmPassword === 'Green' && <i className={confirmPassword}><FaRegCheckCircle /></i>}
+                                {confirmPassword === 'Red' && <i className={confirmPassword}><FaRegTimesCircle /></i>}
+                                {confirmPassword === '' && <i></i>}
+                            </div>
                             <button onClick={this.clickSignIn}>Sign In</button>
                         </form>
                     </div>
@@ -301,28 +334,28 @@ class Login extends React.Component{
                         </div>
                         <form  ref={this.form}>
                             <div className="withIcon">
-                                <input ref={this.username} className={this.state.checkUsername} type="text" id="username" name="Username" placeholder="Username" onChange={this.handleChange}/>
-                                {this.state.checkUsername === 'errGreen' && <i className={this.state.checkUsername}><FaRegCheckCircle /></i>}
-                                {this.state.checkUsername === 'errRed' && <i className={this.state.checkUsername}><FaRegTimesCircle /></i>}
-                                {this.state.checkUsername === '' && <i></i>}
+                                <input ref={this.username} className={checkUsername} type="text" id="username" name="Username" placeholder="Username" onChange={this.handleChange}/>
+                                {checkUsername === 'Green' && <i className={checkUsername}><FaRegCheckCircle /></i>}
+                                {checkUsername === 'Red' && <i className={checkUsername}><FaRegTimesCircle /></i>}
+                                {checkUsername === '' && <i></i>}
                             </div>
                             <div className="withIcon">
-                                <input ref={this.surname} className={this.state.checkSurname} type="text" id="surname" name="Surname" placeholder="Surname" onChange={this.handleChange}/>
-                                {this.state.checkSurname === 'errGreen' && <i className={this.state.checkSurname}><FaRegCheckCircle /></i>}
-                                {this.state.checkSurname === 'errRed' && <i className={this.state.checkSurname}><FaRegTimesCircle /></i>}
-                                {this.state.checkSurname === '' && <i></i>}
+                                <input ref={this.surname} className={checkSurname} type="text" id="surname" name="Surname" placeholder="Surname" onChange={this.handleChange}/>
+                                {checkSurname === 'Green' && <i className={checkSurname}><FaRegCheckCircle /></i>}
+                                {checkSurname === 'Red' && <i className={checkSurname}><FaRegTimesCircle /></i>}
+                                {checkSurname === '' && <i></i>}
                             </div>
                             <div className="withIcon">
-                                <input ref={this.email} className={this.state.checkEmail} type="text" id="email" name="Email" placeholder="Email" onChange={this.handleChange}/>
-                                {this.state.checkEmail === 'errGreen' && <i className={this.state.checkEmail}><FaRegCheckCircle /></i>}
-                                {this.state.checkEmail === 'errRed' && <i className={this.state.checkEmail}><FaRegTimesCircle /></i>}
-                                {this.state.checkEmail === '' && <i></i>}
+                                <input ref={this.email} className={checkEmail} type="text" id="email" name="Email" placeholder="Email" onChange={this.handleChange}/>
+                                {checkEmail === 'Green' && <i className={checkEmail}><FaRegCheckCircle /></i>}
+                                {checkEmail === 'Red' && <i className={checkEmail}><FaRegTimesCircle /></i>}
+                                {checkEmail === '' && <i></i>}
                             </div>
                             <div className="withIcon">
-                                <input ref={this.password} className={this.state.checkPassword} type={this.state.isVisible ? "text" : "password"} id="password" name="Password" placeholder="Password" onChange={this.handleChange}/>
-                                {this.state.checkPassword === 'errGreen' && <i id="visibility" className={this.state.checkPassword} onClick={this.visibility}><FaEye /></i>}
-                                {this.state.checkPassword === 'errRed' && <i id="visibility" className={this.state.checkPassword} onClick={this.visibility}><FaEye /></i>}
-                                {this.state.checkPassword === '' && <i id="visibility" onClick={this.visibility}><FaEye /></i>}
+                                <input ref={this.password} className={checkPassword} type={this.state.isVisible ? "text" : "password"} id="password" name="Password" placeholder="Password" onChange={this.handleChange}/>
+                                {checkPassword === 'Green' && <i id="visibility3" className={checkPassword} onClick={this.visibility}><FaEye /></i>}
+                                {checkPassword === 'Red' && <i id="visibility3" className={checkPassword} onClick={this.visibility}><FaEye /></i>}
+                                {checkPassword === '' && <i id="visibility3" onClick={this.visibility}><FaEye /></i>}
                             </div>
                             <div className="passwordRules">
                                 <h3>Password <span>must</span> contain at least:</h3>
@@ -341,7 +374,7 @@ class Login extends React.Component{
                                 <input type="checkbox" id="term" name="term" value="term" onChange={this.checkTerm}/>
                                 <label>I have read the <a>Term & Conditions</a></label>
                             </div>
-                            <button onClick={this.clickRegister} className={this.state.readTerm? "":"btnDisabled"} disabled={this.state.readTerm? false:true}>Sign Up</button>
+                            <button onClick={this.clickRegister} className={this.state.readTerm ? "" : "btnDisabled"} disabled={this.state.readTerm ? false : true}>Sign Up</button>
                         </form>
                     </div>
                 </div>
@@ -350,7 +383,7 @@ class Login extends React.Component{
     }
 
     render(){
-        return <div className="Rigistration">
+        return <div className="Registration">
                     <div className="Login">
                         <div className={this.props.SignupClicked ? "Login__signincontainer signin-right": "Login__signincontainer signin-left"}>
                             <div className="Login__signincontainer--textwrapper">

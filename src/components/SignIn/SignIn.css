@@ -279,6 +279,17 @@
   }
 }
 
+.Login__login--logincontainer .withIcon {
+  width: 100%;
+}
+
+.Login__login--logincontainer .withIcon i {
+  position: absolute;
+  top: 15px;
+  right: 100px;
+  border: none;
+}
+
 .Login__login--logincontainer input {
   display: block;
   margin: 0 auto;
@@ -286,27 +297,18 @@
 
 .Login__login--logincontainer input {
   width: 70%;
-  margin-bottom: 30px;
 }
 
 .Login__login--logincontainer--titlewrapper {
   width: 70%;
 }
 
-.Login__login--registercontainer #visibility {
+.Login__login--registercontainer #visibility3 {
   cursor: pointer;
 }
 
 .Login__login--registercontainer .withIcon {
   width: 50%;
-  display: inline-block;
-  position: relative;
-}
-
-@media screen and (max-width: 1050px) {
-  .Login__login--registercontainer .withIcon {
-    width: 75%;
-  }
 }
 
 .Login__login--registercontainer .withIcon i {
@@ -402,14 +404,25 @@
   border: 2px solid #FFFFFF;
 }
 
-.Login__login--logincontainer .errRed, .Login__login--registercontainer .errRed {
+.Login__login--logincontainer .Red, .Login__login--registercontainer .Red {
   color: #d94f2b;
   border: 2px solid #d94f2b;
 }
 
-.Login__login--logincontainer .errGreen, .Login__login--registercontainer .errGreen {
+.Login__login--logincontainer .Green, .Login__login--registercontainer .Green {
   color: #1FC36A;
   border: 2px solid #1FC36A;
+}
+
+.Login__login--logincontainer .withIcon, .Login__login--registercontainer .withIcon {
+  display: inline-block;
+  position: relative;
+}
+
+@media screen and (max-width: 1050px) {
+  .Login__login--logincontainer .withIcon, .Login__login--registercontainer .withIcon {
+    width: 75%;
+  }
 }
 
 .Login__login--logincontainer--titlewrapper, .Login__login--registercontainer--titlewrapper {

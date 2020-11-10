@@ -21,6 +21,7 @@
   .Login {
     justify-content: center;
     flex-wrap: wrap;
+    height: 1250px;
   }
 }
 
@@ -120,7 +121,7 @@
     max-width: 280px;
     height: auto;
     position: absolute;
-    top: 10%;
+    top: 4%;
   }
 }
 
@@ -230,7 +231,7 @@
 @media screen and (max-width: 640px) {
   .Login__login {
     width: 100%;
-    height: 50%;
+    height: 70%;
     position: absolute;
     bottom: 0;
   }
@@ -292,30 +293,81 @@
   width: 70%;
 }
 
-.Login__login--registercontainer input[type=text], .Login__login--registercontainer input[type=password] {
-  width: 46%;
-  margin: 0px 10px 30px 10px;
+.Login__login--registercontainer #visibility {
+  cursor: pointer;
+}
+
+.Login__login--registercontainer .withIcon {
+  width: 50%;
+  display: inline-block;
+  position: relative;
 }
 
 @media screen and (max-width: 1050px) {
-  .Login__login--registercontainer input[type=text], .Login__login--registercontainer input[type=password] {
-    width: 70%;
+  .Login__login--registercontainer .withIcon {
+    width: 75%;
   }
 }
 
-.Login__login--registercontainer input[type=checkbox] {
-  display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 30px;
+.Login__login--registercontainer .withIcon i {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
 }
 
-.Login__login--registercontainer label {
-  display: inline-block;
+.Login__login--registercontainer input[type=text], .Login__login--registercontainer input[type=password] {
+  width: 95%;
+}
+
+.Login__login--registercontainer .readTerm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Login__login--registercontainer .readTerm input[type=checkbox] {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.Login__login--registercontainer .readTerm label {
   font-size: 13px;
 }
 
-.Login__login--registercontainer label a {
+.Login__login--registercontainer .readTerm label a {
   color: #FDBC2C;
+}
+
+.Login__login--registercontainer .passwordRules {
+  padding: 10px;
+  text-align: left;
+}
+
+.Login__login--registercontainer .passwordRules h3 {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.Login__login--registercontainer .passwordRules h3 span {
+  font-weight: 700;
+}
+
+.Login__login--registercontainer .passwordRules--ruleWrapper {
+  width: 420px;
+  margin: 0 auto;
+}
+
+.Login__login--registercontainer .passwordRules--ruleWrapper h5 {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.Login__login--registercontainer .passwordRules--ruleWrapper .number {
+  margin-right: 91px;
 }
 
 .Login__login--registercontainer--titlewrapper {
@@ -338,7 +390,7 @@
   margin: 0 auto;
 }
 
-.Login__login--logincontainer input[type=text], .Login__login--logincontainer input[type=password], .Login__login--registercontainer input[type=text], .Login__login--registercontainer input[type=password] {
+.Login__login--logincontainer input, .Login__login--registercontainer input {
   border-radius: 25px;
   border: none;
   background-color: #000000;
@@ -348,6 +400,16 @@
   padding: 15px;
   font-size: 15px;
   border: 2px solid #FFFFFF;
+}
+
+.Login__login--logincontainer .errRed, .Login__login--registercontainer .errRed {
+  color: #d94f2b;
+  border: 2px solid #d94f2b;
+}
+
+.Login__login--logincontainer .errGreen, .Login__login--registercontainer .errGreen {
+  color: #1FC36A;
+  border: 2px solid #1FC36A;
 }
 
 .Login__login--logincontainer--titlewrapper, .Login__login--registercontainer--titlewrapper {
@@ -411,6 +473,14 @@
   opacity: 80%;
 }
 
+.Login__login--logincontainer .btnDisabled, .Login__login--registercontainer .btnDisabled {
+  opacity: 50%;
+}
+
+.Login__login--logincontainer .btnDisabled:hover, .Login__login--registercontainer .btnDisabled:hover {
+  opacity: 50%;
+}
+
 .Login__asksignup {
   width: 30%;
   height: 100%;
@@ -424,7 +494,7 @@
 @media screen and (max-width: 640px) {
   .Login__asksignup {
     width: 100%;
-    height: 50%;
+    height: 30%;
     position: absolute;
     top: 0;
   }

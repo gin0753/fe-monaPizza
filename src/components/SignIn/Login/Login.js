@@ -5,6 +5,9 @@ import wechat from '../../../images/wechat_icon.svg';
 import google from '../../../images/google_icon.svg';
 import axios from 'axios';
 import GoogleLogin from 'react-google-login';
+import {FaRegCheckCircle} from 'react-icons/fa';
+import {FaRegTimesCircle} from 'react-icons/fa';
+import {FaEye} from 'react-icons/fa';
 
 class Login extends React.Component{
     constructor(props){
@@ -12,11 +15,28 @@ class Login extends React.Component{
         this.state = {
             isClicked: false,
             isLogin: false,
+            checkUsername: '',
+            checkSurname: '',
+            checkEmail: '',
+            checkPassword: '',
+            checkIcon: null,
+            isVisible: false,
+            readTerm: false,
+            oneLowerCase: false,
+            oneUpperCase: false,
+            oneNumber: false,
+            eightDigits: false,
             UserName: '',
             SurName: '',
             Email: '',
             Password: ''
         };
+
+        this.username = React.createRef();
+        this.surname = React.createRef();
+        this.email = React.createRef();
+        this.password = React.createRef();
+        this.form = React.createRef();
     }
 
     handleChange = (e) => {
@@ -24,6 +44,94 @@ class Login extends React.Component{
         this.setState({
             [e.target.name]: e.target.value
         });
+
+        const namePattern = /^[A-Za-z]+$/;
+        const emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+        const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+
+        const checkUsername = () =>{
+            const userValue = this.username.current.value;
+            if(userValue === '' ){
+                this.setState({checkUsername: ''});
+            }
+            else{
+                this.setState({checkUsername: 'errGreen'});
+            }
+        }
+
+        const checkSurname = () =>{
+            const surnameValue = this.surname.current.value;
+            if(surnameValue === '' ){
+                this.setState({checkSurname: ''});
+            }
+            else if(surnameValue.match(namePattern)){
+                this.setState({checkSurname: 'errGreen'});
+            }
+            else{
+                this.setState({checkSurname: 'errRed'});
+            }
+        }
+
+        const checkEmail = () =>{
+            const emailValue = this.email.current.value;
+            if(emailValue === '' ){
+                this.setState({checkEmail: ''});
+            }
+            else if(emailValue.match(emailPattern)){
+                this.setState({checkEmail: 'errGreen'});
+            }
+            else{
+                this.setState({checkEmail: 'errRed'});
+            }
+        }
+
+        const checkPassword = () =>{
+            const passwordValue = this.password.current.value;
+            if(passwordValue === '' ){
+                this.setState({checkPassword: ''});
+            }
+            else if(passwordValue.length > 8 && passwordValue.length < 25 && passwordValue.match(passwordPattern)){
+                this.setState({checkPassword: 'errGreen'});
+            }
+            else{
+                this.setState({checkPassword: 'errRed'});
+            }
+
+            if(passwordValue.match(/(?=.*\d)/)){
+                this.setState({oneNumber: true});
+            }
+            else{
+                this.setState({oneNumber: false});
+            }
+            if(passwordValue.match(/(?=.*[a-z])/)){
+                this.setState({oneLowerCase: true});
+            }
+            else{
+                this.setState({oneLowerCase: false});
+            }
+            if(passwordValue.match(/(?=.*[A-Z])/)){
+                this.setState({oneUpperCase: true});
+            }
+            else{
+                this.setState({oneUpperCase: false});
+            }
+            if(passwordValue.match(/.{8,}/)){
+                this.setState({eightDigits: true});
+            }
+            else{
+                this.setState({eightDigits: false});
+            }
+
+        }
+
+        checkUsername();
+        checkSurname();
+        checkEmail();
+        checkPassword();
+    }
+
+    loginChange = (e) => {
+        e.preventDefault();
     }
 
     clickRegister = async (e) => {
@@ -35,16 +143,17 @@ class Login extends React.Component{
             Email: this.state.Email,
             Password: this.state.Password
         }
-
-        try{
-            const response = await axios.post('/register', RegisterInfo);
-            if(response.status === 201){
-                console.log(response.data);
+        if(this.state.checkEmail === 'errGreen' && this.state.checkPassword ==='errGreen'){
+            try{
+                const response = await axios.post('/register', RegisterInfo);
+                if(response.status === 201){
+                    console.log(response.data);
+                }
+                else{
+                }
+            } catch (err) {
+                console.log(err);
             }
-            else{
-            }
-        } catch (err) {
-            console.log(err);
         }
     }
 
@@ -117,6 +226,20 @@ class Login extends React.Component{
         }
     }
 
+    handleRegister = () => {
+        this.props.switchLogin();
+        this.setState({isClicked: true});
+        this.form.current.reset();
+    }
+
+    visibility = () => {
+        this.setState({isVisible: !this.state.isVisible});
+    }
+
+    checkTerm = () => {
+        this.setState({readTerm: !this.state.readTerm});
+    }
+
     toggleLogin = (props) => {
         if(!this.props.SignupClicked){
             return(
@@ -141,9 +264,12 @@ class Login extends React.Component{
                         <div className="Login__login--logincontainer--titlewrapper">
                             <span>OR</span>
                         </div>
-                        <input type="text" name="Email" placeholder="Email" onChange={this.handleChange}/>
-                        <input type="password" name="Password" placeholder="Password" onChange={this.handleChange}/>
-                        <button onClick={this.clickSignIn}>Sign In</button>
+                        <form ref={this.form}>
+                            <input type="text" name="Email" placeholder="Email" onChange={this.loginChange}/>
+                            <input type="password" name="Password" placeholder="Password" onChange={this.loginChange}/>
+                            <input type="password" name="confirmPassword" placeholder="Confirm Your Password" onChange={this.loginChange}/>
+                            <button onClick={this.clickSignIn}>Sign In</button>
+                        </form>
                     </div>
                 </div>
             )
@@ -154,7 +280,7 @@ class Login extends React.Component{
                     <div className="Login__login--registercontainer move-right">
                         <h1>Create Free Account</h1>
                         <h5>Sign up using social networks</h5>
-                        <div className="Login__login--logincontainer--social">
+                        <div className="Login__login--registercontainer--social">
                             <i><a><img src={facebook} alt="facebook_icon"/></a></i>
                             <i><a><img src={google} alt="google_icon"/></a></i>
                             <i><a><img src={wechat} alt="wechat_icon"/></a></i>
@@ -162,26 +288,55 @@ class Login extends React.Component{
                         <div className="Login__login--registercontainer--titlewrapper">
                             <span>OR</span>
                         </div>
-                        <input type="text" id="username" name="Username" placeholder="Username" onChange={this.handleChange}/>
-                        <input type="text" id="surname" name="Surname" placeholder="Surname" onChange={this.handleChange}/>
-                        <input type="text" id="email" name="Email" placeholder="Email" onChange={this.handleChange}/>
-                        <input type="password" id="password" name="Password" placeholder="Password" onChange={this.handleChange}/>
-                        <div>
-                            <input type="checkbox" id="term" name="term" value="term"/>
-                            <label>I have read the <a>Term & Conditions</a></label>
-                        </div>
-                        <button onClick={this.clickRegister}>Sign Up</button>
+                        <form  ref={this.form}>
+                            <div className="withIcon">
+                                <input ref={this.username} className={this.state.checkUsername} type="text" id="username" name="Username" placeholder="Username" onChange={this.handleChange}/>
+                                {this.state.checkUsername === 'errGreen' && <i className={this.state.checkUsername}><FaRegCheckCircle /></i>}
+                                {this.state.checkUsername === 'errRed' && <i className={this.state.checkUsername}><FaRegTimesCircle /></i>}
+                                {this.state.checkUsername === '' && <i></i>}
+                            </div>
+                            <div className="withIcon">
+                                <input ref={this.surname} className={this.state.checkSurname} type="text" id="surname" name="Surname" placeholder="Surname" onChange={this.handleChange}/>
+                                {this.state.checkSurname === 'errGreen' && <i className={this.state.checkSurname}><FaRegCheckCircle /></i>}
+                                {this.state.checkSurname === 'errRed' && <i className={this.state.checkSurname}><FaRegTimesCircle /></i>}
+                                {this.state.checkSurname === '' && <i></i>}
+                            </div>
+                            <div className="withIcon">
+                                <input ref={this.email} className={this.state.checkEmail} type="text" id="email" name="Email" placeholder="Email" onChange={this.handleChange}/>
+                                {this.state.checkEmail === 'errGreen' && <i className={this.state.checkEmail}><FaRegCheckCircle /></i>}
+                                {this.state.checkEmail === 'errRed' && <i className={this.state.checkEmail}><FaRegTimesCircle /></i>}
+                                {this.state.checkEmail === '' && <i></i>}
+                            </div>
+                            <div className="withIcon">
+                                <input ref={this.password} className={this.state.checkPassword} type={this.state.isVisible ? "text" : "password"} id="password" name="Password" placeholder="Password" onChange={this.handleChange}/>
+                                {this.state.checkPassword === 'errGreen' && <i id="visibility" className={this.state.checkPassword} onClick={this.visibility}><FaEye /></i>}
+                                {this.state.checkPassword === 'errRed' && <i id="visibility" className={this.state.checkPassword} onClick={this.visibility}><FaEye /></i>}
+                                {this.state.checkPassword === '' && <i id="visibility" onClick={this.visibility}><FaEye /></i>}
+                            </div>
+                            <div className="passwordRules">
+                                <h3>Password <span>must</span> contain at least:</h3>
+                                <div className="passwordRules--ruleWrapper">
+                                    {this.state.oneLowerCase ? <FaRegCheckCircle style={{color:"#1FC36A"}}/> : <FaRegTimesCircle />} 
+                                    {this.state.oneLowerCase ? <h5 style={{color:"#1FC36A"}}>One lowercase character</h5> : <h5>One lowercase character</h5>} 
+                                    {this.state.oneUpperCase ? <FaRegCheckCircle style={{color:"#1FC36A"}}/> : <FaRegTimesCircle />} 
+                                    {this.state.oneUpperCase ? <h5 style={{color:"#1FC36A"}}>One uppercase character</h5> : <h5>One uppercase character</h5>} 
+                                    {this.state.oneNumber ? <FaRegCheckCircle style={{color:"#1FC36A"}}/> : <FaRegTimesCircle />} 
+                                    {this.state.oneNumber ? <h5 style={{color:"#1FC36A"}} className="number">One number</h5> : <h5 className="number">One number</h5>} 
+                                    {this.state.eightDigits ? <FaRegCheckCircle style={{color:"#1FC36A"}}/> : <FaRegTimesCircle />} 
+                                    {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
+                                </div>
+                            </div>
+                            <div className="readTerm">
+                                <input type="checkbox" id="term" name="term" value="term" onChange={this.checkTerm}/>
+                                <label>I have read the <a>Term & Conditions</a></label>
+                            </div>
+                            <button onClick={this.clickRegister} className={this.state.readTerm? "":"btnDisabled"} disabled={this.state.readTerm? false:true}>Sign Up</button>
+                        </form>
                     </div>
                 </div>
             )
         }
     }
-
-    handleRegister = () => {
-        this.props.switchLogin();
-        this.setState({isClicked: true});
-    }
-
 
     render(){
         return <div className="Rigistration">

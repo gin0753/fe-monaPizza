@@ -31,12 +31,95 @@ class Login extends React.Component{
             Email: '',
             Password: ''
         };
+        this.namePattern = /^[A-Za-z]+$/;
+        this.passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+        this.emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
         this.username = React.createRef();
         this.surname = React.createRef();
         this.email = React.createRef();
         this.password = React.createRef();
         this.form = React.createRef();
+        this.loginEmail = React.createRef();
+        this.loginPassword = React.createRef();
+        this.confirmPassword = React.createRef();
+    }
+
+    checkUsername = () =>{
+        const userValue = this.username.current.value;
+        if(userValue === '' ){
+            this.setState({checkUsername: ''});
+        }
+        else{
+            this.setState({checkUsername: 'errGreen'});
+        }
+    }
+
+    checkSurname = () =>{
+        const surnameValue = this.surname.current.value;
+        if(surnameValue === '' ){
+            this.setState({checkSurname: ''});
+        }
+        else if(surnameValue.match(this.namePattern)){
+            this.setState({checkSurname: 'errGreen'});
+        }
+        else{
+            this.setState({checkSurname: 'errRed'});
+        }
+    }
+
+    checkEmail = (email) =>{
+        const emailValue = email;
+        if(emailValue === '' ){
+            this.setState({checkEmail: ''});
+        }
+        else if(emailValue.match(this.emailPattern)){
+            this.setState({checkEmail: 'errGreen'});
+        }
+        else{
+            this.setState({checkEmail: 'errRed'});
+        }
+    }
+
+    checkPassword = (password) =>{
+        const passwordValue = password;
+        if(passwordValue === '' ){
+            this.setState({checkPassword: ''});
+        }
+        else if(passwordValue.length > 8 && passwordValue.length < 25 && passwordValue.match(this.passwordPattern)){
+            this.setState({checkPassword: 'errGreen'});
+        }
+        else{
+            this.setState({checkPassword: 'errRed'});
+        }
+    }
+
+    checkPattern = () => {
+        const passwordValue = this.password.current.value;
+        if(passwordValue.match(/(?=.*\d)/)){
+            this.setState({oneNumber: true});
+        }
+        else{
+            this.setState({oneNumber: false});
+        }
+        if(passwordValue.match(/(?=.*[a-z])/)){
+            this.setState({oneLowerCase: true});
+        }
+        else{
+            this.setState({oneLowerCase: false});
+        }
+        if(passwordValue.match(/(?=.*[A-Z])/)){
+            this.setState({oneUpperCase: true});
+        }
+        else{
+            this.setState({oneUpperCase: false});
+        }
+        if(passwordValue.match(/.{8,}/)){
+            this.setState({eightDigits: true});
+        }
+        else{
+            this.setState({eightDigits: false});
+        }
     }
 
     handleChange = (e) => {
@@ -45,93 +128,21 @@ class Login extends React.Component{
             [e.target.name]: e.target.value
         });
 
-        const namePattern = /^[A-Za-z]+$/;
-        const emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-        const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
-
-        const checkUsername = () =>{
-            const userValue = this.username.current.value;
-            if(userValue === '' ){
-                this.setState({checkUsername: ''});
-            }
-            else{
-                this.setState({checkUsername: 'errGreen'});
-            }
-        }
-
-        const checkSurname = () =>{
-            const surnameValue = this.surname.current.value;
-            if(surnameValue === '' ){
-                this.setState({checkSurname: ''});
-            }
-            else if(surnameValue.match(namePattern)){
-                this.setState({checkSurname: 'errGreen'});
-            }
-            else{
-                this.setState({checkSurname: 'errRed'});
-            }
-        }
-
-        const checkEmail = () =>{
-            const emailValue = this.email.current.value;
-            if(emailValue === '' ){
-                this.setState({checkEmail: ''});
-            }
-            else if(emailValue.match(emailPattern)){
-                this.setState({checkEmail: 'errGreen'});
-            }
-            else{
-                this.setState({checkEmail: 'errRed'});
-            }
-        }
-
-        const checkPassword = () =>{
-            const passwordValue = this.password.current.value;
-            if(passwordValue === '' ){
-                this.setState({checkPassword: ''});
-            }
-            else if(passwordValue.length > 8 && passwordValue.length < 25 && passwordValue.match(passwordPattern)){
-                this.setState({checkPassword: 'errGreen'});
-            }
-            else{
-                this.setState({checkPassword: 'errRed'});
-            }
-
-            if(passwordValue.match(/(?=.*\d)/)){
-                this.setState({oneNumber: true});
-            }
-            else{
-                this.setState({oneNumber: false});
-            }
-            if(passwordValue.match(/(?=.*[a-z])/)){
-                this.setState({oneLowerCase: true});
-            }
-            else{
-                this.setState({oneLowerCase: false});
-            }
-            if(passwordValue.match(/(?=.*[A-Z])/)){
-                this.setState({oneUpperCase: true});
-            }
-            else{
-                this.setState({oneUpperCase: false});
-            }
-            if(passwordValue.match(/.{8,}/)){
-                this.setState({eightDigits: true});
-            }
-            else{
-                this.setState({eightDigits: false});
-            }
-
-        }
-
-        checkUsername();
-        checkSurname();
-        checkEmail();
-        checkPassword();
+        this.checkUsername();
+        this.checkSurname();
+        this.checkEmail(this.email.current.value);
+        this.checkPassword(this.password.current.value);
+        this.checkPattern();
     }
 
     loginChange = (e) => {
         e.preventDefault();
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+
+        this.checkEmail(this.loginEmail.current.value);
+        this.checkPassword(this.loginPassword.current.value);
     }
 
     clickRegister = async (e) => {
@@ -143,7 +154,7 @@ class Login extends React.Component{
             Email: this.state.Email,
             Password: this.state.Password
         }
-        if(this.state.checkEmail === 'errGreen' && this.state.checkPassword ==='errGreen'){
+        if(this.state.checkEmail === 'errGreen' && this.state.checkPassword === 'errGreen'){
             try{
                 const response = await axios.post('/register', RegisterInfo);
                 if(response.status === 201){
@@ -265,9 +276,9 @@ class Login extends React.Component{
                             <span>OR</span>
                         </div>
                         <form ref={this.form}>
-                            <input type="text" name="Email" placeholder="Email" onChange={this.loginChange}/>
-                            <input type="password" name="Password" placeholder="Password" onChange={this.loginChange}/>
-                            <input type="password" name="confirmPassword" placeholder="Confirm Your Password" onChange={this.loginChange}/>
+                            <input ref={this.loginEmail} type="text" name="Email" placeholder="Email" onChange={this.loginChange}/>
+                            <input ref={this.loginPassword} type="password" name="Password" placeholder="Password" onChange={this.loginChange}/>
+                            <input ref={this.confirmPassword} type="password" name="confirmPassword" placeholder="Confirm Your Password" onChange={this.loginChange}/>
                             <button onClick={this.clickSignIn}>Sign In</button>
                         </form>
                     </div>

@@ -57,10 +57,6 @@ class Menu extends Component {
     return (
 
       <div className="menu" style={{ backgroundImage: `url(${Bgi})` }}>
-        <SideBar sidestatus={this.state.sidebarIsClicked} />
-        <CartTotals cartstatus={this.state.cartIsClicked} />
-        <Header toggleSideBar={this.toggleSideBar} toggleCart={this.toggleCart}
-          sidestatus={this.state.sidebarIsClicked} cartstatus={this.state.cartIsClicked} />
         <div className="catelogue">
           <div className="catelogue__topbar">
             <div className="catelogue__filter">
@@ -673,9 +669,6 @@ class Menu extends Component {
             <div className="nextpage"><a href="#">{ArrowRight}</a></div>
           </div>
         </div>
-        <Newsletter />
-        <Media />
-        <Footer />
       </div>);
   }
 }

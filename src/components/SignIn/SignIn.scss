@@ -195,6 +195,11 @@
                     border: none;
                 }
             }
+            & .loading{
+                display: flex;
+                justify-content: center;
+                height: 62px;
+            }
             & input{
                 display: block;
                 margin: 0 auto;

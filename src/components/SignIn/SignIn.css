@@ -290,6 +290,12 @@
   border: none;
 }
 
+.Login__login--logincontainer .loading {
+  display: flex;
+  justify-content: center;
+  height: 62px;
+}
+
 .Login__login--logincontainer input {
   display: block;
   margin: 0 auto;

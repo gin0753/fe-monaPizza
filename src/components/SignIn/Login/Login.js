@@ -5,9 +5,10 @@ import wechat from '../../../images/wechat_icon.svg';
 import google from '../../../images/google_icon.svg';
 import axios from 'axios';
 import GoogleLogin from 'react-google-login';
-import {FaRegCheckCircle} from 'react-icons/fa';
-import {FaRegTimesCircle} from 'react-icons/fa';
-import {FaEye} from 'react-icons/fa';
+import Lottie from 'react-lottie'
+import {FaTimes, FaCheck, FaEye} from 'react-icons/fa';
+import {HashLoader} from 'react-spinners'
+import * as success from '../../../../src/success.json'
 
 class Login extends React.Component{
     constructor(props){
@@ -15,6 +16,8 @@ class Login extends React.Component{
         this.state = {
             isClicked: false,
             isLogin: false,
+            isLoading: false,
+            isSucceeded: false,
             checkUsername: '',
             checkSurname: '',
             checkEmail: '',
@@ -184,7 +187,7 @@ class Login extends React.Component{
         }
     }
 
-    clickSignIn = async (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault();
 
         const LoginInfo = {
@@ -197,6 +200,7 @@ class Login extends React.Component{
         //         Authorization: `Bearer ${sessionStorage.getItem('login-token')}`
         //     }
         // }
+
         if(this.state.checkEmail === 'Green' && this.state.checkPassword === 'Green' && this.state.confirmPassword === 'Green'){
             try{
                 const response = await axios.post(
@@ -208,8 +212,32 @@ class Login extends React.Component{
                     this.setState({
                         isLogin: true
                     });
-                    console.log(response);
+                    console.log(response)
                     sessionStorage.setItem('login-token', response.data.token);
+
+                    const handleSwitch = async () => {
+                        await new Promise((resolve)=>setTimeout(() => {
+                            this.setState({isLoading: true});
+                            resolve();
+                        }, 0)); 
+
+                        await new Promise((resolve)=>setTimeout(() => {
+                            this.setState({isLoading: false});
+                            resolve();
+                        }, 2000)); 
+
+                        await new Promise((resolve)=>setTimeout(() => {
+                            this.setState({isSucceeded: true});
+                            resolve();
+                        }, 0)); 
+
+                        await new Promise((resolve)=>setTimeout(() => {
+                            const { history } = this.props;
+                            history.replace('/checkout');
+                            resolve();
+                        }, 2000));  
+                    }
+                    handleSwitch();
                 }
                 else{
                     sessionStorage.setItem('login-token', null);
@@ -238,13 +266,12 @@ class Login extends React.Component{
         try{
             const response = await axios.post('/googleLogin', googleInfo);
             if(response.status === 200 || response.status === 201){
-                console.log(response);
                 sessionStorage.setItem('login-token', response.data.token);
             }
             else{
                 sessionStorage.setItem('login-token', null);
             }
-        } catch (err){
+        } catch (err) {
             console.log(err);
             sessionStorage.setItem('login-token', null);
         }
@@ -252,11 +279,14 @@ class Login extends React.Component{
 
     handleRegister = () => {
         this.props.switchLogin();
-        this.setState({isClicked: true});
-        this.setState({readTerm: false});
-        this.setState({checkEmail: ''});
-        this.setState({checkPassword: ''});
-        this.setState({confirmPassword: ''});
+        this.setState({
+            isClicked: true,
+            readTerm: false,
+            isSucceeded: false,
+            checkEmail: '',
+            checkPassword: '',
+            confirmPassword: ''
+        });
         this.form.current.reset();
     }
 
@@ -270,6 +300,14 @@ class Login extends React.Component{
 
     toggleLogin = (props) => {
         const {checkEmail, checkPassword, confirmPassword, checkUsername, checkSurname} = this.state;
+        const defaultOptions = {
+            loop: false,
+            autoplay: true, 
+            animationData: success.default,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+            }
+          };
         if(!this.props.SignupClicked){
             return(
                 <div className="Login__login container-left">
@@ -293,26 +331,32 @@ class Login extends React.Component{
                         <div className="Login__login--logincontainer--titlewrapper">
                             <span>OR</span>
                         </div>
-                        <form ref={this.form}>
+                        <form ref={this.form} onSubmit={this.handleSubmit}>
                             <div className="withIcon">
                                 <input ref={this.loginEmail} className={checkEmail} type="text" name="Email" placeholder="Email" onChange={this.loginChange}/>
-                                {checkEmail === 'Green' && <i className={checkEmail}><FaRegCheckCircle /></i>}
-                                {checkEmail === 'Red' && <i className={checkEmail}><FaRegTimesCircle /></i>}
+                                {checkEmail === 'Green' && <i className={checkEmail}><FaCheck /></i>}
+                                {checkEmail === 'Red' && <i className={checkEmail}><FaTimes /></i>}
                                 {checkEmail === '' && <i></i>}
                             </div>
                             <div className="withIcon">
                                 <input ref={this.loginPassword} className={checkPassword} type="password" name="Password" placeholder="Password" onChange={this.loginChange}/>
-                                {checkPassword === 'Green' && <i className={checkPassword}><FaRegCheckCircle /></i>}
-                                {checkPassword === 'Red' && <i className={checkPassword}><FaRegTimesCircle /></i>}
+                                {checkPassword === 'Green' && <i className={checkPassword}><FaCheck /></i>}
+                                {checkPassword === 'Red' && <i className={checkPassword}><FaTimes /></i>}
                                 {checkPassword === '' && <i></i>}
                             </div>
                             <div className="withIcon">
                                 <input ref={this.confirmPassword} className={confirmPassword} type="password" name="confirmPassword" placeholder="Confirm Login" onChange={this.loginChange}/>
-                                {confirmPassword === 'Green' && <i className={confirmPassword}><FaRegCheckCircle /></i>}
-                                {confirmPassword === 'Red' && <i className={confirmPassword}><FaRegTimesCircle /></i>}
+                                {confirmPassword === 'Green' && <i className={confirmPassword}><FaCheck /></i>}
+                                {confirmPassword === 'Red' && <i className={confirmPassword}><FaTimes /></i>}
                                 {confirmPassword === '' && <i></i>}
                             </div>
-                            <button onClick={this.clickSignIn}>Sign In</button>
+                            <button disabled={this.state.isSucceeded ? true : false}>Sign In</button>
+                            {this.state.isLoading && <span className="loading">
+                                <HashLoader loading size={48} color={"#d94f2b"}/>
+                                </span>}
+                            {this.state.isSucceeded && <span className="loading">
+                                <Lottie className="success" onClick={()=>{console.log(1)}} options={defaultOptions} width={60} height={60}/>
+                                </span>}
                         </form>
                     </div>
                 </div>
@@ -335,20 +379,20 @@ class Login extends React.Component{
                         <form  ref={this.form}>
                             <div className="withIcon">
                                 <input ref={this.username} className={checkUsername} type="text" id="username" name="Username" placeholder="Username" onChange={this.handleChange}/>
-                                {checkUsername === 'Green' && <i className={checkUsername}><FaRegCheckCircle /></i>}
-                                {checkUsername === 'Red' && <i className={checkUsername}><FaRegTimesCircle /></i>}
+                                {checkUsername === 'Green' && <i className={checkUsername}><FaCheck /></i>}
+                                {checkUsername === 'Red' && <i className={checkUsername}><FaTimes /></i>}
                                 {checkUsername === '' && <i></i>}
                             </div>
                             <div className="withIcon">
                                 <input ref={this.surname} className={checkSurname} type="text" id="surname" name="Surname" placeholder="Surname" onChange={this.handleChange}/>
-                                {checkSurname === 'Green' && <i className={checkSurname}><FaRegCheckCircle /></i>}
-                                {checkSurname === 'Red' && <i className={checkSurname}><FaRegTimesCircle /></i>}
+                                {checkSurname === 'Green' && <i className={checkSurname}><FaCheck /></i>}
+                                {checkSurname === 'Red' && <i className={checkSurname}><FaTimes /></i>}
                                 {checkSurname === '' && <i></i>}
                             </div>
                             <div className="withIcon">
                                 <input ref={this.email} className={checkEmail} type="text" id="email" name="Email" placeholder="Email" onChange={this.handleChange}/>
-                                {checkEmail === 'Green' && <i className={checkEmail}><FaRegCheckCircle /></i>}
-                                {checkEmail === 'Red' && <i className={checkEmail}><FaRegTimesCircle /></i>}
+                                {checkEmail === 'Green' && <i className={checkEmail}><FaCheck /></i>}
+                                {checkEmail === 'Red' && <i className={checkEmail}><FaTimes /></i>}
                                 {checkEmail === '' && <i></i>}
                             </div>
                             <div className="withIcon">
@@ -360,13 +404,13 @@ class Login extends React.Component{
                             <div className="passwordRules">
                                 <h3>Password <span>must</span> contain at least:</h3>
                                 <div className="passwordRules--ruleWrapper">
-                                    {this.state.oneLowerCase ? <FaRegCheckCircle style={{color:"#1FC36A"}}/> : <FaRegTimesCircle />} 
+                                    {this.state.oneLowerCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
                                     {this.state.oneLowerCase ? <h5 style={{color:"#1FC36A"}}>One lowercase character</h5> : <h5>One lowercase character</h5>} 
-                                    {this.state.oneUpperCase ? <FaRegCheckCircle style={{color:"#1FC36A"}}/> : <FaRegTimesCircle />} 
+                                    {this.state.oneUpperCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
                                     {this.state.oneUpperCase ? <h5 style={{color:"#1FC36A"}}>One uppercase character</h5> : <h5>One uppercase character</h5>} 
-                                    {this.state.oneNumber ? <FaRegCheckCircle style={{color:"#1FC36A"}}/> : <FaRegTimesCircle />} 
+                                    {this.state.oneNumber ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
                                     {this.state.oneNumber ? <h5 style={{color:"#1FC36A"}} className="number">One number</h5> : <h5 className="number">One number</h5>} 
-                                    {this.state.eightDigits ? <FaRegCheckCircle style={{color:"#1FC36A"}}/> : <FaRegTimesCircle />} 
+                                    {this.state.eightDigits ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
                                     {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
                                 </div>
                             </div>

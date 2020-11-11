@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.background{
+    background-color: #181818;
+    max-width: 1920px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    background-image: url('../../images/Pizza-bg.png');
+}

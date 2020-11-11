@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 280px;
+  height: auto;
+  background-color: #181818;
+  color: #FFFFFF;
+  font-size: 13px;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -280px;
+  z-index: 1;
+  transition: 500ms;
+}
+
+.sidebar label {
+  position: relative;
+}
+
+.sidebar label input[type="text"] {
+  background-color: #181818;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  padding: 10px;
+  width: 235px;
+  outline: none;
+  font-size: 11px;
+}
+
+.sidebar label a {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  cursor: pointer;
+}
+
+.sidebar label a img {
+  width: 10px;
+  height: 10px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar a {
+  cursor: pointer;
+}
+
+.sidebar a h6 {
+  margin: 25px 25px 25px 0;
+  color: #FFFFFF;
+}
+
+.sidebar hr {
+  margin: 20px 0px;
+  border: 0.1px solid #eeeeee;
+  opacity: 0.2;
+}
+
+.sidebaractive {
+  left: 0;
+  transition: 500ms;
+}

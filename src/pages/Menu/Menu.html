@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Menu</title>
+    <link rel="stylesheet" href="../../font/AbrilFatface-Regular.otf" />
+    <link rel="stylesheet" href="../../font/Fredericka-the-Great.ttf" />
+    <link rel="stylesheet" href="../../font/JosefinSans-Regular.ttf" />
+    <link rel="stylesheet" href="../../font/JosefinSans-Bold.ttf" />
+    <link rel="stylesheet" href="../../font/RoyaChicken.otf" />
+    <link rel="stylesheet" href="./menu.css" />
+  </head>
+  <body>
+    <div class="menu">
+      <nav class="navbar">
+        <div class="nav__sidebar--left">
+          <input type="checkbox" id="nav__sidebar--left" />
+          <label for="nav__sidebar--left">
+            <div class="hamburger-container">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </label>
+        </div>
+        <div class="nav__logo"><h2>Margherita</h2></div>
+        <div class="nav__sidebar--cart"><span> </span></div>
+      </nav>
+
+      <div class="page__header">
+        <div class="header__image">
+          <img src="../../images/pizza-header.jpg" alt="page-header" />
+        </div>
+        <div class="page__header--details">
+          <h1>Pizza Menu</h1>
+          <div class="page__header--breadscrumb">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Menu</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="catelogue">
+        <div class="catelogue__topbar">
+          <div class="catelogue__filter">
+            <header>
+              <input type="checkbox" id="filter" class="filter" />
+              <label for="filter">
+                <div class="filter-container">
+                  <ul>
+                    <li class="filter__button">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </li>
+                    <li class="filter__title"><h4>FILTER</h4></li>
+                    <li class="filter__result">Showing 1-12 of 19 results</li>
+                  </ul>
+                </div>
+              </label>
+              <div class="filter__items">
+                <ul>
+                  <li>
+                    <h3>SIZE</h3>
+                    <div class="filter__radio">
+                      <label class="filter__options">
+                        <input type="radio" checked="checked" name="radio" />
+                        <h4>Small</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="radio" name="radio" />
+                        <h4>Medium</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="radio" name="radio" />
+                        <h4>Large</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="radio" name="radio" />
+                        <h4>Jumbo</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="radio" checked="checked" name="radio" />
+                        <h4>Party</h4>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <h3>SAUCES</h3>
+                    <div>
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Marinara</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Icing</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Barbeque</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Cheese</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Ranch</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Olive oil</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Garlic</h4>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <h3>CHEESES</h3>
+                    <div>
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Mozzarella</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Goat cheese</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Mascarpone</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Gorgonzola</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Feta cheese</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Cheddar</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Parmigiano</h4>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <h3>MEATS</h3>
+                    <div>
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Pepperoni</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Grilled chicken</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Ham</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Beef</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Italian sausage</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Bacon</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Meatballs</h4>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </li>
+
+                  <li>
+                    <h3>VEGGIES</h3>
+                    <div>
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Onions</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Mushrooms</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Black olives</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Tomatoes</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Pineapple</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Peppers</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Aubergines</h4>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="more-options">
+                    <h3 class="more-vegetable">&#160;</h3>
+                    <div>
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Hot chillies</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Spinach</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Broccoli</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Cucumber</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" checked="checked" />
+                        <h4>Garlic</h4>
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <label class="filter__options">
+                        <input type="checkbox" />
+                        <h4>Sweet Corn</h4>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+                <div class="filter--selected">
+                  <button class="filter__button--selected">
+                    FILTER SELECTED
+                  </button>
+                </div>
+              </div>
+            </header>
+          </div>
+          <div class="catelogue__default">
+            <label for="default"></label>
+            <select name="default" id="default" class="sorting">
+              <option value="default">DEFAULT SORTING</option>
+            </select>
+          </div>
+        </div>
+        <div class="catelogue__product">
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+          <div class="catelogue__product--name">
+            <div><img src="../../images/Orange.jpg" alt="pepperoni" /></div>
+            <div class="pizza__description">
+              <h3>Pepperoni</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+                aliquam soluta quibusdam atque expedita voluptatem laudantium
+                molestias amet repudiandae,
+              </p>
+            </div>
+            <h4 class="product__price">$23.00</h4>
+            <form action="/action_page.php" class="size--selection">
+              <label for="product__size"></label>
+              <select
+                name="product__size"
+                id="product__size"
+                class="product__size"
+              >
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+                <option value="Large">Large</option>
+              </select>
+              <input class="add-button" type="submit" value="ADD" />
+            </form>
+          </div>
+        </div>
+        <div class="pagination">
+          <div class="previouspage"><a href="#">asd</a></div>
+          <div class="pagenumber">
+            <a href="#">1</a>
+            <a href="#" class="actived">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+          </div>
+          <div class="nextpage"><a href="#">fds</a></div>
+        </div>
+      </div>
+
+      <div class="subscription">
+        <div class="subscription__details">
+          <h2>Sign up for the newsletter and get exclusive deals.</h2>
+          <input
+            type="text"
+            placeholder="Enter your email address"
+            name="subscribe"
+          />
+          <button type="subscribe">SUBSCRIBE</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact">
+          <div class="contact__box">
+            <h2 class="phonenumber">+34 9 368 7050</h2>
+            <h3 class="emailaddress">order@pizza.com</h3>
+          </div>
+        </div>
+        <div class="socialmedia">
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Pinterest</a></li>
+            <li><a href="#">Flickr</a></li>
+          </ul>
+        </div>
+        <div class="footer">
+          <h3>Copyright @ 2015 Mixer All rights reserved</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

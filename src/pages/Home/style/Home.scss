@@ -260,6 +260,7 @@ $this-red: #d94f2b;
   }
   //mobile app download section************
   .restPage_mobileApp {
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -275,7 +276,7 @@ $this-red: #d94f2b;
       position: relative;
       float: left;
       background: url(../img/iPhone6.png) no-repeat center center;
-      width: 369px;
+      min-width: 369px;
       height: 753px;
       img {
         position: absolute;

@@ -5,16 +5,27 @@ import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 import sample_pizza from './../images/sample_pizza.png';
 
+import { connect } from 'react-redux';
+import { applyPromoCode, updateOrderTotal } from '../../../action';
+
+
+
 class OrderResult extends React.Component {
 
     constructor() {
         super();
 
-        this.state = {
+        const pageState = {
             hdDisplay: true,
             downArrow: true
         }
+
+        this.state = {
+            ...pageState
+        }
+
     }
+
 
     handleDownClick = () => {
         this.setState({
@@ -30,11 +41,27 @@ class OrderResult extends React.Component {
         })
     }
 
+    handlePromoCodeClick = () => {
+        // only a sample here
+        const discount = 5;
+
+        const { applyPromoCode, updateOrderTotal, cartSubtotal } = this.props;
+        applyPromoCode(discount);
+        updateOrderTotal(cartSubtotal, discount);
+    }
+
+
+
     render() {
 
         const displayStyle = {
             display: this.state.hdDisplay ? "none" : "block",
         }
+
+        const { productList } = this.props;
+
+        // will be updated later
+        const { name, size, price, qty, totalPrice } = productList[0];
 
         return (
             <div className="order-result flex-item">
@@ -52,15 +79,15 @@ class OrderResult extends React.Component {
                         <div className="flex-item pizza-name">
                             <img src={sample_pizza} />
                             <div className="pizza-info">
-                                <p>Moorish Lamb</p>
-                                <p>SIZE: Large</p>
+                                <p>{name}</p>
+                                <p>SIZE: {size}</p>
                             </div>
                         </div>
-                        <div className="flex-item price-num">$19.00</div>
+                        <div className="flex-item price-num">${price}.00</div>
                         <div className="flex-item qty-num">
-                            <span>1</span>
+                            <span>{qty}</span>
                         </div>
-                        <div className="flex-item price-total">$19.00</div>
+                        <div className="flex-item price-total">${totalPrice}.00</div>
                         <div className="hd-arrow-down">
                             {
                                 this.state.downArrow && 
@@ -74,15 +101,15 @@ class OrderResult extends React.Component {
                         </div>
                         <div className="hd-price-num" style={displayStyle}>
                             <span>PRICE</span>
-                            <span>$19.00</span>
+                            <span>${price}.00</span>
                         </div>
                         <div className="hd-qty-num" style={displayStyle}>
                             <span>QTY</span>
-                            <span>1</span>
+                            <span>{qty}</span>
                         </div>
                         <div className="hd-price-total" style={displayStyle}>
                             <span>TOTAL</span>
-                            <span>$19.00</span>
+                            <span>${totalPrice}.00</span>
                         </div>
                     </li>
                 </ul>
@@ -101,7 +128,7 @@ class OrderResult extends React.Component {
                         <form>
                             <input type="text" id="p-code" name="p-code" value="Enter your promotional" />
                         </form>
-                        <button>APPLY</button>
+                        <button onClick={this.handlePromoCodeClick}>APPLY</button>
                     </div>
                 </div>
             </div>
@@ -110,4 +137,17 @@ class OrderResult extends React.Component {
 
 };
 
-export default OrderResult;
+const mapStateToProps = (state) => {
+    const { shoppingCartReducer: { productList, cartSubtotal } } = state
+    return {
+        productList,
+        cartSubtotal
+    }
+}
+
+const mapActionsToProps = {
+    applyPromoCode,
+    updateOrderTotal
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(OrderResult)

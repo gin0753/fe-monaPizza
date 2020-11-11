@@ -225,6 +225,7 @@
   color: #fdbc2c;
   font-size: 1.5rem;
   margin-bottom: 10px;
+  margin-top: 36px;
 }
 
 @media only screen and (max-width: 1500px) {
@@ -242,6 +243,7 @@
 .shopping-cart .main .order-result .order-list li .flex-item:nth-child(2) .pizza-info p:nth-child(2) {
   font-family: josefine;
   color: white;
+  margin: 16px 0;
 }
 
 @media only screen and (max-width: 1500px) {

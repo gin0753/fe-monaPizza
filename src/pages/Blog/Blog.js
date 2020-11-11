@@ -5,13 +5,6 @@ import ContentPic1 from './img/contentpic1.JPG';
 import ContentPic2 from './img/contentpic2.JPG';
 import ContentPic3 from './img/contentpic3.JPG';
 import ContentPic4 from './img/contentpic4.JPG';
-import Header from '../../components/Header/Header';
-import Newsletter from '../../components/Newsletter/Newsletter';
-import Media from '../../components/Media/Media';
-import Footer from '../../components/Footer/Footer';
-import SideBar from '../../components/SideBar/SideBar/SideBar';
-import CartTotals from '../../components/Cart/CartTotal/CartTotal';
-
 
 class Blog extends Component {
 
@@ -37,10 +30,6 @@ class Blog extends Component {
   
     render() {
         return (<div className="blog">
-            <SideBar sidestatus={this.state.sidebarIsClicked}/>
-            <CartTotals cartstatus={this.state.cartIsClicked}/>
-            <Header toggleSideBar={this.toggleSideBar} toggleCart={this.toggleCart} 
-            sidestatus={this.state.sidebarIsClicked} cartstatus={this.state.cartIsClicked}/>
             <div className="top">
                 <div className="toppicture">
                     <img src={Top1} alt="" />
@@ -115,9 +104,6 @@ class Blog extends Component {
                     <img src={ContentPic4} alt="" />
                 </div>
             </div>
-            <Newsletter />
-            <Media />
-            <Footer />
         </div>)}
 } 
 export default Blog;

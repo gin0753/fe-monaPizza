@@ -9,6 +9,7 @@ import Footer from '../../components/Footer/Footer';
 import SideBar from '../../components/SideBar/SideBar/SideBar';
 import CartTotals from '../../components/Cart/CartTotal/CartTotal';
 
+
 class ShoppingCart extends React.Component {
 
   constructor(props) {
@@ -38,6 +39,7 @@ class ShoppingCart extends React.Component {
         <CartTotals cartstatus={this.state.cartIsClicked} />
         <Header toggleSideBar={this.toggleSideBar} toggleCart={this.toggleCart}
           sidestatus={this.state.sidebarIsClicked} cartstatus={this.state.cartIsClicked} />
+
         <div className="main flex-container">
           <OrderResult />
           <CartTotal />
@@ -48,6 +50,8 @@ class ShoppingCart extends React.Component {
       </div>
     );
   }
-}
+
+} 
+
 
 export default ShoppingCart;

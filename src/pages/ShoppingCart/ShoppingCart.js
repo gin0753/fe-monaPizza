@@ -2,9 +2,10 @@ import React from 'react';
 import CartTotal from './Components/CartTotal';
 import OrderResult from './Components/OrderResult';
 import './shoppingCartStyle.css';
-class ShoppingCart extends React.Component{
 
-  constructor(props){
+class ShoppingCart extends React.Component {
+
+  constructor(props) {
     super(props);
     this.state = {
       sidebarIsClicked: false,
@@ -34,6 +35,8 @@ class ShoppingCart extends React.Component{
       </div>
     );
   }
+
 } 
+
 
 export default ShoppingCart;

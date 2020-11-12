@@ -175,11 +175,11 @@
   }
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:first-child {
   margin-right: 20px;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child div {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:first-child div {
   width: 60px;
   line-height: 60px;
   text-align: center;
@@ -187,31 +187,31 @@
   border: 1px solid white;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child p {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:first-child p {
   text-align: center;
 }
 
 @media only screen and (max-width: 1800px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:first-child {
     margin-right: 20px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:first-child div {
     width: 40px;
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:first-child p {
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:first-child {
     margin-right: 10px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:first-child div {
     width: 30px;
     line-height: 30px;
     text-align: center;
@@ -219,16 +219,16 @@
     border: 1px solid white;
     margin: 0 auto;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:first-child p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:first-child p {
     text-align: center;
   }
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(2) {
   margin-right: 20px;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) div {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(2) div {
   width: 70px;
   line-height: 70px;
   text-align: center;
@@ -236,15 +236,15 @@
   border: 1px solid white;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) p {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(2) p {
   text-align: center;
 }
 
 @media only screen and (max-width: 1800px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(2) {
     margin-right: 20px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(2) div {
     width: 50px;
     line-height: 50px;
     text-align: center;
@@ -252,32 +252,32 @@
     border: 1px solid white;
     margin: 0px auto;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(2) p {
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(2) {
     margin-right: 10px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(2) div {
     width: 40px;
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(2) p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(2) p {
     text-align: center;
   }
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(3) {
   margin-right: 20px;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) div {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(3) div {
   width: 80px;
   line-height: 80px;
   text-align: center;
@@ -285,47 +285,47 @@
   border: 1px solid white;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) p {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(3) p {
   text-align: center;
 }
 
 @media only screen and (max-width: 1800px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(3) {
     margin-right: 20px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(3) div {
     width: 60px;
     line-height: 60px;
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(3) p {
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(3) {
     margin-right: 10px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(3) div {
     width: 50px;
     line-height: 50px;
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(3) p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(3) p {
     text-align: center;
   }
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(4) {
   margin-right: 20px;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) div {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(4) div {
   width: 90px;
   line-height: 90px;
   text-align: center;
@@ -333,47 +333,47 @@
   border: 1px solid white;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) p {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(4) p {
   text-align: center;
 }
 
 @media only screen and (max-width: 1800px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(4) {
     margin-right: 20px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(4) div {
     width: 70px;
     line-height: 70px;
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(4) p {
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(4) {
     margin-right: 10px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(4) div {
     width: 60px;
     line-height: 60px;
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(4) p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(4) p {
     text-align: center;
   }
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(5) {
   margin-right: 20px;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) div {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(5) div {
   width: 100px;
   line-height: 100px;
   text-align: center;
@@ -381,38 +381,38 @@
   border: 1px solid white;
 }
 
-.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) p {
+.product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(5) p {
   text-align: center;
 }
 
 @media only screen and (max-width: 1800px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(5) {
     margin-right: 20px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(5) div {
     width: 80px;
     line-height: 80px;
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(5) p {
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(5) {
     margin-right: 10px;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) div {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(5) div {
     width: 70px;
     line-height: 70px;
     text-align: center;
     border-radius: 50%;
     border: 1px solid white;
   }
-  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul > li:nth-child(5) p {
+  .product-details-page .pizza-intro-wrapper .pizza-details-wrapper .pizza-details ul a:nth-child(5) p {
     text-align: center;
   }
 }

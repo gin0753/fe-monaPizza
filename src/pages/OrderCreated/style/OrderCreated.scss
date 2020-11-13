@@ -57,7 +57,6 @@
       }
       h2 {
         margin-top: 40px;
-        color: #fff;
         font-size: 18px;
         font-weight: 600;
         &::after {
@@ -78,8 +77,11 @@
       flex: 1;
       width: 100%;
       li {
+        margin-left:-1px;
         padding: 30px;
         flex: 1;
+        border: 1px solid #fdbc2c;
+        background-color: black;
         div {
           margin-bottom: 10px;
           color: #fdbc2c;
@@ -153,7 +155,7 @@
 
         &_wrap {
           height: 180px;
-
+          background-color: black;
           h2 {
             margin-top: 20px;
             margin-right: 40px;
@@ -195,16 +197,16 @@
         font-size: 30px;
       }
       &_middle {
-        margin-top:-50px;;
+        margin-top: -50px;
         display: block;
         li {
           text-align: center;
         }
       }
-      &_bottom{
-        display:block;
-        &_list{
-          margin-bottom:45px;
+      &_bottom {
+        display: block;
+        &_list {
+          margin-bottom: 45px;
         }
       }
     }

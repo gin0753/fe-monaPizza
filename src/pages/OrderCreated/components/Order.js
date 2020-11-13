@@ -13,7 +13,7 @@ class Order extends React.Component {
           </p>
         </div>
         <ul className='order_middle'>
-          <li className='order_middle_collectMethod'>
+          <li>
             <div className='order_middle_collectMethod_icon'></div>
             <h2>Collection Method</h2>
             <h3>Deliver to:</h3>
@@ -21,7 +21,7 @@ class Order extends React.Component {
             <p>Brisbane 4000 QLD</p>
             <p>0412 123 456</p>
           </li>
-          <li className='order_middle_billingDetails'>
+          <li>
             <div className='order_middle_billingDetails_icon'></div>
             <h2>Billing Details</h2>
             <h3>James Bond</h3>
@@ -29,7 +29,7 @@ class Order extends React.Component {
             <p>Springfield Central 4300 QLD</p>
             <p>0421 978654</p>
           </li>
-          <li className='order_middle_estimatedArrival'>
+          <li>
             <div className='order_middle_estimatedArrival_icon'></div>
             <h2>Estimated Arrival</h2>
             <h3>8:40 PM</h3>

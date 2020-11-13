@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import './contactUs.css';
+import Navigation from './components/Navigation/Navigation';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 class ContactUs extends React.Component {
 
   constructor(props) {
@@ -28,10 +29,11 @@ class ContactUs extends React.Component {
     return (
       <>
         <Fragment>
-          <div className='contact bread-crumb'>
+          {/* <div className='contact bread-crumb'>
             <div className='contact bread-crumb_title'>Contact Us</div>
             <div className='contact bread-crumb_path'><Link style={{ color: '#FDBC2C' }} to="/home">Home</Link>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<Link style={{ color: '#FDBC2C' }} to="/contact-us">Contact</Link></div>
-          </div>
+          </div> */}
+          <Navigation/>
           <div className='contact message-board'>
             <div className='contact location'></div>
             <div className='contact board-wrapper'>

@@ -27,18 +27,13 @@ class ContactUs extends React.Component {
 
   render() {
     return (
-      <>
         <Fragment>
-          {/* <div className='contact bread-crumb'>
-            <div className='contact bread-crumb_title'>Contact Us</div>
-            <div className='contact bread-crumb_path'><Link style={{ color: '#FDBC2C' }} to="/home">Home</Link>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<Link style={{ color: '#FDBC2C' }} to="/contact-us">Contact</Link></div>
-          </div> */}
           <Navigation/>
           <div className='contact message-board'>
             <div className='contact location'></div>
             <div className='contact board-wrapper'>
               <div className='contact board-left' >
-                <h1>Feelfree to contact us with any questions!</h1>
+                <h1>Feel free to contact us with any questions!</h1>
                 <p>If you have questions or comments, please get a hold of us in whichever way is most
                 convenient. If you have questions or comments, please get a hold of us in whichever way is most
                 convenient.
@@ -82,7 +77,6 @@ class ContactUs extends React.Component {
             </div>
           </div>
         </Fragment>
-      </>
     )
   }
 }

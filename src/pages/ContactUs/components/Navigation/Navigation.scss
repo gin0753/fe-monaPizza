@@ -5,18 +5,18 @@
 }
 @font-face {
     font-family: 'Fredericka-the-Great';
-    src: local('Fredericka-the-Great'), url(../../../../font/Fredericka-the-Great.ttf) format('opentype');
+    src: local('Fredericka-the-Great'), url(../../font//Fredericka-the-Great.ttf) format('opentype');
 }
 @font-face {
     font-family: 'JosefinSans-Regular';
-    src: local('JosefinSans-Regular'), url(../../../../font/JosefinSans-Regular.ttf) format('opentype');
+    src: local('JosefinSans-Regular'), url(../../font/JosefinSans-Regular.ttf) format('opentype');
 }
 .Checkout{
     width: 100%;
     & .navigation{
         min-width: 350px;
         height: 400px;
-        background-image: url('../../../../images/pizza-header.jpg');
+        background-image: url('../../images/pizza-header.jpg');
         background-size: cover;
         display: flex;
         justify-content: center;

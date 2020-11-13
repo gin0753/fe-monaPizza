@@ -1,11 +1,6 @@
 import React, { Fragment } from 'react';
 import './contactUs.css';
-import Header from '../../components/Header/Header';
-import Newsletter from '../../components/Newsletter/Newsletter';
-import Media from '../../components/Media/Media';
-import Footer from '../../components/Footer/Footer';
-import SideBar from '../../components/SideBar/SideBar/SideBar';
-import CartTotals from '../../components/Cart/CartTotal/CartTotal';
+
 import { Link } from 'react-router-dom';
 class ContactUs extends React.Component {
 
@@ -32,10 +27,6 @@ class ContactUs extends React.Component {
   render() {
     return (
       <>
-        <SideBar sidestatus={this.state.sidebarIsClicked} />
-        <CartTotals cartstatus={this.state.cartIsClicked} />
-        <Header toggleSideBar={this.toggleSideBar} toggleCart={this.toggleCart}
-          sidestatus={this.state.sidebarIsClicked} cartstatus={this.state.cartIsClicked} />
         <Fragment>
           <div className='contact bread-crumb'>
             <div className='contact bread-crumb_title'>Contact Us</div>
@@ -89,13 +80,8 @@ class ContactUs extends React.Component {
             </div>
           </div>
         </Fragment>
-        <Newsletter />
-        <Media />
-        <Footer />
       </>
     )
-
-
   }
 }
 

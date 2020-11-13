@@ -12,28 +12,69 @@ import Blog from "./pages/Blog/Blog";
 import Menu from "./pages/Menu/Menu";
 import SignIn from "./components/SignIn/SignIn";
 import Checkout from "./pages/Checkout/Checkout";
+import SideBar from "./components/SideBar/SideBar/SideBar";
+import CartTotals from "./components/Cart/CartTotal/CartTotal";
+import Header from "./components/Header/Header";
+import Newsletter from "./components/Newsletter/Newsletter";
+import Media from "./components/Media/Media";
+import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path='/about' component={About} />
-        <Route path='/users' component={Users} />
-        <Route path='/viewOrder' component={ViewOrder} />
-        <Route path='/contact-us' component={ContactUs} />
-        <Route path='/shopping-cart' component={ShoppingCart} />
-        <Route path='/product-details' component={ProductDetails} />
-        <Route path='/blog' component={Blog} />
-        <Route path='/home' component={Home} />
-        <Route path='/menu' component={Menu} />
-        <Route path='/sign-in' component={SignIn} />
-        <Route path='/checkout' component={Checkout} />
-        <Route path='/order-created' component={OrderCreated} />
-        <Route path='/' component={Home} />
-      </Switch>
-    </Router>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarIsClicked: false,
+      cartIsClicked: false,
+    };
+  }
+
+  toggleSideBar = () => {
+    this.setState({
+      sidebarIsClicked: !this.state.sidebarIsClicked,
+    });
+  };
+
+  toggleCart = () => {
+    this.setState({
+      cartIsClicked: !this.state.cartIsClicked,
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <Router>
+          <SideBar sidestatus={this.state.sidebarIsClicked} />
+          <CartTotals cartstatus={this.state.cartIsClicked} />
+          <Header
+            toggleSideBar={this.toggleSideBar}
+            toggleCart={this.toggleCart}
+            sidestatus={this.state.sidebarIsClicked}
+            cartstatus={this.state.cartIsClicked}
+          />
+          <Switch>
+            <Route path='/about' component={About} />
+            <Route path='/users' component={Users} />
+            <Route path='/viewOrder' component={ViewOrder} />
+            <Route path='/contact-us' component={ContactUs} />
+            <Route path='/shopping-cart' component={ShoppingCart} />
+            <Route path='/product-details' component={ProductDetails} />
+            <Route path='/blog' component={Blog} />
+            <Route path='/home' component={Home} />
+            <Route path='/menu' component={Menu} />
+            <Route path='/sign-in' component={SignIn} />
+            <Route path='/checkout' component={Checkout} />
+            <Route path='/order-created' component={OrderCreated} />
+            <Route path='/' component={Home} />
+          </Switch>
+          <Newsletter />
+          <Media />
+          <Footer />
+        </Router>
+      </>
+    );
+  }
 }
 
 export default App;

@@ -20,6 +20,47 @@
   padding-left: 20px;
 }
 
+.header__leftWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__leftWrapper--avatar {
+  margin-right: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.header__leftWrapper--avatar--userActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #FDBC2C;
+  color: #FFFFFF;
+  font-weight: 700;
+  position: absolute;
+  bottom: -82px;
+  left: -45px;
+  width: 100px;
+  height: 60px;
+  padding: 5px;
+}
+
+.header__leftWrapper--avatar--userActions span {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.header__leftWrapper--avatar--userActions span:hover {
+  color: #d94f2b;
+}
+
+.header__leftWrapper--avatar--userActions a:visited {
+  color: unset;
+}
+
 .header .navbar button, .header .cart button {
   border: none;
   outline: none;

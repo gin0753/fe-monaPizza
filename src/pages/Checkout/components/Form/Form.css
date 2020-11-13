@@ -154,22 +154,15 @@
   border-bottom: 3px solid #d94f2b;
   color: #FFFFFF;
   font-size: 20px;
+  padding: 30px 0;
 }
 
 .Checkout .form .billcontainer__login a, .Checkout .form .ordercontainer__coupon a {
   text-decoration: none;
 }
 
-.Checkout .form .billcontainer__login {
-  padding: 30px 0;
-}
-
 .Checkout .form .billcontainer__login i {
   cursor: pointer;
-}
-
-.Checkout .form .ordercontainer__coupon {
-  padding: 36px 0;
 }
 
 .Checkout .form .billcontainer__address, .Checkout .form .ordercontainer__payment {

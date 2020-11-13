@@ -15,6 +15,7 @@ class Login extends React.Component{
         super(props)
         this.state = {
             isClicked: false,
+            isRegistered: false,
             isLogin: false,
             isLoading: false,
             isSucceeded: false,
@@ -177,9 +178,7 @@ class Login extends React.Component{
             try{
                 const response = await axios.post('/register', RegisterInfo);
                 if(response.status === 201){
-                    console.log(response.data);
-                }
-                else{
+                    this.setState({isRegistered: true});
                 }
             } catch (err) {
                 console.log(err);
@@ -212,30 +211,38 @@ class Login extends React.Component{
                     this.setState({
                         isLogin: true
                     });
-                    console.log(response)
+                    const userID = response.data.id;
+                    const userName = response.data.username;
                     sessionStorage.setItem('login-token', response.data.token);
+                    sessionStorage.setItem('userID', userID);
+                    sessionStorage.setItem('userName', userName);
+
+                    const id = sessionStorage.getItem('userID');
+                    const name = sessionStorage.getItem('userName');
+                    console.log(id);
+                    console.log(name);
 
                     const handleSwitch = async () => {
-                        await new Promise((resolve)=>setTimeout(() => {
+                        await new Promise((resolve) => {    
                             this.setState({isLoading: true});
                             resolve();
-                        }, 0)); 
+                        }); 
 
                         await new Promise((resolve)=>setTimeout(() => {
                             this.setState({isLoading: false});
                             resolve();
-                        }, 2000)); 
+                        }, 2500)); 
 
-                        await new Promise((resolve)=>setTimeout(() => {
+                        await new Promise((resolve)=> {
                             this.setState({isSucceeded: true});
-                            resolve();
-                        }, 0)); 
-
-                        await new Promise((resolve)=>setTimeout(() => {
                             const { history } = this.props;
                             history.replace('/checkout');
                             resolve();
-                        }, 2000));  
+                        }); 
+
+                        // await new Promise((resolve)=>setTimeout(() => {
+                        //     resolve();
+                        // }, 2500));  
                     }
                     handleSwitch();
                 }
@@ -283,6 +290,7 @@ class Login extends React.Component{
             isClicked: true,
             readTerm: false,
             isSucceeded: false,
+            isRegistered: false,
             checkEmail: '',
             checkPassword: '',
             confirmPassword: ''
@@ -354,9 +362,6 @@ class Login extends React.Component{
                             {this.state.isLoading && <span className="loading">
                                 <HashLoader loading size={48} color={"#d94f2b"}/>
                                 </span>}
-                            {this.state.isSucceeded && <span className="loading">
-                                <Lottie className="success" onClick={()=>{console.log(1)}} options={defaultOptions} width={60} height={60}/>
-                                </span>}
                         </form>
                     </div>
                 </div>
@@ -418,7 +423,14 @@ class Login extends React.Component{
                                 <input type="checkbox" id="term" name="term" value="term" onChange={this.checkTerm}/>
                                 <label>I have read the <a>Term & Conditions</a></label>
                             </div>
-                            <button onClick={this.clickRegister} className={this.state.readTerm ? "" : "btnDisabled"} disabled={this.state.readTerm ? false : true}>Sign Up</button>
+                                {this.state.isRegistered && 
+                                    <span className="loading">
+                                        <Lottie options={defaultOptions} width={80} height={80}/>
+                                    </span>}
+                                {!this.state.isRegistered && 
+                                    <span className="loading">
+                                        <button onClick={this.clickRegister} className={this.state.readTerm ? "" : "btnDisabled"} disabled={this.state.readTerm ? false : true}>Sign Up</button>
+                                    </span>}
                         </form>
                     </div>
                 </div>

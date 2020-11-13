@@ -11,8 +11,8 @@ import ProductDetails from './pages/ProductDetails/ProductDetails';
 import Blog from './pages/Blog/Blog';
 import Menu from './pages/Menu/Menu';
 import SignIn from './components/SignIn/SignIn';
+import ManageAccount from './pages/manageAccount/manageAccount';
 import Checkout from './pages/Checkout/Checkout';
-
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
     return (
         <Router>
             <Switch>
+                <Route exact path="/" component={Home} />
                 <Route path="/about" component={About} />
                 <Route path="/users" component={Users} />
                 <Route path="/viewOrder" component={ViewOrder} />
@@ -31,7 +32,7 @@ function App() {
                 <Route path="/menu" component={Menu} />
                 <Route path="/sign-in" component={SignIn} />
                 <Route path="/checkout" component={Checkout} />
-                <Route path="/" component={Home} />
+                <Route path="/manage-account" component={ManageAccount} />
             </Switch>
         </Router>
     );

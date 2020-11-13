@@ -119,18 +119,15 @@
             border-bottom: 3px solid #d94f2b;
             color: #FFFFFF;
             font-size: 20px;
+            padding: 30px 0;
             & a{
                 text-decoration: none;
             }
         }
         & .billcontainer__login{
-            padding: 30px 0;
             & i{
                 cursor: pointer;
             }
-        }
-        & .ordercontainer__coupon{
-            padding: 36px 0;
         }
         & .billcontainer__address, & .ordercontainer__payment{
             margin-top: 35px;

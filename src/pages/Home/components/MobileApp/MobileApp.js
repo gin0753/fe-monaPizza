@@ -1,5 +1,4 @@
 import React from "react";
-import Iphone6Ads from "./img/iPhone6-ad.png";
 
 class MobileApp extends React.Component {
   render() {
@@ -7,7 +6,6 @@ class MobileApp extends React.Component {
       <section className='restPage_mobileApp'>
         <div className='restPage_mobileApp_wrap'>
           <aside>
-            <img src={Iphone6Ads} />
           </aside>
           <main>
             <h2>Get the newest version of our mobile app for your phone.</h2>

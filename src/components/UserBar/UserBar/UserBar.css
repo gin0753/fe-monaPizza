@@ -1,0 +1,67 @@
+body {
+  line-height: 1.5;
+}
+
+nav {
+  padding: 2em;
+  border: solid 1 transparent;
+  width: min-content;
+}
+
+ul {
+  width: 270px;
+}
+
+li {
+  padding: 10px;
+  color: white;
+}
+
+
+.actived {
+    background-color: #FDBC2C;
+    border: solid 1px transparent;
+}
+
+
+a:hover::after {
+  content: " ";
+  display: block;
+  width: 1px;
+}
+
+a:active {
+    background-color: #FDBC2C;
+}
+
+
+
+li a {
+  color: whitesmoke;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.userbar--topitems {
+  border: solid 1px #FDBC2C;
+  background-color: transparent;
+}
+
+.userbar--middleitems {
+  border: solid 1px transparent;
+  background-color: #FDBC2C;
+}
+
+
+.userbar--bottomitems {
+  border: solid 1px #FDBC2C;
+  background-color:transparent;
+}
+
+li:hover a {
+  color: rgb(168, 44, 44);
+}
+li:hover {
+  color: rgb(168, 44, 44);
+}

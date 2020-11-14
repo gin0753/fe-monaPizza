@@ -51,36 +51,59 @@ class Display extends React.Component {
     });
   };
 
-  // clearAutoRoll = () => {
-  //   clearInterval(autoRoll);
-  // };
-
   componentDidMount() {
+    this.setAutoRoll = setInterval(() => {
+      this.handleRollRight();
+    }, 3000);
+  }
+
+  stopRoll = () => {
+    clearInterval(this.setAutoRoll);
+    this.setState({
+      autoRoll: false,
+    });
+  };
+
+  startRoll = () => {
     if (this.state.autoRoll) {
-      var setAutoRoll = setInterval(() => {
+      return;
+    } else {
+      this.setAutoRoll = setInterval(() => {
         this.handleRollRight();
       }, 3000);
-    } else {
-      clearInterval(setAutoRoll);
+      this.setState({
+        autoRoll: true,
+      });
     }
-  }
+  };
 
   render() {
     return (
       <div className='restPage_display'>
-        <div className='left_btn' onClick={this.handleRollLeft}>
+        <div
+          className='left_btn'
+          onClick={this.handleRollLeft}
+          onMouseOut={this.startRoll}
+          onMouseEnter={this.stopRoll}
+        >
           
         </div>
-        <div className='right_btn' onClick={this.handleRollRight}>
+        <div
+          className='right_btn'
+          onClick={this.handleRollRight}
+          onMouseOut={this.startRoll}
+          onMouseEnter={this.stopRoll}
+        >
           
         </div>
-        <div className='restPage_display_wrap'>
+        <div
+          className='restPage_display_wrap'
+          onMouseOut={this.startRoll}
+          onMouseEnter={this.stopRoll}
+        >
           <div
             className='restPage_display_wrap_slider'
             style={{ transform: `translateX(${this.state.rollPercent})` }}
-            onMouseOver={() => {
-              this.setState({ autoRoll: false });
-            }}
           >
             <Items />
           </div>

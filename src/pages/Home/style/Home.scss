@@ -367,13 +367,18 @@ $this-red: #d94f2b;
   }
   .restPage_gallery {
     width: 100%;
-    height: 720px;
+    height: 888px;
     overflow: hidden;
 
     &_show {
-      margin-top: 190px;
-      width: 800%;
+      margin-top: 145px;
+      display:flex;
+      width: 200%;
       height: 282px;
+      transition: 2s ease;
+      img{
+        flex:1;
+      }
     }
     &_nav {
       position: relative;
@@ -390,6 +395,7 @@ $this-red: #d94f2b;
         color: $this-red;
         text-align: center;
         line-height: 52px;
+        cursor: pointer;
       }
       h5 {
         flex: 8;

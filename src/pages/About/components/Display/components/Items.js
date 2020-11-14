@@ -1,7 +1,8 @@
 import React from "react";
 import Item from "./Item";
-import photo from "../img/display_photo.png";
-
+import photo1 from "../img/display_photo.png";
+import photo2 from "../img/display_photo2.jpg";
+import photo3 from "../img/display_photo3.jpg";
 
 class Items extends React.Component {
   render() {
@@ -15,27 +16,37 @@ class Items extends React.Component {
       dolore te feugait nulla facilisi. Nam tempor cum soluta nobision
       congue nihil imperdiet doming id quod mazim placerat facer possim
       assum.'
-          photo={photo}
+          photo={photo1}
         />
         <Item
-          title='Jimmy Buttler'
+          title='Sriracha Beef'
           details='Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
       molestie consequat, vel illum dolore eu feugiat nulla facilisis at
       vero eros et accumsan qui blandit luptatum zzril delenit augue duis
       dolore te feugait nulla facilisi. Nam tempor cum soluta nobision
       congue nihil imperdiet doming id quod mazim placerat facer possim
       assum.'
-          photo={photo}
+          photo={photo2}
         />
         <Item
-          title='LaLla Buttler'
+          title='Peri-Peri'
           details='Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
       molestie consequat, vel illum dolore eu feugiat nulla facilisis at
       vero eros et accumsan qui blandit luptatum zzril delenit augue duis
       dolore te feugait nulla facilisi. Nam tempor cum soluta nobision
       congue nihil imperdiet doming id quod mazim placerat facer possim
       assum.'
-          photo={photo}
+          photo={photo3}
+        />
+        <Item
+          title='Moorish Lamb'
+          details='Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+      molestie consequat, vel illum dolore eu feugiat nulla facilisis at
+      vero eros et accumsan qui blandit luptatum zzril delenit augue duis
+      dolore te feugait nulla facilisi. Nam tempor cum soluta nobision
+      congue nihil imperdiet doming id quod mazim placerat facer possim
+      assum.'
+          photo={photo3}
         />
       </div>
     );

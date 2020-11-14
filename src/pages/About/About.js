@@ -9,24 +9,8 @@ import Display from "./components/Display/Display";
 import Questions from "./components/Questions/Questions";
 
 class About extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {
-      sidebarIsClicked: false,
-      cartIsClicked: false
-    }
-  }
-
-  toggleSideBar = () => {
-    this.setState({
-      sidebarIsClicked: !this.state.sidebarIsClicked
-    })
-  }
-
-  toggleCart = () => {
-    this.setState({
-      cartIsClicked: !this.state.cartIsClicked
-    })
   }
 
   render() {

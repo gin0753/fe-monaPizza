@@ -15,13 +15,24 @@ class QuestionItem extends React.Component {
   render() {
     const { expand } = this.state;
     return (
-      <li style={expand ? { height: "auto" } : { height: "124px" }}>
-        <span style={expand ? { top: "65px" } : {}}>{this.props.children}</span>
-        <i onClick={this.setExpand}>{expand ? "-" : "+"}</i>
-        <main style={expand ? { display: "block" } : { display: "none" }}>
-          {this.props.details}
-        </main>
-      </li>
+      <>
+        {expand && (
+          <li style={{ height: "auto" }}>
+            <span style={{ top: "65px" }}>{this.props.children}</span>
+            <i onClick={this.setExpand} style={{ top: "65px" }}>
+              -
+            </i>
+            <main style={{ display: "block" }}>{this.props.details}</main>
+          </li>
+        )}
+        {!expand && (
+          <li style={{ height: "124px" }}>
+            <span>{this.props.children}</span>
+            <i onClick={this.setExpand}>+</i>
+            <main style={{ display: "none" }}>{this.props.details}</main>
+          </li>
+        )}
+      </>
     );
   }
 }

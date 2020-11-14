@@ -13,6 +13,7 @@ import Menu from './pages/Menu/Menu';
 import SignIn from './components/SignIn/SignIn';
 import ManageAccount from './pages/manageAccount/manageAccount';
 import Checkout from './pages/Checkout/Checkout';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
                 <Route path="/menu" component={Menu} />
                 <Route path="/sign-in" component={SignIn} />
                 <Route path="/checkout" component={Checkout} />
-                <Route path="/manage-account" component={ManageAccount} />
+                <ProtectedRoute path="/manage-account" component={ManageAccount} />
             </Switch>
         </Router>
     );

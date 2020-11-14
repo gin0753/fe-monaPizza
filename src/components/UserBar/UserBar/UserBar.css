@@ -15,6 +15,7 @@ ul {
 li {
   padding: 10px;
   color: white;
+  position: relative;
 }
 
 
@@ -23,12 +24,6 @@ li {
     border: solid 1px transparent;
 }
 
-
-a:hover::after {
-  content: " ";
-  display: block;
-  width: 1px;
-}
 
 a:active {
     background-color: #FDBC2C;
@@ -64,4 +59,15 @@ li:hover a {
 }
 li:hover {
   color: rgb(168, 44, 44);
+}
+
+li:hover::after {
+  content: " ";
+  display: block;
+  width: 6px;
+  height: 44px;
+  border: solid 3px #FDBC2C;
+  top: 0;
+  right: 0;
+  position: absolute;
 }

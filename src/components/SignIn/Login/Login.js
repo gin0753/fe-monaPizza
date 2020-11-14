@@ -18,7 +18,6 @@ class Login extends React.Component{
             isRegistered: false,
             isLogin: false,
             isLoading: false,
-            isSucceeded: false,
             checkUsername: '',
             checkSurname: '',
             checkEmail: '',
@@ -234,7 +233,6 @@ class Login extends React.Component{
                         }, 2500)); 
 
                         await new Promise((resolve)=> {
-                            this.setState({isSucceeded: true});
                             const { history } = this.props;
                             history.replace('/checkout');
                             resolve();
@@ -289,7 +287,6 @@ class Login extends React.Component{
         this.setState({
             isClicked: true,
             readTerm: false,
-            isSucceeded: false,
             isRegistered: false,
             checkEmail: '',
             checkPassword: '',
@@ -358,10 +355,8 @@ class Login extends React.Component{
                                 {confirmPassword === 'Red' && <i className={confirmPassword}><FaTimes /></i>}
                                 {confirmPassword === '' && <i></i>}
                             </div>
-                            <button disabled={this.state.isSucceeded ? true : false}>Sign In</button>
-                            {this.state.isLoading && <span className="loading">
-                                <HashLoader loading size={48} color={"#d94f2b"}/>
-                                </span>}
+                            {this.state.isLoading ? <span className="loading"><HashLoader loading size={48} color={"#d94f2b"}/></span> 
+                            : <button>Sign In</button>}
                         </form>
                     </div>
                 </div>

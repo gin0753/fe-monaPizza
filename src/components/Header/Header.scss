@@ -24,7 +24,10 @@ src: local('RoyaChicken'), url(../../font/RoyaChicken.otf) format('opentype');
             margin-right: 20px;
             cursor: pointer;
             position: relative;
+            z-index: 999;
+            color: #FFFFFF;
             &--userActions{
+                z-index: 3;
                 display: flex;
                 justify-content: center;
                 align-items: center;

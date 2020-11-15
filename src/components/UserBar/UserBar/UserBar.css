@@ -18,18 +18,9 @@ li {
   position: relative;
 }
 
-
-.actived {
-    background-color: #FDBC2C;
-    border: solid 1px transparent;
+li:target {
+  background-color: #FDBC2C;
 }
-
-
-a:active {
-    background-color: #FDBC2C;
-}
-
-
 
 li a {
   color: whitesmoke;
@@ -62,12 +53,14 @@ li:hover {
 }
 
 li:hover::after {
-  content: " ";
+  content: "";
   display: block;
-  width: 6px;
+  width: 0px;
   height: 44px;
-  border: solid 3px #FDBC2C;
+  border: solid 5px #FDBC2C;
   top: 0;
   right: 0;
   position: absolute;
 }
+
+

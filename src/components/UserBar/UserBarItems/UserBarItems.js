@@ -13,27 +13,31 @@ const Payment = <FontAwesomeIcon icon={faMoneyCheck} />
 export const UserBarTopItems = [
     {
         title: 'My Details',
-        path: '/my-details',
-        cName: 'actived',
-        icon: Address
+        path: '#my-details',
+        cName: 'my-details',
+        icon: Address,
+        id: 'my-details'
     },
     {
         title: 'Payment Details',
-        path: '/payment-details',
+        path: '/payment-details#payment',
         cName: 'payment',
-        icon: Payment
+        icon: Payment,
+        id: 'payment'
     },
     {
         title: 'Change Password',
         path: '/change-password',
         cName: 'password',
-        icon: Password
+        icon: Password,
+        id: 'password'
     },
     {
         title: 'Order History',
         path: '/order-history',
         cName: 'history',
-        icon: History
+        icon: History,
+        id: 'history'
     }
 ];
 
@@ -49,6 +53,7 @@ export const UserBarBottomItems = [
     {
         title: 'Logout',
         path: '/sign-in',
-        cName: 'nav-text'
+        cName: 'nav-text',
+        id: 'nav-text'
     }
 ];

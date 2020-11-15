@@ -34,9 +34,9 @@ class Dashboard extends Component {
                 <section>
                     <div className="userdetails">
                         <div className="mydetails">
-                            <h3>My details</h3>
+                            <h3></h3>
                             <div>
-                                <label>First Name*</label>
+                                <label></label>
                                 <div><imput id="first-name" type="text" placeholder="e.g John" require="required"></imput></div>
                             </div>
                         </div>

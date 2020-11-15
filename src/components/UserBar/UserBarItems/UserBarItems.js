@@ -20,21 +20,21 @@ export const UserBarTopItems = [
     },
     {
         title: 'Payment Details',
-        path: '/payment-details#payment',
+        path: '#payment',
         cName: 'payment',
         icon: Payment,
         id: 'payment'
     },
     {
         title: 'Change Password',
-        path: '/change-password',
+        path: '#password',
         cName: 'password',
         icon: Password,
         id: 'password'
     },
     {
         title: 'Order History',
-        path: '/order-history',
+        path: '#history',
         cName: 'history',
         icon: History,
         id: 'history'
@@ -52,8 +52,8 @@ export const UserBarMiddleItems = [
 export const UserBarBottomItems = [
     {
         title: 'Logout',
-        path: '/sign-in',
-        cName: 'nav-text',
-        id: 'nav-text'
+        path: '#logout',
+        cName: 'logout',
+        id: 'logout'
     }
 ];

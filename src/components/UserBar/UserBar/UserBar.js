@@ -13,9 +13,9 @@ class UserBar extends React.Component {
                 <ul className="userbar--topitems">
                     {UserBarTopItems.map((item, index) => {
                         return (
-                            <Link to={`${item.path}`}><li id={item.id} key={item.id} className={item.cName}>
+                            <a href={item.path}> <li id={item.id} key={item.id} className={item.cName}>
                                 <span>{item.icon}</span><a><h6>{item.title}</h6></a>
-                            </li></Link>
+                            </li></a>
                         )
                     })}
                 </ul>
@@ -33,9 +33,9 @@ class UserBar extends React.Component {
                 <ul className="userbar--bottomitems">
                     {UserBarBottomItems.map((item, index) => {
                         return (
-                            <Link to={`${item.path}`}><li id={item.id} key={item.id} className="item.cName">
+                            <a href={item.path}><li id={item.id} key={item.id} className="item.cName">
                                 <a><h6>{item.title}</h6></a>
-                            </li></Link>
+                            </li></a>
                         )
                     })}
                 </ul>

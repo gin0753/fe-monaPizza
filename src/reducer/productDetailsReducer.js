@@ -13,23 +13,14 @@ export const productDetailsReducer = (state = defaultState, action) => {
 
     switch(action.type) {
 
-        case "ADD_A_PIZZA":
-            newState.quantity = newState.quantity + 1;
-            newState.price = defaultState.price * newState.quantity;
-            return newState;
+        case "FETCH_PIZZA_REQUREST":
+
         
         case "DELETE_A_PIZZA":
-            if(newState.quantity <= 0) {
-                newState.quantity = 0;
-            }else{
-                newState.quantity = newState.quantity - 1;
-                newState.price = defaultState.price * newState.quantity;
-            }
-            return newState;
+
         
         case "CHANGE_PIZZA_SIZE":
-            newState.size = action.size;
-            return newState;
+
         
         default:
             return state;

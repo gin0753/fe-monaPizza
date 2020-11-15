@@ -338,19 +338,19 @@ class Login extends React.Component{
                         </div>
                         <form ref={this.form} onSubmit={this.handleSubmit}>
                             <div className="withIcon">
-                                <input ref={this.loginEmail} className={checkEmail} type="text" name="Email" placeholder="Email" onChange={this.loginChange}/>
+                                <input ref={this.loginEmail} className={checkEmail} type="text" name="Email" placeholder="Email*" onChange={this.loginChange}/>
                                 {checkEmail === 'Green' && <i className={checkEmail}><FaCheck /></i>}
                                 {checkEmail === 'Red' && <i className={checkEmail}><FaTimes /></i>}
                                 {checkEmail === '' && <i></i>}
                             </div>
                             <div className="withIcon">
-                                <input ref={this.loginPassword} className={checkPassword} type="password" name="Password" placeholder="Password" onChange={this.loginChange}/>
+                                <input ref={this.loginPassword} className={checkPassword} type="password" name="Password" placeholder="Password*" onChange={this.loginChange}/>
                                 {checkPassword === 'Green' && <i className={checkPassword}><FaCheck /></i>}
                                 {checkPassword === 'Red' && <i className={checkPassword}><FaTimes /></i>}
                                 {checkPassword === '' && <i></i>}
                             </div>
                             <div className="withIcon">
-                                <input ref={this.confirmPassword} className={confirmPassword} type="password" name="confirmPassword" placeholder="Confirm Login" onChange={this.loginChange}/>
+                                <input ref={this.confirmPassword} className={confirmPassword} type="password" name="confirmPassword" placeholder="Confirm Login*" onChange={this.loginChange}/>
                                 {confirmPassword === 'Green' && <i className={confirmPassword}><FaCheck /></i>}
                                 {confirmPassword === 'Red' && <i className={confirmPassword}><FaTimes /></i>}
                                 {confirmPassword === '' && <i></i>}
@@ -378,7 +378,7 @@ class Login extends React.Component{
                         </div>
                         <form  ref={this.form}>
                             <div className="withIcon">
-                                <input ref={this.username} className={checkUsername} type="text" id="username" name="Username" placeholder="Username" onChange={this.handleChange}/>
+                                <input ref={this.username} className={checkUsername} type="text" id="username" name="Username" placeholder="Username*" onChange={this.handleChange}/>
                                 {checkUsername === 'Green' && <i className={checkUsername}><FaCheck /></i>}
                                 {checkUsername === 'Red' && <i className={checkUsername}><FaTimes /></i>}
                                 {checkUsername === '' && <i></i>}
@@ -390,13 +390,13 @@ class Login extends React.Component{
                                 {checkSurname === '' && <i></i>}
                             </div>
                             <div className="withIcon">
-                                <input ref={this.email} className={checkEmail} type="text" id="email" name="Email" placeholder="Email" onChange={this.handleChange}/>
+                                <input ref={this.email} className={checkEmail} type="text" id="email" name="Email" placeholder="Email*" onChange={this.handleChange}/>
                                 {checkEmail === 'Green' && <i className={checkEmail}><FaCheck /></i>}
                                 {checkEmail === 'Red' && <i className={checkEmail}><FaTimes /></i>}
                                 {checkEmail === '' && <i></i>}
                             </div>
                             <div className="withIcon">
-                                <input ref={this.password} className={checkPassword} type={this.state.isVisible ? "text" : "password"} id="password" name="Password" placeholder="Password" onChange={this.handleChange}/>
+                                <input ref={this.password} className={checkPassword} type={this.state.isVisible ? "text" : "password"} id="password" name="Password" placeholder="Password*" onChange={this.handleChange}/>
                                 {checkPassword === 'Green' && <i id="visibility3" className={checkPassword} onClick={this.visibility}><FaEye /></i>}
                                 {checkPassword === 'Red' && <i id="visibility3" className={checkPassword} onClick={this.visibility}><FaEye /></i>}
                                 {checkPassword === '' && <i id="visibility3" onClick={this.visibility}><FaEye /></i>}

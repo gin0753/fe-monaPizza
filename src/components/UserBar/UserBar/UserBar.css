@@ -1,6 +1,8 @@
-.user body {
+body {
   line-height: 1.5;
+  box-sizing: border-box;
 }
+
 
 .user nav {
   padding: 2em;
@@ -26,13 +28,17 @@
   color: whitesmoke;
   font-weight: bold;
   display: inline-block;
-  margin-left: 1em;
 }
 
 .user .userbar--topitems {
   border: solid 1px #FDBC2C;
   background-color: transparent;
 }
+
+.user .userbar--topitems h6 {
+  margin-left: 1em;
+}
+
 
 .user .userbar--middleitems {
   border: solid 1px transparent;
@@ -44,6 +50,8 @@
   border: solid 1px #FDBC2C;
   background-color:transparent;
 }
+
+
 
 .user li:hover a {
   color: rgb(168, 44, 44);

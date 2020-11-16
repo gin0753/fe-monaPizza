@@ -1,58 +1,58 @@
-body {
+.user body {
   line-height: 1.5;
 }
 
-nav {
+.user nav {
   padding: 2em;
   border: solid 1 transparent;
   width: min-content;
 }
 
-ul {
+.user ul {
   width: 270px;
 }
 
-li {
+.user li {
   padding: 10px;
   color: white;
   position: relative;
 }
 
-li:target {
+.user li:target {
   background-color: #FDBC2C;
 }
 
-li a {
+.user li a {
   color: whitesmoke;
   font-weight: bold;
   display: inline-block;
   margin-left: 1em;
 }
 
-.userbar--topitems {
+.user .userbar--topitems {
   border: solid 1px #FDBC2C;
   background-color: transparent;
 }
 
-.userbar--middleitems {
+.user .userbar--middleitems {
   border: solid 1px transparent;
   background-color: #FDBC2C;
 }
 
 
-.userbar--bottomitems {
+.user .userbar--bottomitems {
   border: solid 1px #FDBC2C;
   background-color:transparent;
 }
 
-li:hover a {
+.user li:hover a {
   color: rgb(168, 44, 44);
 }
-li:hover {
+.user li:hover {
   color: rgb(168, 44, 44);
 }
 
-li:hover::after {
+.user li:hover::after {
   content: "";
   display: block;
   width: 0px;

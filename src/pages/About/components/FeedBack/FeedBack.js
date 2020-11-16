@@ -1,10 +1,85 @@
 import React from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import Florentine from "./img/Florentine.png";
-import Garlic from "./img/Garlic.png";
-import Kimchi from "./img/Kimchi.png";
+import Items from "./components/Items";
 
 class FeedBack extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      autoRoll: true,
+      rollPoint: 0,
+      rollPercent: "",
+    };
+  }
+
+
+  toPercent(point) {
+    let percent = Number(point * 100);
+    percent += "%";
+    return percent;
+  }
+
+  handleRollRight = () => {
+    let point = this.state.rollPoint;
+    let percent;
+    if (point <= -0.332) {
+      point = 0;
+      percent = "0";
+    } else {
+      point = this.state.rollPoint - 0.166;
+      percent = this.toPercent(point);
+    }
+    this.setState({
+      rollPoint: point,
+      rollPercent: percent,
+    });
+  };
+
+  handleRollLeft = () => {
+    let point = this.state.rollPoint;
+    let percent = this.toPercent(point);
+
+    if (point == 0) {
+      point = -0.332;
+      percent = "-33.2%";
+    } else {
+      point = this.state.rollPoint + 0.166;
+      percent = this.toPercent(point);
+    }
+
+    this.setState({
+      rollPoint: point,
+      rollPercent: percent,
+    });
+  };
+
+  componentDidMount() {
+    this.setAutoRoll = setInterval(() => {
+      this.handleRollRight();
+    }, 3000);
+  }
+
+  stopRoll = () => {
+    clearInterval(this.setAutoRoll);
+    this.setState({
+      autoRoll: false,
+    });
+  };
+
+  startRoll = () => {
+    if (this.state.autoRoll) {
+      return;
+    } else {
+      this.setAutoRoll = setInterval(() => {
+        this.handleRollRight();
+      }, 3000);
+      this.setState({
+        autoRoll: true,
+      });
+    }
+  };
+
+
+
   render() {
     return (
       <section className='restPage_feedBack'>
@@ -16,66 +91,27 @@ class FeedBack extends React.Component {
             it’s how our customers rate us that really matters. Because it makes
             our customers happy! And we love making people happy.
           </p>
-          <ul>
-            <li>
-              <mark>
-                <img src={Florentine} />
-              </mark>
-              <h4>Florentine Ricotta</h4>
-              <section>
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiOutlineStar />
-              </section>
-              <p>
-                “ We are serving pizza, your pizza is the fave of our family.
-                Pick us as the pizza winner! ”
-              </p>
-              <h5 className='customerName'>Daniela Black</h5>
-              <a href='#'>www.pizzatempo.com</a>
-            </li>
-            <li>
-              <mark>
-                <img src={Garlic} />
-              </mark>
-              <h4>Garlic Prawn</h4>
-              <section>
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiOutlineStar />
-              </section>
-              <p>
-                “ Very Good! Very generous with the cheese! Don't know how it
-                could get any better. ”
-              </p>
-              <h5 className='customerName'>Eliz Bellarosa</h5>
-              <a href='#'>www.pizzatempo.com</a>
-            </li>
-            <li>
-              <mark>
-                <img src={Kimchi} />
-              </mark>
-              <h4>Kimchi BBQ Chicken</h4>
-              <section>
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiOutlineStar />
-              </section>
-              <p>
-                “ I enjoy a classic pizza with quality ingredients. Quick
-                delivery and always friendly service. ”
-              </p>
-              <h5 className='customerName'>Bradley Taylor</h5>
-              <a href='#'>www.pizzatempo.com</a>
-            </li>
-          </ul>
-          <nav></nav>
+          <div className='restPage_feedBack_wrap_slider' style={{ transform: `translateX(${this.state.rollPercent})` }} >
+            <Items />
+          </div>
+          <nav>
+          <div
+          className='left_btn'
+          onClick={this.handleRollLeft}
+          onMouseOut={this.startRoll}
+          onMouseEnter={this.stopRoll}
+        >
+          
+        </div>
+        <div
+          className='right_btn'
+          onClick={this.handleRollRight}
+          onMouseOut={this.startRoll}
+          onMouseEnter={this.stopRoll}
+        >
+          
+        </div>
+          </nav>
         </div>
       </section>
     );

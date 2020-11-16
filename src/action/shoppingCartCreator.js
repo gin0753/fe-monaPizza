@@ -1,4 +1,3 @@
-
 export const applyPromoCode = (discount) => ({
     type: "ADD_DISCOUNT",
     discount

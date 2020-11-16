@@ -1,12 +1,8 @@
 import React, { Fragment } from 'react';
 import './contactUs.css';
-import Header from '../../components/Header/Header';
-import Newsletter from '../../components/Newsletter/Newsletter';
-import Media from '../../components/Media/Media';
-import Footer from '../../components/Footer/Footer';
-import SideBar from '../../components/SideBar/SideBar/SideBar';
-import CartTotals from '../../components/Cart/CartTotal/CartTotal';
-import { Link } from 'react-router-dom';
+import Navigation from './components/Navigation/Navigation';
+
+// import { Link } from 'react-router-dom';
 class ContactUs extends React.Component {
 
   constructor(props) {
@@ -31,21 +27,13 @@ class ContactUs extends React.Component {
 
   render() {
     return (
-      <>
-        <SideBar sidestatus={this.state.sidebarIsClicked} />
-        <CartTotals cartstatus={this.state.cartIsClicked} />
-        <Header toggleSideBar={this.toggleSideBar} toggleCart={this.toggleCart}
-          sidestatus={this.state.sidebarIsClicked} cartstatus={this.state.cartIsClicked} />
         <Fragment>
-          <div className='contact bread-crumb'>
-            <div className='contact bread-crumb_title'>Contact Us</div>
-            <div className='contact bread-crumb_path'><Link style={{ color: '#FDBC2C' }} to="/home">Home</Link>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<Link style={{ color: '#FDBC2C' }} to="/contact-us">Contact</Link></div>
-          </div>
+          <Navigation/>
           <div className='contact message-board'>
             <div className='contact location'></div>
             <div className='contact board-wrapper'>
               <div className='contact board-left' >
-                <h1>Feelfree to contact us with any questions!</h1>
+                <h1>Feel free to contact us with any questions!</h1>
                 <p>If you have questions or comments, please get a hold of us in whichever way is most
                 convenient. If you have questions or comments, please get a hold of us in whichever way is most
                 convenient.
@@ -89,13 +77,7 @@ class ContactUs extends React.Component {
             </div>
           </div>
         </Fragment>
-        <Newsletter />
-        <Media />
-        <Footer />
-      </>
     )
-
-
   }
 }
 

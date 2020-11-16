@@ -56,8 +56,8 @@
   content: "";
   display: block;
   width: 0px;
-  height: 44px;
-  border: solid 5px #FDBC2C;
+  height: 100%;
+  border: solid 3px #FDBC2C;
   top: 0;
   right: 0;
   position: absolute;

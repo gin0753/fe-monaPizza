@@ -342,12 +342,12 @@ body {
   margin: 6px;
 }
 
-.menu .catelogue__product .add-button {
+.menu .catelogue__product .catelogue-button {
   visibility: hidden;
   height: 32px;
   width: 80px;
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   box-sizing: border-box;
   background-color: #fdbc2c;
 }
@@ -356,7 +356,7 @@ body {
   border: solid 3px #fdbc2c;
 }
 
-.menu .catelogue__product--name:hover .add-button {
+.menu .catelogue__product--name:hover .catelogue-button {
   visibility: visible;
 }
 .menu .catelogue__product--name:hover .product__size {
@@ -573,13 +573,6 @@ body {
     margin-top: 5px;
     font-size: 14px;
     margin-right: 4px;
-  }
-
-  .menu .catelogue__product .add-button {
-    height: 30px;
-    width: 60px;
-    margin: 2px;
-    font-size: 14px;
   }
 
   .menu .subscription {
@@ -870,10 +863,21 @@ body {
     padding: 1px 10px;
   }
 
-  .menu .catelogue__product .add-button {
+  .menu .catelogue__product .catelogue-button {
     height: 30px;
     width: 60px;
     margin: 2px;
     font-size: 14px;
   }
+
+}
+
+.product__button{
+  width: 30%;
+}
+
+.product__showcase{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

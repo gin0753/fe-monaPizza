@@ -1,12 +1,4 @@
-import axios from 'axios'
-
-export const addPizza = () => ({
-    type: "ADD_PIZZA"
-})
-
-export const removePizza = () => ({
-    type: "REMOVE_PIZZA"
-})
+import axios from 'axios';
 
 const fetchPizzaRequest = () => {
     return {
@@ -37,8 +29,7 @@ export const fetchPizza = () => {
             await dispatch(fetchPizzaSuccess(pizzas));
         }
         catch (e) {
-            const err = e.message;
-            await dispatch(fetchPizzaFaliure(err));
+            await dispatch(fetchPizzaFaliure(e));
         }
     }
 }

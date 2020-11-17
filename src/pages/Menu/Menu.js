@@ -1,32 +1,13 @@
 import React, { Component } from 'react';
 import './Menu.css';
-import Kimchi from '../../images/kimchi.png'
-import Peri from '../../images/peri.png'
-import Moorish from '../../images/moorish.png'
-import Meat from '../../images/meat.png'
-import Sriracha from '../../images/sriracha.png'
-import Wild from '../../images/wild.png'
-import Mediterranean from '../../images/mediterranean.png'
-import Pepperoni from '../../images/pepperoni.png'
-import Mexican from '../../images/mexican.png'
-import Smoked from '../../images/smoked.png'
-import Garlic from '../../images/garlic.png'
-import Spiced from '../../images/spiced.png'
-import Florentine from '../../images/florentine.png'
-import Margherita from '../../images/margherita.png'
-import Vegetarian from '../../images/vegetarian.png'
-import Roast from '../../images/roast.png'
 import Bgi from '../../images/Pizza-bg.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import Header from '../../components/Header/Header';
-import Newsletter from '../../components/Newsletter/Newsletter';
-import Media from '../../components/Media/Media';
-import Footer from '../../components/Footer/Footer';
-import SideBar from '../../components/SideBar/SideBar/SideBar';
-import CartTotals from '../../components/Cart/CartTotal/CartTotal';
-import { Link } from 'react-router';
+import { PizzaImages } from './MenuItems/PizzaImages'
+import axios from 'axios';
+import { connect } from 'react-redux'
+import { fetchPizza } from '../../action/menuActions'
 
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />
@@ -36,26 +17,34 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sidebarIsClicked: false,
-      cartIsClicked: false
+      pizzas: []
     }
   }
 
-  toggleSideBar = () => {
-    this.setState({
-      sidebarIsClicked: !this.state.sidebarIsClicked
+  displayContent = async () => {
+    const { pizzas: { pizzas } } = this.props;
+    const pizzaItem = pizzas.filter((value, index, arr) => arr.findIndex(j => (j.PizzaName === value.PizzaName)) === index);
+    const pizzaImage = PizzaImages;
+    pizzaItem.forEach(ele => {
+      pizzaImage.forEach(i => {
+        if (i.PizzaName === ele.PizzaName) {
+          let index = pizzaImage.indexOf(i);
+          ele.Img = pizzaImage[index].Img;
+        }
+      })
     })
+    this.setState({
+      pizzas: pizzaItem
+    });
   }
 
-  toggleCart = () => {
-    this.setState({
-      cartIsClicked: !this.state.cartIsClicked
-    })
+  componentDidMount = async () => {
+    const { fetchPizza } = this.props;
+    await fetchPizza();
+    await this.displayContent();
   }
-
   render() {
     return (
-
       <div className="menu" style={{ backgroundImage: `url(${Bgi})` }}>
         <div className="catelogue">
           <div className="catelogue__topbar">
@@ -352,310 +341,29 @@ class Menu extends Component {
             </div>
           </div>
           <div className="catelogue__product">
-            <div className="catelogue__product--name">
-              <div><img src={Kimchi} alt="Kimchi" /></div>
-              <div className="pizza__description">
-                <h3>Kimchi BBQ Chicken</h3>
-                <p>
-                  Slow Cooked Pulled Chicken marinated in Bulgogi sauce, Shitake Mushrooms, Shallots on a Garlic Base, Gamished with Kimch, Red & Green Chilli.
-              </p>
-              </div>
-              <h4 className="product__price">$21.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Kimchi-BBQ-Chicken" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Peri} alt="Peri-Peri" /></div>
-              <div className="pizza__description">
-                <h3>Peri-Peri</h3>
-                <p>
-                  Marinated Chicken Breast Fillets, Shallots, Roasted Capsicum, Caramelised Onions & Bocconcini on a Tomato base, topped with Peri-Peri sauce.
-              </p>
-              </div>
-              <h4 className="product__price">$24.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Peri-Peri" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Moorish} alt="Moorish-Lamb" /></div>
-              <div className="pizza__description">
-                <h3>Moorish Lamb</h3>
-                <p>
-                  Slow Cooked Pulled Lamb marinated in Moorish spices. Tomatoes, Capsicum, Medley, Garbanzos,topped with a Slice of Lemon & Yogurt sauce.
-              </p>
-              </div>
-              <h4 className="product__price">$19.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Moorish-Lamb" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Meat} alt="Meat-Deluxe" /></div>
-              <div className="pizza__description">
-                <h3>Meat Deluxe</h3>
-                <p>
-                  Chorizo Sausage, Spanish Onions, Roasted Capsicum, Jalapenos & Chilli on s Spicy Tomato Salsa base, served with Fresh Avocado Salsa.
-              </p>
-              </div>
-              <h4 className="product__price">$20.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Meat-Deluxe" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Sriracha} alt="Sriracha Beef" /></div>
-              <div className="pizza__description">
-                <h3>Sriracha Beef</h3>
-                <p>
-                  Slow Cooked Pulled Beef, Red capsicum on a Tomato base, Garnished with Pico De Gallo, Avocado, Coriander & Lime, topped with Sriracha Mayo.
-              </p>
-              </div>
-              <h4 className="product__price">$18.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Sriracha Beef" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Wild} alt="Wild-Mushroom-Wagyu" /></div>
-              <div className="pizza__description">
-                <h3>Wild Mushroom Wagyu</h3>
-                <p>
-                  4+ Marble Score Wagyu Beef, Portobello, Shiitake & Oyster Mushrooms, Asparagus, Caramelised Onions & Toasted Pine Nuts, on a Béchamel base.
-              </p>
-              </div>
-              <h4 className="product__price">$22.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Wild-Mushroom-Wagyu" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Mediterranean} alt="Mediterranean" /></div>
-              <div className="pizza__description">
-                <h3>Mediterranean</h3>
-                <p>
-                  Slow Cooked Marinated Lamb, Tomatoes, Green Capsicum, Spanish Onions, Feta & Oregano on a Garlic infused base, gamished with Mint Yoghurt & Lemon.
-              </p>
-              </div>
-              <h4 className="product__price">$20.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Mediterranean" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Pepperoni} alt="pepperoni" /></div>
-              <div className="pizza__description">
-                <h3>Pepperoni</h3>
-                <p>
-                  Pepperoni Spanish Onions, Fresh Capsicum, Ground Beef, Olive Tapenade & Garlic on a Tomato base (Chilli optional.)
-              </p>
-              </div>
-              <h4 className="product__price">$23.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Pepperoni" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Mexican} alt="Mexican" /></div>
-              <div className="pizza__description">
-                <h3>Mexican</h3>
-                <p>
-                  Chorizo Sausage, Spanish Onions, Roasted Capsicum, Jalapenos & Chilli on s Spicy Tomato Salsa base, served with Fresh Avocado Salsa.
-              </p>
-              </div>
-              <h4 className="product__price">$20.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Mexican" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Smoked} alt="Smoked-Salmon" /></div>
-              <div className="pizza__description">
-                <h3>Smoked Salmon</h3>
-                <p>
-                  Smoked Salmon on a Spinach & Ricotta base, gamished with Wild Rocked, Hollandaise & Lemon, served with Cracked Pepper & Sea Salt.
-              </p>
-              </div>
-              <h4 className="product__price">$25.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Smoked-Salmon" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Garlic} alt="Garlic-Prawn" /></div>
-              <div className="pizza__description">
-                <h3>Garlic Prawn</h3>
-                <p>
-                  Marinated Tiger Prawns, Sundried Tomatoes, Shallots, Roasted Capsicum & Feta on a Tomato base, Garnished with Fresh Herbs & Lemon.
-              </p>
-              </div>
-              <h4 className="product__price">$24.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Garlic-Prawn" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Spiced} alt="Spiced-Pumpkin" /></div>
-              <div className="pizza__description">
-                <h3>Spiced Pumpkin</h3>
-                <p>
-                  Roasted Pumpkin seasoned with Moroccan Spices, Kalamata Olices, Baby Spinach, Roasted Capsicum & Bocconcini on a Tomato base.
-              </p>
-              </div>
-              <h4 className="product__price">$17.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Spiced-Pumpkin" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Florentine} alt="Florentine-Ricotta" /></div>
-              <div className="pizza__description">
-                <h3>Florentine Ricotta</h3>
-                <p>
-                  Spinach & Ricotta, Kalamata Olives, Spanish Onions, Cherry Tomatoes & Feta served with Cracked Pepper & Sea Salt.
-              </p>
-              </div>
-              <h4 className="product__price">$18.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Florentine-Ricotta" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Margherita} alt="Margherita" /></div>
-              <div className="pizza__description">
-                <h3>Margherita</h3>
-                <p>
-                  Margherita with Authentic Buffalo Mozzarella and Cherry Tomatoes on a Tomato base, garnished with Fresh Basilm served with Cracked Pepper & Sea Salt.
-              </p>
-              </div>
-              <h4 className="product__price">$16.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Margherita" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Vegetarian} alt="Vegetarian-Supreme" /></div>
-              <div className="pizza__description">
-                <h3>Vegetarian Supreme</h3>
-                <p>
-                  Grilled Eggplant, Marinated Artichokes, Baby Spinach, Roasted Capsicum, Mushrooms, Sundried Tomatoes & Bocconcini on a Tomato base, Pesto Aioli.
-              </p>
-              </div>
-              <h4 className="product__price">$22.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Vegetarian-Supreme" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
-            <div className="catelogue__product--name">
-              <div><img src={Roast} alt="Roast-Beetroot" /></div>
-              <div className="pizza__description">
-                <h3>Roast Beetroot</h3>
-                <p>
-                  Slowcooked Roasted Beetroot, Baby Spinach, Bocconcini on a Harissa Infused Hummus base, topped with Crushed Walnuts and Honey.
-              </p>
-              </div>
-              <h4 className="product__price">$21.00</h4>
-              <form action="/action_page.php" className="size--selection">
-                <label htmlFor="product__size"></label>
-                <select name="product__size" id="Roast-Beetroot" className="product__size">
-                  <option value="Medium">Medium</option>
-                  <option value="Small">Small</option>
-                  <option value="Large">Large</option>
-                </select>
-                <input className="add-button" type="submit" value="ADD" />
-              </form>
-            </div>
+            {this.state.pizzas.map(item => {
+              return (
+                <div className="catelogue__product--name">
+                  <div><img src={item.Img} alt="Vegetarian-Supreme" /></div>
+                  <div className="pizza__description">
+                    <h3>{item.PizzaName}</h3>
+                    <p>
+                      {item.Description}
+                    </p>
+                  </div>
+                  <h4 className="product__price">{`$ ${item.Price}`}</h4>
+                  <form action="/action_page.php" className="size--selection">
+                    <label htmlFor="product__size"></label>
+                    <select name="product__size" id="Vegetarian-Supreme" className="product__size">
+                      <option value="Medium">Medium</option>
+                      <option value="Small">Small</option>
+                      <option value="Large">Large</option>
+                    </select>
+                    <input className="add-button" type="submit" value="ADD" />
+                  </form>
+                </div>
+              )
+            })}
           </div>
           <div className="pagination">
             <div className="previouspage"><a href="#">{ArrowLeft}</a></div>
@@ -673,4 +381,19 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+const mapStateToProps = state => {
+  console.log(state);
+  const { menuReducer: { loading, pizzas } } = state;
+  return {
+    loading,
+    pizzas
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPizza: () => dispatch(fetchPizza())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

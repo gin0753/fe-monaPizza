@@ -17,6 +17,7 @@
     @media screen and (max-width: 640px) {
         justify-content: center;
         flex-wrap: wrap;
+        height: 1250px
     }
     &__signincontainer, &__signupcontainer{
         width: 30%;
@@ -84,7 +85,7 @@
                 max-width: 280px;
                 height: auto;
                 position: absolute;
-                top: 10%;
+                top: 4%;
             }
         }
     }
@@ -104,6 +105,10 @@
         @media screen and (max-width: 640px) {
             font-size: 45px;
         }
+    }
+    & .sidewrapper{
+        position: absolute;
+        right: 0;
     }
     & .sidewrapper-left{
         position: absolute;
@@ -154,7 +159,7 @@
         flex-wrap: wrap;
         @media screen and (max-width: 640px) {
             width: 100%;
-            height: 50%;
+            height: 70%;
             position: absolute;
             bottom: 0;
         }
@@ -185,36 +190,85 @@
             }
         }
         &--logincontainer{
+            & .withIcon{
+                width: 100%;
+                & i{
+                    position: absolute;
+                    top: 15px;
+                    right: 100px;
+                    border: none;
+                }
+            }
+            & .loading{
+                display: flex;
+                justify-content: center;
+                height: 62px;
+            }
             & input{
                 display: block;
                 margin: 0 auto;
             }
             & input{
                 width: 70%;
-                margin-bottom: 30px;
             }
             &--titlewrapper {
                 width: 70%;
             }
         }
         &--registercontainer{
-            & input[type=text], & input[type=password]{
-                width: 46%;
-                margin: 0px 10px 30px 10px;
-                @media screen and (max-width: 1050px) {
-                    width: 70%;
+            #visibility3{
+                cursor: pointer;
+            }
+            & .withIcon{
+                width: 50%;
+                & i{
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    border: none;
                 }
             }
-            & input[type=checkbox]{
-                display: inline-block;
-                margin-right: 10px;
-                margin-bottom: 30px;
+            & input[type=text], & input[type=password]{
+                width: 95%;
             }
-            & label{
-                display: inline-block;
-                font-size: 13px;
-                & a{
-                    color: #FDBC2C;
+            .readTerm{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                & input[type=checkbox]{
+                    margin-right: 15px;
+                    cursor: pointer;
+                }
+                & label{
+                    font-size: 13px;
+                    & a{
+                        color: #FDBC2C;
+                    }
+                }
+            }
+            .passwordRules{
+                padding: 10px;
+                text-align: left;
+                h3{
+                    font-size: 18px;
+                    font-weight: 300;
+                    margin-bottom: 10px;
+                    & span{
+                        font-weight: 700;
+                    }
+                }
+                &--ruleWrapper{
+                    width: 420px;
+                    margin: 0 auto;
+                    h5{
+                        display: inline-block;
+                        font-size: 15px;
+                        font-weight: 300;
+                        margin: 10px;
+                    }
+                    & .number{
+                        margin-right: 91px;
+                    }
                 }
             }
             &--titlewrapper {
@@ -231,7 +285,7 @@
                 display: block;
                 margin: 0 auto;
             }
-            & input[type=text], & input[type=password] {
+            & input{
                 border-radius: 25px;
                 border: none;
                 background-color: #000000;
@@ -241,6 +295,21 @@
                 padding: 15px;
                 font-size: 15px;
                 border: 2px solid #FFFFFF;
+            }
+            & .Red{
+                color: #d94f2b;
+                border: 2px solid #d94f2b;
+            }
+            & .Green{
+                color: #1FC36A;
+                border: 2px solid #1FC36A;
+            }
+            & .withIcon{
+                display: inline-block;
+                position: relative;
+                @media screen and (max-width: 1050px) {
+                    width: 75%;
+                }
             }
             &--titlewrapper {
                 margin: 0 auto;
@@ -292,6 +361,12 @@
                     opacity: 80%;
                 }
             }
+            & .btnDisabled{
+                opacity: 50%;
+                &:hover{
+                    opacity: 50%;
+                }
+            }
         }
     }
     &__asksignup{
@@ -304,7 +379,7 @@
         color: #181818;
         @media screen and (max-width: 640px) {
             width: 100%;
-            height: 50%;
+            height: 30%;
             position: absolute;
             top: 0;
         }

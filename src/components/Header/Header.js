@@ -1,8 +1,10 @@
 import React from 'react';
 import './Header.css';
-import Logo from './components/Logo/Logo'
-import Menu from './components/Menu/Menu'
-import Cart from'./components/Cart/Cart'
+import Logo from './components/Logo/Logo';
+import Menu from './components/Menu/Menu';
+import Avatar from './components/Avatar/Avatar';
+import Cart from'./components/Cart/Cart';
+
 
 class Header extends React.Component{
     
@@ -11,7 +13,12 @@ class Header extends React.Component{
                     <header className="header" >
                         <Menu {...this.props} />
                         <Logo/>
-                        <Cart {...this.props}/>
+                        <div className="header__leftWrapper">
+                            <div className="header__leftWrapper--avatar">
+                                <Avatar />
+                            </div>
+                            <Cart {...this.props}/>
+                        </div>
                     </header>  
                </div>   
     }

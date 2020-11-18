@@ -12,7 +12,7 @@ class Registration extends React.Component{
     
     render(){
         return <div className="Registration">
-                    <Login SignupClicked={this.state.SignupClicked} switchLogin={this.switchLogin}/>
+                    <Login SignupClicked={this.state.SignupClicked} switchLogin={this.switchLogin} {...this.props}/>
                </div>   
     }
 }

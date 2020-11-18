@@ -21,6 +21,7 @@ import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
 import ManageAccount from './pages/manageAccount/manageAccount';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import Dashboard from "./pages/Dashboard/dashboard"
 
 class App extends React.Component {
   constructor(props) {
@@ -70,6 +71,7 @@ class App extends React.Component {
             <Route path="/checkout" component={Checkout} />
             <Route path='/order-created' component={OrderCreated} />
             <ProtectedRoute path="/manage-account" component={ManageAccount} />
+            <Route path='/dashboard' component={Dashboard} />
           </Switch>
           <Newsletter />
           <Media />

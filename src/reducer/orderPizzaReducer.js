@@ -7,7 +7,10 @@ export const orderPizzaReducer = (state = initialState, action) => {
     switch(action.type){
 
         case "ADD_PIZZA":
-            state.quantity += 1;
+            state = {
+                ...state,
+                quantity: state.quantity + 1
+            }
             return state
             
         case "REMOVE_PIZZA":
@@ -15,10 +18,18 @@ export const orderPizzaReducer = (state = initialState, action) => {
                 return state;
             }
             else{
-                state.quantity -= 1;
+                state = {
+                    ...state,
+                    quantity: state.quantity - 1
+                }
                 return state
             }
-
+        case "RESET_QUANTITY":
+            state = {
+                ...state,
+                quantity: 0
+            }
+            return state
         default:
             return state;
     }

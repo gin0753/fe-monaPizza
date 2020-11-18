@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addPizza, removePizza } from '../../../action/orderPizzaActions';
+import { addPizza, removePizza, resetQuantity } from '../../../action/orderPizzaActions';
 import { useSelector, useDispatch } from 'react-redux';
 
 const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => {
@@ -9,9 +9,12 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => 
   const handleChange = (e) => {
     e.preventDefault();
     setCurrentSize(e.target.value);
+    console.log(_id);
+    console.log(PizzaName);
+    console.log(Price[currentSize]);
   };
   
-  const quantity = useSelector(state => state.quantity);
+  const quantity = useSelector(state => state.orderPizzaReducer.quantity);
 
   const dispatch = useDispatch();
 
@@ -34,7 +37,10 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => 
             <option value="Large">Large</option>
           </select>
           <div className="product__button">
-            <input className="catelogue-button" value="ADD" onClick={() => dispatch(addPizza())}/>
+            <input className="catelogue-button" value="ADD" onClick={() => {
+                dispatch(addPizza())
+              }
+            }/>
             <input className="catelogue-button" value="Remove" onClick={() => dispatch(removePizza())}/>
           </div>
         </div>

@@ -5,38 +5,34 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
 
-const Address = <FontAwesomeIcon icon={faAddressCard} />
-const History = <FontAwesomeIcon icon={faHistory} />
-const Password = <FontAwesomeIcon icon={faUnlockAlt} />
-const Payment = <FontAwesomeIcon icon={faMoneyCheck} />
 
 export const UserBarTopItems = [
     {
         title: 'My Details',
         path: '#my-details',
         cName: 'my-details',
-        icon: Address,
+        icon: faAddressCard,
         id: 'my-details'
     },
     {
         title: 'Payment Details',
         path: '#payment',
         cName: 'payment',
-        icon: Payment,
+        icon: faMoneyCheck,
         id: 'payment'
     },
     {
         title: 'Change Password',
         path: '#password',
         cName: 'password',
-        icon: Password,
+        icon: faUnlockAlt,
         id: 'password'
     },
     {
         title: 'Order History',
         path: '#history',
         cName: 'history',
-        icon: History,
+        icon: faHistory,
         id: 'history'
     }
 ];

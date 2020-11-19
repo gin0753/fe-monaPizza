@@ -1,5 +1,6 @@
 import React from 'react';
 import './UserBar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { UserBarTopItems } from '../UserBarItems/UserBarItems';
 import { UserBarMiddleItems } from '../UserBarItems/UserBarItems';
 import { UserBarBottomItems } from '../UserBarItems/UserBarItems';
@@ -14,7 +15,7 @@ class UserBar extends React.Component {
                     {UserBarTopItems.map((item, index) => {
                         return (
                             <a href={item.path}> <li id={item.id} key={item.id} className={item.cName}>
-                                <span>{item.icon}</span><a><h6>{item.title}</h6></a>
+                                <FontAwesomeIcon icon={item.icon} fixedWidth /><a><h6>{item.title}</h6></a>
                             </li></a>
                         )
                     })}

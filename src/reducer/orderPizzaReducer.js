@@ -1,3 +1,8 @@
+import { fetchPizzas } from '../api/fetchPizzas'
+
+fetchPizzas();
+
+
 const initialState = {
     quantity: 0
 }

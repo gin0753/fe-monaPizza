@@ -1,22 +1,26 @@
 import React, { useState } from "react";
-import { addPizza, removePizza, resetQuantity } from '../../../action/orderPizzaActions';
-import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
+// import { useSelector, useDispatch } from 'react-redux';
 
 const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => {
 
-  const [currentSize, setCurrentSize] = useState("Small");
+  const [currentSize, setCurrentSize] = useState('Small');
 
   const handleChange = (e) => {
     e.preventDefault();
     setCurrentSize(e.target.value);
-    console.log(_id);
-    console.log(PizzaName);
-    console.log(Price[currentSize]);
   };
-  
-  const quantity = useSelector(state => state.orderPizzaReducer.quantity);
 
-  const dispatch = useDispatch();
+  const handleAdd = () => {
+    const userId = sessionStorage.getItem('userID');
+    const pizzaName = PizzaName;
+    const pizzaSize = currentSize;
+    axios.get('/cart?userId=userId&pizzaName=pizzaName&pizzaSize=pizzaSize');
+  }
+  
+  // const quantity = useSelector(state => state.orderPizzaReducer.quantity);
+
+  // const dispatch = useDispatch();
 
   return (
     <div className="catelogue__product--name" key={_id}>
@@ -37,11 +41,8 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => 
             <option value="Large">Large</option>
           </select>
           <div className="product__button">
-            <input className="catelogue-button" value="ADD" onClick={() => {
-                dispatch(addPizza())
-              }
-            }/>
-            <input className="catelogue-button" value="Remove" onClick={() => dispatch(removePizza())}/>
+            <input className="catelogue-button" value="ADD" onClick={handleAdd}/>
+            <input className="catelogue-button" value="Remove" />
           </div>
         </div>
       </form>

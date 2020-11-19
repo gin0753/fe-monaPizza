@@ -20,7 +20,7 @@ class Menu extends Component {
     }
   }
 
- displayContent = async () => {
+  displayContent = async () => {
     const { pizzas: { pizzas } } = this.props;
     const pizzaImage = PizzaImages;
     pizzas.forEach( ele => {
@@ -365,15 +365,15 @@ const mapStateToProps = state => {
   console.log(state)
   const { menuReducer: {loading, pizzas} } = state;
   return {
-    loading, 
+    loading,
     pizzas
   }
 }
 
 const mapDispatchToProps = dispatch => {
-    return{
-      fetchPizza: () => dispatch(fetchPizza())
-    }
+  return {
+    fetchPizza: () => dispatch(fetchPizza())
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

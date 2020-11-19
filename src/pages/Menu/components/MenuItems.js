@@ -5,17 +5,41 @@ import axios from 'axios';
 const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => {
 
   const [currentSize, setCurrentSize] = useState('Small');
+  let qty = 0;
 
   const handleChange = (e) => {
     e.preventDefault();
     setCurrentSize(e.target.value);
   };
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
+    qty+=1;
     const userId = sessionStorage.getItem('userID');
     const pizzaName = PizzaName;
     const pizzaSize = currentSize;
-    axios.get('/cart?userId=userId&pizzaName=pizzaName&pizzaSize=pizzaSize');
+    const pizzaPrice = Price[currentSize];
+    const totalPrice = qty * pizzaPrice;
+    const pizzaSelected = {
+      userId,
+      pizzaName,
+      pizzaSize,
+      pizzaPrice,
+      qty,
+      totalPrice,
+      status: "Pending"
+    }
+    console.log(pizzaSelected)
+    console.log(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
+    try{
+      const response = await axios.get(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
+      await console.log(response);
+      if(response.status === 404){
+        await axios.post('/cart', pizzaSelected);
+      }
+    } catch(err){
+      console.log(err)
+    }
+
   }
   
   // const quantity = useSelector(state => state.orderPizzaReducer.quantity);

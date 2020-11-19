@@ -19,9 +19,10 @@ import Newsletter from "./components/Newsletter/Newsletter";
 import Media from "./components/Media/Media";
 import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
+import Mydetails from "./pages/Dashboard/mydetails/mydetails"
 import ManageAccount from './pages/manageAccount/manageAccount';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-import Dashboard from "./pages/Dashboard/dashboard"
+
 
 class App extends React.Component {
   constructor(props) {
@@ -70,8 +71,9 @@ class App extends React.Component {
             <Route path="/sign-in" component={SignIn} />
             <Route path="/checkout" component={Checkout} />
             <Route path='/order-created' component={OrderCreated} />
+            <Route path='/mydetails' component={Mydetails} />
+            <Route path='/' component={Home} />
             <ProtectedRoute path="/manage-account" component={ManageAccount} />
-            <Route path='/dashboard' component={Dashboard} />
           </Switch>
           <Newsletter />
           <Media />

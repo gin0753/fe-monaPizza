@@ -167,6 +167,28 @@ class Login extends React.Component{
         this.verifyPassword(this.confirmPassword.current.value);
     }
 
+    handleSwitch = async () => {
+        await new Promise((resolve) => {    
+            this.setState({isLoading: true});
+            resolve();
+        }); 
+
+        await new Promise((resolve)=>setTimeout(() => {
+            this.setState({isLoading: false});
+            resolve();
+        }, 2500)); 
+
+        await new Promise((resolve)=> {
+            const { history } = this.props;
+            history.replace('/checkout');
+            resolve();
+        }); 
+
+        // await new Promise((resolve)=>setTimeout(() => {
+        //     resolve();
+        // }, 2500));  
+    }
+
     clickRegister = async (e) => {
         e.preventDefault();
 
@@ -221,34 +243,7 @@ class Login extends React.Component{
                     sessionStorage.setItem('login-token', response.data.token);
                     sessionStorage.setItem('userID', userID);
                     sessionStorage.setItem('userName', userName);
-
-                    const id = sessionStorage.getItem('userID');
-                    const name = sessionStorage.getItem('userName');
-                    console.log(id);
-                    console.log(name);
-
-                    const handleSwitch = async () => {
-                        await new Promise((resolve) => {    
-                            this.setState({isLoading: true});
-                            resolve();
-                        }); 
-
-                        await new Promise((resolve)=>setTimeout(() => {
-                            this.setState({isLoading: false});
-                            resolve();
-                        }, 2500)); 
-
-                        await new Promise((resolve)=> {
-                            const { history } = this.props;
-                            history.replace('/checkout');
-                            resolve();
-                        }); 
-
-                        // await new Promise((resolve)=>setTimeout(() => {
-                        //     resolve();
-                        // }, 2500));  
-                    }
-                    handleSwitch();
+                    this.handleSwitch();
                 }
                 else{
                     sessionStorage.setItem('login-token', null);
@@ -283,8 +278,14 @@ class Login extends React.Component{
         try{
             const response = await axios.post('/googleLogin', googleInfo);
             if(response.status === 200 || response.status === 201){
+                const userID = response.data._id;
+                const userName = response.data.UserName;
                 sessionStorage.setItem('login-token', response.data.token);
+                sessionStorage.setItem('userID', userID);
+                sessionStorage.setItem('userName', userName);
                 await this.setState({isAuthenticated: true});
+                console.log(response)
+                this.handleSwitch();
             }
             else{
                 sessionStorage.setItem('login-token', null);

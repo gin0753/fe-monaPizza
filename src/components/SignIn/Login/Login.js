@@ -18,6 +18,8 @@ class Login extends React.Component{
             isRegistered: false,
             isLogin: false,
             isLoading: false,
+            userExists: false,
+            isAuthenticated: ' ',
             checkUsername: '',
             checkSurname: '',
             checkEmail: '',
@@ -35,6 +37,7 @@ class Login extends React.Component{
             Email: '',
             Password: ''
         };
+
         this.namePattern = /^[A-Za-z]+$/;
         this.passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
         this.emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
@@ -164,6 +167,28 @@ class Login extends React.Component{
         this.verifyPassword(this.confirmPassword.current.value);
     }
 
+    handleSwitch = async () => {
+        await new Promise((resolve) => {    
+            this.setState({isLoading: true});
+            resolve();
+        }); 
+
+        await new Promise((resolve)=>setTimeout(() => {
+            this.setState({isLoading: false});
+            resolve();
+        }, 2500)); 
+
+        await new Promise((resolve)=> {
+            const { history } = this.props;
+            history.replace('/checkout');
+            resolve();
+        }); 
+
+        // await new Promise((resolve)=>setTimeout(() => {
+        //     resolve();
+        // }, 2500));  
+    }
+
     clickRegister = async (e) => {
         e.preventDefault();
 
@@ -177,10 +202,12 @@ class Login extends React.Component{
             try{
                 const response = await axios.post('/register', RegisterInfo);
                 if(response.status === 201){
-                    this.setState({isRegistered: true});
+                    await this.setState({isRegistered: true,
+                                         userExists: false });
                 }
             } catch (err) {
                 console.log(err);
+                await this.setState({userExists: true});
             }
         }
     }
@@ -208,48 +235,28 @@ class Login extends React.Component{
                     );
                 if(response.status === 200){
                     this.setState({
-                        isLogin: true
+                        isLogin: true,
+                        isAuthenticated: true
                     });
                     const userID = response.data.id;
                     const userName = response.data.username;
                     sessionStorage.setItem('login-token', response.data.token);
                     sessionStorage.setItem('userID', userID);
                     sessionStorage.setItem('userName', userName);
-
-                    const id = sessionStorage.getItem('userID');
-                    const name = sessionStorage.getItem('userName');
-                    console.log(id);
-                    console.log(name);
-
-                    const handleSwitch = async () => {
-                        await new Promise((resolve) => {    
-                            this.setState({isLoading: true});
-                            resolve();
-                        }); 
-
-                        await new Promise((resolve)=>setTimeout(() => {
-                            this.setState({isLoading: false});
-                            resolve();
-                        }, 2500)); 
-
-                        await new Promise((resolve)=> {
-                            const { history } = this.props;
-                            history.replace('/checkout');
-                            resolve();
-                        }); 
-
-                        // await new Promise((resolve)=>setTimeout(() => {
-                        //     resolve();
-                        // }, 2500));  
-                    }
-                    handleSwitch();
+                    this.handleSwitch();
                 }
                 else{
                     sessionStorage.setItem('login-token', null);
+                    this.setState({
+                        isAuthenticated: false
+                    });
                 }
             } catch (err) {
                 console.log(err);
                 sessionStorage.setItem('login-token', null);
+                this.setState({
+                    isAuthenticated: false
+                });
             }
         }
     }
@@ -271,10 +278,18 @@ class Login extends React.Component{
         try{
             const response = await axios.post('/googleLogin', googleInfo);
             if(response.status === 200 || response.status === 201){
+                const userID = response.data._id;
+                const userName = response.data.UserName;
                 sessionStorage.setItem('login-token', response.data.token);
+                sessionStorage.setItem('userID', userID);
+                sessionStorage.setItem('userName', userName);
+                await this.setState({isAuthenticated: true});
+                console.log(response)
+                this.handleSwitch();
             }
             else{
                 sessionStorage.setItem('login-token', null);
+                await this.setState({isAuthenticated: false});
             }
         } catch (err) {
             console.log(err);
@@ -355,6 +370,9 @@ class Login extends React.Component{
                                 {confirmPassword === 'Red' && <i className={confirmPassword}><FaTimes /></i>}
                                 {confirmPassword === '' && <i></i>}
                             </div>
+                            {
+                                !this.state.isAuthenticated ? <div style={{color: "#d94f2b"}}>Incorrect Email or Password!</div> : <div></div>
+                            }
                             {this.state.isLoading ? <span className="loading"><HashLoader loading size={48} color={"#d94f2b"}/></span> 
                             : <button>Sign In</button>}
                         </form>
@@ -414,6 +432,9 @@ class Login extends React.Component{
                                     {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
                                 </div>
                             </div>
+                            {
+                                this.state.userExists? <span style={{color: "#d94f2b"}}>This Email has already been used!</span> : <span></span>
+                            }
                             <div className="readTerm">
                                 <input type="checkbox" id="term" name="term" value="term" onChange={this.checkTerm}/>
                                 <label>I have read the <a>Term & Conditions</a></label>

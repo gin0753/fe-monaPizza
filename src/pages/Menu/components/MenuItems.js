@@ -33,7 +33,10 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => 
     try{
       const response = await axios.get(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
       await console.log(response);
-      if(response.status === 404){
+      if(response.status === 200){
+        console.log(1);
+      }
+      else if(response.status === 404){
         await axios.post('/cart', pizzaSelected);
       }
     } catch(err){

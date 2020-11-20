@@ -268,6 +268,7 @@ class Login extends React.Component{
             Email: email,
             Password: access_token
         };
+        
         try{
             const response = await axios.post('/googleLogin', googleInfo);
             if(response.status === 200 || response.status === 201){

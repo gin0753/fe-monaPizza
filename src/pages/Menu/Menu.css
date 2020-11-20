@@ -290,6 +290,10 @@ body {
   box-sizing: border-box;
 }
 
+.menu .catelogue__product--name .inactive{
+  opacity: 0.5;
+}
+
 .menu .catelogue__product--name h3 {
   font-family: AbrilFatface-Regular;
 }

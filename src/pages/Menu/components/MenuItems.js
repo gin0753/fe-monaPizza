@@ -5,7 +5,21 @@ import axios from 'axios';
 const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => {
 
   const [currentSize, setCurrentSize] = useState('Small');
-  let qty = 0;
+
+  const userId = sessionStorage.getItem('userID');
+  const pizzaName = PizzaName;
+  const pizzaSize = currentSize;
+  const pizzaPrice = Price[currentSize];
+  let totalPrice;
+
+  const pizzaSelected = {
+    userId,
+    pizzaName,
+    pizzaSize,
+    pizzaPrice,
+    totalPrice,
+    status: "Pending"
+  }
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -13,42 +27,51 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => 
   };
 
   const handleAdd = async () => {
-    qty+=1;
-    const userId = sessionStorage.getItem('userID');
-    const pizzaName = PizzaName;
-    const pizzaSize = currentSize;
-    const pizzaPrice = Price[currentSize];
-    const totalPrice = qty * pizzaPrice;
-    const pizzaSelected = {
-      userId,
-      pizzaName,
-      pizzaSize,
-      pizzaPrice,
-      qty,
-      totalPrice,
-      status: "Pending"
-    }
-    console.log(pizzaSelected)
-    console.log(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
+
     try{
       const response = await axios.get(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
-      await console.log(response);
       if(response.status === 200){
-        console.log(1);
-      }
-      else if(response.status === 404){
-        await axios.post('/cart', pizzaSelected);
+        const pizzaId = response.data._id;
+        let qty = response.data.qty + 1;
+        pizzaSelected.qty = qty;
+        pizzaSelected.totalPrice = pizzaSelected.qty * pizzaPrice;
+        await axios.put(`/cart/${pizzaId}`, pizzaSelected);
       }
     } catch(err){
-      console.log(err)
+      console.log(err.response)
+      if(err.response.data.message === 'Failed to find the record'){
+        let qty = 1;
+        pizzaSelected.qty = qty;
+        pizzaSelected.totalPrice = pizzaPrice;
+        await axios.post('/cart', pizzaSelected);
+      }
+    }
+
+  }
+
+  const handleRemove = async() => {
+        
+    try{
+      const response = await axios.get(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
+      if(response.status === 200){
+        const pizzaId = response.data._id;
+        if(response.data.qty <= 1){
+          await axios.delete(`/cart/${pizzaId}`);
+        }
+        else{
+          let qty = response.data.qty - 1;
+          pizzaSelected.qty = qty;
+          pizzaSelected.totalPrice = pizzaSelected.qty * pizzaPrice;
+          await axios.put(`/cart/${pizzaId}`, pizzaSelected);
+        }
+      }
+    } catch(err){
+      console.log(err.response)
     }
 
   }
   
-  // const quantity = useSelector(state => state.orderPizzaReducer.quantity);
-
-  // const dispatch = useDispatch();
-
+  
   return (
     <div className="catelogue__product--name" key={_id}>
       <div><img src={Img} alt="Item_Image" /></div>
@@ -69,7 +92,7 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => 
           </select>
           <div className="product__button">
             <input className="catelogue-button" value="ADD" onClick={handleAdd}/>
-            <input className="catelogue-button" value="Remove" />
+            <input className="catelogue-button" value="Remove" onClick={handleRemove}/>
           </div>
         </div>
       </form>

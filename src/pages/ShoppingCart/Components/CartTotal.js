@@ -1,16 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { connect } from 'react-redux';
+import store from '../../../store/index';
 
 
 class CartTotal extends React.Component {
 
+    constructor() {
+        super()
+
+        this.state = store.getState().shoppingCartReducer;
+
+        store.subscribe(this.handleStoreChange)
+    }
+
+
+    handleStoreChange = () => {
+        this.setState({
+            ...store.getState().shoppingCartReducer
+        })
+    }
+
+
 
     render() {
 
-        const { discount, cartSubtotal, orderTotal } = this.props;
-        // const orderTotal = cartSubtotal - discount;
+        const { discount, cartSubtotal } = this.state;
+        const orderTotal = cartSubtotal - discount;
 
         return (
             <div className="cart-total flex-item">
@@ -42,17 +58,4 @@ class CartTotal extends React.Component {
     }
 };
 
-const mapStateToProps = (state) => {
-    const { shoppingCartReducer: { discount, cartSubtotal, orderTotal} } = state
-    return {
-        discount,
-        cartSubtotal,
-        orderTotal,
-    }
-}
-
-const mapActionsToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(CartTotal)
+export default CartTotal;

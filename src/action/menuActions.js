@@ -1,12 +1,4 @@
-import axios from 'axios'
-
-export const addPizza = () => ({
-    type: "ADD_PIZZA"
-})
-
-export const removePizza = () => ({
-    type: "REMOVE_PIZZA"
-})
+import { fetchPizzas } from '../api/fetchPizzas'
 
 const fetchPizzaRequest = () => {
     return {
@@ -31,14 +23,13 @@ const fetchPizzaFaliure = err => {
 export const fetchPizza = () => {
     return async (dispatch) => {
         await dispatch(fetchPizzaRequest)
-        const res = await axios.post('/menu/1/12');
+        const res = await fetchPizzas();
         try{
             const pizzas = res.data
-            await dispatch(fetchPizzaSuccess(pizzas));
+            await dispatch(fetchPizzaSuccess(pizzas))
         }
         catch (e) {
-            const err = e.message;
-            await dispatch(fetchPizzaFaliure(err));
+            await dispatch(fetchPizzaFaliure(e));
         }
     }
 }

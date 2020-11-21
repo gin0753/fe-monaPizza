@@ -1,9 +1,42 @@
 import React from 'react';
 import '../../Form.css';
+import axios from 'axios';
 
 class Order extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            orderList: []
+        }
+    }
+    
+    showPizzaList = async () => {
+        const userId = sessionStorage.getItem('userID');
+        try{
+            const response = await axios.get(`/cart/${userId}/1/10`);
+            if(response.status === 200){
+                const orderList = response.data;
+                this.setState({
+                    orderList: orderList
+                })
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    componentDidMount = async () => {
+        await this.showPizzaList()
+        console.log(this.state.orderList);
+    }
 
     render(){
+        const orderList = this.state.orderList;
+        let totalPrice = 0;
+        for(const i of orderList){
+            totalPrice += i.totalPrice;
+        }
         return <div className="ordercontainer__order">
                     <h3>Your Order</h3>
                     <dl>
@@ -11,25 +44,20 @@ class Order extends React.Component{
                         <dd><h5>TOTAL</h5></dd>
                     </dl>
                     <hr/>
-                    <dl>
-                        <dt>Moorish Lamb <span>x1</span></dt>
-                        <dd>$19.00</dd>
-                    </dl>
-                    <dl>
-                        <dt>Vegetarian Supreme <span>x1</span></dt>
-                        <dd>$34.00</dd>
-                    </dl>
-                    <dl>
-                        <dt>Spiced Pumpkin <span>x1</span></dt>
-                        <dd>$26.00</dd>
-                    </dl>
+                    {orderList.map((item) =>{
+                        return  <dl>
+                                    <dt>{item.pizzaName}<span> x{item.qty}</span></dt>
+                                    <dd>${item.pizzaPrice}</dd>
+                                </dl>
+                    })
+                    }
                     <hr/>
                     <dl>
                         <dt>
                             <h4><span>Order Total</span></h4>
                         </dt>
                         <dd>
-                            <h4><span>$79.00</span></h4>
+                            <h4><span>${totalPrice}</span></h4>
                             </dd>
                     </dl>
                </div>     

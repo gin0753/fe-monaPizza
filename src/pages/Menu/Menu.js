@@ -4,11 +4,10 @@ import Bgi from '../../images/Pizza-bg.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { PizzaImages } from './MenuItems/PizzaImages'
-import axios from 'axios';
+import { PizzaImages } from './components/PizzaImages' 
 import { connect } from 'react-redux'
 import { fetchPizza } from '../../action/menuActions'
-
+import MenuItems from './components/MenuItems'
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />
 const ArrowRight = <FontAwesomeIcon icon={faArrowRight} />
@@ -23,18 +22,17 @@ class Menu extends Component {
 
   displayContent = async () => {
     const { pizzas: { pizzas } } = this.props;
-    const pizzaItem = pizzas.filter((value, index, arr) => arr.findIndex(j => (j.PizzaName === value.PizzaName)) === index);
     const pizzaImage = PizzaImages;
-    pizzaItem.forEach(ele => {
-      pizzaImage.forEach(i => {
-        if (i.PizzaName === ele.PizzaName) {
+    pizzas.forEach( ele => {
+      pizzaImage.forEach( i => {
+        if(i.PizzaName === ele.PizzaName){
           let index = pizzaImage.indexOf(i);
           ele.Img = pizzaImage[index].Img;
         }
       })
     })
     this.setState({
-      pizzas: pizzaItem
+      pizzas: pizzas
     });
   }
 
@@ -341,30 +339,12 @@ class Menu extends Component {
             </div>
           </div>
           <div className="catelogue__product">
-            {this.state.pizzas.map(item => {
-              return (
-                <div className="catelogue__product--name">
-                  <div><img src={item.Img} alt="Vegetarian-Supreme" /></div>
-                  <div className="pizza__description">
-                    <h3>{item.PizzaName}</h3>
-                    <p>
-                      {item.Description}
-                    </p>
-                  </div>
-                  <h4 className="product__price">{`$ ${item.Price}`}</h4>
-                  <form action="/action_page.php" className="size--selection">
-                    <label htmlFor="product__size"></label>
-                    <select name="product__size" id="Vegetarian-Supreme" className="product__size">
-                      <option value="Medium">Medium</option>
-                      <option value="Small">Small</option>
-                      <option value="Large">Large</option>
-                    </select>
-                    <input className="add-button" type="submit" value="ADD" />
-                  </form>
-                </div>
-              )
-            })}
-          </div>
+          {this.state.pizzas.map( (item) => 
+            (
+              <MenuItems details={item}/>
+            )
+            )}
+        </div>
           <div className="pagination">
             <div className="previouspage"><a href="#">{ArrowLeft}</a></div>
             <div className="pagenumber">
@@ -382,8 +362,8 @@ class Menu extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
-  const { menuReducer: { loading, pizzas } } = state;
+  console.log(state)
+  const { menuReducer: {loading, pizzas} } = state;
   return {
     loading,
     pizzas

@@ -2,16 +2,75 @@ import React from 'react';
 import '../../Form.css';
 import options from '../../../../../../images/payment-options.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class Payment extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            readTerm: false
+        }
+    }
+    
+    acceptTerm = () => {
+        this.setState({
+            readTerm: !this.state.readTerm
+        });
+    }
+
+    handleClick = async () => {
+
+        let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr} = this.props.inputValue;
+        if(shippingAddr){
+            billingAddr = shippingAddr
+        }
+
+        const d = new Date();
+        const hours = d.getHours();
+        const minutes = d.getMinutes();
+        const seconds = d.getSeconds();
+        const orderPlacedTime = `${d.toLocaleDateString()} ${hours}:${minutes}:${seconds}`;
+
+        const userId = sessionStorage.getItem('userID');
+        const res = await axios.get(`/cart/${userId}/1/10`)
+
+        const orderList = res.data;
+        const discount  = 5;
+        let cartSubTotal = 0;
+        for(const i of orderList){
+            cartSubTotal += i.totalPrice;
+            i.status = 'Confirmed';
+        }
+
+        const totalPrice = cartSubTotal - discount;
+
+        const userInfo = {
+            orderPlacedTime,
+            clientFirstName,
+            clientLastName,
+            billingAddr,
+            city,
+            postcode,
+            clientEmail,
+            contactNumber,
+            orderList,
+            discount,
+            cartSubTotal,
+            totalPrice
+        }
+
+        await axios.post('/order', userInfo);
+    }
 
     render() {
         return <div className="ordercontainer__payment">
             <h3>Payment Methods</h3>
 
             <form>
-                <div>
+                <div className="radio">
                     <input type="radio" id="bank" name="payment" value="bank" />
+                    <div className="radio__custom"></div>
                     <label className="inlinelabel" htmlFor="bank">Direct Bank Transfer</label>
                 </div>
 
@@ -22,13 +81,15 @@ class Payment extends React.Component {
                     until the funds have cleared in our account.
                         </div>
 
-                <div>
+                <div className="radio">
                     <input type="radio" id="cheque" name="payment" value="cheque" />
+                    <div className="radio__custom"></div>
                     <label className="inlinelabel" htmlFor="cheque">Cheque Payment</label>
                 </div>
 
-                <div>
+                <div className="radio">
                     <input type="radio" id="paypal" name="payment" value="paypal" />
+                    <div className="radio__custom"></div>
                     <label className="inlinelabel" htmlFor="paypal">PayPal</label>
                 </div>
 
@@ -38,10 +99,14 @@ class Payment extends React.Component {
                 </div>
 
                 <input type="checkbox" id="accepterm" name="accepterm" />
-                <label className="inlinelabel" htmlFor="accepterm">I have read and accept the</label>
+                <label className="inlinelabel" htmlFor="accepterm" onClick={this.acceptTerm}>I have read and accept the</label>
                 <p><span>Term & Conditions</span></p>
 
-                <Link to="/checkout"><button className="ordercontainer__payment--orderbutton" type="button">PLACE ORDER</button></Link>
+                {this.state.readTerm ? 
+                    <Link to="/checkout"><button className="ordercontainer__payment--orderbutton" type="button" onClick={this.handleClick}>PLACE ORDER</button></Link>
+                    :
+                    <Link to="/checkout"><button className="ordercontainer__payment--orderbutton inactive" type="button" onClick={this.handleClick} disabled>PLACE ORDER</button></Link>
+                }
             </form>
 
         </div>

@@ -100,6 +100,7 @@
                     margin-top: 20px;
                     width: 100%;
                     padding: 12px 0;
+                    color: #000000;
                     background-color: #FDBC2C;
                     outline: none;
                     border: none;
@@ -112,6 +113,10 @@
                 }
                 p > span{
                     margin-left: 30px;
+                }
+                & .inactive{
+                    opacity: 0.5;
+                    cursor: not-allowed;
                 }
             }
         }
@@ -194,8 +199,8 @@
             display: inline-flex;
             justify-content: center;
             align-items: center; 
-            width: 1.4em;
-            height: 1.4em;
+            width: 1.5em;
+            height: 1.5em;
             border: 0.1rem solid #FFFFFF;
             border-radius: 50%;
             &::after{

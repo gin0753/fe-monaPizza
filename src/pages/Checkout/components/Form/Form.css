@@ -133,6 +133,7 @@
   margin-top: 20px;
   width: 100%;
   padding: 12px 0;
+  color: #000000;
   background-color: #FDBC2C;
   outline: none;
   border: none;
@@ -147,6 +148,11 @@
 
 .Checkout .form .ordercontainer__payment p > span {
   margin-left: 30px;
+}
+
+.Checkout .form .ordercontainer__payment .inactive {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .Checkout .form .billcontainer__login, .Checkout .form .ordercontainer__coupon {
@@ -255,8 +261,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 1.4em;
-  height: 1.4em;
+  width: 1.5em;
+  height: 1.5em;
   border: 0.1rem solid #FFFFFF;
   border-radius: 50%;
 }

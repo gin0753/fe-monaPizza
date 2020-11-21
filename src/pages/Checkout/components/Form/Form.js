@@ -18,7 +18,6 @@ class Form extends React.Component{
             clientEmail: '',
             contactNumber: '',
             shippingAddr: '',
-            readTerm: false,
             optionalAddr: false
         }
     }

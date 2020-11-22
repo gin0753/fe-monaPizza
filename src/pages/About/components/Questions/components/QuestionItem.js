@@ -17,19 +17,19 @@ class QuestionItem extends React.Component {
     return (
       <>
         {expand && (
-          <li style={{ height: "auto" }}>
-            <span style={{ top: "65px" }}>{this.props.children}</span>
-            <i onClick={this.setExpand} style={{ top: "65px" }}>
+          <li className='auto-height'>
+            <span className="top65">{this.props.children}</span>
+            <i onClick={this.setExpand} className="top65">
               -
             </i>
-            <main style={{ display: "block" }}>{this.props.details}</main>
+            <main className="block">{this.props.details}</main>
           </li>
         )}
         {!expand && (
-          <li style={{ height: "124px" }}>
+          <li className="fixed-height">
             <span>{this.props.children}</span>
             <i onClick={this.setExpand}>+</i>
-            <main style={{ display: "none" }}>{this.props.details}</main>
+            <main className="none">{this.props.details}</main>
           </li>
         )}
       </>

@@ -1,16 +1,45 @@
 import React from "react";
 import { connect } from "react-redux";
+import Axios from "axios";
 
 class Order extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      orderNo: "",
+      orderPlacedTime: "",
+      clientFirstName: "",
+      clientLastName: "",
+      billingAddr: "",
+      city: "",
+      postcode: "",
+      contactNumber: "",
+      clientEmail: "",
+    };
+  }
+
+  async componentDidMount() {
+    const userId = sessionStorage.getItem("userID");
+    const res = await Axios.get(`/order/${userId}`);
+    console.log(res);
+    if (res.status === 200) {
+      this.setState({
+        orderNo:res.data._id,
+        orderPlacedTime:res.data.orderPlacedTime,
+      })
+    }
+  }
+
   render() {
     const { productList, cartSubtotal, orderTotal } = this.props;
 
+    const {_id} = this.state.orderPlacedTime;
     return (
       <div className='containerAll'>
         <div className='order'>
           <div className='order_top josefin'>
             <h1 className='themeYellow abril'>Thank You!</h1>
-            <h2 className='themeYellow'>Your order #123456 has been placed.</h2>
+            <h2 className='themeYellow'>Your order #{_id} has been placed.</h2>
             <p>
               Time Placed: <span>08/11/2020 8:25 PM AEST</span>
             </p>

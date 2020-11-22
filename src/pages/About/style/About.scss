@@ -442,6 +442,7 @@ $this-red: #d94f2b;
         font-size: 24px;
         border-top: 1px solid #383838;
         border-bottom: 1px solid #383838;
+        transition: all 1s;
         span {
           position: absolute;
           top: 50%;
@@ -472,6 +473,21 @@ $this-red: #d94f2b;
           color: #fff;
         }
       }
+      .auto-height {
+        height: auto;
+      }
+      .fixed-height {
+        height: 124px;
+      }
+      .top65 {
+        top: 65px;
+      }
+      .block {
+        display: block;
+      }
+      .none {
+        display: none;
+      }
     }
   }
 
@@ -483,12 +499,12 @@ $this-red: #d94f2b;
 
     &_show {
       margin-top: 145px;
-      display:flex;
+      display: flex;
       width: 200%;
       height: 282px;
       transition: 2s ease;
-      img{
-        flex:1;
+      img {
+        flex: 1;
       }
     }
     &_nav {

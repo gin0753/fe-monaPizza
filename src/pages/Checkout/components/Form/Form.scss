@@ -60,13 +60,14 @@
                     justify-content: space-between;
                     & dt, & dd{
                         display: inline-block;
+                        font-size: 14px;
                         margin: 10px 0;
                         & h5{
-                            font-size: 13px;
+                            font-size: 16px;
                             color: #FFFFFF;
                         }
                         & h4{
-                            font-size: 18px;
+                            font-size: 24px;
                         }
                     }
                 }
@@ -90,7 +91,7 @@
                         position: absolute;
                         left: 58%;
                         top: 25%;
-                        font-size: 5px;
+                        font-size: 14px;
                     }
                 }
                 &--paymentintro{

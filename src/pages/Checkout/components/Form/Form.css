@@ -85,16 +85,17 @@
 
 .Checkout .form .ordercontainer__order dl dt, .Checkout .form .ordercontainer__order dl dd {
   display: inline-block;
+  font-size: 14px;
   margin: 10px 0;
 }
 
 .Checkout .form .ordercontainer__order dl dt h5, .Checkout .form .ordercontainer__order dl dd h5 {
-  font-size: 13px;
+  font-size: 16px;
   color: #FFFFFF;
 }
 
 .Checkout .form .ordercontainer__order dl dt h4, .Checkout .form .ordercontainer__order dl dd h4 {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .Checkout .form .ordercontainer__order hr {
@@ -122,7 +123,7 @@
   position: absolute;
   left: 58%;
   top: 25%;
-  font-size: 5px;
+  font-size: 14px;
 }
 
 .Checkout .form .ordercontainer__payment--paymentintro {

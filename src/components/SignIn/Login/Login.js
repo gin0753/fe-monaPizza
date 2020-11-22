@@ -262,7 +262,7 @@ class Login extends React.Component{
     }
 
     responseGoogle = async (res) => {
-
+        console.log(res);
         let { googleId, profileObj, tokenObj } = res;
         let { email, name } = profileObj;
         let { access_token } = tokenObj;

@@ -362,6 +362,7 @@ body {
 }
 
 .menu .catelogue__product--name:hover .catelogue-button {
+  cursor: pointer;
   visibility: visible;
 }
 .menu .catelogue__product--name:hover .product__size {

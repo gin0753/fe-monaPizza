@@ -2,12 +2,12 @@ import { combineReducers } from "redux";
 import { shoppingCartReducer } from './shoppingCartReducer';
 import { productDetailsReducer } from './productDetailsReducer';
 import { menuReducer } from './menuReducer';
-import { orderPizzaReducer } from './orderPizzaReducer';
+import { updateOrderId } from './updateOrderID';
 
 
 export default combineReducers({
     shoppingCartReducer,
     productDetailsReducer,
     menuReducer,
-    orderPizzaReducer
+    updateOrderId
 });

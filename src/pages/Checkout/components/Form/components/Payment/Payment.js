@@ -2,7 +2,10 @@ import React from 'react';
 import '../../Form.css';
 import options from '../../../../../../images/payment-options.png';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateOrderId } from '../../../../../../action/updateOrderID';
 import axios from 'axios';
+
 
 class Payment extends React.Component {
 
@@ -22,8 +25,8 @@ class Payment extends React.Component {
     handleClick = async () => {
 
         let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr} = this.props.inputValue;
-        if(shippingAddr){
-            billingAddr = shippingAddr
+        if(shippingAddr === ''){
+            shippingAddr = billingAddr
         }
 
         const d = new Date();
@@ -34,7 +37,6 @@ class Payment extends React.Component {
 
         const userId = sessionStorage.getItem('userID');
         const res = await axios.get(`/cart/${userId}/1/10`)
-
         const orderList = res.data;
         const discount  = 5;
         let cartSubTotal = 0;
@@ -57,10 +59,16 @@ class Payment extends React.Component {
             orderList,
             discount,
             cartSubTotal,
-            totalPrice
+            totalPrice,
+            shippingAddr
         }
-
-        await axios.post('/order', userInfo);
+        
+        const orderMsg = await axios.post('/order', userInfo);
+        const orderId = orderMsg.data._id;
+        const { updateOrderId } = this.props;
+        updateOrderId({
+            orderId: orderId
+        })
     }
 
     render() {
@@ -113,5 +121,16 @@ class Payment extends React.Component {
     }
 }
 
-export default Payment;
+const mapStateToProps = state => {
+    const {updateOrderId:{orderId}} = state;
+    return {
+      orderId
+    }
+  }
+  
+const mapActionToProps = {
+    updateOrderId
+}
+  
+export default connect(mapStateToProps, mapActionToProps)(Payment);
 

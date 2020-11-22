@@ -72,7 +72,7 @@ class OrderResult extends React.Component {
             const action = rmProductList(index, cartSubtotal, totalPrice);
             store.dispatch(action);
 
-            alert(`Successfully delete the pizza`)
+            alert('Successfully delete the pizza')
 
         } catch (e) {
             console.log(Object.entries(e))

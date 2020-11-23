@@ -12,19 +12,8 @@ class Checkout extends React.Component {
         }
     }
 
-    toggleSideBar = () => {
-        this.setState({
-            sidebarIsClicked: !this.state.sidebarIsClicked
-        })
-    }
-
-    toggleCart = () => {
-        this.setState({
-            cartIsClicked: !this.state.cartIsClicked
-        })
-    }
-
     render() {
+        console.log(this.props)
         return (
             <div className="background">
                 <Navigation />

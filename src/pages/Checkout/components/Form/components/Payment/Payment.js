@@ -62,13 +62,8 @@ class Payment extends React.Component {
         const userId = sessionStorage.getItem('userID');
         const res = await axios.get(`/cart/${userId}/1/10`)
         const orderList = res.data;
-        const discount  = 5;
-        let cartSubTotal = 0;
-        for(const i of orderList){
-            cartSubTotal += i.totalPrice;
-            i.status = 'Confirmed';
-        }
-
+        const discount = this.props.discount;
+        const cartSubTotal = this.props.cartSubtotal;
         const totalPrice = cartSubTotal - discount;
 
         const userInfo = {
@@ -108,6 +103,7 @@ class Payment extends React.Component {
 
                 await new Promise((resolve)=> {
                     const { history } = this.props;
+                    console.log(this.props);
                     history.replace('/order-created');
                     resolve();
                 }); 
@@ -184,8 +180,11 @@ class Payment extends React.Component {
 
 const mapStateToProps = state => {
     const { updateOrderId:{orderId} } = state;
+    const { shoppingCartReducer:{discount, cartSubtotal} } = state;
     return {
-      orderId
+      orderId,
+      discount,
+      cartSubtotal
     }
   }
   

@@ -499,6 +499,7 @@
 
 .Login__login--logincontainer .btnDisabled, .Login__login--registercontainer .btnDisabled {
   opacity: 50%;
+  cursor: not-allowed;
 }
 
 .Login__login--logincontainer .btnDisabled:hover, .Login__login--registercontainer .btnDisabled:hover {

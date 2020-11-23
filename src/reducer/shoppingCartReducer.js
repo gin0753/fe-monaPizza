@@ -20,7 +20,7 @@ export const shoppingCartReducer = (state = defaultState, action) => {
             return newState;
         
         case "UPDATE_TOTAL_PRICE":
-            newState.orderTotal = action.cartSubtotal - action.discount;
+            newState.orderTotal = action.orderTotal;
             return newState;
 
         case "REMOVE_PIZZA":

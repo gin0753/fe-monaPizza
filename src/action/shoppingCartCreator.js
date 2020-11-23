@@ -4,11 +4,10 @@ export const applyPromoCode = (discount) => ({
 })
 
 
-// export const updateOrderTotal = (cartSubtotal, discount) => ({
-//     type: "UPDATE_TOTAL_PRICE",
-//     cartSubtotal,
-//     discount
-// })
+export const updateOrderTotal = (orderTotal) => ({
+    type: "UPDATE_TOTAL_PRICE",
+    orderTotal
+})
 
 export const rmProductList = (index, cartSubtotal, totalPrice) => ({
     type: "REMOVE_PIZZA",

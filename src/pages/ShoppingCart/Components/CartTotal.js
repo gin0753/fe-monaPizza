@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import store from '../../../store/index';
 
+import { updateOrderTotal } from "../../../action/shoppingCartCreator";
+
 
 class CartTotal extends React.Component {
 
@@ -21,6 +23,14 @@ class CartTotal extends React.Component {
         })
     }
 
+    handleToCheckOutClick = () => {
+        const { discount, cartSubtotal } = store.getState().shoppingCartReducer;
+        const orderTotal = cartSubtotal - discount;
+
+        const action = updateOrderTotal(orderTotal);
+
+        store.dispatch(action)
+    }
 
 
     render() {
@@ -52,7 +62,10 @@ class CartTotal extends React.Component {
                     </p>
                 </div>
                 <button className="upd-cart">UPDATE CART</button>
-                <Link to="/checkout"><button className="checkout">PROCEED TO CHECKOUT</button></Link>
+                <Link to="/checkout"><button
+                    className="checkout"
+                    onClick={this.handleToCheckOutClick}
+                >PROCEED TO CHECKOUT</button></Link>
             </div>
         )
     }

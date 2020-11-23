@@ -20,7 +20,11 @@ class OrderResult extends React.Component {
 
         const pageState = {
             hdDisplay: true,
-            downArrow: true
+            downArrow: true,
+            wrnDisplay: false,
+            validDisplay: false,
+            codeNum: undefined,
+            validColor: "white"
         }
 
         this.state = {
@@ -53,13 +57,6 @@ class OrderResult extends React.Component {
         })
     }
 
-    handlePromoCodeClick = () => {
-        // only a sample here
-        const discount = 5;
-        const action = applyPromoCode(discount);
-        store.dispatch(action);
-    }
-
     handleRmPizzaClick = async (pizza, index) => {
 
         try {
@@ -72,19 +69,72 @@ class OrderResult extends React.Component {
             const action = rmProductList(index, cartSubtotal, totalPrice);
             store.dispatch(action);
 
-            alert('Successfully delete the pizza')
-
         } catch (e) {
             console.log(Object.entries(e))
         }
 
     }
 
+
+    handleProChange = (e) => {
+        this.setState({
+            codeNum: e.target.value
+        })
+    }
+
+
+    handlePromoCodeClick = async () => {
+
+        const reg = /^[0-9]*$/;
+        const { codeNum } = this.state;
+
+        if (codeNum === undefined) {
+            console.log("please enter a promotional code")
+        } else {
+            if (reg.test(codeNum) && codeNum.length === 6) {
+
+                try {
+                    const { data } = await Axios.get(`http://localhost:8000/promoCode?codeNum=${codeNum}`);
+                    const { discount } = data;
+                    const action = applyPromoCode(discount);
+                    store.dispatch(action);
+
+                    console.log("It is a valid code")
+                    this.setState({
+                        validColor: "green",
+                        wrnDisplay: false,
+                        validDisplay: true
+                    })
+
+                } catch (e) {
+                    console.log(Object.entries(e))
+                    console.log("It is an invalid code")
+                    this.setState({
+                        validColor: "red",
+                        wrnDisplay: true,
+                        validDisplay: false
+                    })
+                }
+
+            } else {
+                console.log("It is an invalid code")
+                this.setState({
+                    validColor: "red",
+                    wrnDisplay: true,
+                    validDisplay: false
+                })
+            }
+        }
+    }
+
+
     async componentDidMount() {
+
+        const userId = sessionStorage.getItem('userID');
 
         try {
             // sample --- it should use userId to get the pizza list, not uuid
-            const { data } = await Axios.get('http://localhost:8000/cart/5fb5f99a43dacf343cc93724/1/10');
+            const { data } = await Axios.get(`http://localhost:8000/cart/${userId}/1/10`);
 
             let subPrice = 0;
             data.map(item => {
@@ -103,7 +153,19 @@ class OrderResult extends React.Component {
     render() {
 
         const displayStyle = {
-            display: this.state.hdDisplay ? "none" : "block",
+            display: this.state.hdDisplay ? "none" : "block"
+        }
+
+        const inputStyle = {
+            borderColor: this.state.validColor
+        }
+
+        const warningStyle = {
+            display: this.state.wrnDisplay ? "block" : "none"
+        }
+
+        const validStyle = {
+            display: this.state.validDisplay ? "block" : "none"
         }
 
         const { productList } = this.state;
@@ -185,10 +247,19 @@ class OrderResult extends React.Component {
                         <button>UPDATE TOTALS</button>
                     </div>
                     <div className="pro-code flex-item">
-                        <p>Promotional Code</p>
+                        <p className="code-title">Promotional Code</p>
                         <form>
-                            <input type="text" id="p-code" name="p-code" value="Enter your promotional" />
+                            <input
+                                type="text"
+                                id="p-code"
+                                name="p-code"
+                                placeholder="Enter your promotional Code"
+                                onChange={this.handleProChange}
+                                style={inputStyle}
+                            />
                         </form>
+                        <p style={warningStyle}>Please enter a valid code !</p>
+                        <p style={validStyle}>Valid promotional code !</p>
                         <button onClick={this.handlePromoCodeClick}>APPLY</button>
                     </div>
                 </div>

@@ -16,6 +16,44 @@ src: local('RoyaChicken'), url(../../font/RoyaChicken.otf) format('opentype');
     justify-content: space-between;
     align-items: center;
     padding-left: 20px;
+    &__leftWrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &--avatar{
+            margin-right: 20px;
+            cursor: pointer;
+            position: relative;
+            z-index: 999;
+            color: #FFFFFF;
+            &--userActions{
+                z-index: 3;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                background-color: #FDBC2C;
+                color: #FFFFFF;
+                font-weight: 700;
+                position: absolute;
+                bottom: -82px;
+                left: -45px;
+                width: 100px;
+                height: 60px;
+                padding: 5px;
+                & span{
+                    display: block;
+                    font-size: 0.85rem;
+                }
+                & span:hover{
+                    color: #d94f2b;
+                }
+                & a:visited{
+                    color: unset;
+                }
+            }
+        }
+    }
     & .navbar button, & .cart button{
         border: none;
         outline: none;

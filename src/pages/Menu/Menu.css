@@ -112,7 +112,7 @@ body {
 
 .menu .filter__items {
   background-color: #151515;
-  height: 380px;
+  height: 450px;
   width: 1296px;
   position: absolute;
   top: 0px;
@@ -272,6 +272,7 @@ body {
   justify-content: center;
   height: fit-content;
   width: 100%;
+  align-content: flex-start;
 }
 
 .menu .catelogue__product img {
@@ -287,6 +288,10 @@ body {
   text-align: center;
   border: solid 3px transparent;
   box-sizing: border-box;
+}
+
+.menu .catelogue__product--name .inactive{
+  opacity: 0.5;
 }
 
 .menu .catelogue__product--name h3 {
@@ -342,12 +347,12 @@ body {
   margin: 6px;
 }
 
-.menu .catelogue__product .add-button {
+.menu .catelogue__product .catelogue-button {
   visibility: hidden;
   height: 32px;
   width: 80px;
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   box-sizing: border-box;
   background-color: #fdbc2c;
 }
@@ -356,7 +361,7 @@ body {
   border: solid 3px #fdbc2c;
 }
 
-.menu .catelogue__product--name:hover .add-button {
+.menu .catelogue__product--name:hover .catelogue-button {
   visibility: visible;
 }
 .menu .catelogue__product--name:hover .product__size {
@@ -575,13 +580,6 @@ body {
     margin-right: 4px;
   }
 
-  .menu .catelogue__product .add-button {
-    height: 30px;
-    width: 60px;
-    margin: 2px;
-    font-size: 14px;
-  }
-
   .menu .subscription {
     height: 200px;
   }
@@ -750,7 +748,7 @@ body {
 
   .menu .filter:checked ~ .filter__items {
     width: 337.5px;
-    height: 1900px;
+    height: 2500px;
     transform: translate(0px, 40px);
   }
 
@@ -870,10 +868,21 @@ body {
     padding: 1px 10px;
   }
 
-  .menu .catelogue__product .add-button {
+  .menu .catelogue__product .catelogue-button {
     height: 30px;
     width: 60px;
     margin: 2px;
     font-size: 14px;
   }
+
+}
+
+.product__button{
+  width: 30%;
+}
+
+.product__showcase{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

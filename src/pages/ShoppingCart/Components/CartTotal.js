@@ -1,16 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { connect } from 'react-redux';
+import store from '../../../store/index';
+
+import { updateOrderTotal } from "../../../action/shoppingCartCreator";
 
 
 class CartTotal extends React.Component {
 
+    constructor() {
+        super()
+
+        this.state = store.getState().shoppingCartReducer;
+
+        store.subscribe(this.handleStoreChange)
+    }
+
+
+    handleStoreChange = () => {
+        this.setState({
+            ...store.getState().shoppingCartReducer
+        })
+    }
+
+    handleToCheckOutClick = () => {
+        const { discount, cartSubtotal } = store.getState().shoppingCartReducer;
+        const orderTotal = cartSubtotal - discount;
+
+        const action = updateOrderTotal(orderTotal);
+
+        store.dispatch(action)
+    }
+
 
     render() {
 
-        const { discount, cartSubtotal, orderTotal } = this.props;
-        // const orderTotal = cartSubtotal - discount;
+        const { discount, cartSubtotal } = this.state;
+        const orderTotal = cartSubtotal - discount;
 
         return (
             <div className="cart-total flex-item">
@@ -36,23 +62,13 @@ class CartTotal extends React.Component {
                     </p>
                 </div>
                 <button className="upd-cart">UPDATE CART</button>
-                <Link to="/checkout"><button className="checkout">PROCEED TO CHECKOUT</button></Link>
+                <Link to="/checkout"><button
+                    className="checkout"
+                    onClick={this.handleToCheckOutClick}
+                >PROCEED TO CHECKOUT</button></Link>
             </div>
         )
     }
 };
 
-const mapStateToProps = (state) => {
-    const { shoppingCartReducer: { discount, cartSubtotal, orderTotal} } = state
-    return {
-        discount,
-        cartSubtotal,
-        orderTotal,
-    }
-}
-
-const mapActionsToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(CartTotal)
+export default CartTotal;

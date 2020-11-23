@@ -21,67 +21,74 @@ import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
 import Mydetails from "./pages/Dashboard/mydetails/mydetails"
 import ManageAccount from './pages/manageAccount/manageAccount';
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import GrandFooter from './components/GrandFooter/GrandFooter';
+import GrandHeader from './components/GrandHeader/GrandHeader';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebarIsClicked: false,
-      cartIsClicked: false,
-    };
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  toggleSideBar = () => {
-    this.setState({
-      sidebarIsClicked: !this.state.sidebarIsClicked,
-    });
-  };
-
-  toggleCart = () => {
-    this.setState({
-      cartIsClicked: !this.state.cartIsClicked,
-    });
-  };
-
-  render() {
-    return (
-      <>
-        <Router>
-          <SideBar sidestatus={this.state.sidebarIsClicked} />
-          <CartTotals cartstatus={this.state.cartIsClicked} />
-          <Header
-            toggleSideBar={this.toggleSideBar}
-            toggleCart={this.toggleCart}
-            sidestatus={this.state.sidebarIsClicked}
-            cartstatus={this.state.cartIsClicked}
-          />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/users" component={Users} />
-            <Route path="/viewOrder" component={ViewOrder} />
-            <Route path="/contact-us" component={ContactUs} />
-            <Route path="/shopping-cart" component={ShoppingCart} />
-            <Route path="/product-details" component={ProductDetails} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/home" component={Home} />
-            <Route path="/menu" component={Menu} />
-            <Route path="/sign-in" component={SignIn} />
-            <Route path="/checkout" component={Checkout} />
-            <Route path='/order-created' component={OrderCreated} />
-            <Route path='/mydetails' component={Mydetails} />
-            <Route path='/' component={Home} />
-            <ProtectedRoute path="/manage-account" component={ManageAccount} />
-          </Switch>
-          <Newsletter />
-          <Media />
-          <Footer />
-        </Router>
-      </>
-    );
-  }
+    render() {
+        return <Router>
+            <Switch>
+                <Route exact path="/">
+                    <GrandHeader />
+                    <Home />
+                    <GrandFooter />
+                </Route>
+                <Route path="/about">
+                    <GrandHeader />
+                    <About />
+                    <GrandFooter />
+                </Route>
+                <Route path="/viewOrder" component={ViewOrder} />
+                <Route path="/contact-us">
+                    <GrandHeader />
+                    <ContactUs />
+                    <GrandFooter />
+                </Route>
+                <Route path="/shopping-cart">
+                    <GrandHeader />
+                    <ShoppingCart />
+                    <GrandFooter />
+                </Route>
+                <Route path="/blog">
+                    <GrandHeader />
+                    <Blog />
+                    <GrandFooter />
+                </Route>
+                <Route path="/menu">
+                    <GrandHeader />
+                    <Menu />
+                    <GrandFooter />
+                </Route>
+                <Route path="/sign-in" component={SignIn} />
+                <Route path="/checkout">
+                    <GrandHeader />
+                    <Checkout />
+                    <GrandFooter />
+                </Route>
+                <Route path='/order-created'>
+                    <GrandHeader />
+                    <OrderCreated />
+                    <GrandFooter />
+                </Route>
+                <Route path='/mydetails'>
+                    <GrandHeader />
+                    <Mydetails />
+                    <GrandFooter />
+                </Route>
+                <ProtectedRoute path="/manage-account">
+                    <GrandHeader />
+                    <ManageAccount />
+                    <GrandFooter />
+                </ProtectedRoute>
+            </Switch>
+            <GrandFooter />
+        </Router>;
+    }
 }
 
 export default App;

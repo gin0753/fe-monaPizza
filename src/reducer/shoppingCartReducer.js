@@ -1,20 +1,12 @@
 const defaultState = {
 
-    productList: [
-        {
-            name: "Moorish Lamb",
-            size: "Large",
-            price: 19.00,
-            qty: 1,
-            totalPrice: 19.00
-        }
-    ],
+    productList: [],
     
     discount: 0,
 
-    cartSubtotal: 79.00,
+    cartSubtotal: 0.00,
 
-    orderTotal: 79.00
+    orderTotal: 0.00
 }
 
 export const shoppingCartReducer = (state = defaultState, action) => {
@@ -28,9 +20,20 @@ export const shoppingCartReducer = (state = defaultState, action) => {
             return newState;
         
         case "UPDATE_TOTAL_PRICE":
-            newState.orderTotal = action.cartSubtotal - action.discount;
+            newState.orderTotal = action.orderTotal;
             return newState;
-        
+
+        case "REMOVE_PIZZA":
+            newState.productList.splice(action.index, 1);
+            newState.cartSubtotal = action.cartSubtotal - action.totalPrice;
+            return newState;
+
+        case "ADD_PIZZA":
+            newState.productList = action.newList;
+            newState.cartSubtotal = action.subPrice;
+            return newState;
+
+
         default:
             return state;
     }

@@ -27,4 +27,22 @@ this.state = {
 
 }
 
-pizzaReducer
+
+
+Order
+
+{
+    "__id": ...,
+    "user": __id (found in user collection),
+    "orderList": [
+        {
+            "pizzaName": __id (found in menu collection),
+            "quantity": 1
+        },
+        ...
+    ],
+    "discount": __id (found in code collection),
+    "totalPrice": 79,
+    "timestamp": ...,
+    "status: "done or ongoing"
+}

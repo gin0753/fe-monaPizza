@@ -368,7 +368,7 @@
 }
 
 .Login__login--registercontainer .passwordRules--ruleWrapper {
-  width: 420px;
+  width: 400px;
   margin: 0 auto;
 }
 
@@ -376,11 +376,11 @@
   display: inline-block;
   font-size: 15px;
   font-weight: 300;
-  margin: 10px;
+  margin: 15px;
 }
 
 .Login__login--registercontainer .passwordRules--ruleWrapper .number {
-  margin-right: 91px;
+  margin-right: 88px;
 }
 
 .Login__login--registercontainer--titlewrapper {

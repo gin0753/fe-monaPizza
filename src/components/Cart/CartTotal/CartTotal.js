@@ -1,27 +1,70 @@
 import React from 'react';
 import './CartTotal.css'
-import { CartItems } from '../CartItems/CartItems';
+import axios from 'axios';
+import { PizzaImages } from '../../../PizzaImages' 
 import cross from '../../../images/times-solid.svg';
 import { Link } from 'react-router-dom';
 
 class CartTotal extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            orderList: []
+        }
+    }
+
+    showPizzaList = async () => {
+        const userId = sessionStorage.getItem('userID');
+        try{
+            const response = await axios.get(`/cart/${userId}/1/10`);
+            if(response.status === 200){
+                const orderList = response.data;
+                const pizzaImage = PizzaImages;
+                orderList.forEach( ele => {
+                    pizzaImage.forEach( i => {
+                      if(i.PizzaName === ele.pizzaName){
+                        let index = pizzaImage.indexOf(i);
+                        ele.Img = pizzaImage[index].Img;
+                      }
+                    })
+                  })
+                console.log(orderList)
+                this.setState({
+                    orderList: orderList
+                })
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    componentDidMount = async () => {
+        await this.showPizzaList()
+    }
 
     render() {
+        const orderList = this.state.orderList;
+        console.log(orderList);
+        let totalPrice = 0;
+        for(const i of orderList){
+            totalPrice += i.totalPrice;
+        }
         return <div className="Checkout">
             <div className={this.props.cartstatus ? "carttotal cartactive" : "carttotal"}>
                 <h3>Cart Totals</h3>
                 <hr />
                 <ul className="carttotal--pizza">
-                    {CartItems.map((item, index) => {
+                    {orderList.map((item, index) => {
                         return (
                             <>
                                 <li key={index}>
                                     <a><img src={cross} alt="cross" /></a>
-                                    <img src={item.img} alt={item.text} />
+                                    <img src={item.Img} alt={item.text} />
                                     <div>
                                         <h5>{item.pizzaName}</h5>
-                                        <p><span className="subtitle">SIZE:</span> {item.size}</p>
-                                        <p><span className="red">{item.quantity}x</span> {item.price}</p>
+                                        <p><span className="subtitle">SIZE:</span> {item.pizzaSize}</p>
+                                        <p><span className="red">{item.qty}x</span> ${item.pizzaPrice}</p>
                                     </div>
                                 </li>
                                 <hr />
@@ -34,7 +77,7 @@ class CartTotal extends React.Component {
                         <h4><span className="red">Order Total</span></h4>
                     </dt>
                     <dd>
-                        <h4><span className="red">$79</span></h4>
+                        <h4><span className="red">${totalPrice}</span></h4>
                     </dd>
                 </dl>
                 <Link to="/shopping-cart"><button className="buttonblack">VIEW SHOPPING CART</button></Link>

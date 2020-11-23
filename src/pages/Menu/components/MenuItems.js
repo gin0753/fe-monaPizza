@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-// import { useSelector, useDispatch } from 'react-redux';
+
 
 const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => {
 

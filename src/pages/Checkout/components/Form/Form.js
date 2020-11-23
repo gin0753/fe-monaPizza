@@ -129,7 +129,7 @@ class Form extends React.Component{
                         <Coupon />
                         <div className="orderwrapper">
                             <Order />
-                            <Payment inputValue={this.state}/>
+                            <Payment inputValue={this.state} {...this.props}/>
                         </div>
                     </div>
                     </section> 

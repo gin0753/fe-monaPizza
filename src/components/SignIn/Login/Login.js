@@ -176,7 +176,7 @@ class Login extends React.Component{
         await new Promise((resolve)=>setTimeout(() => {
             this.setState({isLoading: false});
             resolve();
-        }, 2500)); 
+        }, 2000)); 
 
         await new Promise((resolve)=> {
             const { history } = this.props;
@@ -262,7 +262,6 @@ class Login extends React.Component{
     }
 
     responseGoogle = async (res) => {
-        console.log(res);
         let { googleId, profileObj, tokenObj } = res;
         let { email, name } = profileObj;
         let { access_token } = tokenObj;
@@ -285,7 +284,6 @@ class Login extends React.Component{
                 sessionStorage.setItem('userID', userID);
                 sessionStorage.setItem('userName', userName);
                 await this.setState({isAuthenticated: true});
-                console.log(response)
                 this.handleSwitch();
             }
             else{

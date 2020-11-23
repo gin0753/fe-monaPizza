@@ -28,7 +28,7 @@ class Checkout extends React.Component {
         return (
             <div className="background">
                 <Navigation />
-                <Form />
+                <Form {...this.props}/>
             </div>
         );
     }

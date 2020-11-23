@@ -28,7 +28,6 @@ class CartTotal extends React.Component {
                       }
                     })
                   })
-                console.log(orderList)
                 this.setState({
                     orderList: orderList
                 })
@@ -45,7 +44,6 @@ class CartTotal extends React.Component {
 
     render() {
         const orderList = this.state.orderList;
-        console.log(orderList);
         let totalPrice = 0;
         for(const i of orderList){
             totalPrice += i.totalPrice;

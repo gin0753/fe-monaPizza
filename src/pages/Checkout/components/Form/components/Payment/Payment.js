@@ -4,6 +4,9 @@ import options from '../../../../../../images/payment-options.png';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateOrderId } from '../../../../../../action/updateOrderID';
+import Lottie from 'react-lottie'
+import * as delivering from '../../../../../../delivering.json'
+import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios';
 
 
@@ -12,7 +15,9 @@ class Payment extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            readTerm: false
+            readTerm: false,
+            finishingOrder: false,
+            paymentSucceeded: false
         }
     }
     
@@ -22,8 +27,27 @@ class Payment extends React.Component {
         });
     }
 
-    handleClick = async () => {
+    stripeClick = (e) => {
+        e.preventDefault();
+    }
 
+    handleToken = async (token, addresses) => {
+        const res = await axios.post('/checkout', {
+                        token
+                    })
+        const {status} = res;
+        if(status === 200){
+            console.log('Payment Succeeded');
+            this.setState({
+                paymentSucceeded: true
+            })
+        }
+        else{
+            console.log('Payment Declined');
+        }
+    }
+
+    handleClick = async () => {
         let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr} = this.props.inputValue;
         if(shippingAddr === ''){
             shippingAddr = billingAddr
@@ -38,13 +62,8 @@ class Payment extends React.Component {
         const userId = sessionStorage.getItem('userID');
         const res = await axios.get(`/cart/${userId}/1/10`)
         const orderList = res.data;
-        const discount  = 5;
-        let cartSubTotal = 0;
-        for(const i of orderList){
-            cartSubTotal += i.totalPrice;
-            i.status = 'Confirmed';
-        }
-
+        const discount = this.props.discount;
+        const cartSubTotal = this.props.cartSubtotal;
         const totalPrice = cartSubTotal - discount;
 
         const userInfo = {
@@ -62,16 +81,47 @@ class Payment extends React.Component {
             totalPrice,
             shippingAddr
         }
-        
-        const orderMsg = await axios.post('/order', userInfo);
-        const orderId = orderMsg.data._id;
-        const { updateOrderId } = this.props;
-        updateOrderId({
-            orderId: orderId
-        })
+
+        try{
+            const orderMsg = await axios.post('/order', userInfo);
+            if(orderMsg.status === 201 && this.state.paymentSucceeded){
+                const orderId = orderMsg.data._id;
+                const { updateOrderId } = this.props;
+                updateOrderId({
+                    orderId: orderId
+                })
+
+                await new Promise((resolve) => {    
+                    this.setState({finishingOrder: true});
+                    resolve();
+                });
+                
+                await new Promise((resolve)=>setTimeout(() => {
+                    this.setState({finishingOrder: false});
+                    resolve();
+                }, 2000)); 
+
+                await new Promise((resolve)=> {
+                    const { history } = this.props;
+                    console.log(this.props);
+                    history.replace('/order-created');
+                    resolve();
+                }); 
+            }
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     render() {
+        const defaultOptions = {
+            loop: false,
+            autoplay: true, 
+            animationData: delivering.default,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+            }
+          };
         return <div className="ordercontainer__payment">
             <h3>Payment Methods</h3>
 
@@ -87,7 +137,7 @@ class Payment extends React.Component {
                     account. Please use your Order ID as the
                     payment reference. Your order won't be shipped
                     until the funds have cleared in our account.
-                        </div>
+                </div>
 
                 <div className="radio">
                     <input type="radio" id="cheque" name="payment" value="cheque" />
@@ -106,15 +156,22 @@ class Payment extends React.Component {
                     <h6><span>What is PayPal?</span></h6>
                 </div>
 
+                <div className="ordercontainer__payment--cardpayment">
+                    <button onClick={this.stripeClick}>
+                        <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
+                        token={this.handleToken}/>
+                    </button>
+                </div>
+
                 <input type="checkbox" id="accepterm" name="accepterm" />
                 <label className="inlinelabel" htmlFor="accepterm" onClick={this.acceptTerm}>I have read and accept the</label>
                 <p><span>Term & Conditions</span></p>
 
-                {this.state.readTerm ? 
-                    <Link to="/checkout"><button className="ordercontainer__payment--orderbutton" type="button" onClick={this.handleClick}>PLACE ORDER</button></Link>
-                    :
-                    <Link to="/checkout"><button className="ordercontainer__payment--orderbutton inactive" type="button" onClick={this.handleClick} disabled>PLACE ORDER</button></Link>
-                }
+                {this.state.finishingOrder && <Lottie options={defaultOptions} width={150} height={150} />}
+                {!this.state.finishingOrder && this.state.readTerm && <Link to="/checkout"><button className="ordercontainer__payment--orderbutton" 
+                type="button" onClick={this.handleClick}>PLACE ORDER</button></Link>}
+                {!this.state.finishingOrder && !this.state.readTerm && <Link to="/checkout"><button className="ordercontainer__payment--orderbutton inactive" 
+                type="button" onClick={this.handleClick} disabled>PLACE ORDER</button></Link>}
             </form>
 
         </div>
@@ -122,9 +179,12 @@ class Payment extends React.Component {
 }
 
 const mapStateToProps = state => {
-    const {updateOrderId:{orderId}} = state;
+    const { updateOrderId:{orderId} } = state;
+    const { shoppingCartReducer:{discount, cartSubtotal} } = state;
     return {
-      orderId
+      orderId,
+      discount,
+      cartSubtotal
     }
   }
   

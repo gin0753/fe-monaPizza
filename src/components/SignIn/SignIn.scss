@@ -363,6 +363,7 @@
             }
             & .btnDisabled{
                 opacity: 50%;
+                cursor: not-allowed;
                 &:hover{
                     opacity: 50%;
                 }

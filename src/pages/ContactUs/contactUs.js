@@ -5,26 +5,6 @@ import Navigation from './components/Navigation/Navigation';
 // import { Link } from 'react-router-dom';
 class ContactUs extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebarIsClicked: false,
-      cartIsClicked: false
-    }
-  }
-
-  toggleSideBar = () => {
-    this.setState({
-      sidebarIsClicked: !this.state.sidebarIsClicked
-    })
-  }
-
-  toggleCart = () => {
-    this.setState({
-      cartIsClicked: !this.state.cartIsClicked
-    })
-  }
-
   render() {
     return (
         <Fragment>

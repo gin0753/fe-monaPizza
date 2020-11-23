@@ -434,15 +434,15 @@ $this-red: #d94f2b;
         text-align: center;
       }
       li {
+        height: 124px;
         position: relative;
         margin-top: -1px;
-        height: 124px;
         font-family: "Abril Fatface", cursive;
         color: #fdbc2c;
         font-size: 24px;
         border-top: 1px solid #383838;
         border-bottom: 1px solid #383838;
-        transition: all 1s;
+        // transition: all 0.5s ease-in-out;
         span {
           position: absolute;
           top: 50%;
@@ -471,10 +471,11 @@ $this-red: #d94f2b;
           font-size: 18px;
           line-height: 30px;
           color: #fff;
+          transition: all 1s ease-in-out;
         }
       }
       .auto-height {
-        height: auto;
+        height: 300px;
       }
       .fixed-height {
         height: 124px;

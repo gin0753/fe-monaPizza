@@ -1,4 +1,13 @@
 const defaultState = {
+  productList: [
+    {
+      name: "Moorish Lamb",
+      size: "Large",
+      price: 19.0,
+      qty: 1,
+      totalPrice: 19.0,
+    },
+  ],
 
     productList: [],
     
@@ -10,8 +19,7 @@ const defaultState = {
 }
 
 export const shoppingCartReducer = (state = defaultState, action) => {
-
-    const newState = JSON.parse(JSON.stringify(state));
+  const newState = JSON.parse(JSON.stringify(state));
 
     switch(action.type) {
         

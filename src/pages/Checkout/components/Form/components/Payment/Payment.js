@@ -9,9 +9,7 @@ import * as delivering from '../../../../../../delivering.json'
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios';
 
-
 class Payment extends React.Component {
-
     constructor(props){
         super(props);
         this.state = {
@@ -199,8 +197,7 @@ const mapStateToProps = state => {
   }
   
 const mapActionToProps = {
-    updateOrderId
-}
-  
-export default connect(mapStateToProps, mapActionToProps)(Payment);
+  updateOrderId,
+};
 
+export default connect(mapStateToProps, mapActionToProps)(Payment);

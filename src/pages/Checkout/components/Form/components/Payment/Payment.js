@@ -16,6 +16,11 @@ class Payment extends React.Component {
             readTerm: false,
             finishingOrder: false,
             paymentSucceeded: false,
+            paymentFailed: false,
+            bankTransfer: true,
+            chequePayment: false,
+            fieldCheck: false,
+            paypal: false
         }
     }
     
@@ -39,24 +44,30 @@ class Payment extends React.Component {
             name: orderList,
             price: totalPrice
         }
-        const res = await axios.post('/checkout', {
-                        token,
-                        product
-                    })
-        const {status} = res;
-        if(status === 200){
-            console.log('Payment Succeeded');
-            this.setState({
-                paymentSucceeded: true
+
+        try{
+            const res = await axios.post('/checkout', {
+                token,
+                product
             })
+            if(res.status === 200){
+                this.setState({
+                    paymentSucceeded: true
+                })
+            }
+            else{
+                this.setState({
+                    paymentFailed: true
+                })
+            }
         }
-        else{
-            console.log('Payment Declined');
+        catch(err){
+            console.log(err)
         }
     }
 
     handleClick = async () => {
-        let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr} = this.props.inputValue;
+        let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr, orderNote} = this.props.inputValue;
         if(shippingAddr === ''){
             shippingAddr = billingAddr
         }
@@ -87,7 +98,8 @@ class Payment extends React.Component {
             discount,
             cartSubTotal,
             totalPrice,
-            shippingAddr
+            shippingAddr,
+            orderNote
         }
 
         try{
@@ -105,24 +117,57 @@ class Payment extends React.Component {
                 });
                 
                 await new Promise((resolve)=>setTimeout(() => {
-                    this.setState({finishingOrder: false});
-                    resolve();
-                }, 2000)); 
-
-                await new Promise((resolve)=> {
-                    const { history } = this.props;
-                    history.replace('/order-created');
-                    resolve();
-                }); 
+                const cleanCart = async() => {
+                    try{
+                        const res = await axios.delete(`cart/`);
+                        console.log(res)
+                        if(res.status === 200){
+                            const { history } = this.props;
+                            history.replace('/order-created');
+                        }
+                    } catch(err) {
+                        console.log(err);
+                    }
+                }
+                cleanCart();
+                resolve();
+                }, 2500));
             }
         } catch (e) {
             console.log(e);
+            this.setState({
+                fieldCheck: true
+            })
         }
+    }
+
+    handleChange = (e) => {
+      if(e.target.value === 'bankTransfer'){
+        this.setState({
+          bankTransfer: true,
+          chequePayment: false,
+          paypal: false
+        })
+      }
+      else if(e.target.value === 'chequePayment'){
+        this.setState({
+          bankTransfer: false,
+          chequePayment: true,
+          paypal: false
+        })
+      }
+      else{
+        this.setState({
+          bankTransfer: false,
+          chequePayment: false,
+          paypal: true
+        })
+      }
     }
 
     render() {
         const defaultOptions = {
-            loop: false,
+            loop: true,
             autoplay: true, 
             animationData: delivering.default,
             rendererSettings: {
@@ -134,41 +179,69 @@ class Payment extends React.Component {
 
             <form>
                 <div className="radio">
-                    <input type="radio" id="bank" name="payment" value="bank" />
+                    <input type="radio" id="bank" name="payment" value="bankTransfer" defaultChecked onChange={this.handleChange}/>
                     <div className="radio__custom"></div>
                     <label className="inlinelabel" htmlFor="bank">Direct Bank Transfer</label>
                 </div>
 
+                {this.state.bankTransfer &&
                 <div className="ordercontainer__payment--paymentintro">
                     Make your payment directly into our bank
                     account. Please use your Order ID as the
                     payment reference. Your order won't be shipped
                     until the funds have cleared in our account.
-                </div>
+                </div>}
 
                 <div className="radio">
-                    <input type="radio" id="cheque" name="payment" value="cheque" />
+                    <input type="radio" id="cheque" name="payment" value="chequePayment" onChange={this.handleChange}/>
                     <div className="radio__custom"></div>
                     <label className="inlinelabel" htmlFor="cheque">Cheque Payment</label>
                 </div>
+                
+                {this.state.chequePayment &&
+                <div className="ordercontainer__payment--paymentintro">
+                    A banker's draft, also known as a banker's cheque,
+                    is like asking a bank to write a cheque for you. 
+                    You give them your money and they give you a cheque
+                    for that amount to give to the person you're paying.
+                </div>}
 
                 <div className="radio">
-                    <input type="radio" id="paypal" name="payment" value="paypal" />
+                    <input type="radio" id="paypal" name="payment" value="paypal" onChange={this.handleChange}/>
                     <div className="radio__custom"></div>
                     <label className="inlinelabel" htmlFor="paypal">PayPal</label>
                 </div>
+                
+                {this.state.paypal &&
+                <div className="ordercontainer__payment--paymentintro">
+                    PayPal allows you to make payments using a variety
+                    of methods including: PayPal Cash or PayPal Cash 
+                    Plus account balance, a bank account, PayPal Credit,
+                    debit or credit cards, and rewards balance.
+                </div>}
 
                 <div className="ordercontainer__payment--optionwrapper">
                     <i><img src={options} alt="payment_options" /></i>
-                    <h6><span>What is PayPal?</span></h6>
                 </div>
 
                 <div className="ordercontainer__payment--cardpayment">
+                    {(this.props.cartSubtotal - this.props.discount) * 100 > 1 &&  
                     <button onClick={this.stripeClick}>
                         <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
                         token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'tera'}
                         product />
-                    </button>
+                    </button>}
+
+                    {(this.props.cartSubtotal - this.props.discount) * 100 <= 1 &&  
+                            <button onClick={this.stripeClick}>
+                                <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
+                                token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'tera'}
+                                product disabled/>
+                            </button>}
+
+                    { this.state.paymentSucceeded && <h6 className="green">Payment Succeed</h6> }
+                    { this.state.paymentFailed && <h6 className="red">Payment Failed</h6> }
+
                 </div>
 
                 <input type="checkbox" id="accepterm" name="accepterm" />
@@ -180,6 +253,8 @@ class Payment extends React.Component {
                 type="button" onClick={this.handleClick}>PLACE ORDER</button></Link>}
                 {!this.state.finishingOrder && !this.state.readTerm && <Link to="/checkout"><button className="ordercontainer__payment--orderbutton inactive" 
                 type="button" onClick={this.handleClick} disabled>PLACE ORDER</button></Link>}
+
+                {this.state.fieldCheck && <div className="errorPrompt">Please Complete Your Billing Details and The Payment</div>}
             </form>
 
         </div>

@@ -18,6 +18,7 @@ class Form extends React.Component{
             clientEmail: '',
             contactNumber: '',
             shippingAddr: '',
+            orderNotes: '',
             optionalAddr: false
         }
     }
@@ -119,7 +120,7 @@ class Form extends React.Component{
                                 </div>
         
                                 <label htmlFor="notes-textarea">ORDER NOTES</label>
-                                <textarea name="ordernotes" rows="6" cols="50" placeholder=" Notes about your order. e.g. special notes for delivery." />
+                                <textarea name="orderNotes" rows="6" cols="50" placeholder=" Notes about your order. e.g. special notes for delivery." onChange={this.handleChange}/>
                             </form>
                         </div>     
 

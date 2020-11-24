@@ -307,6 +307,8 @@ class Login extends React.Component{
             readTerm: false,
             isRegistered: false,
             checkEmail: '',
+            checkUsername: '',
+            checkSurname: '',
             checkPassword: '',
             confirmPassword: ''
         });

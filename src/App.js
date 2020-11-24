@@ -27,69 +27,75 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          sidebarIsClicked: false,
-          cartIsClicked: false,
+            sidebarIsClicked: false,
+            cartIsClicked: false,
         };
-      }
-    
-      toggleSideBar = () => {
+    }
+
+    toggleSideBar = () => {
         this.setState({
-          sidebarIsClicked: !this.state.sidebarIsClicked,
+            sidebarIsClicked: !this.state.sidebarIsClicked,
         });
-      };
-    
-      toggleCart = () => {
+    };
+
+    toggleCart = () => {
         this.setState({
-          cartIsClicked: !this.state.cartIsClicked,
+            cartIsClicked: !this.state.cartIsClicked,
         });
-      };
+    };
 
     render() {
         console.log(window.location.pathname)
         return (
             <>
-            <Router>
-            {
-                window.location.pathname !== '/sign-in' ?
-                <>
-                <SideBar sidestatus={this.state.sidebarIsClicked} />
-                <CartTotals cartstatus={this.state.cartIsClicked} />
-                <Header
-                  toggleSideBar={this.toggleSideBar}
-                  toggleCart={this.toggleCart}
-                  sidestatus={this.state.sidebarIsClicked}
-                  cartstatus={this.state.cartIsClicked}
-                />
-                </> : <></>
-            }
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="/users" component={Users} />
-                <Route path="/viewOrder" component={ViewOrder} />
-                <Route path="/contact-us" component={ContactUs} />
-                <Route path="/shopping-cart" component={ShoppingCart} />
-                <Route path="/product-details" component={ProductDetails} />
-                <Route path="/blog" component={Blog} />
-                <Route path="/home" component={Home} />
-                <Route path="/menu" component={Menu} />
-                <Route path="/sign-in" component={SignIn} />
-                <Route path="/checkout" component={Checkout} />
-                <Route path='/order-created' component={OrderCreated} />
-                <Route path='/mydetails' component={Mydetails} />
-                <Route path='/' component={Home} />
-                <ProtectedRoute path="/manage-account" component={ManageAccount} />
-              </Switch>
-              {
-                window.location.pathname !== '/sign-in' ?
-                <>
-                <Newsletter />
-                <Media />
-                <Footer />
-                </> : <></>
-            }
-            </Router>
-          </>
+                <Router>
+                    {
+                        window.location.pathname !== '/sign-in' ?
+                            <>
+                                <SideBar
+                                    sidestatus={this.state.sidebarIsClicked}
+                                    toggleSideBar={this.toggleSideBar}
+                                />
+                                <CartTotals
+                                    cartstatus={this.state.cartIsClicked}
+                                    toggleCart={this.toggleCart}
+                                />
+                                <Header
+                                    toggleSideBar={this.toggleSideBar}
+                                    toggleCart={this.toggleCart}
+                                    sidestatus={this.state.sidebarIsClicked}
+                                    cartstatus={this.state.cartIsClicked}
+                                />
+                            </> : <></>
+                    }
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/about" component={About} />
+                        <Route path="/users" component={Users} />
+                        <Route path="/viewOrder" component={ViewOrder} />
+                        <Route path="/contact-us" component={ContactUs} />
+                        <Route path="/shopping-cart" component={ShoppingCart} />
+                        <Route path="/product-details" component={ProductDetails} />
+                        <Route path="/blog" component={Blog} />
+                        <Route path="/home" component={Home} />
+                        <Route path="/menu" component={Menu} />
+                        <Route path="/sign-in" component={SignIn} />
+                        <Route path="/checkout" component={Checkout} />
+                        <Route path='/order-created' component={OrderCreated} />
+                        <Route path='/mydetails' component={Mydetails} />
+                        <Route path='/' component={Home} />
+                        <ProtectedRoute path="/manage-account" component={ManageAccount} />
+                    </Switch>
+                    {
+                        window.location.pathname !== '/sign-in' ?
+                            <>
+                                <Newsletter />
+                                <Media />
+                                <Footer />
+                            </> : <></>
+                    }
+                </Router>
+            </>
         )
     }
 }

@@ -6,6 +6,15 @@ import { SideBarBottomItems } from '../SideBarItems/SideBarItems';
 import { Route, Link } from 'react-router-dom';
 
 class SideBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.props.toggleSideBar();
+    }
+
     render() {
         return <div className="Checkout">
             <h1>{this.props.isClicked}</h1>
@@ -14,7 +23,7 @@ class SideBar extends React.Component {
                     <input type="text" name="search" placeholder="search" />
                     <a><img src={search} alt="searchButton" /></a>
                 </label>
-                <ul className="sidebar--topitems">
+                <ul className="sidebar--topitems" onClick={this.handleClick }>
                     {SideBarTopItems.map((item, index) => {
                         return (
                             <Link to={`${item.path}`}><li key={index} className="item.cName">

@@ -16,6 +16,9 @@ class Payment extends React.Component {
             readTerm: false,
             finishingOrder: false,
             paymentSucceeded: false,
+            bankTransfer: true,
+            chequePayment: false,
+            paypal: false
         }
     }
     
@@ -120,6 +123,30 @@ class Payment extends React.Component {
         }
     }
 
+    handleChange = (e) => {
+      if(e.target.value === 'bankTransfer'){
+        this.setState({
+          bankTransfer: true,
+          chequePayment: false,
+          paypal: false
+        })
+      }
+      else if(e.target.value === 'chequePayment'){
+        this.setState({
+          bankTransfer: false,
+          chequePayment: true,
+          paypal: false
+        })
+      }
+      else{
+        this.setState({
+          bankTransfer: false,
+          chequePayment: false,
+          paypal: true
+        })
+      }
+    }
+
     render() {
         const defaultOptions = {
             loop: false,
@@ -134,29 +161,46 @@ class Payment extends React.Component {
 
             <form>
                 <div className="radio">
-                    <input type="radio" id="bank" name="payment" value="bank" />
+                    <input type="radio" id="bank" name="payment" value="bankTransfer" defaultChecked onChange={this.handleChange}/>
                     <div className="radio__custom"></div>
                     <label className="inlinelabel" htmlFor="bank">Direct Bank Transfer</label>
                 </div>
 
+                {this.state.bankTransfer &&
                 <div className="ordercontainer__payment--paymentintro">
                     Make your payment directly into our bank
                     account. Please use your Order ID as the
                     payment reference. Your order won't be shipped
                     until the funds have cleared in our account.
-                </div>
+                </div>}
 
                 <div className="radio">
-                    <input type="radio" id="cheque" name="payment" value="cheque" />
+                    <input type="radio" id="cheque" name="payment" value="chequePayment" onChange={this.handleChange}/>
                     <div className="radio__custom"></div>
                     <label className="inlinelabel" htmlFor="cheque">Cheque Payment</label>
                 </div>
+                
+                {this.state.chequePayment &&
+                <div className="ordercontainer__payment--paymentintro">
+                    A banker's draft, also known as a banker's cheque,
+                    is like asking a bank to write a cheque for you. 
+                    You give them your money and they give you a cheque
+                    for that amount to give to the person you're paying.
+                </div>}
 
                 <div className="radio">
-                    <input type="radio" id="paypal" name="payment" value="paypal" />
+                    <input type="radio" id="paypal" name="payment" value="paypal" onChange={this.handleChange}/>
                     <div className="radio__custom"></div>
                     <label className="inlinelabel" htmlFor="paypal">PayPal</label>
                 </div>
+                
+                {this.state.paypal &&
+                <div className="ordercontainer__payment--paymentintro">
+                    PayPal allows you to make payments using a variety
+                    of methods including: PayPal Cash or PayPal Cash 
+                    Plus account balance, a bank account, PayPal Credit,
+                    debit or credit cards, and rewards balance.
+                </div>}
 
                 <div className="ordercontainer__payment--optionwrapper">
                     <i><img src={options} alt="payment_options" /></i>

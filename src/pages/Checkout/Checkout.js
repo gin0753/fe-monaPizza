@@ -11,9 +11,8 @@ class Checkout extends React.Component {
             cartIsClicked: false
         }
     }
-
+    
     render() {
-        console.log(this.props)
         return (
             <div className="background">
                 <Navigation />

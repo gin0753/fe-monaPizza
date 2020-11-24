@@ -17,7 +17,7 @@ class Payment extends React.Component {
         this.state = {
             readTerm: false,
             finishingOrder: false,
-            paymentSucceeded: false
+            paymentSucceeded: false,
         }
     }
     
@@ -32,8 +32,18 @@ class Payment extends React.Component {
     }
 
     handleToken = async (token, addresses) => {
+        console.log(this.props)
+        const userId = sessionStorage.getItem('userID');
+        const resp = await axios.get(`/cart/${userId}/1/10`)
+        const orderList = resp.data;
+        const totalPrice = (this.props.cartSubtotal - this.props.discount) * 100;
+        const product = {
+            name: orderList,
+            price: totalPrice
+        }
         const res = await axios.post('/checkout', {
-                        token
+                        token,
+                        product
                     })
         const {status} = res;
         if(status === 200){
@@ -103,7 +113,6 @@ class Payment extends React.Component {
 
                 await new Promise((resolve)=> {
                     const { history } = this.props;
-                    console.log(this.props);
                     history.replace('/order-created');
                     resolve();
                 }); 
@@ -159,7 +168,8 @@ class Payment extends React.Component {
                 <div className="ordercontainer__payment--cardpayment">
                     <button onClick={this.stripeClick}>
                         <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
-                        token={this.handleToken}/>
+                        token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'tera'}
+                        product />
                     </button>
                 </div>
 

@@ -25,6 +25,7 @@ class Login extends React.Component{
             checkEmail: '',
             checkPassword: '',
             confirmPassword: '',
+            pageSwitch: false,
             checkIcon: null,
             isVisible: false,
             readTerm: false,
@@ -180,7 +181,10 @@ class Login extends React.Component{
 
         await new Promise((resolve)=> {
             const { history } = this.props;
-            history.replace('/checkout');
+            history.replace('/shopping-cart');
+            this.setState({
+                pageSwitch: !this.state.pageSwitch
+            })
             resolve();
         }); 
 

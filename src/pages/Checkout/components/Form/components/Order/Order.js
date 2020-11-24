@@ -28,7 +28,6 @@ class Order extends React.Component{
 
     componentDidMount = async () => {
         await this.showPizzaList()
-        console.log(this.state.orderList);
     }
 
     render(){

@@ -128,7 +128,6 @@
 
 .Checkout .form .ordercontainer__payment--paymentintro {
   padding: 0 25px;
-  transition: transform 1s linear;
 }
 
 .Checkout .form .ordercontainer__payment--cardpayment {

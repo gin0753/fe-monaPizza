@@ -8,9 +8,14 @@ import { Link } from 'react-router-dom';
 class CartTotal extends React.Component {
     constructor(props){
         super(props)
+        this.handleClick = this.handleClick.bind(this);
         this.state = {
             orderList: []
         }
+    }
+
+    handleClick() {
+        this.props.toggleCart();
     }
 
     showPizzaList = async () => {
@@ -78,8 +83,8 @@ class CartTotal extends React.Component {
                         <h4><span className="red">${totalPrice}</span></h4>
                     </dd>
                 </dl>
-                <Link to="/shopping-cart"><button className="buttonblack">VIEW SHOPPING CART</button></Link>
-                <Link to="/checkout"><button>CHECKOUT</button></Link>
+                <Link to="/shopping-cart"><button className="buttonblack" onClick={this.handleClick}>VIEW SHOPPING CART</button></Link>
+                <Link to="/checkout"><button onClick={this.handleClick}>CHECKOUT</button></Link>
             </div>
         </div >
     }

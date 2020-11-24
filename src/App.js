@@ -54,8 +54,12 @@ class App extends React.Component {
                             <>
                                 <SideBar
                                     sidestatus={this.state.sidebarIsClicked}
-                                    toggleSideBar={this.toggleSideBar}/>
-                                <CartTotals cartstatus={this.state.cartIsClicked} />
+                                    toggleSideBar={this.toggleSideBar}
+                                />
+                                <CartTotals
+                                    cartstatus={this.state.cartIsClicked}
+                                    toggleCart={this.toggleCart}
+                                />
                                 <Header
                                     toggleSideBar={this.toggleSideBar}
                                     toggleCart={this.toggleCart}

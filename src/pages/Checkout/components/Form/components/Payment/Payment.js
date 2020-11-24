@@ -16,8 +16,10 @@ class Payment extends React.Component {
             readTerm: false,
             finishingOrder: false,
             paymentSucceeded: false,
+            paymentFailed: false,
             bankTransfer: true,
             chequePayment: false,
+            fieldCheck: false,
             paypal: false
         }
     }
@@ -42,24 +44,30 @@ class Payment extends React.Component {
             name: orderList,
             price: totalPrice
         }
-        const res = await axios.post('/checkout', {
-                        token,
-                        product
-                    })
-        const {status} = res;
-        if(status === 200){
-            console.log('Payment Succeeded');
-            this.setState({
-                paymentSucceeded: true
+
+        try{
+            const res = await axios.post('/checkout', {
+                token,
+                product
             })
+            if(res.status === 200){
+                this.setState({
+                    paymentSucceeded: true
+                })
+            }
+            else{
+                this.setState({
+                    paymentFailed: true
+                })
+            }
         }
-        else{
-            console.log('Payment Declined');
+        catch(err){
+            console.log(err)
         }
     }
 
     handleClick = async () => {
-        let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr} = this.props.inputValue;
+        let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr, orderNote} = this.props.inputValue;
         if(shippingAddr === ''){
             shippingAddr = billingAddr
         }
@@ -90,7 +98,8 @@ class Payment extends React.Component {
             discount,
             cartSubTotal,
             totalPrice,
-            shippingAddr
+            shippingAddr,
+            orderNote
         }
 
         try{
@@ -108,18 +117,27 @@ class Payment extends React.Component {
                 });
                 
                 await new Promise((resolve)=>setTimeout(() => {
-                    this.setState({finishingOrder: false});
-                    resolve();
-                }, 2000)); 
-
-                await new Promise((resolve)=> {
-                    const { history } = this.props;
-                    history.replace('/order-created');
-                    resolve();
-                }); 
+                const cleanCart = async() => {
+                    try{
+                        const res = await axios.delete(`cart/`);
+                        console.log(res)
+                        if(res.status === 200){
+                            const { history } = this.props;
+                            history.replace('/order-created');
+                        }
+                    } catch(err) {
+                        console.log(err);
+                    }
+                }
+                cleanCart();
+                resolve();
+                }, 2500));
             }
         } catch (e) {
             console.log(e);
+            this.setState({
+                fieldCheck: true
+            })
         }
     }
 
@@ -149,7 +167,7 @@ class Payment extends React.Component {
 
     render() {
         const defaultOptions = {
-            loop: false,
+            loop: true,
             autoplay: true, 
             animationData: delivering.default,
             rendererSettings: {
@@ -204,15 +222,26 @@ class Payment extends React.Component {
 
                 <div className="ordercontainer__payment--optionwrapper">
                     <i><img src={options} alt="payment_options" /></i>
-                    <h6><span>What is PayPal?</span></h6>
                 </div>
 
                 <div className="ordercontainer__payment--cardpayment">
+                    {(this.props.cartSubtotal - this.props.discount) * 100 > 1 &&  
                     <button onClick={this.stripeClick}>
                         <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
                         token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'tera'}
                         product />
-                    </button>
+                    </button>}
+
+                    {(this.props.cartSubtotal - this.props.discount) * 100 <= 1 &&  
+                            <button onClick={this.stripeClick}>
+                                <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
+                                token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'tera'}
+                                product disabled/>
+                            </button>}
+
+                    { this.state.paymentSucceeded && <h6 className="green">Payment Succeed</h6> }
+                    { this.state.paymentFailed && <h6 className="red">Payment Failed</h6> }
+
                 </div>
 
                 <input type="checkbox" id="accepterm" name="accepterm" />
@@ -224,6 +253,8 @@ class Payment extends React.Component {
                 type="button" onClick={this.handleClick}>PLACE ORDER</button></Link>}
                 {!this.state.finishingOrder && !this.state.readTerm && <Link to="/checkout"><button className="ordercontainer__payment--orderbutton inactive" 
                 type="button" onClick={this.handleClick} disabled>PLACE ORDER</button></Link>}
+
+                {this.state.fieldCheck && <div className="errorPrompt">Please Complete Your Billing Details and The Payment</div>}
             </form>
 
         </div>

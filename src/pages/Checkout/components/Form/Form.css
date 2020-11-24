@@ -89,12 +89,16 @@
   margin: 10px 0;
 }
 
-.Checkout .form .ordercontainer__order dl dt h5, .Checkout .form .ordercontainer__order dl dd h5 {
+.Checkout .form .ordercontainer__order dl dt h6, .Checkout .form .ordercontainer__order dl dd h6 {
+  font-size: 10px;
+}
+
+.Checkout .form .ordercontainer__order dl dt h4, .Checkout .form .ordercontainer__order dl dd h4 {
   font-size: 16px;
   color: #FFFFFF;
 }
 
-.Checkout .form .ordercontainer__order dl dt h4, .Checkout .form .ordercontainer__order dl dd h4 {
+.Checkout .form .ordercontainer__order dl dt h3, .Checkout .form .ordercontainer__order dl dd h3 {
   font-size: 24px;
 }
 
@@ -127,21 +131,32 @@
 }
 
 .Checkout .form .ordercontainer__payment--paymentintro {
-  padding: 0 25px;
+  padding: 10px 25px;
 }
 
 .Checkout .form .ordercontainer__payment--cardpayment {
-  padding: 15px 25px;
+  padding: 10px 25px;
+  display: flex;
+  align-items: center;
 }
 
 .Checkout .form .ordercontainer__payment--cardpayment button {
   outline: none;
   background-color: #000000;
   border: none;
+  margin-right: 10px;
+}
+
+.Checkout .form .ordercontainer__payment--cardpayment .green {
+  color: #00FA9A;
+}
+
+.Checkout .form .ordercontainer__payment--cardpayment .red {
+  color: #d94f2b;
 }
 
 .Checkout .form .ordercontainer__payment--orderbutton {
-  margin-top: 20px;
+  margin: 20px 0px;
   width: 100%;
   padding: 12px 0;
   color: #000000;
@@ -164,6 +179,11 @@
 .Checkout .form .ordercontainer__payment .inactive {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.Checkout .form .ordercontainer__payment .errorPrompt {
+  text-align: center;
+  color: #d94f2b;
 }
 
 .Checkout .form .billcontainer__login, .Checkout .form .ordercontainer__coupon {

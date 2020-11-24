@@ -97,6 +97,14 @@
                 &--paymentintro{
                     padding: 0 25px;
                 }
+                &--cardpayment{
+                    padding: 15px 25px;
+                    button{
+                        outline: none;
+                        background-color: #000000;
+                        border: none;
+                    }
+                }
                 &--orderbutton{
                     margin-top: 20px;
                     width: 100%;

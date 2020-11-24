@@ -11,24 +11,12 @@ class Checkout extends React.Component {
             cartIsClicked: false
         }
     }
-
-    toggleSideBar = () => {
-        this.setState({
-            sidebarIsClicked: !this.state.sidebarIsClicked
-        })
-    }
-
-    toggleCart = () => {
-        this.setState({
-            cartIsClicked: !this.state.cartIsClicked
-        })
-    }
-
+    
     render() {
         return (
             <div className="background">
                 <Navigation />
-                <Form />
+                <Form {...this.props}/>
             </div>
         );
     }

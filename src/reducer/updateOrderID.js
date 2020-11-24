@@ -1,5 +1,5 @@
 const initialState = {
-  orderId: "5fbb93853ef47035cc5d3493",
+  orderId: "",
 };
 
 export const updateOrderId = (state = initialState, action) => {

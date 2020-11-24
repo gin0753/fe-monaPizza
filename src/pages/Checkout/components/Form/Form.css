@@ -130,6 +130,16 @@
   padding: 0 25px;
 }
 
+.Checkout .form .ordercontainer__payment--cardpayment {
+  padding: 15px 25px;
+}
+
+.Checkout .form .ordercontainer__payment--cardpayment button {
+  outline: none;
+  background-color: #000000;
+  border: none;
+}
+
 .Checkout .form .ordercontainer__payment--orderbutton {
   margin-top: 20px;
   width: 100%;

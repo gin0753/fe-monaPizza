@@ -16,28 +16,28 @@ class SideBar extends React.Component {
     }
 
     render() {
-        return <div className="Checkout">
+        return <div className="sidebar">
             <h1>{this.props.isClicked}</h1>
             <nav className={this.props.sidestatus ? "sidebar sidebaractive" : "sidebar"}>
                 <label>
                     <input type="text" name="search" placeholder="search" />
                     <a><img src={search} alt="searchButton" /></a>
                 </label>
-                <ul className="sidebar--topitems" onClick={this.handleClick }>
+                <ul className="sidebar--topitems" onClick={this.handleClick}>
                     {SideBarTopItems.map((item, index) => {
                         return (
-                            <Link to={`${item.path}`}><li key={index} className="item.cName">
-                                <a><h6>{item.title}</h6></a>
+                            <Link key={index} to={`${item.path}`}><li key={index} className="item.cName">
+                                <h6>{item.title}</h6>
                             </li></Link>
                         )
                     })}
                 </ul>
                 <hr />
-                <ul className="sidebar--bottomitems">
+                <ul className="sidebar--bottomitems" onClick={this.handleClick}>
                     {SideBarBottomItems.map((item, index) => {
                         return (
-                            <Link to={`${item.path}`}><li key={index} className="item.cName">
-                                <a><h6>{item.title}</h6></a>
+                            <Link key={index} to={`${item.path}`}><li key={index} className="item.cName">
+                                <h6>{item.title}</h6>
                             </li></Link>
                         )
                     })}

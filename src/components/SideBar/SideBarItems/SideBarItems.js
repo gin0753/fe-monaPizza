@@ -1,27 +1,12 @@
 export const SideBarTopItems = [
     {
-        title: 'HOME',
-        path: '/',
-        cName: 'nav-text'
-    },
-    {
         title: 'PIZZA MENU',
         path: '/menu',
         cName: 'nav-text'
     },
     {
-        title: 'PIZZA BUILDER',
-        path: '/builder',
-        cName: 'nav-text'
-    },
-    {
         title: 'BLOG',
         path: '/blog',
-        cName: 'nav-text'
-    },
-    {
-        title: 'PAGES',
-        path: '/pages',
         cName: 'nav-text'
     },
     {
@@ -33,18 +18,24 @@ export const SideBarTopItems = [
         title: 'CONTACT',
         path: '/contact-us',
         cName: 'nav-text'
+    },
+    {
+        title: 'BACK TO HOME',
+        path: '/',
+        cName: 'nav-text'
     }
+
 ];
 
 export const SideBarBottomItems = [
     {
-        title: 'LOGIN',
+        title: 'SIGN IN',
         path: '/sign-in',
         cName: 'nav-text'
     },
     {
-        title: 'My ACCOUNT',
-        path: '/users',
+        title: 'MY ACCOUNT',
+        path: '/manage-account',
         cName: 'nav-text'
     },
     {

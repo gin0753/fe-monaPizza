@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 
 
-const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => {
+const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, updateCart}) => {
 
   const [currentSize, setCurrentSize] = useState('Small');
 
@@ -27,7 +27,6 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => 
   };
 
   const handleAdd = async () => {
-
     try{
       const response = await axios.get(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
       if(response.status === 200){
@@ -46,11 +45,10 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => 
         await axios.post('/cart', pizzaSelected);
       }
     }
-
+    await updateCart();
   }
 
   const handleRemove = async() => {
-        
     try{
       const response = await axios.get(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
       if(response.status === 200){
@@ -68,10 +66,9 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price } }) => 
     } catch(err){
       console.log(err.response)
     }
-
+    await updateCart();
   }
-  
-  
+
   return (
     <div className="catelogue__product--name" key={_id}>
       <div><img src={Img} alt="Item_Image" /></div>

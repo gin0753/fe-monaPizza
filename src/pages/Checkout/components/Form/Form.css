@@ -197,6 +197,10 @@
   text-decoration: none;
 }
 
+.Checkout .form .billcontainer__login--redirect, .Checkout .form .ordercontainer__coupon--redirect {
+  cursor: pointer;
+}
+
 .Checkout .form .billcontainer__login i {
   cursor: pointer;
 }

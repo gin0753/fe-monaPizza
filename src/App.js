@@ -29,6 +29,7 @@ class App extends React.Component {
         this.state = {
             sidebarIsClicked: false,
             cartIsClicked: false,
+            amountChanged: 0
         };
     }
 
@@ -44,6 +45,12 @@ class App extends React.Component {
         });
     };
 
+    updateCart = () => {
+        this.setState({
+            amountChanged: this.state.amountChanged + 1
+        })
+    }
+
     render() {
         return (
             <>
@@ -58,6 +65,7 @@ class App extends React.Component {
                                 <CartTotals
                                     cartstatus={this.state.cartIsClicked}
                                     toggleCart={this.toggleCart}
+                                    amountChanged={this.state.amountChanged}
                                 />
                                 <Header
                                     toggleSideBar={this.toggleSideBar}
@@ -77,7 +85,7 @@ class App extends React.Component {
                         <Route path="/product-details" component={ProductDetails} />
                         <Route path="/blog" component={Blog} />
                         <Route path="/home" component={Home} />
-                        <Route path="/menu" component={Menu} />
+                        <Route path="/menu" render={ props => <Menu updateCart={this.updateCart} />} />
                         <Route path="/sign-in" component={SignIn} />
                         <Route path="/checkout" component={Checkout} />
                         <Route path='/order-created' component={OrderCreated} />

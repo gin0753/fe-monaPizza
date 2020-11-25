@@ -4,6 +4,9 @@ import Order from './components/Order/Order';
 import Payment from './components/Payment/Payment';
 import Loginbtn from './components/Login/Login';
 import Coupon from './components/Coupon/Coupon';
+import Axios from 'axios';
+import store from '../../../../store/index';
+import { addPizzaList } from '../../../../action';
 
 class Form extends React.Component{
 
@@ -34,12 +37,34 @@ class Form extends React.Component{
             {optionalAddr: !this.state.optionalAddr}
         );
     }
+    
+    
+    async componentDidMount() {
+
+        const userId = sessionStorage.getItem('userID');
+
+        try {
+            // sample --- it should use userId to get the pizza list, not uuid
+            const { data } = await Axios.get(`http://localhost:8000/cart/${userId}/1/10`);
+
+            let subPrice = 0;
+            data.map(item => {
+                subPrice = item.totalPrice + subPrice;
+            })
+
+            const action = addPizzaList(data, subPrice);
+            store.dispatch(action);
+        } catch (e) {
+            console.log(Object.entries(e))
+        }
+
+    }
 
     render(){
         return <div className="Checkout"> 
                     <section className="form">
                     <div className="billcontainer">
-                            <Loginbtn />  
+                            <Loginbtn {...this.props}/>  
                         <div className="billwrapper">
                         <div className="billcontainer__bill">
                             <h3>Billing Details</h3>
@@ -127,7 +152,7 @@ class Form extends React.Component{
                         </div>
                     </div>
                     <div className="ordercontainer">
-                        <Coupon />
+                        <Coupon {...this.props}/>
                         <div className="orderwrapper">
                             <Order />
                             <Payment inputValue={this.state} {...this.props}/>

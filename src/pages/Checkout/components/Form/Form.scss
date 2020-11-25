@@ -153,6 +153,9 @@
             & a{
                 text-decoration: none;
             }
+            &--redirect {
+                cursor: pointer;
+            }
         }
         & .billcontainer__login{
             & i{

@@ -41,7 +41,9 @@ class Menu extends Component {
     await fetchPizza();
     await this.displayContent();
   }
+
   render() {
+    const updateCart = this.props.updateCart
     return (
       <div className="menu" style={{ backgroundImage: `url(${Bgi})` }}>
         <div className="catelogue">
@@ -341,7 +343,7 @@ class Menu extends Component {
           <div className="catelogue__product">
           {this.state.pizzas.map( (item) => 
             (
-              <MenuItems details={item}/>
+              <MenuItems details={item} updateCart={updateCart}/>
             )
             )}
         </div>
@@ -362,7 +364,6 @@ class Menu extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   const { menuReducer: {loading, pizzas} } = state;
   return {
     loading,

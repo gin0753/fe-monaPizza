@@ -58,7 +58,7 @@ class OrderResult extends React.Component {
     }
 
     handleRmPizzaClick = async (pizza, index) => {
-
+        console.log(pizza)
         try {
             const id = pizza._id;
             await Axios.delete(`http://localhost:8000/cart/${id}`);

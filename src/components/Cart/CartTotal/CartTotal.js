@@ -10,7 +10,8 @@ class CartTotal extends React.Component {
         super(props)
         this.handleClick = this.handleClick.bind(this);
         this.state = {
-            orderList: []
+            orderList: [],
+            amountChanged: 0
         }
     }
 
@@ -43,8 +44,24 @@ class CartTotal extends React.Component {
         }
     }
 
+    removePizzas = async(item, index) => {
+        const pizzaID = item._id;
+        await axios.delete(`/cart/${pizzaID}`);
+        await this.showPizzaList();
+    }
+
     componentDidMount = async () => {
         await this.showPizzaList()
+    }
+
+    componentDidUpdate = () => {
+        const { amountChanged } = this.props;
+        if( amountChanged !== this.state.amountChanged ){
+            this.setState({
+                amountChanged: amountChanged
+            })
+            this.showPizzaList();
+        }
     }
 
     render() {
@@ -62,7 +79,7 @@ class CartTotal extends React.Component {
                         return (
                             <>
                                 <li key={index}>
-                                    <a><img src={cross} alt="cross" /></a>
+                                    <a onClick={() => this.removePizzas(item, index)}><img src={cross} alt="cross" /></a>
                                     <img src={item.Img} alt={item.text} />
                                     <div>
                                         <h5>{item.pizzaName}</h5>

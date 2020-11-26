@@ -9,7 +9,7 @@ class ShoppingCart extends React.Component {
     return (
       <div className="shopping-cart">
         <div className="main flex-container">
-          <OrderResult />
+          <OrderResult {...this.props}/>
           <CartTotal />
         </div>
       </div>

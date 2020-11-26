@@ -62,6 +62,7 @@ class OrderResult extends React.Component {
         try {
             const id = pizza._id;
             await Axios.delete(`http://localhost:8000/cart/${id}`);
+            await this.props.updateCart();
 
             const { totalPrice } = pizza;
             const { cartSubtotal } = this.state;

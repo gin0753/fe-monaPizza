@@ -122,7 +122,8 @@ class Payment extends React.Component {
                         const res = await axios.delete(`cart/`);
                         console.log(res)
                         if(res.status === 200){
-                            const { history } = this.props;
+                            await this.props.updateCart();
+                            const { history } = this.props.history;
                             history.replace('/order-created');
                         }
                     } catch(err) {

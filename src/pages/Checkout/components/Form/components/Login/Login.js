@@ -3,7 +3,7 @@ import '../../Form.css';
 class Loginbtn extends React.Component {
 
     handleClick = () => {
-        this.props.history.push('sign-in');
+        this.props.history.history.push('sign-in');
     }
 
     render() {

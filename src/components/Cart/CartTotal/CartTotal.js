@@ -44,12 +44,6 @@ class CartTotal extends React.Component {
         }
     }
 
-    removePizzas = async(item, index) => {
-        const pizzaID = item._id;
-        await axios.delete(`/cart/${pizzaID}`);
-        await this.showPizzaList();
-    }
-
     componentDidMount = async () => {
         await this.showPizzaList()
     }
@@ -79,7 +73,6 @@ class CartTotal extends React.Component {
                         return (
                             <>
                                 <li key={index}>
-                                    <a onClick={() => this.removePizzas(item, index)}><img src={cross} alt="cross" /></a>
                                     <img src={item.Img} alt={item.text} />
                                     <div>
                                         <h5>{item.pizzaName}</h5>

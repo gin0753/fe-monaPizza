@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import { fetchPizza } from '../../action/menuActions'
 import MenuItems from './components/MenuItems'
 import Filter from './components/Filter'
+import Navigation from './components/Navigation'
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />
 const ArrowRight = <FontAwesomeIcon icon={faArrowRight} />
@@ -47,6 +48,7 @@ class Menu extends Component {
     const updateCart = this.props.updateCart
     return (
       <div className="menu">
+        <Navigation />
         <div className="catelogue">
           <Filter />
           <div className="catelogue__product">

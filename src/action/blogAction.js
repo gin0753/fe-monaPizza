@@ -5,16 +5,17 @@ export const loadBlogs = () => (dispatch) => {
 };
 
 const loadBlogsSuccess = (res) => {
+  const {data:{totalBlogs,results}} = res;
   return {
     type: "SUCCESS",
-    data:res.data,
+    data: { results: results, totalBlogs: totalBlogs },
   };
 };
 
-// export const loadBlogs = ({totalBlogs,results})=>{
-// return{
-//     type: 'LOAD_BLOGS',
-//     totalBlogs,
-//     results,
-// }
-// }
+export const updateBlogs = ({totalBlogs,results})=>{
+return{
+    type: 'UPDATE_BLOGS',
+    totalBlogs,
+    results,
+}
+}

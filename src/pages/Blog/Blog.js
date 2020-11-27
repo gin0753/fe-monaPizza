@@ -3,9 +3,9 @@ import "./style/Blog.scss";
 import CrumbHeader from "../../components/CrumbHeader";
 import Axios from "axios";
 import { connect } from "react-redux";
-import { loadBlogs } from "../../action/blogAction";
+import { loadBlogs, updateBlogs } from "../../action/blogAction";
 
-import Top1 from "./img/top1.jpg";
+import Top1 from "./img/top1.JPG";
 import ContentPic1 from "./img/pic1.jpg";
 import ContentPic2 from "./img/pic2.jpg";
 import ContentPic3 from "./img/pic3.jpg";
@@ -13,23 +13,25 @@ import ContentPic4 from "./img/pic4.jpg";
 
 class Blog extends Component {
   async componentDidMount() {
-    this.props.loadBlogs();
+    const { loadBlogs, updateBlogs } = this.props;
+
     const res = await Axios.get("/blog/1/4");
-    console.log("00000", res.data.results[0].author);
+    const { data } = res;
+    updateBlogs(data);
+
+    // this method cannot use,don't know why
+    // loadBlogs();
+
+    console.log("00000000", this.props.results[0].author);
   }
 
   render() {
     const { totalBlogs, results } = this.props;
-    console.log("1111111", results);
-    console.log("22222", totalBlogs);
-    console.log("3333333", results[0]);
+    console.log('1111111111111',totalBlogs);
+    console.log("2222222222222", results);
 
     return (
       <section className='blog'>
-        {/* <ul>
-    {results.map((index,item)=><li key={index}>  {item}</li>)}
-        </ul> */}
-
         <CrumbHeader path='blog' thisPage='blog' />
         <div className='top'>
           <a className='toppicture' href='#'>
@@ -151,6 +153,7 @@ const mapStateToProps = (state) => {
 
 const mapActionToProps = {
   loadBlogs,
+  updateBlogs,
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Blog);

@@ -1,0 +1,152 @@
+@import "../../../initialCSS/normalize.css";
+@import "../../../initialCSS/reset.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap");
+
+
+
+body {
+  background-color: black;
+}
+
+.blog {
+  margin: 0 auto;
+  max-width: 1920px;
+  min-width: 750px;
+  background: url(../../../images/Background-Grey.png) no-repeat center top;
+
+  img {
+    width: 90%;
+    height: 90%;
+    display: block;
+    margin: 15px auto;
+    transition: .7s ease;
+  }
+
+img:hover{
+  transform: scale(1.2);
+}
+
+  li {
+    list-style: none;
+  }
+
+  .top {
+    width: 638px;
+    height: 638px;
+    text-align: center;
+    margin: 30px auto;
+  }
+  .toppicture {
+    display: inline-block;
+    width: 100%;
+    height: 60%;
+    margin: 0 auto;
+    border: 2px solid #dc522e;
+    overflow:hidden;
+  }
+  .writers {
+    color: #dc522e;
+    font-family: "Josefin Sans", sans-serif;
+    margin: 20px auto;
+    font-weight: 700;
+  }
+  .by {
+    color: #f3f3f3;
+  }
+  .bigTitle {
+    font-size: 25px;
+    font-weight: bold;
+    color: #fdbc2c;
+    font-family: "Abril Fatface", cursive;
+  }
+  .contents {
+    color: #f3f3f3;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+  .readmore {
+    margin: 15px auto;
+    width: 80px;
+    height: 30px;
+    background-color: #fdbc2c;
+    text-align: center;
+  }
+  .readmore a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: "Josefin Sans", sans-serif;
+    line-height: 30px;
+  }
+  .blogContent {
+    display: flex;
+    justify-content: space-between;
+    width: 638px;
+    height: 300px;
+    border-top: 1px solid #353535;
+    margin: 50px auto;
+  }
+  .contentPic {
+    display: inline-block;
+    width: 48%;
+    height: 90%;
+    margin: 20px auto;
+    border: 2px solid #dc522e;
+    overflow:hidden;
+
+  }
+  .blogBody {
+    width: 48%;
+    height: 90%;
+    text-align: left;
+  }
+  .blogContent .readmore {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .blog {
+    width: 100%;
+  }
+  .blog .top,
+  .blog .blogContent {
+    width: 90%;
+    height: fit-content;
+  }
+}
+@media screen and (min-width: 768px) {
+  .blog {
+    width: 100%;
+  }
+  .blog .top,
+  .blog .blogContent {
+    width: 80%;
+    height: fit-content;
+  }
+}
+@media screen and (min-width: 992px) {
+  .blog {
+    width: 100%;
+  }
+  .blog .top,
+  .blog .blogContent {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1170px) {
+  .blog {
+    width: 100%;
+  }
+  .blog .top,
+  .blog .blogContent {
+    width: 65%;
+  }
+}

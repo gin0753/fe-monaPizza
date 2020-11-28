@@ -1,21 +1,31 @@
 import { fetchBlogs } from "../api/blog-API";
 
 export const loadBlogs = () => (dispatch) => {
-  fetchBlogs().then((res) => dispatch(loadBlogsSuccess(res)));
+  dispatch(loadBlogsRequested());
+  fetchBlogs()
+    .then((res) => dispatch(loadBlogsSuccess(res)))
+    .catch((err) => dispatch(loadBlogsFailed(err)));
 };
 
-const loadBlogsSuccess = (res) => {
-  const {data:{totalBlogs,results}} = res;
+const loadBlogsRequested = () => {
   return {
-    type: "SUCCESS",
-    data: { results: results, totalBlogs: totalBlogs },
+    type: "REQUESTED",
   };
 };
 
-export const updateBlogs = ({totalBlogs,results})=>{
-return{
-    type: 'UPDATE_BLOGS',
-    totalBlogs,
-    results,
-}
-}
+const loadBlogsSuccess = (res) => {
+  return {
+    type: "SUCCESS",
+    data: {
+      totalBlogs: res.data.totalBlogs || "",
+      results: res.data.results || [],
+    },
+  };
+};
+
+const loadBlogsFailed = (err) => {
+  return {
+    type: "FAILED",
+    data: { err },
+  };
+};

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "./style/Blog.scss";
 import CrumbHeader from "../../components/CrumbHeader";
-import Axios from "axios";
 import { connect } from "react-redux";
-import { loadBlogs, updateBlogs } from "../../action/blogAction";
+import { loadBlogs } from "../../action/blogAction";
 
 import Top1 from "./img/top1.JPG";
 import ContentPic1 from "./img/pic1.jpg";
@@ -12,24 +11,21 @@ import ContentPic3 from "./img/pic3.jpg";
 import ContentPic4 from "./img/pic4.jpg";
 
 class Blog extends Component {
-  async componentDidMount() {
-    const { loadBlogs, updateBlogs } = this.props;
 
-    const res = await Axios.get("/blog/1/4");
-    const { data } = res;
-    updateBlogs(data);
-
-    // this method cannot use,don't know why
-    // loadBlogs();
-
-    console.log("00000000", this.props.results[0].author);
+  componentDidMount() {
+    const { loadBlogs } = this.props;
+    loadBlogs();
   }
 
   render() {
-    const { totalBlogs, results } = this.props;
-    console.log('1111111111111',totalBlogs);
-    console.log("2222222222222", results);
+    const { loading, totalBlogs, results } = this.props;
 
+    if (loading) return <h1>Loading...</h1>;
+
+    
+    console.log("11111111", results);
+    console.log("22222222", results[0]);
+    // console.log("22222222", results[0].author);
     return (
       <section className='blog'>
         <CrumbHeader path='blog' thisPage='blog' />
@@ -63,7 +59,7 @@ class Blog extends Component {
             </a>
             <div className='blogBody'>
               <p className='writers'>
-                January 22.2015 <span className='by'>by</span> {"111"}
+                January 22.2015 <span className='by'>by</span> {}
               </p>
               <p className='bigTitle'>
                 Perfect Pizza Using Baking Steel Broiler Method
@@ -143,9 +139,10 @@ class Blog extends Component {
 
 const mapStateToProps = (state) => {
   const {
-    blogReducer: { totalBlogs, results },
+    blogReducer: { loading, totalBlogs, results },
   } = state;
   return {
+    loading,
     totalBlogs,
     results,
   };
@@ -153,7 +150,6 @@ const mapStateToProps = (state) => {
 
 const mapActionToProps = {
   loadBlogs,
-  updateBlogs,
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Blog);

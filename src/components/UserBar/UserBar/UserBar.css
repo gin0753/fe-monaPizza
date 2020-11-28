@@ -5,7 +5,7 @@
 
 
 .user nav {
-  padding: 2em;
+  padding: 1em;
   border: solid 1 transparent;
   width: min-content;
 }
@@ -37,6 +37,10 @@
 
 .user .userbar--topitems h6 {
   margin-left: 1em;
+}
+
+.user .my-details {
+  background-color: #FDBC2C;
 }
 
 

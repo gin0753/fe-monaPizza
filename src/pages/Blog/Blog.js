@@ -4,34 +4,25 @@ import CrumbHeader from "../../components/CrumbHeader";
 import { connect } from "react-redux";
 import { loadBlogs } from "../../action/blogAction";
 
-import Top1 from "./img/top1.JPG";
-import ContentPic1 from "./img/pic1.jpg";
-import ContentPic2 from "./img/pic2.jpg";
-import ContentPic3 from "./img/pic3.jpg";
-import ContentPic4 from "./img/pic4.jpg";
+import BlogImg from "./img/BlogImg";
 
 class Blog extends Component {
-
   componentDidMount() {
     const { loadBlogs } = this.props;
     loadBlogs();
   }
 
   render() {
-    const { loading, totalBlogs, results } = this.props;
+    const { loading, results } = this.props;
 
     if (loading) return <h1>Loading...</h1>;
-
-    
-    console.log("11111111", results);
-    console.log("22222222", results[0]);
     // console.log("22222222", results[0].author);
     return (
       <section className='blog'>
         <CrumbHeader path='blog' thisPage='blog' />
         <div className='top'>
           <a className='toppicture' href='#'>
-            <img src={Top1} alt='' />
+            <img src={BlogImg[4]} alt='' />
           </a>
           <p className='writers'>
             January 30,2015 <span className='by'>by</span> Peter smith
@@ -53,84 +44,25 @@ class Blog extends Component {
           </div>
         </div>
         <ul>
-          <li className='blogContent'>
-            <a className='contentPic' href='#'>
-              <img src={ContentPic1} alt='' />
-            </a>
-            <div className='blogBody'>
-              <p className='writers'>
-                January 22.2015 <span className='by'>by</span> {}
-              </p>
-              <p className='bigTitle'>
-                Perfect Pizza Using Baking Steel Broiler Method
-              </p>
-              <p className='contents'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto tempore eius, distinctio eaque, sint ill
-              </p>
-              <div className='readmore'>
-                <a href='#'>READ MORE</a>
-              </div>
-            </div>
-          </li>
-          <li className='blogContent'>
-            <div className='blogBody'>
-              <p className='writers'>
-                December 18, 2015 <span className='by'>by</span> Eliz Bellarasa
-              </p>
-              <p className='bigTitle'>Three Champagne Pizza Recepes</p>
-              <p className='contents'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto tempore eius, distinctio eaque, sint ill
-              </p>
-              <div className='readmore'>
-                <a href='#'>READ MORE</a>
-              </div>
-            </div>
-            <a className='contentPic' href='#'>
-              <img src={ContentPic2} alt='' />
-            </a>
-          </li>
-          <li className='blogContent'>
-            <a className='contentPic' href='#'>
-              <img src={ContentPic3} alt='' />
-            </a>
-            <div className='blogBody'>
-              <p className='writers'>
-                December10 ,2014 <span className='by'>by</span> Bradley Taylor
-              </p>
-              <p className='bigTitle'>
-                Brussels Sprouts and Bacon, Oizza Recipe
-              </p>
-              <p className='contents'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto tempore eius, distinctio eaque, sint ill
-              </p>
-              <div className='readmore'>
-                <a href='#'>READ MORE</a>
-              </div>
-            </div>
-          </li>
-          <li className='blogContent'>
-            <div className='blogBody'>
-              <p className='writers'>
-                June 03, 2014 <span className='by'>by</span> Cooper Elison
-              </p>
-              <p className='bigTitle'>
-                Green Onion and Burrata Cheese Pizza and a Killer Margherita
-              </p>
-              <p className='contents'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto tempore eius, distinctio eaque, sint ill
-              </p>
-              <div className='readmore'>
-                <a href='#'>READMORE</a>
-              </div>
-            </div>
-            <a className='contentPic' href='#'>
-              <img src={ContentPic4} alt='' />
-            </a>
-          </li>
+          {results.map((item, index) => {
+            return (
+              <li key={index} className='blogContent'>
+                <a className='contentPic' href='#'>
+                  <img src={BlogImg[index]} alt='blog-img' />
+                </a>
+                <div className='blogBody'>
+                  <p className='writers'>
+                    {item.date} <span className='by'>by</span> {item.author}
+                  </p>
+                  <p className='bigTitle'>{item.title}</p>
+                  <p className='contents'>{item.body}</p>
+                  <div className='readmore'>
+                    <a href='#'>READ MORE</a>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </section>
     );

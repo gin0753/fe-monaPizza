@@ -8,15 +8,14 @@
 
 
 body {
-  background-color: black;
+  background: black url(../../../images/Background-Grey.png) no-repeat center top;
+
 }
 
 .blog {
   margin: 0 auto;
   max-width: 1920px;
   min-width: 750px;
-  background: url(../../../images/Background-Grey.png) no-repeat center top;
-
   img {
     width: 90%;
     height: 90%;

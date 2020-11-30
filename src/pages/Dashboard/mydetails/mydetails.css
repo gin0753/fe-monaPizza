@@ -7,14 +7,27 @@
 
 .dashboard {
   width: 100%;
-  height: 130em;
+  height: 135em;
   background-image: url("../../../images/Pizza-bg.png");
+  background-size: cover;
   line-height: 1.5em;
+}
+
+@media (max-width: 375px) {
+  .dashboard {
+    height: 145em;
+  }
 }
 
 .dashboard h3 {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.5em;
+}
+
+@media (max-width: 768px) {
+  .dashboard h3 {
+    font-size: 1.5em;
+  }
 }
 
 .dashboard section {
@@ -26,24 +39,53 @@
   margin-top: 1em;
 }
 
+@media (max-width: 768px) {
+  .dashboard form {
+    width: 80%;
+  }
+}
+
+@media (max-width: 375px) {
+  .dashboard form {
+    width: 80%;
+  }
+}
+
 .dashboard .form {
   display: flex;
   justify-content: space-around;
   margin-top: 4em;
 }
 
+@media (max-width: 375px) {
+  .dashboard .form {
+    display: table;
+  }
+}
+
 .dashboard .form .userbar {
   width: 40%;
   display: flex;
   justify-content: center;
-  margin-left: 3em;
+}
+
+@media (max-width: 375px) {
+  .dashboard .form .userbar {
+    width: 100%;
+  }
 }
 
 .dashboard .form .mydetails {
   color: #fdbc2c;
-  width: 90%;
+  width: 80%;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 375px) {
+  .dashboard .form .mydetails {
+    width: 100%;
+  }
 }
 
 .dashboard .form .mydetails hr {
@@ -53,6 +95,13 @@
 .dashboard .form .mydetails .userName {
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .userName {
+    width: 100%;
+    display: table;
+  }
 }
 
 .dashboard .form .mydetails .userName input {
@@ -70,6 +119,13 @@
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .firstName {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+}
+
 .dashboard .form .mydetails .firstName input {
   width: 100%;
   margin-top: 1em;
@@ -79,6 +135,12 @@
 .dashboard .form .mydetails .lastName {
   width: 49%;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .lastName {
+    width: 100%;
+  }
 }
 
 .dashboard .form .mydetails .lastName input {
@@ -136,6 +198,12 @@
   margin-left: 2em;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .emailoption label {
+    margin-left: 1.5em;
+  }
+}
+
 .dashboard .form .mydetails .emailoption label :hover {
   cursor: pointer;
 }
@@ -156,6 +224,13 @@
   border-radius: 5px;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .emailoption span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 .dashboard .form .mydetails .emailoption span:after {
   content: "";
   top: 1px;
@@ -164,6 +239,13 @@
   display: block;
   width: 8px;
   height: 8px;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .emailoption span:after {
+    width: 4px;
+    height: 4px;
+  }
 }
 
 .dashboard .form .mydetails .emailoption input:checked ~ span {
@@ -181,6 +263,15 @@
   position: absolute;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .emailoption input:checked ~ span:after {
+    width: 4px;
+    height: 4px;
+    top: -3px;
+    left: 2px;
+  }
+}
+
 .dashboard .form .mydetails .smsoption {
   width: 50%;
   position: relative;
@@ -189,6 +280,12 @@
 .dashboard .form .mydetails .smsoption h4 {
   display: inline-block;
   margin-left: 1em;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .smsoption h4 {
+    margin-left: 0.5em;
+  }
 }
 
 .dashboard .form .mydetails .smsoption input {
@@ -218,6 +315,13 @@
   border-radius: 5px;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .smsoption span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 .dashboard .form .mydetails .smsoption span:after {
   content: "";
   top: 1px;
@@ -243,6 +347,15 @@
   position: absolute;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .smsoption input:checked ~ span:after {
+    width: 4px;
+    height: 4px;
+    top: -3px;
+    left: 2px;
+  }
+}
+
 .dashboard .form .mydetails .cancel {
   width: 34%;
 }
@@ -255,6 +368,13 @@
   font-weight: bolder;
   font-size: 1em;
   background-color: #f3e7e7;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .cancel input {
+    height: 2em;
+    font-weight: normal;
+  }
 }
 
 .dashboard .form .mydetails .cancel :hover {
@@ -278,6 +398,13 @@
   color: whitesmoke;
   font-weight: bolder;
   font-size: 1em;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .update input {
+    height: 2em;
+    font-weight: normal;
+  }
 }
 
 .dashboard .form .mydetails .update :hover {
@@ -308,6 +435,13 @@
   margin-left: 1em;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .myAddress label {
+    font-size: .8em;
+    margin-left: .8em;
+  }
+}
+
 .dashboard .form .mydetails .myAddress label :hover {
   cursor: pointer;
 }
@@ -321,6 +455,12 @@
   width: 10em;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .myAddress label h4 {
+    width: 8em;
+  }
+}
+
 .dashboard .form .mydetails .myAddress label span {
   position: absolute;
   top: 7px;
@@ -328,9 +468,16 @@
   height: 22px;
   width: 22px;
   background-color: white;
-  border: solid 1px #302e2e;
+  border: solid 2px #fdbc2c;
   vertical-align: middle;
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .myAddress label span {
+    height: 18px;
+    width: 18px;
+  }
 }
 
 .dashboard .form .mydetails .myAddress label span:after {
@@ -342,14 +489,21 @@
   height: 8px;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .myAddress label span:after {
+    width: 6px;
+    height: 6px;
+  }
+}
+
 .dashboard .form .mydetails .myAddress label input:checked ~ span {
   background-color: white;
 }
 
 .dashboard .form .mydetails .myAddress label input:checked ~ span:after {
   content: "";
-  top: 3px;
-  left: 3px;
+  top: 2px;
+  left: 2px;
   border: solid 7px #020202;
   display: block;
   width: 12px;
@@ -358,8 +512,22 @@
   border-radius: 50%;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .myAddress label input:checked ~ span:after {
+    width: 3px;
+    height: 3px;
+    border: solid 5px #020202;
+  }
+}
+
 .dashboard .form .mydetails .myAddress .removeButton {
   text-align: right;
+}
+
+@media (max-width: 1024px) {
+  .dashboard .form .mydetails .myAddress .removeButton {
+    font-size: 13px;
+  }
 }
 
 .dashboard .form .mydetails .myAddress .removeButton input {
@@ -367,8 +535,14 @@
   background-color: #d71313;
   color: whitesmoke;
   font-weight: bold;
-  width: 40%;
+  width: 80%;
   padding: 0.5em;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .myAddress .removeButton input {
+    width: 75%;
+  }
 }
 
 .dashboard .form .mydetails .myAddress .removeButton :hover {
@@ -399,6 +573,13 @@
   margin-left: 1em;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .mystore label {
+    font-size: .8em;
+    margin-left: .8em;
+  }
+}
+
 .dashboard .form .mydetails .mystore label :hover {
   cursor: pointer;
 }
@@ -412,6 +593,12 @@
   width: 10em;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .mystore label h4 {
+    width: 8em;
+  }
+}
+
 .dashboard .form .mydetails .mystore label span {
   position: absolute;
   top: 7px;
@@ -419,9 +606,16 @@
   height: 22px;
   width: 22px;
   background-color: white;
-  border: solid 1px #302e2e;
+  border: solid 2px #fdbc2c;
   vertical-align: middle;
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .mystore label span {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .dashboard .form .mydetails .mystore label span:after {
@@ -440,8 +634,8 @@
 
 .dashboard .form .mydetails .mystore label input:checked ~ span:after {
   content: "";
-  top: 3px;
-  left: 3px;
+  top: 2px;
+  left: 2px;
   border: solid 7px #020202;
   display: block;
   width: 12px;
@@ -450,8 +644,22 @@
   border-radius: 50%;
 }
 
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .mystore label input:checked ~ span:after {
+    width: 3px;
+    height: 3px;
+    border: solid 5px #020202;
+  }
+}
+
 .dashboard .form .mydetails .mystore .removeButton {
   text-align: right;
+}
+
+@media (max-width: 1024px) {
+  .dashboard .form .mydetails .mystore .removeButton {
+    font-size: 13px;
+  }
 }
 
 .dashboard .form .mydetails .mystore .removeButton input {
@@ -461,6 +669,12 @@
   font-weight: bold;
   width: 40%;
   padding: 0.5em;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .mystore .removeButton input {
+    width: 75%;
+  }
 }
 
 .dashboard .form .mydetails .mystore .removeButton :hover {
@@ -486,7 +700,7 @@
 
 .dashboard .form .mydetails .selectaddress button {
   width: 20%;
-  height: 2.5em;
+  height: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -496,6 +710,12 @@
   background-color: #49ae49;
   color: whitesmoke;
   font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .dashboard .form .mydetails .selectaddress button {
+    font-size: 13px;
+  }
 }
 
 .dashboard .form .mydetails .selectaddress button:hover {
@@ -540,9 +760,16 @@
   height: 22px;
   width: 22px;
   background-color: white;
-  border: solid 1px #302e2e;
+  border: solid 2px #fdbc2c;
   vertical-align: middle;
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .delivery label span {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .dashboard .form .mydetails .delivery label span:after {
@@ -561,14 +788,22 @@
 
 .dashboard .form .mydetails .delivery label input:checked ~ span:after {
   content: "";
-  top: 3px;
-  left: 3px;
+  top: 2px;
+  left: 2px;
   border: solid 7px #020202;
   display: block;
   width: 12px;
   height: 12px;
   position: absolute;
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .delivery label input:checked ~ span:after {
+    width: 3px;
+    height: 3px;
+    border: solid 5px #020202;
+  }
 }
 
 .dashboard .form .mydetails .pickup {
@@ -602,9 +837,16 @@
   height: 22px;
   width: 22px;
   background-color: white;
-  border: solid 1px #302e2e;
+  border: solid 2px #fdbc2c;
   vertical-align: middle;
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .pickup label span {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .dashboard .form .mydetails .pickup label span:after {
@@ -623,12 +865,20 @@
 
 .dashboard .form .mydetails .pickup label input:checked ~ span:after {
   content: "";
-  top: 3px;
-  left: 3px;
+  top: 2px;
+  left: 2px;
   border: solid 7px #020202;
   display: block;
   width: 12px;
   height: 12px;
   position: absolute;
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .dashboard .form .mydetails .pickup label input:checked ~ span:after {
+    width: 3px;
+    height: 3px;
+    border: solid 5px #020202;
+  }
 }

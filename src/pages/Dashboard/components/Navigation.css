@@ -5,20 +5,20 @@
 }
 
 @font-face {
-  font-family: 'Fredericka-the-Great';
-  src: local("Fredericka-the-Great"), url(../../../font/Fredericka-the-Great.ttf) format("opentype");
+  font-family: "Fredericka-the-Great";
+  src: local("Fredericka-the-Great"), url(../../../font//Fredericka-the-Great.ttf) format("opentype");
 }
 
 @font-face {
-  font-family: 'JosefinSans-Regular';
+  font-family: "JosefinSans-Regular";
   src: local("JosefinSans-Regular"), url(../../../font/JosefinSans-Regular.ttf) format("opentype");
 }
 
-.dashboard {
+.breadcrumb {
   width: 100%;
 }
 
-.dashboard .navigation {
+.breadcrumb .navigation {
   min-width: 350px;
   height: 400px;
   background-image: url("../../../images/pizza-header.jpg");
@@ -28,59 +28,75 @@
   align-items: center;
 }
 
-.dashboard .navigation .container {
+@media (max-width: 768px) {
+  .breadcrumb .navigation {
+    height: 300px;
+  }
+}
+
+@media (max-width: 375px) {
+  .breadcrumb .navigation {
+    height: 200px;
+  }
+}
+
+.breadcrumb .navigation .container {
   text-align: center;
 }
 
-.dashboard .navigation .container__title h2 {
+.breadcrumb .navigation .container__title h2 {
   font-size: 60px;
-  color: #FFFFFF;
-  font-family: 'Fredericka-the-Great';
-  margin-bottom: 20px;
+  color: #ffffff;
+  font-family: "Fredericka-the-Great";
+  margin-bottom: 30px;
 }
 
-.dashboard .navigation .container__navBar {
-        display: flex;
-        justify-content: center;
-        font-family: 'JosefinSans-Regular';
-        
+@media (max-width: 375px) {
+  .breadcrumb .navigation .container__title h2 {
+    font-size: 35px;
+  }
 }
 
-.dashboard .navigation .container__navBar--content {
+.breadcrumb .navigation .container__navBar {
+  display: flex;
+  justify-content: center;
+}
+
+.breadcrumb .navigation .container__navBar--content {
   position: relative;
   width: auto;
   height: 40px;
-  color: #FDBC2C;
-  border: 2px solid #FDBC2C;
+  color: #fdbc2c;
+  border: 2px solid #fdbc2c;
   border-left: none;
   border-right: none;
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
+  padding: 10px 50px 0px 50px;
   font-weight: bold;
-  padding: 10px 50px 10px 50px;
 }
 
-.dashboard .navigation .container__navBar--content:before, .dashboard .navigation .container__navBar--content:after {
+.breadcrumb .navigation .container__navBar--content:before, .breadcrumb .navigation .container__navBar--content:after {
   content: "";
   position: absolute;
   top: 3.75px;
-  width: 27px;
-  height: 27px;
+  width: 26px;
+  height: 26px;
   transform: rotate(45deg);
 }
 
-.dashboard .navigation .container__navBar--content:before {
+.breadcrumb .navigation .container__navBar--content:before {
   left: -12px;
-  border-top: 2px solid #FDBC2C;
-  border-left: 0px solid #FDBC2C;
-  border-bottom: 0px solid #FDBC2C;
-  border-right: 2px solid #FDBC2C;
+  border-top: 2px solid #fdbc2c;
+  border-left: 0px solid #fdbc2c;
+  border-bottom: 0px solid #fdbc2c;
+  border-right: 2px solid #fdbc2c;
 }
 
-.dashboard .navigation .container__navBar--content:after {
+.breadcrumb .navigation .container__navBar--content:after {
   right: -12px;
-  border-top: 0px solid #FDBC2C;
-  border-left: 2px solid #FDBC2C;
-  border-bottom: 2px solid #FDBC2C;
-  border-right: 0px solid #FDBC2C;
+  border-top: 0px solid #fdbc2c;
+  border-left: 2px solid #fdbc2c;
+  border-bottom: 2px solid #fdbc2c;
+  border-right: 0px solid #fdbc2c;
 }

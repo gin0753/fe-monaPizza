@@ -1,3 +1,21 @@
+@mixin desktop {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -5,12 +23,19 @@
 }
 .dashboard {
   width: 100%;
-  height: 130em;
+  height: 135em;
   background-image: url("../../../images/Pizza-bg.png");
+  background-size: cover;
   line-height: 1.5em;
+  @include mobile {
+    height: 145em;
+  }
   & h3 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.5em;
+    @include pad {
+      font-size: 1.5em;
+    }
   }
   & section {
     width: 100%;
@@ -18,28 +43,46 @@
   & form {
     width: 80%;
     margin-top: 1em;
+    @include pad {
+      width: 80%;
+    }
+    @include mobile {
+      width: 80%;
+    }
   }
   & .form {
     display: flex;
     justify-content: space-around;
     margin-top: 4em;
+    @include mobile {
+      display: table;
+    }
     & .userbar {
       width: 40%;
       display: flex;
       justify-content: center;
-      margin-left: 3em;
+      @include mobile {
+        width: 100%;
+      }
     }
     & .mydetails {
       color: #fdbc2c;
-      width: 90%;
+      width: 80%;
       display: flex;
       justify-content: center;
+      @include mobile {
+        width: 100%;
+      }
       & hr {
         border: solid 1px #fdbc2c;
       }
       & .userName {
         display: flex;
         justify-content: space-between;
+        @include pad {
+          width: 100%;
+          display: table;
+        }
         & input {
           margin-top: 1em;
         }
@@ -52,6 +95,10 @@
       & .firstName {
         width: 49%;
         position: relative;
+        @include pad {
+          width: 100%;
+          margin-bottom: 1em;
+        }
         & input {
           width: 100%;
           margin-top: 1em;
@@ -61,6 +108,9 @@
       & .lastName {
         width: 49%;
         position: relative;
+        @include pad {
+          width: 100%;
+        }
         & input {
           width: 100%;
           margin-top: 1em;
@@ -106,6 +156,9 @@
         & label {
           vertical-align: middle;
           margin-left: 2em;
+          @include pad {
+            margin-left: 1.5em;
+          }
           & :hover {
             cursor: pointer;
           }
@@ -123,6 +176,10 @@
           border: solid 2px #fdbc2c;
           vertical-align: middle;
           border-radius: 5px;
+          @include pad {
+            width: 20px;
+            height: 20px;
+          }
         }
         & span:after {
           content: "";
@@ -132,6 +189,10 @@
           display: block;
           width: 8px;
           height: 8px;
+          @include pad {
+            width: 4px;
+            height: 4px;
+          }
         }
         & input:checked ~ span {
           background-color: rgb(249, 242, 242);
@@ -145,6 +206,12 @@
           width: 8px;
           height: 8px;
           position: absolute;
+          @include pad {
+            width: 4px;
+            height: 4px;
+            top: -3px;
+            left: 2px;
+          }
         }
       }
       & .smsoption {
@@ -153,6 +220,9 @@
         & h4 {
           display: inline-block;
           margin-left: 1em;
+          @include pad {
+            margin-left: 0.5em;
+          }
         }
         & input {
           vertical-align: middle;
@@ -176,6 +246,10 @@
           border: solid 2px #fdbc2c;
           vertical-align: middle;
           border-radius: 5px;
+          @include pad {
+            width: 20px;
+            height: 20px;
+          }
         }
         & span:after {
           content: "";
@@ -198,6 +272,12 @@
           width: 8px;
           height: 8px;
           position: absolute;
+          @include pad {
+            width: 4px;
+            height: 4px;
+            top: -3px;
+            left: 2px;
+          }
         }
       }
       & .cancel {
@@ -210,6 +290,10 @@
           font-weight: bolder;
           font-size: 1em;
           background-color: rgb(243, 231, 231);
+          @include pad {
+            height: 2em;
+            font-weight: normal;
+          }
         }
         & :hover {
           color: rgb(243, 231, 231);
@@ -230,6 +314,10 @@
           color: whitesmoke;
           font-weight: bolder;
           font-size: 1em;
+          @include pad {
+            height: 2em;
+            font-weight: normal;
+          }
         }
         & :hover {
           color: rgb(243, 231, 231);
@@ -253,6 +341,10 @@
         & label {
           vertical-align: middle;
           margin-left: 1em;
+          @include pad {
+            font-size: .8em;
+            margin-left: .8em;
+          }
           & :hover {
             cursor: pointer;
           }
@@ -263,6 +355,9 @@
             color: rgb(240, 235, 235);
             vertical-align: middle;
             width: 10em;
+            @include pad {
+              width: 8em;
+            }
           }
           & span {
             position: absolute;
@@ -271,9 +366,13 @@
             height: 22px;
             width: 22px;
             background-color: white;
-            border: solid 1px rgb(48, 46, 46);
+            border: solid 2px #fdbc2c;
             vertical-align: middle;
             border-radius: 50%;
+            @include pad {
+              height: 18px;
+              width: 18px;
+            }
           }
           & span:after {
             content: "";
@@ -282,31 +381,48 @@
             color: #fdbc2c;
             width: 8px;
             height: 8px;
+            @include pad {
+              width: 6px;
+              height: 6px;
+            }
           }
           & input:checked ~ span {
             background-color: white;
           }
           & input:checked ~ span:after {
             content: "";
-            top: 3px;
-            left: 3px;
+            top: 2px;
+            left: 2px;
             border: solid 7px rgb(2, 2, 2);
             display: block;
             width: 12px;
             height: 12px;
             position: absolute;
             border-radius: 50%;
+            @include pad {
+              width: 3px;
+              height: 3px;
+              border: solid 5px rgb(2, 2, 2);
+            }
           }
         }
         & .removeButton {
           text-align: right;
+          @include desktop {
+            font-size: 13px;
+          }
+          @include pad {
+          }
           & input {
             border: solid 2px rgb(215, 19, 19);
             background-color: rgb(215, 19, 19);
             color: rgb(245, 245, 245);
             font-weight: bold;
-            width: 40%;
+            width: 80%;
             padding: 0.5em;
+            @include pad {
+              width: 75%;
+            }
           }
           & :hover {
             color: rgb(243, 231, 231);
@@ -331,6 +447,10 @@
         & label {
           vertical-align: middle;
           margin-left: 1em;
+          @include pad {
+            font-size: .8em;
+            margin-left: .8em;
+          }
           & :hover {
             cursor: pointer;
           }
@@ -341,6 +461,9 @@
             color: rgb(240, 235, 235);
             vertical-align: middle;
             width: 10em;
+            @include pad {
+              width: 8em;
+            }
           }
           & span {
             position: absolute;
@@ -349,9 +472,13 @@
             height: 22px;
             width: 22px;
             background-color: white;
-            border: solid 1px rgb(48, 46, 46);
+            border: solid 2px #fdbc2c;
             vertical-align: middle;
             border-radius: 50%;
+            @include pad {
+              width: 18px;
+              height: 18px;
+            }
           }
           & span:after {
             content: "";
@@ -367,18 +494,29 @@
           }
           & input:checked ~ span:after {
             content: "";
-            top: 3px;
-            left: 3px;
+            top: 2px;
+            left: 2px;
             border: solid 7px rgb(2, 2, 2);
             display: block;
             width: 12px;
             height: 12px;
             position: absolute;
             border-radius: 50%;
+            @include pad {
+              width: 3px;
+              height: 3px;
+              border: solid 5px rgb(2, 2, 2);
+            }
           }
         }
         & .removeButton {
           text-align: right;
+          @include desktop {
+            font-size: 13px;
+          }
+          @include pad {
+            
+          }
           & input {
             border: solid 2px rgb(215, 19, 19);
             background-color: rgb(215, 19, 19);
@@ -386,6 +524,9 @@
             font-weight: bold;
             width: 40%;
             padding: 0.5em;
+            @include pad {
+              width: 75%;
+            }
           }
           & :hover {
             color: rgb(243, 231, 231);
@@ -408,7 +549,7 @@
         }
         & button {
           width: 20%;
-          height: 2.5em;
+          height: 100%;
           position: absolute;
           top: 0;
           right: 0;
@@ -418,6 +559,9 @@
           background-color: rgb(73, 174, 73);
           color: rgb(245, 245, 245);
           font-weight: bold;
+          @include desktop {
+            font-size: 13px;
+          }
         }
         & button:hover {
           background-color: rgb(39, 104, 39);
@@ -454,9 +598,13 @@
             height: 22px;
             width: 22px;
             background-color: white;
-            border: solid 1px rgb(48, 46, 46);
+            border: solid 2px #fdbc2c;
             vertical-align: middle;
             border-radius: 50%;
+            @include pad {
+              width: 18px;
+              height: 18px;
+            }
           }
           & span:after {
             content: "";
@@ -472,14 +620,19 @@
           }
           & input:checked ~ span:after {
             content: "";
-            top: 3px;
-            left: 3px;
+            top: 2px;
+            left: 2px;
             border: solid 7px rgb(2, 2, 2);
             display: block;
             width: 12px;
             height: 12px;
             position: absolute;
             border-radius: 50%;
+            @include pad {
+              width: 3px;
+              height: 3px;
+              border: solid 5px rgb(2, 2, 2);
+            }
           }
         }
       }
@@ -508,9 +661,13 @@
             height: 22px;
             width: 22px;
             background-color: white;
-            border: solid 1px rgb(48, 46, 46);
+            border: solid 2px #fdbc2c;
             vertical-align: middle;
             border-radius: 50%;
+            @include pad {
+              width: 18px;
+              height: 18px;
+            }
           }
           & span:after {
             content: "";
@@ -526,14 +683,19 @@
           }
           & input:checked ~ span:after {
             content: "";
-            top: 3px;
-            left: 3px;
+            top: 2px;
+            left: 2px;
             border: solid 7px rgb(2, 2, 2);
             display: block;
             width: 12px;
             height: 12px;
             position: absolute;
             border-radius: 50%;
+            @include pad {
+              width: 3px;
+              height: 3px;
+              border: solid 5px rgb(2, 2, 2);
+            }
           }
         }
       }

@@ -75,4 +75,10 @@
   position: absolute;
 }
 
+@media (max-width: 375px) {
+  .user ul {
+    width: 300px;
+  }
+}
+
 

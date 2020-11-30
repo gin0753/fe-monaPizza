@@ -5,43 +5,26 @@ class RedirectPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            content: '',
-        }
+            seconds: 5
+        };
     }
+
     componentDidMount() {
-        this.timer = setTimeout(() => {
-            this.setState({ content: 'Congratulations, you are registered successfully. This page will be redirected after 3 seconds' })
-        }, 500);
-
-        this.timer_two = setTimeout(() => {
-            this.setState({ content: 'Congratulations, you are registered successfully. This page will be redirected after 2 seconds' })
-        }, 1500);
-
-        this.timer_three = setTimeout(() => {
-            this.setState({ content: 'Congratulations, you are registered successfully. This page will be redirected after 1 seconds' })
-        }, 2500);
-
-        this.timer_four = setTimeout(() => {
-            this.setState({ content: 'Congratulations, you are registered successfully. This page will be redirected after 0 seconds' })
-        }, 3500);
-
-        // this.timer_five = setTimeout(() => {
-        //     window.location.href = "/sign-in";
-        // }, 3500);
-    }
-
-
-    componentWillUnmount() {
-        this.timer && clearTimeout(this.timer);
-        this.timer_two && clearTimeout(this.timer_two);
-        this.timer_three && clearTimeout(this.timer_three);
-        this.timer_four && clearTimeout(this.timer_four);
-        // this.timer_five && clearTimeout(this.timer_five);
+        let timer = setInterval(() => {
+            this.setState((prevState) => ({
+                seconds: prevState.seconds - 1
+            }), () => {
+                if (this.state.seconds == 0) {
+                    clearInterval(this.interval);
+                    window.location.href = "/sign-in"
+                }
+            });
+        }, 1000)
     }
 
     render() {
-        return (<div className="redirectpage">
-            <h1>{this.state.content}</h1>
+        return (<div className="redirectpage" >
+            <h1>Congratulations, you are registered successfully. This page will be redirected after <span>{this.state.seconds}</span> seconds</h1>
             <div className="loader">Loading ...</div>
         </div>);
     }

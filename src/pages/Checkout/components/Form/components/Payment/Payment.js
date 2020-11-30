@@ -7,7 +7,7 @@ import { updateOrderId } from '../../../../../../action/updateOrderID';
 import Lottie from 'react-lottie'
 import * as delivering from '../../../../../../delivering.json'
 import StripeCheckout from 'react-stripe-checkout'
-import axios from 'axios';
+import Axios from 'axios';
 
 class Payment extends React.Component {
     constructor(props){
@@ -35,9 +35,8 @@ class Payment extends React.Component {
     }
 
     handleToken = async (token, addresses) => {
-        console.log(this.props)
         const userId = sessionStorage.getItem('userID');
-        const resp = await axios.get(`/cart/${userId}/1/10`)
+        const resp = await Axios.get(`/cart/${userId}/1/10`)
         const orderList = resp.data;
         const totalPrice = (this.props.cartSubtotal - this.props.discount) * 100;
         const product = {
@@ -46,7 +45,7 @@ class Payment extends React.Component {
         }
 
         try{
-            const res = await axios.post('/checkout', {
+            const res = await Axios.post('/checkout', {
                 token,
                 product
             })
@@ -67,7 +66,8 @@ class Payment extends React.Component {
     }
 
     handleClick = async () => {
-        let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr, orderNote} = this.props.inputValue;
+        let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr, orderNote,
+        country, companyName, billingUnit, county, shippingUnit} = this.props.inputValue;
         if(shippingAddr === ''){
             shippingAddr = billingAddr
         }
@@ -79,48 +79,47 @@ class Payment extends React.Component {
         const orderPlacedTime = `${d.toLocaleDateString()} ${hours}:${minutes}:${seconds}`;
 
         const userId = sessionStorage.getItem('userID');
-        const res = await axios.get(`/cart/${userId}/1/10`)
+        const res = await Axios.get(`/cart/${userId}/1/10`)
         const orderList = res.data;
         const discount = this.props.discount;
         const cartSubTotal = this.props.cartSubtotal;
         const totalPrice = cartSubTotal - discount;
 
-        const userInfo = {
-            orderPlacedTime,
-            clientFirstName,
-            clientLastName,
-            billingAddr,
-            city,
-            postcode,
-            clientEmail,
-            contactNumber,
-            orderList,
-            discount,
-            cartSubTotal,
-            totalPrice,
-            shippingAddr,
-            orderNote
-        }
-
         try{
-            const orderMsg = await axios.post('/order', userInfo);
-            if(orderMsg.status === 201 && this.state.paymentSucceeded){
-                const orderId = orderMsg.data._id;
+            const orderInfo = {
+                orderPlacedTime,
+                clientFirstName,
+                clientLastName,
+                billingAddr,
+                city,
+                postcode,
+                clientEmail,
+                contactNumber,
+                orderList,
+                discount,
+                cartSubTotal,
+                totalPrice,
+                shippingAddr,
+                orderNote
+            }
+            const orderResponse = await Axios.post('/order', orderInfo);
+            if(orderResponse.status === 201 && this.state.paymentSucceeded){
+                const orderId = orderResponse.data._id;
                 const { updateOrderId } = this.props;
                 updateOrderId({
                     orderId: orderId
                 })
 
                 await new Promise((resolve) => {    
-                    this.setState({finishingOrder: true});
+                    this.setState({finishingOrder: true,
+                                   fieldCheck: false});
                     resolve();
                 });
                 
                 await new Promise((resolve)=>setTimeout(() => {
                 const cleanCart = async() => {
                     try{
-                        const res = await axios.delete(`cart/`);
-                        console.log(res)
+                        const res = await Axios.delete(`cart/`);
                         if(res.status === 200){
                             await this.props.updateCart();
                             const { history } = this.props.history;
@@ -139,6 +138,29 @@ class Payment extends React.Component {
             this.setState({
                 fieldCheck: true
             })
+        }
+
+        try{
+            const userInfo = {
+                userId,
+                country,
+                clientFirstName,
+                clientLastName,
+                companyName,
+                billingAddr,
+                billingUnit,
+                city,
+                county,
+                postcode,
+                clientEmail,
+                contactNumber,
+                shippingAddr,
+                shippingUnit
+            }
+            await Axios.post('/client', userInfo);
+        }
+        catch(err){
+            console.log(err.message)
         }
     }
 
@@ -255,7 +277,7 @@ class Payment extends React.Component {
                 {!this.state.finishingOrder && !this.state.readTerm && <Link to="/checkout"><button className="ordercontainer__payment--orderbutton inactive" 
                 type="button" onClick={this.handleClick} disabled>PLACE ORDER</button></Link>}
 
-                {this.state.fieldCheck && <div className="errorPrompt">Please Complete Your Billing Details and The Payment</div>}
+                {this.state.fieldCheck ? <div className="errorPrompt">Please Complete Your Billing Details and The Payment</div> : <></>}
             </form>
 
         </div>

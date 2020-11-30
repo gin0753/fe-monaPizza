@@ -13,14 +13,19 @@ class Form extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            country: 'Australia',
             clientFirstName: '',
             clientLastName: '',
+            companyName: '',
             billingAddr: '',
+            billingUnit: '',
             city: '',
+            county: '',
             postcode: '',
             clientEmail: '',
             contactNumber: '',
             shippingAddr: '',
+            shippingUnit: '',
             orderNotes: '',
             optionalAddr: false
         }
@@ -44,7 +49,6 @@ class Form extends React.Component{
         const userId = sessionStorage.getItem('userID');
 
         try {
-            // sample --- it should use userId to get the pizza list, not uuid
             const { data } = await Axios.get(`http://localhost:8000/cart/${userId}/1/10`);
 
             let subPrice = 0;
@@ -54,8 +58,8 @@ class Form extends React.Component{
 
             const action = addPizzaList(data, subPrice);
             store.dispatch(action);
-        } catch (e) {
-            console.log(Object.entries(e))
+        } catch (err) {
+            console.log(err)
         }
 
     }
@@ -70,7 +74,7 @@ class Form extends React.Component{
                             <h3>Billing Details</h3>
                             <form>
                                 <label htmlFor="country-select">COUNTRY*</label>
-                                <select name="nations" id="country-select" required>
+                                <select name="country" id="country-select" required onChange={this.handleChange}>
                                     <option value="Australia">Australia(AU)</option>
                                     <option value="New Zealand">New Zealand(NZ)</option>
                                     <option value="China">China(CN)</option>
@@ -87,18 +91,18 @@ class Form extends React.Component{
                                 </div>
         
                                 <label className="clear" htmlFor="company-input">COMPANY NAME</label>
-                                <input type="text" name="company" minLength="1" maxLength="25" />
+                                <input type="text" name="companyName" minLength="1" maxLength="25" onChange={this.handleChange}/>
         
                                 <label htmlFor="address-input">ADDRESS*</label>
                                 <input type="text" name="billingAddr" minength="1" maxLength="50" placeholder="Street address" required onChange={this.handleChange}/>
-                                <input type="text" name="optional" minLength="1" maxLength="50" placeholder="Apartment, suite, unit etc. (optional)"/>
+                                <input type="text" name="billingUnit" minLength="1" maxLength="50" placeholder="Apartment, suite, unit etc. (optional)" onChange={this.handleChange}/>
         
                                 <label htmlFor="city-input">TOWN/CITY*</label>
                                 <input type="text" name="city" minLength="1" maxLength="50" placeholder="Town/City" required onChange={this.handleChange}/>
         
                                 <div className="billcontainer__bill--leftwrapper">
                                     <label htmlFor="county-input">COUNTY</label>
-                                    <input type="text" name="county" minLength="1" maxLength="25" placeholder="State/County"/>
+                                    <input type="text" name="county" minLength="1" maxLength="25" placeholder="State/County" onChange={this.handleChange}/>
                                 </div>
                                 <div className="billcontainer__bill--rightwrapper">
                                     <label htmlFor="postcode-input">POSTCODE*</label>
@@ -133,13 +137,13 @@ class Form extends React.Component{
                                         <>
                                         <label htmlFor="address-input">Alternative Address</label>
                                         <input type="text" name="shippingAddr" placeholder="Street address" minLength="1" maxLength="25" onChange={this.handleChange}/>
-                                        <input type="text" name="optional" minLength="1" maxLength="50" placeholder="Apartment, suite, unit etc. (optional)"/>
+                                        <input type="text" name="shippingUnit" minLength="1" maxLength="50" placeholder="Apartment, suite, unit etc. (optional)" onChange={this.handleChange}/>
                                         </>
                                         :
                                         <>
                                         <label className="faint" htmlFor="address-input">Alternative Address</label>
-                                        <input type="text" name="phone" placeholder="Street address" minLength="1" maxLength="25" disabled/>
-                                        <input type="text" name="optional" minLength="1" maxLength="50" placeholder="Apartment, suite, unit etc. (optional)" disabled/>
+                                        <input type="text" name="shippingAddr" placeholder="Street address" minLength="1" maxLength="25" disabled/>
+                                        <input type="text" name="shippingUnit" minLength="1" maxLength="50" placeholder="Apartment, suite, unit etc. (optional)" disabled/>
                                         </>
                                     }
                                 </div>

@@ -258,16 +258,16 @@
                     }
                 }
                 &--ruleWrapper{
-                    width: 420px;
+                    width: 400px;
                     margin: 0 auto;
                     h5{
                         display: inline-block;
                         font-size: 15px;
                         font-weight: 300;
-                        margin: 10px;
+                        margin: 15px;
                     }
                     & .number{
-                        margin-right: 91px;
+                        margin-right: 88px;
                     }
                 }
             }
@@ -363,6 +363,7 @@
             }
             & .btnDisabled{
                 opacity: 50%;
+                cursor: not-allowed;
                 &:hover{
                     opacity: 50%;
                 }

@@ -28,6 +28,7 @@
 .shopping-cart .main {
   width: 66%;
   margin: 0 auto 100px;
+  padding: 50px 0;
   display: flex;
   box-sizing: border-box;
 }
@@ -121,6 +122,29 @@
     display: none;
   }
 }
+
+.shopping-cart .main .order-result .blank-wrapper {
+  color: white;
+  text-align: center;
+  font-family: josefine;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+
+  margin: 200px auto 200px;
+}
+
+.shopping-cart .main .order-result .blank-wrapper .blank-pizza {
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 400px) {
+  .shopping-cart .main .order-result .blank-wrapper .blank-pizza {
+    margin-right: 10px;
+  }
+}
+
+
 
 .shopping-cart .main .order-result .order-list {
   list-style: none;
@@ -464,6 +488,7 @@
 }
 
 .shopping-cart .main .order-result .ship-info .cal-ship {
+  display: none;
   width: 50%;
   margin-right: 20px;
 }
@@ -522,14 +547,14 @@
   width: 50%;
 }
 
-.shopping-cart .main .order-result .ship-info .pro-code p {
+.shopping-cart .main .order-result .ship-info .pro-code > p:first-child {
   font-size: 2rem;
   font-family: abril;
   color: #fdbc2c;
 }
 
 @media only screen and (max-width: 1500px) {
-  .shopping-cart .main .order-result .ship-info .pro-code p {
+  .shopping-cart .main .order-result .ship-info .pro-code > p:first-child {
     font-size: 1.6rem;
   }
 }
@@ -544,8 +569,21 @@
   font-size: 1rem;
   padding: 20px;
   box-sizing: border-box;
-  margin: 10px auto;
+  margin: 20px auto;
 }
+
+.shopping-cart .main .order-result .ship-info .pro-code > p:nth-child(3) {
+  font-family: josefine;
+  font-size: 1rem;
+  color: red;
+}
+
+.shopping-cart .main .order-result .ship-info .pro-code > p:nth-child(4) {
+  font-family: josefine;
+  font-size: 1rem;
+  color: green;
+}
+
 
 .shopping-cart .main .order-result .ship-info .pro-code button {
   background-color: #fdbc2c;
@@ -555,14 +593,14 @@
   width: 50%;
   padding: 10px;
   box-sizing: border-box;
-  margin: 10px auto;
+  margin: 20px auto;
   border: none;
 }
 
 @media only screen and (max-width: 600px) {
   .shopping-cart .main .order-result .ship-info .pro-code button {
     display: block;
-    margin: 10px auto;
+    margin: 20px auto;
   }
 }
 
@@ -600,6 +638,10 @@
   display: flex;
   justify-content: space-between;
   margin: 20px auto;
+}
+
+.shopping-cart .main .cart-total ul > li .ship-sit {
+  text-align: right;
 }
 
 .shopping-cart .main .cart-total .order-total {

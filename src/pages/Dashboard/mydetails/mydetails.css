@@ -175,7 +175,19 @@
 .dashboard .form .mydetails .myPreference {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.dashboard .form .mydetails .myPreference__successMsg {
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.dashboard .form .mydetails .myAddr__noContent {
+  text-align: center;
+  margin: 10px 0;
 }
 
 .dashboard .form .mydetails .contactoptions {

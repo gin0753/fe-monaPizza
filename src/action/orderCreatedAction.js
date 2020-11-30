@@ -1,0 +1,30 @@
+export function updateOrderInfo({
+  orderList,
+  _id,
+  orderPlacedTime,
+  clientFirstName,
+  clientLastName,
+  billingAddr,
+  city,
+  postcode,
+  contactNumber,
+  cartSubTotal,
+  totalPrice,
+  shippingAddr,
+}) {
+  return {
+    type: "UPDATE_ORDER_INFO",
+    orderList,
+    _id,
+    orderPlacedTime,
+    clientFirstName,
+    clientLastName,
+    billingAddr,
+    city,
+    postcode,
+    contactNumber,
+    cartSubTotal,
+    totalPrice,
+    shippingAddr,
+  };
+}

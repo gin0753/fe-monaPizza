@@ -7,26 +7,6 @@ import ContentPic3 from './img/contentpic3.JPG';
 import ContentPic4 from './img/contentpic4.JPG';
 
 class Blog extends Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-          sidebarIsClicked: false,
-          cartIsClicked: false
-        }
-      }
-  
-      toggleSideBar = () => {
-        this.setState({
-          sidebarIsClicked: !this.state.sidebarIsClicked
-        })
-      }
-  
-      toggleCart = () => {
-        this.setState({
-          cartIsClicked: !this.state.cartIsClicked
-        })
-      }
   
     render() {
         return (<div className="blog">

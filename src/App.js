@@ -21,67 +21,90 @@ import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
 import Mydetails from "./pages/Dashboard/mydetails/mydetails"
 import ManageAccount from './pages/manageAccount/manageAccount';
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebarIsClicked: false,
-      cartIsClicked: false,
+    constructor(props) {
+        super(props);
+        this.state = {
+            sidebarIsClicked: false,
+            cartIsClicked: false,
+            amountChanged: 0
+        };
+    }
+
+    toggleSideBar = () => {
+        this.setState({
+            sidebarIsClicked: !this.state.sidebarIsClicked,
+        });
     };
-  }
 
-  toggleSideBar = () => {
-    this.setState({
-      sidebarIsClicked: !this.state.sidebarIsClicked,
-    });
-  };
+    toggleCart = () => {
+        this.setState({
+            cartIsClicked: !this.state.cartIsClicked,
+        });
+    };
 
-  toggleCart = () => {
-    this.setState({
-      cartIsClicked: !this.state.cartIsClicked,
-    });
-  };
+    updateCart = () => {
+        this.setState({
+            amountChanged: this.state.amountChanged + 1
+        })
+    }
 
-  render() {
-    return (
-      <>
-        <Router>
-          <SideBar sidestatus={this.state.sidebarIsClicked} />
-          <CartTotals cartstatus={this.state.cartIsClicked} />
-          <Header
-            toggleSideBar={this.toggleSideBar}
-            toggleCart={this.toggleCart}
-            sidestatus={this.state.sidebarIsClicked}
-            cartstatus={this.state.cartIsClicked}
-          />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/users" component={Users} />
-            <Route path="/viewOrder" component={ViewOrder} />
-            <Route path="/contact-us" component={ContactUs} />
-            <Route path="/shopping-cart" component={ShoppingCart} />
-            <Route path="/product-details" component={ProductDetails} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/home" component={Home} />
-            <Route path="/menu" component={Menu} />
-            <Route path="/sign-in" component={SignIn} />
-            <Route path="/checkout" component={Checkout} />
-            <Route path='/order-created' component={OrderCreated} />
-            <Route path='/mydetails' component={Mydetails} />
-            <Route path='/' component={Home} />
-            <ProtectedRoute path="/manage-account" component={ManageAccount} />
-          </Switch>
-          <Newsletter />
-          <Media />
-          <Footer />
-        </Router>
-      </>
-    );
-  }
+    render() {
+        return (
+            <>
+                <Router>
+                    {
+                        window.location.pathname !== '/sign-in' ?
+                            <>
+                                <SideBar
+                                    sidestatus={this.state.sidebarIsClicked}
+                                    toggleSideBar={this.toggleSideBar}
+                                />
+                                <CartTotals
+                                    cartstatus={this.state.cartIsClicked}
+                                    toggleCart={this.toggleCart}
+                                    amountChanged={this.state.amountChanged}
+                                />
+                                <Header
+                                    toggleSideBar={this.toggleSideBar}
+                                    toggleCart={this.toggleCart}
+                                    sidestatus={this.state.sidebarIsClicked}
+                                    cartstatus={this.state.cartIsClicked}
+                                />
+                            </> : <></>
+                    }
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/about" component={About} />
+                        <Route path="/users" component={Users} />
+                        <Route path="/viewOrder" component={ViewOrder} />
+                        <Route path="/contact-us" component={ContactUs} />
+                        <Route path="/shopping-cart" render={ props => <ShoppingCart updateCart={this.updateCart} />}/>
+                        <Route path="/product-details" component={ProductDetails} />
+                        <Route path="/blog" component={Blog} />
+                        <Route path="/home" component={Home} />
+                        <Route path="/menu" render={ props => <Menu updateCart={this.updateCart} />} />
+                        <Route path="/sign-in" component={SignIn} />
+                        <Route path="/checkout" render={ history => <Checkout history={history} updateCart={this.updateCart} />}/>
+                        <Route path='/order-created' component={OrderCreated} />
+                        <Route path='/mydetails' component={Mydetails} />
+                        <Route path='/' component={Home} />
+                        <ProtectedRoute path="/manage-account" component={ManageAccount} />
+                    </Switch>
+                    {
+                        window.location.pathname !== '/sign-in' ?
+                            <>
+                                <Newsletter />
+                                <Media />
+                                <Footer />
+                            </> : <></>
+                    }
+                </Router>
+            </>
+        )
+    }
 }
 
 export default App;

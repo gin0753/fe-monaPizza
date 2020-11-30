@@ -60,13 +60,17 @@
                     justify-content: space-between;
                     & dt, & dd{
                         display: inline-block;
+                        font-size: 14px;
                         margin: 10px 0;
-                        & h5{
-                            font-size: 13px;
-                            color: #FFFFFF;
+                        & h6{
+                            font-size: 10px;
                         }
                         & h4{
-                            font-size: 18px;
+                            font-size: 16px;
+                            color: #FFFFFF;
+                        }
+                        & h3{
+                            font-size: 24px;
                         }
                     }
                 }
@@ -90,16 +94,34 @@
                         position: absolute;
                         left: 58%;
                         top: 25%;
-                        font-size: 5px;
+                        font-size: 14px;
                     }
                 }
                 &--paymentintro{
-                    padding: 0 25px;
+                    padding: 10px 25px;
+                }
+                &--cardpayment{
+                    padding: 10px 25px;
+                    display: flex;
+                    align-items: center;
+                    button{
+                        outline: none;
+                        background-color: #000000;
+                        border: none;
+                        margin-right: 10px
+                    }
+                    & .green{
+                        color: #00FA9A;
+                    }
+                    & .red{
+                        color: #d94f2b;
+                    }
                 }
                 &--orderbutton{
-                    margin-top: 20px;
+                    margin: 20px 0px;
                     width: 100%;
                     padding: 12px 0;
+                    color: #000000;
                     background-color: #FDBC2C;
                     outline: none;
                     border: none;
@@ -113,6 +135,14 @@
                 p > span{
                     margin-left: 30px;
                 }
+                & .inactive{
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+                & .errorPrompt{
+                    text-align: center;
+                    color: #d94f2b;
+                }
             }
         }
         & .billcontainer__login, & .ordercontainer__coupon{
@@ -122,6 +152,9 @@
             padding: 30px 0;
             & a{
                 text-decoration: none;
+            }
+            &--redirect {
+                cursor: pointer;
             }
         }
         & .billcontainer__login{
@@ -166,6 +199,9 @@
                     display: inline-block;
                     margin-left: 12px;
                 }
+                & .faint{
+                    opacity: 0.5;
+                }
             }
         }
         & .billwrapper{
@@ -184,21 +220,47 @@
                 margin-bottom: 50px;
             }
         }
-        & input[type=radio]:checked + label{
+        & .radio{
+                display: block;
+        }
+        & .radio__custom{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center; 
+            width: 1.5em;
+            height: 1.5em;
+            border: 0.1rem solid #FFFFFF;
+            border-radius: 50%;
+            &::after{
+                content: "";
+                width: 35%;
+                height: 35%;
+                display: block;
+                background: #d94f2b;
+                border-radius: 50%;
+                transform: scale(0);
+            }
+            & + label{
+                cursor: pointer;
+            }
+        }
+        & input[type=radio]:checked + .radio__custom{
+            border: 0.1rem solid #d94f2b;
+        }
+        & input[type=radio]:checked + .radio__custom::after{
+            transform: scale(1);
+            transition: 0.3s;
+        }
+        & input[type=radio]:checked + .radio__custom + label{
             color: #d94f2b;
+            transition: 0.3s;
         }
         & input[type=radio], & input[type=checkbox]{
             display: none;
         }
-        & input[type=radio] + label, & input[type=checkbox] + label{
-            display: block;
+        & input[type=checkbox] + label{
+            display: inline-flex;
             cursor: pointer;
-        }
-        & input[type=radio] + label:before{
-            content: "●";
-            border-radius: 50%;
-            padding-left: 0.07em;
-            padding-bottom: 1.1em;
         }
         & input[type=checkbox] + label:before{
             content: "\2714";
@@ -206,29 +268,26 @@
             padding-left: 0em;
             padding-bottom: 0em;
         }
-        & input[type=radio] + label:before, & input[type=checkbox] + label:before{
+        & input[type=checkbox] + label:before{
             color: transparent;
-            border: 0.1em solid #FFFFFF;
+            border: 0.1rem solid #FFFFFF;
             display: inline-block;
             width: 1em;
             height: 1em;
             margin-right: 0.9em;
             margin-left: -0.9em;
-            vertical-align: center;
+            vertical-align: middle;
             cursor: default;
-        }
-        & input[type=radio]:checked + label:before{
-            color: #d94f2b;
         }
         & input[type=checkbox]:checked + label:before{
             background-color:#d94f2b;
             color: #FFFFFF;
         }
-        & input[type=radio]:checked + label:before, & input[type=checkbox]:checked + label:before{
+        & input[type=checkbox]:checked + label:before{
             border: 0.1em solid #d94f2b;
             transition: 0.3s;
         }
-        & input[type=radio] + label:active:before, & input[type=checkbox] + label:active:before{
+        & input[type=checkbox] + label:active:before{
             transform: scale(0);
         }
     }

@@ -1,3 +1,9 @@
+@mixin mobile{
+  @media (max-width: 375px){
+    @content;
+  }
+}
+
 .redirectpage {
   height: 50em;
   width: 100%;
@@ -6,6 +12,10 @@
   background-size: cover;
   position: relative;
   line-height: 3em;
+  text-align: center;
+  @include mobile{
+    height: 30em;
+  }
   & h1 {
     width: 50%;
     color: white;
@@ -15,6 +25,30 @@
     left: 25%;
     top: 50%;
     transform: translate(-50% -50%);
+    @include mobile {
+      font-size: 1.5em;
+      width: 80%;
+      left: 10%;
+    }
+  }
+  & h2 {
+    width: 50%;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    position: absolute;
+    left: 25%;
+    top: 60%;
+    transform: translate(-50% -50%);
+    @include mobile {
+      font-size: 1.2em;
+      width: 80%;
+      left: 10%;
+      top: 60%;
+    }
+    & span {
+      color: #fdbc2c;
+    }
   }
   & .loader {
     font-size: 10px;
@@ -28,7 +62,12 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 20em;
+    bottom: 30em;
+    @include mobile {
+      width: 10em;
+      height: 10em;
+      bottom: 20em;
+    }
   }
   & .loader:before {
     width: 50%;

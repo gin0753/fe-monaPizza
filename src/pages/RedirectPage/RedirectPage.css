@@ -6,6 +6,13 @@
   background-size: cover;
   position: relative;
   line-height: 3em;
+  text-align: center;
+}
+
+@media (max-width: 375px) {
+  .redirectpage {
+    height: 30em;
+  }
 }
 
 .redirectpage h1 {
@@ -17,6 +24,38 @@
   left: 25%;
   top: 50%;
   transform: translate(-50% -50%);
+}
+
+@media (max-width: 375px) {
+  .redirectpage h1 {
+    font-size: 1.5em;
+    width: 80%;
+    left: 10%;
+  }
+}
+
+.redirectpage h2 {
+  width: 50%;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  position: absolute;
+  left: 25%;
+  top: 60%;
+  transform: translate(-50% -50%);
+}
+
+@media (max-width: 375px) {
+  .redirectpage h2 {
+    font-size: 1.2em;
+    width: 80%;
+    left: 10%;
+    top: 60%;
+  }
+}
+
+.redirectpage h2 span {
+  color: #fdbc2c;
 }
 
 .redirectpage .loader {
@@ -31,7 +70,15 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 20em;
+  bottom: 30em;
+}
+
+@media (max-width: 375px) {
+  .redirectpage .loader {
+    width: 10em;
+    height: 10em;
+    bottom: 20em;
+  }
 }
 
 .redirectpage .loader:before {

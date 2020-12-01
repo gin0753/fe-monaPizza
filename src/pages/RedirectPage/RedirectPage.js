@@ -16,7 +16,7 @@ class RedirectPage extends React.Component {
             }), () => {
                 if (this.state.seconds == 0) {
                     clearInterval(this.interval);
-                    window.location.href = "/sign-in"
+                    // window.location.href = "/sign-in"
                 }
             });
         }, 1000)
@@ -24,7 +24,8 @@ class RedirectPage extends React.Component {
 
     render() {
         return (<div className="redirectpage" >
-            <h1>Congratulations, you are registered successfully. This page will be redirected after <span>{this.state.seconds}</span> seconds</h1>
+            <h1>Successfully registered!</h1>
+            <h2>Redirecting in <span>{this.state.seconds}</span> s ...</h2>
             <div className="loader">Loading ...</div>
         </div>);
     }

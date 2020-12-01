@@ -2,17 +2,22 @@ import React from 'react';
 import './changePassword.css';
 import UserBar from '../../../components/UserBar/UserBar/UserBar';
 import {FaTimes, FaCheck, FaEye, FaEyeSlash} from 'react-icons/fa';
+import Axios from 'axios';
 
 class changePassword extends React.Component {
     constructor(props){
         super(props)
         this.state = {
+            userId: sessionStorage.getItem('userID'),
             oneLowerCase: false,
             oneUpperCase: false,
             oneNumber: false,
             eightDigits: false,
             cpIsVisible: false,
             npIsVisible: false,
+            validPassword: false,
+            isUpdated: false,
+            incorrectPassword: false,
             currentPassword: '',
             newPassword: ''
         };
@@ -76,14 +81,66 @@ class changePassword extends React.Component {
         }
     }
 
-    handleChange = (e) => {
+    handleChange = async (e) => {
         e.preventDefault();
         this.setState({
             [e.target.name]: e.target.value
         });
-        this.checkCurrentPassword(this.currentPassword.current.value);
-        this.checkNewPassword(this.newPassword.current.value);
-        this.checkPattern();
+
+        await this.checkCurrentPassword(this.currentPassword.current.value);
+        await this.checkNewPassword(this.newPassword.current.value);
+        await this.checkPattern();
+
+        if(this.state.currentPassword === "Green" && this.state.newPassword === "Green"){
+            this.setState({
+                validPassword: true
+            })
+        }
+        else{
+            this.setState({
+                validPassword: false
+            })
+        }
+
+    }
+
+    handleClick = async() => {
+        const currentPassword = this.currentPassword.current.value;
+        try{
+            const findUser = await Axios.get(`/login/${this.state.userId}/${currentPassword}`);
+            if(findUser.status === 200){
+                this.setState({incorrectPassword:false});
+                const Password = this.newPassword.current.value;
+                try{
+                    const updatePassword = await Axios.put(`/login/${this.state.userId}`, {Password});
+                    if(updatePassword.status === 200){
+                        await new Promise((resolve) => {    
+                            this.setState({isUpdated: true});
+                            resolve();
+                        }); 
+                
+                        await new Promise((resolve)=>setTimeout(() => {
+                            this.setState({isUpdated: false});
+                            resolve();
+                        }, 3000)); 
+                    }
+                }
+                catch(err){
+                    console.log(err);
+                }
+            }
+        }
+        catch(err){
+            await new Promise((resolve) => {    
+                this.setState({incorrectPassword: true});
+                resolve();
+            }); 
+    
+            await new Promise((resolve)=>setTimeout(() => {
+                this.setState({incorrectPassword: false});
+                resolve();
+            }, 3000)); 
+        }
     }
 
     currentPasswordvisibility = () => {
@@ -99,7 +156,7 @@ class changePassword extends React.Component {
     }
         
     render() {
-        const {newPassword, currentPassword} = this.state;
+        const {newPassword, currentPassword, validPassword, incorrectPassword, isUpdated} = this.state;
         return (
             <div className="dashboard__changePassword">
                 <UserBar />
@@ -113,18 +170,24 @@ class changePassword extends React.Component {
                         {currentPassword === 'Green' && <span className="green"><FaCheck /></span>}
                         {currentPassword === 'Red' && <span className="red"><FaTimes /></span>}
                         {currentPassword === '' && <></>}
+
                         {currentPassword === 'Green' && <i onClick={this.currentPasswordvisibility}>
                         {this.state.cpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
                         {currentPassword === 'Red' && <i onClick={this.currentPasswordvisibility}>
                         {this.state.cpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
                         {currentPassword === '' && <i onClick={this.currentPasswordvisibility}>
                         {this.state.cpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+
+                        {!incorrectPassword ? <></>:<div className="dashboard__changePassword--incorrect">Incorrect Password</div>}
                     </div>
                     <div className="withIcon">
                         <label>New Password</label>
                         <input ref={this.newPassword} className={newPassword} type={this.state.npIsVisible ? "text" : "password"} 
                         id="newPassword" name="newPassword" placeholder="1234567" onChange={this.handleChange}/>
                         <div className="iconField" onClick={this.newPasswordvisibility}></div>
+                        {newPassword === 'Green' && <span className="green"><FaCheck /></span>}
+                        {newPassword === 'Red' && <span className="red"><FaTimes /></span>}
+                        {newPassword === '' && <></>}
                         {newPassword === 'Green' && <i onClick={this.newPasswordvisibility}>
                         {this.state.npIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
                         {newPassword === 'Red' && <i onClick={this.newPasswordvisibility}>
@@ -146,6 +209,9 @@ class changePassword extends React.Component {
                         {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
                     </div>
                 </div>
+
+                    <button className={validPassword ? "":"disabled"} onClick={this.handleClick}>Update Password</button>
+                    {!isUpdated ? <></>:<div className="dashboard__changePassword--isUpdated">Updated Successfully</div>}
                 </section>
             </div>
         );

@@ -272,6 +272,7 @@ class Login extends React.Component{
         let { givenName } = name;
 
         const googleInfo = {
+            isVerified: true,
             GoogleID: googleId,
             UserName: name,
             SurName: givenName,

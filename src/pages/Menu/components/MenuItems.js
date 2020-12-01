@@ -37,7 +37,6 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, update
         await axios.put(`/cart/${pizzaId}`, pizzaSelected);
       }
     } catch(err){
-      console.log(err.response)
       if(err.response.data.message === 'Failed to find the record'){
         let qty = 1;
         pizzaSelected.qty = qty;

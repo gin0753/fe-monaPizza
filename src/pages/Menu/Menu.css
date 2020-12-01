@@ -30,6 +30,8 @@ body {
   background-repeat: repeat-y;
   margin: 0;
   height: fit-content;
+  background-image: url("../../images/Pizza-bg.png");
+  background-size: cover;
 }
 
 

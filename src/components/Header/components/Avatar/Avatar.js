@@ -25,8 +25,8 @@ function Avatar(props) {
             { userJWT ? <i onClick={handleClick}><FaUser color={"#FDBC2C"} size={35}/></i> : <></>}
         </div>
         {avatar && <div className="header__leftWrapper--avatar--userActions">
-            <span onClick={toUserProfile}><Link to="/mydetails">User Profile</Link></span>
-            <span onClick={toChangePassword}><Link to="/change-password">Change Password</Link></span>
+            <span><Link to="/mydetails">User Profile</Link></span>
+            <span><Link to="/change-password">Change Password</Link></span>
             <span onClick={handleSignOut}>Sign Out</span>
         </div>}
         {!avatar && <></>}

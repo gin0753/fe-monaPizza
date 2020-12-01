@@ -1,89 +1,87 @@
-import React, { Component } from 'react';
-import "./Blog.css";
-import Top1 from './img/top1.JPG';
-import ContentPic1 from './img/contentpic1.JPG';
-import ContentPic2 from './img/contentpic2.JPG';
-import ContentPic3 from './img/contentpic3.JPG';
-import ContentPic4 from './img/contentpic4.JPG';
+import React, { Component } from "react";
+import "./style/Blog.scss";
+import CrumbHeader from "../../components/CrumbHeader";
+import { connect } from "react-redux";
+import { loadBlogs } from "../../action/blogAction";
+
+import BlogImg from "./img/BlogImg";
 
 class Blog extends Component {
-  
-    render() {
-        return (<div className="blog">
-            <div className="top">
-                <div className="toppicture">
-                    <img src={Top1} alt="" />
-                </div>
-                <p className="writers">
-                    January 30,2015 <span className="by">by</span> Peter smith
-                </p>
-                <p className="bigTitle">Want to Win free Pizza?Order using the new Mobile App<br />
-                    and you're in with a shot</p>
+  componentDidMount() {
+    const { loadBlogs } = this.props;
+    loadBlogs();
+  }
 
-                <p className="contents">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto<br />
-                    psda dsfdeaghew sdasq2trgk dsda</p>
+  render() {
+    const { loading, results } = this.props;
 
-                <div className="readmore">
-                    <a href="#">READ MORE</a>
-                </div>
-            </div>
-            <div className="blogContent">
-                <div className="contentPic">
-                    <img src={ContentPic1} alt="" />
-                </div>
-                <div className="blogBody">
-                    <p className="writers">January 22.2015 <span className="by">by</span> Andrew Brown</p>
-                    <p className="bigTitle">Perfect Pizza Using Baking Steel Broiler Method</p>
-                    <p className="contents">Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Architecto tempore eius, distinctio eaque, sint ill</p>
-                    <div className="readmore">
-                        <a href="#">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-            <div className="blogContent">
-                <div className="blogBody">
-                    <p className="writers">December 18, 2015 <span className="by">by</span> Eliz Bellarasa</p>
-                    <p className="bigTitle">Three Champagne Pizza Recepes</p>
-                    <p className="contents">Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Architecto tempore eius, distinctio eaque, sint ill</p>
-                    <div className="readmore">
-                        <a href="#">READ MORE</a>
-                    </div>
-                </div>
-                <div className="contentPic">
-                    <img src={ContentPic2} alt="" />
-                </div>
-            </div>
-            <div className="blogContent">
-                <div className="contentPic">
-                    <img src={ContentPic3} alt="" />
-                </div>
-                <div className="blogBody">
-                    <p className="writers">December10 ,2014 <span className="by">by</span> Bradley Taylor</p>
-                    <p className="bigTitle">Brussels Sprouts and Bacon, Oizza Recipe</p>
-                    <p className="contents">Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Architecto tempore eius, distinctio eaque, sint ill</p>
-                    <div className="readmore">
-                        <a href="#">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-            <div className="blogContent">
-                <div className="blogBody">
-                    <p className="writers">June 03, 2014 <span className="by">by</span> Cooper Elison</p>
-                    <p className="bigTitle">Green Onion and Burrata Cheese Pizza and a Killer Margherita</p>
-                    <p className="contents">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Architecto tempore eius, distinctio eaque, sint ill</p>
-                    <div className="readmore">
-                        <a href="#">READMORE</a>
-                    </div>
+    if (loading) return <h1>Loading...</h1>;
+    // console.log("22222222", results[0].author);
+    return (
+      <section className='blog'>
+        <CrumbHeader path='blog' thisPage='blog' />
+        <div className='top'>
+          <a className='toppicture' href='#'>
+            <img src={BlogImg[4]} alt='' />
+          </a>
+          <p className='writers'>
+            January 30,2015 <span className='by'>by</span> Peter smith
+          </p>
+          <p className='bigTitle'>
+            Want to Win free Pizza?Order using the new Mobile App
+            <br />
+            and you're in with a shot
+          </p>
 
+          <p className='contents'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+            <br />
+            psda dsfdeaghew sdasq2trgk dsda
+          </p>
+
+          <div className='readmore'>
+            <a href='#'>READ MORE</a>
+          </div>
+        </div>
+        <ul>
+          {results.map((item, index) => {
+            return (
+              <li key={index} className='blogContent'>
+                <a className='contentPic' href='#'>
+                  <img src={BlogImg[index]} alt='blog-img' />
+                </a>
+                <div className='blogBody'>
+                  <p className='writers'>
+                    {item.date} <span className='by'>by</span> {item.author}
+                  </p>
+                  <p className='bigTitle'>{item.title}</p>
+                  <p className='contents'>{item.body}</p>
+                  <div className='readmore'>
+                    <a href='#'>READ MORE</a>
+                  </div>
                 </div>
-                <div className="contentPic">
-                    <img src={ContentPic4} alt="" />
-                </div>
-            </div>
-        </div>)}
-} 
-export default Blog;
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  const {
+    blogReducer: { loading, totalBlogs, results },
+  } = state;
+  return {
+    loading,
+    totalBlogs,
+    results,
+  };
+};
+
+const mapActionToProps = {
+  loadBlogs,
+};
+
+export default connect(mapStateToProps, mapActionToProps)(Blog);

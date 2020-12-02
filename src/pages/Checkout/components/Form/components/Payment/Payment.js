@@ -20,7 +20,13 @@ class Payment extends React.Component {
             bankTransfer: true,
             chequePayment: false,
             fieldCheck: false,
-            paypal: false
+            paypal: false,
+            userId: sessionStorage.getItem('userID'),
+            config: {
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.getItem('login-token')}`
+                }
+            }
         }
     }
     
@@ -35,8 +41,8 @@ class Payment extends React.Component {
     }
 
     handleToken = async (token, addresses) => {
-        const userId = sessionStorage.getItem('userID');
-        const resp = await Axios.get(`/cart/${userId}/1/10`)
+        const {userId, config} = this.state;
+        const resp = await Axios.get(`/cart/${userId}/1/10`);
         const orderList = resp.data;
         const totalPrice = (this.props.cartSubtotal - this.props.discount) * 100;
         const product = {
@@ -45,10 +51,7 @@ class Payment extends React.Component {
         }
 
         try{
-            const res = await Axios.post('/checkout', {
-                token,
-                product
-            })
+            const res = await Axios.post('/checkout', {token,product}, config)
             if(res.status === 200){
                 this.setState({
                     paymentSucceeded: true

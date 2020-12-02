@@ -22,6 +22,7 @@ import OrderCreated from "./pages/OrderCreated/OrderCreated";
 import Mydetails from "./pages/Dashboard/mydetails/mydetails"
 import ManageAccount from './pages/manageAccount/manageAccount';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import OrderHistory from './pages/OrderHistory';
 
 class App extends React.Component {
     constructor(props) {
@@ -90,8 +91,8 @@ class App extends React.Component {
                         <Route path="/checkout" render={ history => <Checkout history={history} updateCart={this.updateCart} />}/>
                         <Route path='/order-created' component={OrderCreated} />
                         <Route path='/mydetails' component={Mydetails} />
-                        <Route path='/' component={Home} />
                         <ProtectedRoute path="/manage-account" component={ManageAccount} />
+                        <Route path='/order-history' component={OrderHistory} />
                     </Switch>
                     {
                         window.location.pathname !== '/sign-in' ?

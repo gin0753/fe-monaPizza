@@ -158,61 +158,63 @@ class changePassword extends React.Component {
     render() {
         const {newPassword, currentPassword, validPassword, incorrectPassword, isUpdated} = this.state;
         return (
-            <div className="dashboard__changePassword">
-                <UserBar />
-                <section>
-                    <h3>Your Password</h3>
-                    <div className="withIcon">
-                        <label>Current Password</label>
-                        <input ref={this.currentPassword} className={currentPassword} type={this.state.cpIsVisible ? "text" : "password"} 
-                        id="currentPassword" name="currentPassword" placeholder="1234567" onChange={this.handleChange}/>
-                        <div className="iconField" onClick={this.currentPasswordvisibility}></div>
-                        {currentPassword === 'Green' && <span className="green"><FaCheck /></span>}
-                        {currentPassword === 'Red' && <span className="red"><FaTimes /></span>}
-                        {currentPassword === '' && <></>}
+            <div className="dashboard">
+                <div className="dashboard__changePassword">
+                    <UserBar />
+                    <section>
+                        <h3>Your Password</h3>
+                        <div className="withIcon">
+                            <label>Current Password</label>
+                            <input ref={this.currentPassword} className={currentPassword} type={this.state.cpIsVisible ? "text" : "password"} 
+                            id="currentPassword" name="currentPassword" placeholder="1234567" onChange={this.handleChange}/>
+                            <div className="iconField" onClick={this.currentPasswordvisibility}></div>
+                            {currentPassword === 'Green' && <span className="green"><FaCheck /></span>}
+                            {currentPassword === 'Red' && <span className="red"><FaTimes /></span>}
+                            {currentPassword === '' && <></>}
 
-                        {currentPassword === 'Green' && <i onClick={this.currentPasswordvisibility}>
-                        {this.state.cpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
-                        {currentPassword === 'Red' && <i onClick={this.currentPasswordvisibility}>
-                        {this.state.cpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
-                        {currentPassword === '' && <i onClick={this.currentPasswordvisibility}>
-                        {this.state.cpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+                            {currentPassword === 'Green' && <i onClick={this.currentPasswordvisibility}>
+                            {this.state.cpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+                            {currentPassword === 'Red' && <i onClick={this.currentPasswordvisibility}>
+                            {this.state.cpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+                            {currentPassword === '' && <i onClick={this.currentPasswordvisibility}>
+                            {this.state.cpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
 
-                        {!incorrectPassword ? <></>:<div className="dashboard__changePassword--incorrect">Incorrect Password</div>}
-                    </div>
-                    <div className="withIcon">
-                        <label>New Password</label>
-                        <input ref={this.newPassword} className={newPassword} type={this.state.npIsVisible ? "text" : "password"} 
-                        id="newPassword" name="newPassword" placeholder="1234567" onChange={this.handleChange}/>
-                        <div className="iconField" onClick={this.newPasswordvisibility}></div>
-                        {newPassword === 'Green' && <span className="green"><FaCheck /></span>}
-                        {newPassword === 'Red' && <span className="red"><FaTimes /></span>}
-                        {newPassword === '' && <></>}
-                        {newPassword === 'Green' && <i onClick={this.newPasswordvisibility}>
-                        {this.state.npIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
-                        {newPassword === 'Red' && <i onClick={this.newPasswordvisibility}>
-                        {this.state.npIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
-                        {newPassword === '' && <i onClick={this.newPasswordvisibility}>
-                        {this.state.npIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+                            {!incorrectPassword ? <></>:<div className="dashboard__changePassword--incorrect">Incorrect Password</div>}
+                        </div>
+                        <div className="withIcon">
+                            <label>New Password</label>
+                            <input ref={this.newPassword} className={newPassword} type={this.state.npIsVisible ? "text" : "password"} 
+                            id="newPassword" name="newPassword" placeholder="1234567" onChange={this.handleChange}/>
+                            <div className="iconField" onClick={this.newPasswordvisibility}></div>
+                            {newPassword === 'Green' && <span className="green"><FaCheck /></span>}
+                            {newPassword === 'Red' && <span className="red"><FaTimes /></span>}
+                            {newPassword === '' && <></>}
+                            {newPassword === 'Green' && <i onClick={this.newPasswordvisibility}>
+                            {this.state.npIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+                            {newPassword === 'Red' && <i onClick={this.newPasswordvisibility}>
+                            {this.state.npIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+                            {newPassword === '' && <i onClick={this.newPasswordvisibility}>
+                            {this.state.npIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+                        </div>
+
+                        <div className="dashboard__changePassword--passwordRules">
+                        <h4>Password <span>must</span> contain at least:</h4>
+                        <div className="dashboard__changePassword--passwordRules--ruleWrapper">
+                            {this.state.oneLowerCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                            {this.state.oneLowerCase ? <h5 style={{color:"#1FC36A"}}>One lowercase character</h5> : <h5>One lowercase character</h5>} 
+                            {this.state.oneUpperCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                            {this.state.oneUpperCase ? <h5 style={{color:"#1FC36A"}}>One uppercase character</h5> : <h5>One uppercase character</h5>} 
+                            {this.state.oneNumber ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                            {this.state.oneNumber ? <h5 style={{color:"#1FC36A"}} className="number">One number</h5> : <h5 className="number">One number</h5>} 
+                            {this.state.eightDigits ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                            {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
+                        </div>
                     </div>
 
-                    <div className="dashboard__changePassword--passwordRules">
-                    <h4>Password <span>must</span> contain at least:</h4>
-                    <div className="dashboard__changePassword--passwordRules--ruleWrapper">
-                        {this.state.oneLowerCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                        {this.state.oneLowerCase ? <h5 style={{color:"#1FC36A"}}>One lowercase character</h5> : <h5>One lowercase character</h5>} 
-                        {this.state.oneUpperCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                        {this.state.oneUpperCase ? <h5 style={{color:"#1FC36A"}}>One uppercase character</h5> : <h5>One uppercase character</h5>} 
-                        {this.state.oneNumber ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                        {this.state.oneNumber ? <h5 style={{color:"#1FC36A"}} className="number">One number</h5> : <h5 className="number">One number</h5>} 
-                        {this.state.eightDigits ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                        {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
-                    </div>
+                        <button className={validPassword ? "":"disabled"} onClick={this.handleClick}>Update Password</button>
+                        {!isUpdated ? <></>:<div className="dashboard__changePassword--isUpdated">Updated Successfully</div>}
+                    </section>
                 </div>
-
-                    <button className={validPassword ? "":"disabled"} onClick={this.handleClick}>Update Password</button>
-                    {!isUpdated ? <></>:<div className="dashboard__changePassword--isUpdated">Updated Successfully</div>}
-                </section>
             </div>
         );
     }

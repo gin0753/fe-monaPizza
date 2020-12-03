@@ -49,7 +49,6 @@ class Payment extends React.Component {
             name: orderList,
             price: totalPrice
         }
-
         try{
             const res = await Axios.post('/checkout', {token,product}, config)
             if(res.status === 200){

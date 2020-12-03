@@ -1,4 +1,5 @@
 const initialState = {
+  loading: false,
   orderList: [],
   _id: "",
   orderPlacedTime: "",
@@ -13,23 +14,46 @@ const initialState = {
   shippingAddr: "",
 };
 
-export const orderCreatedReducer = (state  = initialState, action) => {
+export const orderCreatedReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "UPDATE_ORDER_INFO":
+    case "REQUESTED":
       return {
         ...state,
-        orderList: action.orderList,
-        _id: action._id,
-        orderPlacedTime: action.orderPlacedTime,
-        clientFirstName: action.clientFirstName,
-        clientLastName: action.clientLastName,
-        billingAddr: action.billingAddr,
-        city: action.city,
-        postcode: action.postcode,
-        contactNumber: action.contactNumber,
-        cartSubTotal: action.cartSubTotal,
-        totalPrice: action.totalPrice,
-        shippingAddr: action.shippingAddr,
+        loading: true,
+      };
+    case "SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        orderList: action.data.orderList,
+        _id: action.data._id,
+        orderPlacedTime: action.data.orderPlacedTime,
+        clientFirstName: action.data.clientFirstName,
+        clientLastName: action.data.clientLastName,
+        billingAddr: action.data.billingAddr,
+        city: action.data.city,
+        postcode: action.data.postcode,
+        contactNumber: action.data.contactNumber,
+        cartSubTotal: action.data.cartSubTotal,
+        totalPrice: action.data.totalPrice,
+        shippingAddr: action.data.shippingAddr,
+      };
+    case "FAILED":
+      return {
+        ...state,
+        loading: false,
+        orderList: [],
+        _id: "",
+        orderPlacedTime: "",
+        clientFirstName: "",
+        clientLastName: "",
+        billingAddr: "",
+        city: "",
+        postcode: "",
+        contactNumber: "",
+        cartSubTotal: "",
+        totalPrice: "",
+        shippingAddr: "",
       };
     default:
       return state;

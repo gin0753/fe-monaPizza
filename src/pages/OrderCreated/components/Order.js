@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateOrderInfo } from "../../../action/orderCreatedAction";
-import { fetchOrder } from "../../../api/orderCreated-API";
 
 class Order extends React.Component {
   constructor(props) {

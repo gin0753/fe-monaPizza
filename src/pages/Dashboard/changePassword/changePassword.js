@@ -1,5 +1,5 @@
 import React from 'react';
-import './changePassword.css';
+import '../Dashboard.css';
 import UserBar from '../../../components/UserBar/UserBar/UserBar';
 import {FaTimes, FaCheck, FaEye, FaEyeSlash} from 'react-icons/fa';
 import Axios from 'axios';
@@ -211,7 +211,8 @@ class changePassword extends React.Component {
                         </div>
                     </div>
 
-                        <button className={validPassword ? "":"disabled"} onClick={this.handleClick}>Update Password</button>
+                        <button className={validPassword ? "updateBtn":"updateBtn disabled"} 
+                        onClick={this.handleClick}>Update Password</button>
                         {!isUpdated ? <></>:<div className="dashboard__changePassword--isUpdated">Updated Successfully</div>}
                     </section>
                 </div>

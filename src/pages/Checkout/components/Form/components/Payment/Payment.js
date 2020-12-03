@@ -49,6 +49,7 @@ class Payment extends React.Component {
             name: orderList,
             price: totalPrice
         }
+
         try{
             const res = await Axios.post('/checkout', {token,product}, config)
             if(res.status === 200){
@@ -80,7 +81,7 @@ class Payment extends React.Component {
         const seconds = d.getSeconds();
         const orderPlacedTime = `${d.toLocaleDateString()} ${hours}:${minutes}:${seconds}`;
 
-        const userId = sessionStorage.getItem('userID');
+        const {userId} = this.state;
         const res = await Axios.get(`/cart/${userId}/1/10`)
         const orderList = res.data;
         const discount = this.props.discount;
@@ -89,6 +90,7 @@ class Payment extends React.Component {
 
         try{
             const orderInfo = {
+                userId,
                 orderPlacedTime,
                 clientFirstName,
                 clientLastName,
@@ -105,6 +107,7 @@ class Payment extends React.Component {
                 orderNote
             }
             const orderResponse = await Axios.post('/order', orderInfo);
+            console.log(orderResponse);
             if(orderResponse.status === 201 && this.state.paymentSucceeded){
                 const orderId = orderResponse.data._id;
                 const { updateOrderId } = this.props;

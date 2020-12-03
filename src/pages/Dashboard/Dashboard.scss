@@ -10,33 +10,49 @@
     display: flex;
     justify-content: center;
     padding: 50px 0;
-    &__changePassword{
+    &__changePassword, &__managePizza{
         display: flex;
         width: 75%;
         color: #FFFFFF;
+        &--sizeWrapper{
+            display: inline-flex;
+            justify-content: center;
+            width: 33.3%;
+            flex-wrap: wrap;;
+            & .input{
+                width: 80%;
+            }
+        }
+        &--buttonWrapper{
+            display: flex;
+            justify-content: center;
+        }
         & section{
             width: 100%;
             padding: 30px;
             & h3{
                 font-size: 20px;
+                margin: 0 20px;
                 font-weight: 700;
                 margin-bottom: 25px;
             }
             & label{
                 font-size: 14px;
+                margin: 0 20px;
             }
             & input{
-                margin: 20px 0;
+                margin: 20px;
                 display: block;
                 height: 40px;
                 width: 95%;
-                border-radius: 5px 0px 0px 5px;
+                border-radius: 5px;
                 padding: 10px;
                 background-color: #181818;
                 color: #FFFFFF;
                 border: 2px solid #FFFFFF;
                 position: relative;
                 outline: none;
+                font-size: 14px;
             }
             & ::placeholder{
                 color: #e0e0e0;
@@ -94,8 +110,7 @@
                 color: #1FC36A;
                 border: 2px solid #1FC36A;
             }
-            & button{
-                width: 100%;
+            & .updateBtn, .addBtn{
                 height: 50px;
                 border-radius: 5px;
                 margin: 25px 0;
@@ -106,6 +121,12 @@
                 &:hover{
                     opacity: 0.7;
                 }
+            }
+            & .updateBtn{
+                width: 100%;
+            }
+            & .addBtn{
+                width:50%;
             }
             & .disabled{
                 cursor: not-allowed;

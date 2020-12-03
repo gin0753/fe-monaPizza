@@ -21,8 +21,8 @@ import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
 import Mydetails from "./pages/Dashboard/mydetails/mydetails"
 import changePassword from "./pages/Dashboard/changePassword/changePassword";
-import ManageAccount from './pages/manageAccount/manageAccount';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import ManagePizza from './pages/Dashboard/managePizza/managePizza';
 
 class App extends React.Component {
     constructor(props) {
@@ -92,7 +92,7 @@ class App extends React.Component {
                         <Route path='/order-created' component={OrderCreated} />
                         <ProtectedRoute path='/mydetails' component={Mydetails} />
                         <ProtectedRoute path='/change-password' component={changePassword} />
-                        <ProtectedRoute path="/manage-account" component={ManageAccount} />
+                        <ProtectedRoute path="/manage-pizza" component={ManagePizza} />
                     </Switch>
                     {
                         window.location.pathname !== '/sign-in' ?

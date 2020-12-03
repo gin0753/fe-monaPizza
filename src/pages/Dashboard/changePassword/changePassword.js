@@ -159,8 +159,8 @@ class changePassword extends React.Component {
         const {newPassword, currentPassword, validPassword, incorrectPassword, isUpdated} = this.state;
         return (
             <div className="dashboard">
+                <UserBar />
                 <div className="dashboard__changePassword">
-                    <UserBar />
                     <section>
                         <h3>Your Password</h3>
                         <div className="withIcon">

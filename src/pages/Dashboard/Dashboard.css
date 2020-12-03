@@ -14,7 +14,8 @@
 
 .dashboard__changePassword, .dashboard__managePizza {
   display: flex;
-  width: 75%;
+  flex-wrap: wrap;
+  width: 50%;
   color: #FFFFFF;
 }
 

@@ -1,0 +1,333 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?wrd5c5");
+  src: url("../fonts/icomoon.eot?wrd5c5#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?wrd5c5") format("truetype"), url("../fonts/icomoon.woff?wrd5c5") format("woff"), url("../fonts/icomoon.svg?wrd5c5#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.w {
+  max-width: 1920px;
+  min-width: 750px;
+  margin: 0 auto;
+}
+
+.themeYellow {
+  color: #fdbc2c;
+}
+
+.themeRed {
+  color: #d94f2b;
+}
+
+.abril {
+  font-family: "Abril Fatface", cursive;
+}
+
+.josefin {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.order-created {
+  background: url(../img/Background.png) no-repeat center top;
+}
+
+.order-created .containerAll {
+  height: 900px;
+  border: 1px solid transparent;
+}
+
+.order-created .order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px auto;
+  width: 80%;
+  height: 700px;
+  color: white;
+}
+
+.order-created .order_top {
+  margin-bottom: 85px;
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+}
+
+.order-created .order_top h1 {
+  margin: 20px auto;
+  font-size: 36px;
+}
+
+.order-created .order_top h2 {
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.order-created .order_top h2::after {
+  margin-left: 20px;
+  content: "Print";
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.order-created .order_top p {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.order-created .order_middle {
+  margin-bottom: 50px;
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.order-created .order_middle li {
+  margin-left: -1px;
+  padding: 30px;
+  flex: 1;
+  border: 1px solid #fdbc2c;
+  background-color: black;
+}
+
+.order-created .order_middle li div {
+  margin-bottom: 10px;
+  color: #fdbc2c;
+  font-size: 30px;
+  font-family: "icomoon";
+}
+
+.order-created .order_middle li h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-family: "Abril Fatface", cursive;
+  color: #fff;
+}
+
+.order-created .order_middle li h3 {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-family: "Abril Fatface", cursive;
+}
+
+.order-created .order_middle li p {
+  margin-bottom: 10px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.order-created .order_middle_collectMethod_icon::before {
+  content: "\e900";
+}
+
+.order-created .order_middle_billingDetails_icon::before {
+  content: "\e93f";
+}
+
+.order-created .order_middle_estimatedArrival_icon::before {
+  content: "\e94e";
+}
+
+.order-created .order_bottom {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.order-created .order_bottom_list {
+  flex: 2;
+}
+
+.order-created .order_bottom_list h2 {
+  margin-top: 20px;
+  margin-right: 40px;
+  font-size: 25px;
+  height: 40px;
+  text-indent: 5px;
+  border-bottom: 3px solid #fdbc2c;
+}
+
+.order-created .order_bottom_list ul {
+  padding-right: 60px;
+  text-indent: 5px;
+}
+
+.order-created .order_bottom_list ul li {
+  margin: 15px auto;
+  overflow: hidden;
+}
+
+.order-created .order_bottom_list ul li span:first-of-type {
+  float: left;
+}
+
+.order-created .order_bottom_list ul li span:nth-of-type(2) {
+  float: right;
+}
+
+.order-created .order_bottom_summary {
+  flex: 1;
+}
+
+.order-created .order_bottom_summary_wrap {
+  padding: 10px;
+  height: 180px;
+  background-color: black;
+}
+
+.order-created .order_bottom_summary_wrap h2 {
+  margin-top: 10px;
+  margin-right: 40px;
+  font-size: 25px;
+  height: 40px;
+  text-indent: 5px;
+  border-bottom: 3px solid #fdbc2c;
+}
+
+.order-created .order_bottom_summary_wrap ul {
+  padding-right: 60px;
+  text-indent: 5px;
+}
+
+.order-created .order_bottom_summary_wrap ul li {
+  margin: 15px auto;
+  overflow: hidden;
+}
+
+.order-created .order_bottom_summary_wrap ul li span:first-of-type {
+  float: left;
+}
+
+.order-created .order_bottom_summary_wrap ul li span:nth-of-type(2) {
+  float: right;
+}
+
+.order-created .payment {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  color: #FFFFFF;
+  font-size: 16px;
+  margin-bottom: 100px;
+  line-height: 1.5rem;
+}
+
+.order-created .payment section {
+  padding: 30px;
+  border: 1px solid #fdbc2c;
+  width: 25%;
+}
+
+.order-created .payment section img {
+  width: 80%;
+}
+
+.order-created .payment section h2 {
+  font-size: 25px;
+  color: #fdbc2c;
+}
+
+.order-created .payment section hr {
+  border: 1px solid #fdbc2c;
+  margin: 20px 0;
+}
+
+.order-created .payment__radio, .order-created .payment__paymentintro, .order-created .payment__optionwrapper, .order-created .payment__cardpayment, .order-created .payment__term {
+  margin-bottom: 20px;
+}
+
+.order-created .payment__radio input, .order-created .payment__paymentintro input, .order-created .payment__optionwrapper input, .order-created .payment__cardpayment input, .order-created .payment__term input {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.order-created .payment__radio label, .order-created .payment__paymentintro label, .order-created .payment__optionwrapper label, .order-created .payment__cardpayment label, .order-created .payment__term label {
+  cursor: pointer;
+}
+
+.order-created .payment__cardpayment button {
+  outline: none;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
+}
+
+.order-created .payment__cardpayment h6 {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.order-created .payment__cardpayment .green {
+  color: #1FC36A;
+}
+
+.order-created .payment__cardpayment .red {
+  color: #d94f2b;
+}
+
+.order-created .payment__term p {
+  color: #d94f2b;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.order-created .payment__orderBtn {
+  width: 100%;
+  padding: 12px 0;
+  color: #000000;
+  background-color: #FDBC2C;
+  outline: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.order-created .payment__orderBtn:hover {
+  opacity: 0.9;
+}
+
+.order-created .payment .disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.order-created .serverErr {
+  width: 100%;
+  margin: 200px 0;
+  text-align: center;
+  font-family: "Fredericka the Great", cursive;
+  font-size: 72px;
+  color: #fff;
+  line-height: 90px;
+  background: black;
+}
+
+@media screen and (max-width: 992px) {
+  .order-created .containerAll {
+    height: auto;
+  }
+  .order-created .order {
+    display: block;
+    height: auto;
+  }
+  .order-created .order_top {
+    font-size: 30px;
+  }
+  .order-created .order_middle {
+    margin-top: -50px;
+    display: block;
+  }
+  .order-created .order_middle li {
+    text-align: center;
+  }
+  .order-created .order_bottom {
+    display: block;
+  }
+  .order-created .order_bottom_list {
+    margin-bottom: 45px;
+  }
+}

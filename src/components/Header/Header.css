@@ -44,10 +44,10 @@
   color: #FFFFFF;
   font-weight: 700;
   position: absolute;
-  bottom: -82px;
+  bottom: -102px;
   left: -85px;
   width: 140px;
-  height: 60px;
+  height: 80px;
   padding: 5px;
 }
 
@@ -58,6 +58,13 @@
 
 .header__leftWrapper--avatar--userActions span:hover {
   color: #d94f2b;
+}
+
+.header__leftWrapper--avatar--userActions .disabled {
+  color: #808080;
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .header__leftWrapper--avatar--userActions a:visited {

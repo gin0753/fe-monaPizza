@@ -12,19 +12,62 @@ class AddPizza extends React.Component {
             priceMD: '',
             priceLG: '',
             isAdded: false,
+            validString: 'empty',
+            validNumber: 'empty',
+            priceLoig: 'empty',
             userId: sessionStorage.getItem('userID'),
             config: {
                 headers: {
                     Authorization: `Bearer ${sessionStorage.getItem('login-token')}`
                 }
             }
-        } 
+        }
+        this.pizzaName = React.createRef();
+        this.Description = React.createRef();
+        this.priceSM = React.createRef();
+        this.priceMD = React.createRef();
+        this.priceLG = React.createRef(); 
     }
 
-    handleChange = (e) => {
-        this.setState({
+    checkPattern = () => {
+        const pizzaName = this.pizzaName.current.value;
+        const Description = this.Description.current.value;
+        const priceSM = this.priceSM.current.value;
+        const priceMD = this.priceMD.current.value;
+        const priceLG = this.priceLG.current.value;
+        if(pizzaName.match(this.props.pattern.namePattern) && Description.match(this.props.pattern.namePattern)
+        && pizzaName.length > 0 && Description.length > 0 ){
+            this.setState({validString: true});
+        }
+        else{
+            this.setState({validString: false});
+        }
+        if(priceSM.match(this.props.pattern.pricePattern) && priceMD.match(this.props.pattern.pricePattern) && priceLG.match(this.props.pattern.pricePattern)){
+            this.setState({validNumber: true});
+        }
+        else{
+            this.setState({validNumber: false});
+        }
+    }
+
+    checkPrice = () => {
+        const priceSM = this.priceSM.current.value;
+        const priceMD = this.priceMD.current.value;
+        const priceLG = this.priceLG.current.value;
+        if(+priceLG > +priceMD && +priceMD > +priceSM && +priceSM > 0 && +priceMD > 0 && +priceLG > 0){
+            this.setState({priceLogic: true});
+        }
+        else{
+            this.setState({priceLogic: false});
+        }
+    }
+
+    handleChange = async (e) => {
+        await this.setState({
             [e.target.name]: e.target.value
         })
+        await this.checkPattern();
+        await this.checkPrice();
     }
 
     handleClick = async(e) => {
@@ -59,32 +102,37 @@ class AddPizza extends React.Component {
     }
 
     render() {
-        const {isAdded} = this.state;
+        const {isAdded, validNumber, validString, priceLogic} = this.state;
         return (
             <section>
                 <h3>Add Pizza to the Menu</h3>
+                <hr />
                 <label>Pizza Name</label>
-                <input name="PizzaName" placeholder="Peri-peri" onChange={this.handleChange}/>
+                <input ref={this.pizzaName} name="PizzaName" placeholder="Peri-peri" onChange={this.handleChange}/>
                 <label>Description</label>
-                <input name="Description" placeholder="A very hot sauce made with red chilli peppers." onChange={this.handleChange}/>
+                <input ref={this.Description} name="Description" placeholder="A very hot sauce made with red chilli peppers." onChange={this.handleChange}/>
                 
                 <div class="dashboard__managePizza--sizeWrapper">
                     <label>Price-Small</label>
-                    <input name="priceSM" className="input" placeholder="Price-sm" onChange={this.handleChange}/>
+                    <input ref={this.priceSM} name="priceSM" className="input" placeholder="Price-sm" onChange={this.handleChange}/>
                 </div>
                 <div class="dashboard__managePizza--sizeWrapper">
                     <label>Price-Medium</label>
-                    <input name="priceMD" className="input" placeholder="Price-md" onChange={this.handleChange}/>
+                    <input ref={this.priceMD} name="priceMD" className="input" placeholder="Price-md" onChange={this.handleChange}/>
                 </div>
                 <div class="dashboard__managePizza--sizeWrapper">
                     <label>Price-Large</label>
-                    <input name="priceLG" className="input" placeholder="Price-lg" onChange={this.handleChange}/>
+                    <input ref={this.priceLG} name="priceLG" className="input" placeholder="Price-lg" onChange={this.handleChange}/>
                 </div>
 
                 <div class="dashboard__managePizza--buttonWrapper">
-                    <button className="addBtn" onClick={this.handleClick}>Add Pizza</button>
+                    <button className= {validNumber && validString && priceLogic ? "addBtn" : "addBtn disabled"} 
+                    disabled={validNumber && validString && priceLogic ? false : true} onClick={this.handleClick}>Add Pizza</button>
                 </div>
                 {!isAdded ? <></>:<div className="dashboard__managePizza--isUpdated">Pizza Added Successfully</div>}
+                {validString === false && <div className="dashboard__managePizza--incorrect">Invalid PizzaName or Description</div>}
+                {validNumber === false && <div className="dashboard__managePizza--incorrect">Invalid Price</div>}
+                {priceLogic === false && <div className="dashboard__managePizza--incorrect">Incorrect Price Logic</div>}
             </section>
         );
     }

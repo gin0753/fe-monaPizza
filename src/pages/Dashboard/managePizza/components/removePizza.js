@@ -8,6 +8,7 @@ class RemovePizza extends React.Component {
         this.state = {
             PizzaName: '',
             isRemoved: false,
+            validString: 'empty',
             userId: sessionStorage.getItem('userID'),
             config: {
                 headers: {
@@ -15,12 +16,24 @@ class RemovePizza extends React.Component {
                 }
             }
         } 
+        this.pizzaName = React.createRef();
     }
 
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+    checkPattern = () => {
+        const pizzaName = this.pizzaName.current.value;
+        if(pizzaName.match(this.props.pattern.namePattern) && pizzaName.length > 0){
+            this.setState({validString: true});
+        }
+        else{
+            this.setState({validString: false});
+        }
+    }
+
+    handleChange = async(e) => {
+        await this.setState({
+                [e.target.name]: e.target.value
+            })
+        await this.checkPattern();
     }
 
     handleClick = async(e) => {
@@ -46,16 +59,19 @@ class RemovePizza extends React.Component {
     }
 
     render() {
-        const {isRemoved} = this.state;
+        const {isRemoved, validString} = this.state;
         return (
             <section>
                 <h3>Remove Pizza from the Menu</h3>
+                <hr />
                 <label>Pizza Name</label>
-                <input name="PizzaName" placeholder="Peri-peri" onChange={this.handleChange}/>
+                <input ref={this.pizzaName} name="PizzaName" placeholder="Peri-peri" onChange={this.handleChange}/>
                 <div class="dashboard__managePizza--buttonWrapper">
-                    <button className="addBtn" onClick={this.handleClick}>Remove Pizza</button>
+                    <button className= {validString === true ? "removeBtn" : "removeBtn disabled"} 
+                    disabled={validString === true ? false : true} onClick={this.handleClick}>Remove Pizza</button>
                 </div>
                 {!isRemoved ? <></>:<div className="dashboard__managePizza--isUpdated">Pizza Removed Successfully</div>}
+                {validString === false && <div className="dashboard__managePizza--incorrect">Invalid PizzaName</div>}
             </section>
         );
     }

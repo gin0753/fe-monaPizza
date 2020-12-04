@@ -24,14 +24,14 @@
       justify-content: center;
       margin-left: 3em;
     }
+    & hr {
+      border: solid 1px #fdbc2c;
+    }
     & .mydetails {
       color: #fdbc2c;
       width: 90%;
       display: flex;
       justify-content: center;
-      & hr {
-        border: solid 1px #fdbc2c;
-      }
       & .userName {
         display: flex;
         justify-content: space-between;

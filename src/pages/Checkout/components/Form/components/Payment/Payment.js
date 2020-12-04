@@ -107,7 +107,6 @@ class Payment extends React.Component {
                 orderNote
             }
             const orderResponse = await Axios.post('/order', orderInfo);
-            console.log(orderResponse);
             if(orderResponse.status === 201 && this.state.paymentSucceeded){
                 const orderId = orderResponse.data._id;
                 const { updateOrderId } = this.props;

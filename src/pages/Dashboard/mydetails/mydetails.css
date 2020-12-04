@@ -34,15 +34,15 @@
   margin-left: 3em;
 }
 
+.dashboard .form hr {
+  border: solid 1px #fdbc2c;
+}
+
 .dashboard .form .mydetails {
   color: #fdbc2c;
   width: 90%;
   display: flex;
   justify-content: center;
-}
-
-.dashboard .form .mydetails hr {
-  border: solid 1px #fdbc2c;
 }
 
 .dashboard .form .mydetails .userName {

@@ -12,7 +12,8 @@
     padding: 50px 0;
     &__changePassword, &__managePizza{
         display: flex;
-        width: 75%;
+        flex-wrap: wrap;
+        width: 50%;
         color: #FFFFFF;
         &--sizeWrapper{
             display: inline-flex;
@@ -30,6 +31,10 @@
         & section{
             width: 100%;
             padding: 30px;
+            & hr {
+                border: solid 1px #FFFFFF;
+                margin: 25px 20px;
+              }
             & h3{
                 font-size: 20px;
                 margin: 0 20px;
@@ -110,8 +115,7 @@
                 color: #1FC36A;
                 border: 2px solid #1FC36A;
             }
-            & .updateBtn, .addBtn{
-                height: 50px;
+            & .updateBtn, .addBtn, .removeBtn{
                 border-radius: 5px;
                 margin: 25px 0;
                 background-color: #FDBC2C;
@@ -124,9 +128,11 @@
             }
             & .updateBtn{
                 width: 100%;
+                height: 50px;
             }
-            & .addBtn{
-                width:50%;
+            & .addBtn, & .removeBtn{
+                width:25%;
+                height: 40px;
             }
             & .disabled{
                 cursor: not-allowed;

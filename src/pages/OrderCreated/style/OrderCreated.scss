@@ -184,6 +184,87 @@
       }
     }
   }
+
+  .payment{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-bottom: 100px;
+    line-height: 1.5rem;
+    & section{
+      padding: 30px;
+      border: 1px solid #fdbc2c;
+      width: 25%;
+      & img{
+        width: 80%;
+      }
+      & h2{
+          font-size: 25px;
+          color: #fdbc2c; 
+      }
+      & hr{
+        border: 1px solid #fdbc2c;
+        margin: 20px 0;
+      }
+    }
+    &__radio, &__paymentintro, &__optionwrapper, &__cardpayment, &__term{
+      margin-bottom: 20px;
+      & input{
+        margin-right: 15px;
+        cursor: pointer;
+      }
+      & label{
+        cursor: pointer;
+      }
+    }
+    &__cardpayment{
+      & button{
+        outline: none;
+        background-color: #000000;
+        border: none;
+        cursor: pointer;
+      }
+      & h6{
+        margin-left: 20px;
+        display: inline-block;
+      }
+      & .green{
+        color: #1FC36A;
+      }
+      & .red{
+        color: #d94f2b;
+      }
+    }
+    &__term{
+      & p{
+        color: #d94f2b;
+        margin-left: 25px;
+        cursor: pointer;
+      }
+    }
+    &__orderBtn{
+      width: 100%;
+      padding: 12px 0;
+      color: #000000;
+      background-color: #FDBC2C;
+      outline: none;
+      border: none;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      &:hover{
+          opacity: 0.9;
+      }
+    }
+    & .disabled{
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+  
   .serverErr {
     width: 100%;
     margin: 200px 0;
@@ -198,6 +279,7 @@
 
 @media screen and (max-width: 992px) {
   .order-created {
+    
     .containerAll {
       height: auto;
     }

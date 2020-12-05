@@ -242,11 +242,11 @@ class Login extends React.Component{
                         isLogin: true,
                         isAuthenticated: true
                     });
-                    const userID = response.data.id;
-                    const userName = response.data.username;
+                    const {id, username, role} = response.data;
                     sessionStorage.setItem('login-token', response.data.token);
-                    sessionStorage.setItem('userID', userID);
-                    sessionStorage.setItem('userName', userName);
+                    sessionStorage.setItem('userID', id);
+                    sessionStorage.setItem('role', role);
+                    sessionStorage.setItem('userName', username);
                     this.handleSwitch();
                 }
                 else{
@@ -283,11 +283,11 @@ class Login extends React.Component{
         try{
             const response = await Axios.post('/googleLogin', googleInfo);
             if(response.status === 200 || response.status === 201){
-                const userID = response.data._id;
-                const userName = response.data.UserName;
+                const {_id, UserName, role} = response.data;
                 sessionStorage.setItem('login-token', response.data.token);
-                sessionStorage.setItem('userID', userID);
-                sessionStorage.setItem('userName', userName);
+                sessionStorage.setItem('userID', _id);
+                sessionStorage.setItem('role', role);
+                sessionStorage.setItem('userName', UserName);
                 await this.setState({isAuthenticated: true});
                 this.handleSwitch();
             }

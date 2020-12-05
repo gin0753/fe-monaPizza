@@ -2,6 +2,7 @@ import kimchi from './images/kimchi.png'
 import peri from './images/peri.png'
 import moorish from './images/moorish.png'
 import meat from './images/meat.png'
+import mexican from './images/mexican.png'
 
 export const PizzaImages = [
     {
@@ -24,6 +25,12 @@ export const PizzaImages = [
         Img: meat,
         PizzaName: 'Meat Deluxe',
         Alt: "Meat Deluxe Image"
+
+    },
+    {
+        Img: mexican,
+        PizzaName: 'Mexican',
+        Alt: "Mexican Image"
 
     }
 ];

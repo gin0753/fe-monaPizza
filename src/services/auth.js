@@ -3,6 +3,11 @@ const isAuthenticated = () => {
     return false
 }
 
+const isAdmin = () => {
+    if(sessionStorage.getItem('role') === 'ROLE.ADMIN') return true
+    return false
+}
+
 const login = () => {
     sessionStorage.setItem('username', 'username')
     sessionStorage.setItem('jwtToken', 'XXXXXX')
@@ -14,6 +19,7 @@ const logout = () => {
 
 export {
     isAuthenticated,
+    isAdmin,
     login,
     logout
 }

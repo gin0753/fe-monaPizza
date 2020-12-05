@@ -19,94 +19,112 @@ import Newsletter from "./components/Newsletter/Newsletter";
 import Media from "./components/Media/Media";
 import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
-import Mydetails from "./pages/Dashboard/mydetails/mydetails"
+import Mydetails from "./pages/Dashboard/mydetails/mydetails";
 import changePassword from "./pages/Dashboard/changePassword/changePassword";
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import AdminRoute from './components/AdminRoute/AdminRoute';
-import ManagePizza from './pages/Dashboard/managePizza/managePizza';
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import AdminRoute from "./components/AdminRoute/AdminRoute";
+import ManagePizza from "./pages/Dashboard/managePizza/managePizza";
+import orderHistory from "./pages/OrderHistory";
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sidebarIsClicked: false,
-            cartIsClicked: false,
-            amountChanged: 0
-        };
-    }
-
-    toggleSideBar = () => {
-        this.setState({
-            sidebarIsClicked: !this.state.sidebarIsClicked,
-        });
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarIsClicked: false,
+      cartIsClicked: false,
+      amountChanged: 0,
     };
+  }
 
-    toggleCart = () => {
-        this.setState({
-            cartIsClicked: !this.state.cartIsClicked,
-        });
-    };
+  toggleSideBar = () => {
+    this.setState({
+      sidebarIsClicked: !this.state.sidebarIsClicked,
+    });
+  };
 
-    updateCart = () => {
-        this.setState({
-            amountChanged: this.state.amountChanged + 1
-        })
-    }
+  toggleCart = () => {
+    this.setState({
+      cartIsClicked: !this.state.cartIsClicked,
+    });
+  };
 
-    render() {
-        return (
+  updateCart = () => {
+    this.setState({
+      amountChanged: this.state.amountChanged + 1,
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <Router>
+          {window.location.pathname !== "/sign-in" ? (
             <>
-                <Router>
-                    {
-                        window.location.pathname !== '/sign-in' ?
-                            <>
-                                <SideBar
-                                    sidestatus={this.state.sidebarIsClicked}
-                                    toggleSideBar={this.toggleSideBar}
-                                />
-                                <CartTotals
-                                    cartstatus={this.state.cartIsClicked}
-                                    toggleCart={this.toggleCart}
-                                    amountChanged={this.state.amountChanged}
-                                />
-                                <Header
-                                    toggleSideBar={this.toggleSideBar}
-                                    toggleCart={this.toggleCart}
-                                    sidestatus={this.state.sidebarIsClicked}
-                                    cartstatus={this.state.cartIsClicked}
-                                />
-                            </> : <></>
-                    }
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/about" component={About} />
-                        <Route path="/users" component={Users} />
-                        <Route path="/viewOrder" component={ViewOrder} />
-                        <Route path="/contact-us" component={ContactUs} />
-                        <Route path="/shopping-cart" render={ props => <ShoppingCart updateCart={this.updateCart} />}/>
-                        <Route path="/product-details" component={ProductDetails} />
-                        <Route path="/blog" component={Blog} />
-                        <Route path="/home" component={Home} />
-                        <Route path="/menu" render={ props => <Menu updateCart={this.updateCart} />} />
-                        <Route path="/sign-in" component={SignIn} />
-                        <Route path="/checkout" render={ history => <Checkout history={history} updateCart={this.updateCart} />}/>
-                        <Route path='/order-created' component={OrderCreated} />
-                        <ProtectedRoute path='/mydetails' component={Mydetails} />
-                        <ProtectedRoute path='/change-password' component={changePassword} />
-                        <AdminRoute path="/manage-pizza" component={ManagePizza} />
-                    </Switch>
-                    {
-                        window.location.pathname !== '/sign-in' ?
-                            <>
-                                <Newsletter />
-                                <Media />
-                                <Footer />
-                            </> : <></>
-                    }
-                </Router>
+              <SideBar
+                sidestatus={this.state.sidebarIsClicked}
+                toggleSideBar={this.toggleSideBar}
+              />
+              <CartTotals
+                cartstatus={this.state.cartIsClicked}
+                toggleCart={this.toggleCart}
+                amountChanged={this.state.amountChanged}
+              />
+              <Header
+                toggleSideBar={this.toggleSideBar}
+                toggleCart={this.toggleCart}
+                sidestatus={this.state.sidebarIsClicked}
+                cartstatus={this.state.cartIsClicked}
+              />
             </>
-        )
-    }
+          ) : (
+            <></>
+          )}
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/about' component={About} />
+            <Route path='/users' component={Users} />
+            <Route path='/viewOrder' component={ViewOrder} />
+            <Route path='/contact-us' component={ContactUs} />
+            <Route
+              path='/shopping-cart'
+              render={(props) => <ShoppingCart updateCart={this.updateCart} />}
+            />
+            <Route path='/product-details' component={ProductDetails} />
+            <Route path='/blog' component={Blog} />
+            <Route path='/home' component={Home} />
+            <Route
+              path='/menu'
+              render={(props) => <Menu updateCart={this.updateCart} />}
+            />
+            <Route path='/sign-in' component={SignIn} />
+            <Route
+              path='/checkout'
+              render={(history) => (
+                <Checkout history={history} updateCart={this.updateCart} />
+              )}
+            />
+            <Route path='/order-created' component={OrderCreated} />
+            <Route path='/order-history' component={orderHistory} />
+            <ProtectedRoute path='/mydetails' component={Mydetails} />
+            <ProtectedRoute
+              path='/change-password'
+              component={changePassword}
+            />
+            <AdminRoute path='/manage-pizza' component={ManagePizza} />
+          </Switch>
+          {window.location.pathname !== "/sign-in" ? (
+            <>
+              <Newsletter />
+              <Media />
+              <Footer />
+            </>
+          ) : (
+            <></>
+          )}
+        </Router>
+      </>
+    );
+  }
 }
 
 export default App;

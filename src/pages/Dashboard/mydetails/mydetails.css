@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-.dashboard {
+.mydetailspage {
   width: 100%;
   height: 135em;
   background-image: url("../../../images/Pizza-bg.png");
@@ -14,68 +14,68 @@
 }
 
 @media (max-width: 375px) {
-  .dashboard {
+  .mydetailspage {
     height: 145em;
   }
 }
 
-.dashboard h3 {
+.mydetailspage h3 {
   font-size: 30px;
   color: #fdbc2c;
 }
 
 @media (max-width: 768px) {
-  .dashboard h3 {
+  .mydetailspage h3 {
     font-size: 1.5em;
   }
 }
 
-.dashboard section {
+.mydetailspage section {
   width: 100%;
 }
 
-.dashboard form {
+.mydetailspage form {
   width: 80%;
   margin-top: 1em;
 }
 
 @media (max-width: 768px) {
-  .dashboard form {
+  .mydetailspage form {
     width: 80%;
   }
 }
 
 @media (max-width: 375px) {
-  .dashboard form {
+  .mydetailspage form {
     width: 80%;
   }
 }
 
-.dashboard .form {
+.mydetailspage .form {
   display: flex;
   justify-content: space-around;
   margin-top: 4em;
 }
 
 @media (max-width: 375px) {
-  .dashboard .form {
+  .mydetailspage .form {
     display: table;
   }
 }
 
-.dashboard .form .userbar {
+.mydetailspage .form .userbar {
   width: 40%;
   display: flex;
   justify-content: center;
 }
 
 @media (max-width: 375px) {
-  .dashboard .form .userbar {
+  .mydetailspage .form .userbar {
     width: 100%;
   }
 }
 
-.dashboard .form .mydetails {
+.mydetailspage .form .mydetails {
   color: #ffffff;
   width: 80%;
   display: flex;
@@ -83,149 +83,149 @@
 }
 
 @media (max-width: 375px) {
-  .dashboard .form .mydetails {
+  .mydetailspage .form .mydetails {
     width: 100%;
   }
 }
 
-.dashboard .form .mydetails hr {
+.mydetailspage .form .mydetails hr {
   border: solid 2px #d94f2b;
 }
 
-.dashboard .form .mydetails .userName {
+.mydetailspage .form .mydetails .userName {
   display: flex;
   justify-content: space-between;
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .userName {
+  .mydetailspage .form .mydetails .userName {
     width: 100%;
     display: table;
   }
 }
 
-.dashboard .form .mydetails .userName input {
+.mydetailspage .form .mydetails .userName input {
   margin-top: 1em;
 }
 
-.dashboard .form .mydetails input {
+.mydetailspage .form .mydetails input {
   border: solid 2px #ffffff;
   border-radius: 4px;
   height: 2.5em;
   background-color: transparent;
 }
 
-.dashboard .form .mydetails .firstName {
+.mydetailspage .form .mydetails .firstName {
   width: 49%;
   position: relative;
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .firstName {
+  .mydetailspage .form .mydetails .firstName {
     width: 100%;
     margin-bottom: 1em;
   }
 }
 
-.dashboard .form .mydetails .firstName input {
+.mydetailspage .form .mydetails .firstName input {
   width: 100%;
   margin-top: 1em;
   padding: 0.5em;
 }
 
-.dashboard .form .mydetails .lastName {
+.mydetailspage .form .mydetails .lastName {
   width: 49%;
   position: relative;
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .lastName {
+  .mydetailspage .form .mydetails .lastName {
     width: 100%;
   }
 }
 
-.dashboard .form .mydetails .lastName input {
+.mydetailspage .form .mydetails .lastName input {
   width: 100%;
   margin-top: 1em;
   padding: 0.5em;
 }
 
-.dashboard .form .mydetails .email {
+.mydetailspage .form .mydetails .email {
   width: 100%;
   position: relative;
 }
 
-.dashboard .form .mydetails .email input {
+.mydetailspage .form .mydetails .email input {
   width: 100%;
   margin-top: 1em;
   padding: 0.5em;
 }
 
-.dashboard .form .mydetails .mobileNumber {
+.mydetailspage .form .mydetails .mobileNumber {
   width: 100%;
   position: relative;
   margin-bottom: 2em;
 }
 
-.dashboard .form .mydetails .mobileNumber input {
+.mydetailspage .form .mydetails .mobileNumber input {
   width: 100%;
   margin-top: 1em;
   padding: 0.5em;
 }
 
-.dashboard .form .mydetails .myPreference {
+.mydetailspage .form .mydetails .myPreference {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.dashboard .form .mydetails .myPreference__successMsg {
+.mydetailspage .form .mydetails .myPreference__successMsg {
   width: 100%;
   margin: 20px auto;
   text-align: center;
 }
 
-.dashboard .form .mydetails .myAddr__noContent {
+.mydetailspage .form .mydetails .myAddr__noContent {
   text-align: center;
   margin: 10px 0;
 }
 
-.dashboard .form .mydetails .contactoptions {
+.mydetailspage .form .mydetails .contactoptions {
   display: flex;
 }
 
-.dashboard .form .mydetails .emailoption {
+.mydetailspage .form .mydetails .emailoption {
   width: 50%;
   position: relative;
 }
 
-.dashboard .form .mydetails .emailoption input {
+.mydetailspage .form .mydetails .emailoption input {
   vertical-align: middle;
   appearance: none;
   border: none;
 }
 
-.dashboard .form .mydetails .emailoption label {
+.mydetailspage .form .mydetails .emailoption label {
   vertical-align: middle;
   margin-left: 2em;
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .emailoption label {
+  .mydetailspage .form .mydetails .emailoption label {
     margin-left: 1.5em;
   }
 }
 
-.dashboard .form .mydetails .emailoption label :hover {
+.mydetailspage .form .mydetails .emailoption label :hover {
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .emailoption label h4 {
+.mydetailspage .form .mydetails .emailoption label h4 {
   display: inline-block;
 }
 
-.dashboard .form .mydetails .emailoption span {
+.mydetailspage .form .mydetails .emailoption span {
   position: absolute;
   top: 7px;
   left: 0;
@@ -238,13 +238,13 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .emailoption span {
+  .mydetailspage .form .mydetails .emailoption span {
     width: 20px;
     height: 20px;
   }
 }
 
-.dashboard .form .mydetails .emailoption span:after {
+.mydetailspage .form .mydetails .emailoption span:after {
   content: "";
   top: 1px;
   left: 1px;
@@ -255,19 +255,19 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .emailoption span:after {
+  .mydetailspage .form .mydetails .emailoption span:after {
     width: 4px;
     height: 4px;
   }
 }
 
-.dashboard .form .mydetails .emailoption input:checked ~ span {
+.mydetailspage .form .mydetails .emailoption input:checked ~ span {
   border: solid 2px #FDBC2C;
 }
 
-.dashboard .form .mydetails .emailoption input:checked ~ span:after {
+.mydetailspage .form .mydetails .emailoption input:checked ~ span:after {
   content: "✔";
-  top: 1px;
+  top: -1px;
   left: 5px;
   color: #fdbc2c;
   display: block;
@@ -277,7 +277,7 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .emailoption input:checked ~ span:after {
+  .mydetailspage .form .mydetails .emailoption input:checked ~ span:after {
     width: 4px;
     height: 4px;
     top: -3px;
@@ -285,42 +285,42 @@
   }
 }
 
-.dashboard .form .mydetails .emailoption input:checked ~ h4 {
+.mydetailspage .form .mydetails .emailoption input:checked ~ h4 {
   color: #FDBC2C;
 }
 
-.dashboard .form .mydetails .smsoption {
+.mydetailspage .form .mydetails .smsoption {
   width: 50%;
   position: relative;
 }
 
-.dashboard .form .mydetails .smsoption h4 {
+.mydetailspage .form .mydetails .smsoption h4 {
   display: inline-block;
   margin-left: 1em;
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .smsoption h4 {
+  .mydetailspage .form .mydetails .smsoption h4 {
     margin-left: 0.5em;
   }
 }
 
-.dashboard .form .mydetails .smsoption input {
+.mydetailspage .form .mydetails .smsoption input {
   vertical-align: middle;
   appearance: none;
   border: none;
 }
 
-.dashboard .form .mydetails .smsoption label {
+.mydetailspage .form .mydetails .smsoption label {
   vertical-align: middle;
   margin-left: 1em;
 }
 
-.dashboard .form .mydetails .smsoption label :hover {
+.mydetailspage .form .mydetails .smsoption label :hover {
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .smsoption span {
+.mydetailspage .form .mydetails .smsoption span {
   position: absolute;
   top: 7px;
   left: 0;
@@ -333,13 +333,13 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .smsoption span {
+  .mydetailspage .form .mydetails .smsoption span {
     width: 20px;
     height: 20px;
   }
 }
 
-.dashboard .form .mydetails .smsoption span:after {
+.mydetailspage .form .mydetails .smsoption span:after {
   content: "";
   top: 1px;
   left: 1px;
@@ -349,13 +349,13 @@
   height: 8px;
 }
 
-.dashboard .form .mydetails .smsoption input:checked ~ span {
+.mydetailspage .form .mydetails .smsoption input:checked ~ span {
   border: solid 2px #FDBC2C;
 }
 
-.dashboard .form .mydetails .smsoption input:checked ~ span:after {
+.mydetailspage .form .mydetails .smsoption input:checked ~ span:after {
   content: "✔";
-  top: 1px;
+  top: -1px;
   left: 5px;
   color: #FDBC2C;
   display: block;
@@ -365,7 +365,7 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .smsoption input:checked ~ span:after {
+  .mydetailspage .form .mydetails .smsoption input:checked ~ span:after {
     width: 4px;
     height: 4px;
     top: -3px;
@@ -373,32 +373,32 @@
   }
 }
 
-.dashboard .form .mydetails .smsoption input:checked ~ h4 {
+.mydetailspage .form .mydetails .smsoption input:checked ~ h4 {
   color: #FDBC2C;
 }
 
-.dashboard .form .mydetails .cancel {
+.mydetailspage .form .mydetails .cancel {
   width: 34%;
 }
 
-.dashboard .form .mydetails .cancel input {
+.mydetailspage .form .mydetails .cancel input {
   width: 100%;
   height: 3em;
   border: solid 2px #d71313;
   color: #d71313;
   font-weight: bolder;
-  font-size: 1em;
+  font-size: 1.2em;
   background-color: #ffffff;
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .cancel input {
+  .mydetailspage .form .mydetails .cancel input {
     height: 2em;
     font-weight: normal;
   }
 }
 
-.dashboard .form .mydetails .cancel :hover {
+.mydetailspage .form .mydetails .cancel :hover {
   color: #ffffff;
   background-color: #d71313;
   transition: 0.2s;
@@ -406,29 +406,29 @@
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .update {
+.mydetailspage .form .mydetails .update {
   width: 64%;
   margin-bottom: 2em;
 }
 
-.dashboard .form .mydetails .update input {
+.mydetailspage .form .mydetails .update input {
   width: 100%;
   height: 3em;
   background-color: #49ae49;
   border: solid 2px #49ae49;
   color: #ffffff;
   font-weight: bolder;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .update input {
+  .mydetailspage .form .mydetails .update input {
     height: 2em;
     font-weight: normal;
   }
 }
 
-.dashboard .form .mydetails .update :hover {
+.mydetailspage .form .mydetails .update :hover {
   color: #ffffff;
   background-color: #276827;
   border: solid 2px #276827;
@@ -436,38 +436,38 @@
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .myAddress {
+.mydetailspage .form .mydetails .myAddress {
   display: flex;
   justify-content: space-between;
 }
 
-.dashboard .form .mydetails .myAddress .deliveryAddress {
+.mydetailspage .form .mydetails .myAddress .deliveryAddress {
   position: relative;
 }
 
-.dashboard .form .mydetails .myAddress input {
+.mydetailspage .form .mydetails .myAddress input {
   vertical-align: middle;
   appearance: none;
   border: none;
 }
 
-.dashboard .form .mydetails .myAddress label {
+.mydetailspage .form .mydetails .myAddress label {
   vertical-align: middle;
   margin-left: 1em;
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .myAddress label {
+  .mydetailspage .form .mydetails .myAddress label {
     font-size: 0.8em;
     margin-left: 0.8em;
   }
 }
 
-.dashboard .form .mydetails .myAddress label :hover {
+.mydetailspage .form .mydetails .myAddress label :hover {
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .myAddress label h4 {
+.mydetailspage .form .mydetails .myAddress label h4 {
   display: inline-block;
   margin-top: 0.5em;
   margin-left: 1em;
@@ -477,12 +477,12 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .myAddress label h4 {
+  .mydetailspage .form .mydetails .myAddress label h4 {
     width: 8em;
   }
 }
 
-.dashboard .form .mydetails .myAddress label span {
+.mydetailspage .form .mydetails .myAddress label span {
   position: absolute;
   top: 7px;
   left: 0;
@@ -495,13 +495,13 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .myAddress label span {
+  .mydetailspage .form .mydetails .myAddress label span {
     height: 18px;
     width: 18px;
   }
 }
 
-.dashboard .form .mydetails .myAddress label span:after {
+.mydetailspage .form .mydetails .myAddress label span:after {
   content: "";
   top: 1px;
   left: 1px;
@@ -511,17 +511,17 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .myAddress label span:after {
+  .mydetailspage .form .mydetails .myAddress label span:after {
     width: 6px;
     height: 6px;
   }
 }
 
-.dashboard .form .mydetails .myAddress label input:checked ~ span {
+.mydetailspage .form .mydetails .myAddress label input:checked ~ span {
   border: solid 2px #FDBC2C;
 }
 
-.dashboard .form .mydetails .myAddress label input:checked ~ span:after {
+.mydetailspage .form .mydetails .myAddress label input:checked ~ span:after {
   content: "";
   top: 2px;
   left: 2px;
@@ -534,28 +534,28 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .myAddress label input:checked ~ span:after {
+  .mydetailspage .form .mydetails .myAddress label input:checked ~ span:after {
     width: 3px;
     height: 3px;
     border: solid 5px #020202;
   }
 }
 
-.dashboard .form .mydetails .myAddress label input:checked ~ h4 {
+.mydetailspage .form .mydetails .myAddress label input:checked ~ h4 {
   color: #FDBC2C;
 }
 
-.dashboard .form .mydetails .myAddress .removeButton {
+.mydetailspage .form .mydetails .myAddress .removeButton {
   text-align: right;
 }
 
 @media (max-width: 1024px) {
-  .dashboard .form .mydetails .myAddress .removeButton {
+  .mydetailspage .form .mydetails .myAddress .removeButton {
     font-size: 13px;
   }
 }
 
-.dashboard .form .mydetails .myAddress .removeButton input {
+.mydetailspage .form .mydetails .myAddress .removeButton input {
   border: solid 2px #d71313;
   background-color: #d71313;
   color: #ffffff;
@@ -565,12 +565,12 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .myAddress .removeButton input {
+  .mydetailspage .form .mydetails .myAddress .removeButton input {
     width: 75%;
   }
 }
 
-.dashboard .form .mydetails .myAddress .removeButton :hover {
+.mydetailspage .form .mydetails .myAddress .removeButton :hover {
   color: #ffffff;
   border: solid 2px #8e0a0a;
   background-color: #8e0a0a;
@@ -578,38 +578,38 @@
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .mystore {
+.mydetailspage .form .mydetails .mystore {
   display: flex;
   justify-content: space-between;
 }
 
-.dashboard .form .mydetails .mystore .deliverystore {
+.mydetailspage .form .mydetails .mystore .deliverystore {
   position: relative;
 }
 
-.dashboard .form .mydetails .mystore input {
+.mydetailspage .form .mydetails .mystore input {
   vertical-align: middle;
   appearance: none;
   border: none;
 }
 
-.dashboard .form .mydetails .mystore label {
+.mydetailspage .form .mydetails .mystore label {
   vertical-align: middle;
   margin-left: 1em;
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .mystore label {
+  .mydetailspage .form .mydetails .mystore label {
     font-size: 0.8em;
     margin-left: 0.8em;
   }
 }
 
-.dashboard .form .mydetails .mystore label :hover {
+.mydetailspage .form .mydetails .mystore label :hover {
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .mystore label h4 {
+.mydetailspage .form .mydetails .mystore label h4 {
   display: inline-block;
   margin-top: 0.5em;
   margin-left: 1em;
@@ -619,12 +619,12 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .mystore label h4 {
+  .mydetailspage .form .mydetails .mystore label h4 {
     width: 8em;
   }
 }
 
-.dashboard .form .mydetails .mystore label span {
+.mydetailspage .form .mydetails .mystore label span {
   position: absolute;
   top: 7px;
   left: 0;
@@ -637,13 +637,13 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .mystore label span {
+  .mydetailspage .form .mydetails .mystore label span {
     width: 18px;
     height: 18px;
   }
 }
 
-.dashboard .form .mydetails .mystore label span:after {
+.mydetailspage .form .mydetails .mystore label span:after {
   content: "";
   top: 1px;
   left: 1px;
@@ -653,12 +653,12 @@
   height: 8px;
 }
 
-.dashboard .form .mydetails .mystore label input:checked ~ span {
+.mydetailspage .form .mydetails .mystore label input:checked ~ span {
   background-color: transparent;
   border: solid 2px #FDBC2C;
 }
 
-.dashboard .form .mydetails .mystore label input:checked ~ span:after {
+.mydetailspage .form .mydetails .mystore label input:checked ~ span:after {
   content: "";
   top: 2px;
   left: 2px;
@@ -671,28 +671,28 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .mystore label input:checked ~ span:after {
+  .mydetailspage .form .mydetails .mystore label input:checked ~ span:after {
     width: 3px;
     height: 3px;
     border: solid 5px #020202;
   }
 }
 
-.dashboard .form .mydetails .mystore label input:checked ~ h4 {
+.mydetailspage .form .mydetails .mystore label input:checked ~ h4 {
   color: #FDBC2C;
 }
 
-.dashboard .form .mydetails .mystore .removeButton {
+.mydetailspage .form .mydetails .mystore .removeButton {
   text-align: right;
 }
 
 @media (max-width: 1024px) {
-  .dashboard .form .mydetails .mystore .removeButton {
+  .mydetailspage .form .mydetails .mystore .removeButton {
     font-size: 13px;
   }
 }
 
-.dashboard .form .mydetails .mystore .removeButton input {
+.mydetailspage .form .mydetails .mystore .removeButton input {
   border: solid 2px #d71313;
   background-color: #d71313;
   color: #ffffff;
@@ -702,12 +702,12 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .mystore .removeButton input {
+  .mydetailspage .form .mydetails .mystore .removeButton input {
     width: 75%;
   }
 }
 
-.dashboard .form .mydetails .mystore .removeButton :hover {
+.mydetailspage .form .mydetails .mystore .removeButton :hover {
   color: #ffffff;
   border: solid 2px #8e0a0a;
   background-color: #8e0a0a;
@@ -715,20 +715,20 @@
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .selectaddress {
+.mydetailspage .form .mydetails .selectaddress {
   position: relative;
   height: 2.5em;
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-.dashboard .form .mydetails .selectaddress input {
+.mydetailspage .form .mydetails .selectaddress input {
   width: 100%;
   padding: 0.5em;
   border-right: none;
 }
 
-.dashboard .form .mydetails .selectaddress button {
+.mydetailspage .form .mydetails .selectaddress button {
   width: 20%;
   height: 100%;
   position: absolute;
@@ -736,19 +736,18 @@
   right: 0;
   border-radius: 0 4px 4px 0;
   border: solid 2px #ffffff;
-  border-left: none;
   background-color: #49ae49;
   color: #ffffff;
   font-weight: bold;
 }
 
 @media (max-width: 1024px) {
-  .dashboard .form .mydetails .selectaddress button {
+  .mydetailspage .form .mydetails .selectaddress button {
     font-size: 13px;
   }
 }
 
-.dashboard .form .mydetails .selectaddress button:hover {
+.mydetailspage .form .mydetails .selectaddress button:hover {
   background-color: #276827;
   border: solid 2px #ffffff;
   border-left: none;
@@ -756,35 +755,35 @@
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .ordertype {
+.mydetailspage .form .mydetails .ordertype {
   display: flex;
 }
 
-.dashboard .form .mydetails .delivery {
+.mydetailspage .form .mydetails .delivery {
   position: relative;
 }
 
-.dashboard .form .mydetails .delivery input {
+.mydetailspage .form .mydetails .delivery input {
   vertical-align: middle;
   appearance: none;
   border: none;
 }
 
-.dashboard .form .mydetails .delivery label {
+.mydetailspage .form .mydetails .delivery label {
   vertical-align: middle;
   margin-left: 1em;
 }
 
-.dashboard .form .mydetails .delivery label :hover {
+.mydetailspage .form .mydetails .delivery label :hover {
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .delivery label h4 {
+.mydetailspage .form .mydetails .delivery label h4 {
   display: inline-block;
   margin-left: 1em;
 }
 
-.dashboard .form .mydetails .delivery label span {
+.mydetailspage .form .mydetails .delivery label span {
   position: absolute;
   top: 7px;
   left: 0;
@@ -797,13 +796,13 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .delivery label span {
+  .mydetailspage .form .mydetails .delivery label span {
     width: 18px;
     height: 18px;
   }
 }
 
-.dashboard .form .mydetails .delivery label span:after {
+.mydetailspage .form .mydetails .delivery label span:after {
   content: "";
   top: 1px;
   left: 1px;
@@ -813,11 +812,11 @@
   height: 8px;
 }
 
-.dashboard .form .mydetails .delivery label input:checked ~ span {
+.mydetailspage .form .mydetails .delivery label input:checked ~ span {
   border: solid 2px #FDBC2C;
 }
 
-.dashboard .form .mydetails .delivery label input:checked ~ span:after {
+.mydetailspage .form .mydetails .delivery label input:checked ~ span:after {
   content: "";
   top: 2px;
   left: 2px;
@@ -830,42 +829,42 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .delivery label input:checked ~ span:after {
+  .mydetailspage .form .mydetails .delivery label input:checked ~ span:after {
     width: 3px;
     height: 3px;
     border: solid 5px #020202;
   }
 }
 
-.dashboard .form .mydetails .delivery label input:checked ~ h4 {
+.mydetailspage .form .mydetails .delivery label input:checked ~ h4 {
   color: #FDBC2C;
 }
 
-.dashboard .form .mydetails .pickup {
+.mydetailspage .form .mydetails .pickup {
   position: relative;
 }
 
-.dashboard .form .mydetails .pickup input {
+.mydetailspage .form .mydetails .pickup input {
   vertical-align: middle;
   appearance: none;
   border: none;
 }
 
-.dashboard .form .mydetails .pickup label {
+.mydetailspage .form .mydetails .pickup label {
   vertical-align: middle;
   margin-left: 1em;
 }
 
-.dashboard .form .mydetails .pickup label :hover {
+.mydetailspage .form .mydetails .pickup label :hover {
   cursor: pointer;
 }
 
-.dashboard .form .mydetails .pickup label h4 {
+.mydetailspage .form .mydetails .pickup label h4 {
   display: inline-block;
   margin-left: 1em;
 }
 
-.dashboard .form .mydetails .pickup label span {
+.mydetailspage .form .mydetails .pickup label span {
   position: absolute;
   top: 7px;
   left: 0;
@@ -878,13 +877,13 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .pickup label span {
+  .mydetailspage .form .mydetails .pickup label span {
     width: 18px;
     height: 18px;
   }
 }
 
-.dashboard .form .mydetails .pickup label span:after {
+.mydetailspage .form .mydetails .pickup label span:after {
   content: "";
   top: 1px;
   left: 1px;
@@ -894,11 +893,11 @@
   height: 8px;
 }
 
-.dashboard .form .mydetails .pickup label input:checked ~ span {
+.mydetailspage .form .mydetails .pickup label input:checked ~ span {
   border: solid 2px #FDBC2C;
 }
 
-.dashboard .form .mydetails .pickup label input:checked ~ span:after {
+.mydetailspage .form .mydetails .pickup label input:checked ~ span:after {
   content: "";
   top: 2px;
   left: 2px;
@@ -911,13 +910,13 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .form .mydetails .pickup label input:checked ~ span:after {
+  .mydetailspage .form .mydetails .pickup label input:checked ~ span:after {
     width: 3px;
     height: 3px;
     border: solid 5px #020202;
   }
 }
 
-.dashboard .form .mydetails .pickup label input:checked ~ h4 {
+.mydetailspage .form .mydetails .pickup label input:checked ~ h4 {
   color: #FDBC2C;
 }

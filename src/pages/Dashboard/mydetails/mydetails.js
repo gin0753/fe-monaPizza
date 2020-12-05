@@ -9,7 +9,7 @@ import Navigation from '../components/Navigation'
 class Mydetails extends Component {
 
     render() {
-        return (<div className="dashboard">
+        return (<div className="mydetailspage">
             <Navigation />
             <section className="form">
                 <div className="userbar">

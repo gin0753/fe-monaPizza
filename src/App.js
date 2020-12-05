@@ -82,15 +82,15 @@ class App extends React.Component {
                         <Route path="/users" component={Users} />
                         <Route path="/viewOrder" component={ViewOrder} />
                         <Route path="/contact-us" component={ContactUs} />
-                        <Route path="/shopping-cart" render={ props => <ShoppingCart updateCart={this.updateCart} />}/>
+                        <Route path="/shopping-cart" render={props => <ShoppingCart updateCart={this.updateCart} />} />
                         <Route path="/product-details" component={ProductDetails} />
                         <Route path="/blog" component={Blog} />
                         <Route path="/home" component={Home} />
-                        <Route path="/menu" render={ props => <Menu updateCart={this.updateCart} />} />
+                        <Route path="/menu" render={props => <Menu updateCart={this.updateCart} />} />
                         <Route path="/sign-in" component={SignIn} />
-                        <Route path="/checkout" render={ history => <Checkout history={history} updateCart={this.updateCart} />}/>
+                        <Route path="/checkout" render={history => <Checkout history={history} updateCart={this.updateCart} />} />
                         <Route path='/order-created' component={OrderCreated} />
-                        <ProtectedRoute path='/mydetails' component={Mydetails} />
+                        <Route path='/mydetails' component={Mydetails} />
                         <ProtectedRoute path='/change-password' component={changePassword} />
                         <ProtectedRoute path="/manage-account" component={ManageAccount} />
                     </Switch>

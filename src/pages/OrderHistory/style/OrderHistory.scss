@@ -6,13 +6,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap");
 
 body {
-  background: black url(../../../images/Background-Grey.png) no-repeat center
-    top;
   font-family: "Josefin Sans", sans-serif;
 }
 
 .order-history {
+  background: black url(../../../images/Background-Grey.png) no-repeat center
+    top;
   &__wrap {
+    max-width: 1720px;
+    min-width: 750px;
     margin: 20px auto;
     width: 70%;
     nav {
@@ -54,22 +56,22 @@ body {
         flex: 2;
       }
     }
-    &__handle{
-      margin-top:15px;
-      display:flex;
+    &__handle {
+      margin-top: 15px;
+      display: flex;
       justify-content: space-between;
       color: #fff;
-      form{
-        input{
+      form {
+        input {
           padding: 0 5px;
           background-color: #f5f5f5;
           border-left: none;
           border: 1px solid #bfbfbf;
         }
-        button{
+        button {
           padding: 0 10px;
-          background-color:transparent;
-          color:#bfbfbf;
+          background-color: transparent;
+          color: #bfbfbf;
           border-left: none;
           border: 1px solid #bfbfbf;
           cursor: pointer;
@@ -77,20 +79,20 @@ body {
           // border-radius:15%;
         }
       }
-      aside{
-        display:flex;
-        p{
-          line-height:23px;
+      aside {
+        display: flex;
+        p {
+          line-height: 23px;
         }
-        span{
-          display:inline-block;
-          margin-left:10px;
-          border:1px solid #bfbfbf;
+        span {
+          display: inline-block;
+          margin-left: 10px;
+          border: 1px solid #bfbfbf;
           border-radius: 25%;
           font-size: 15px;
-          line-height:23px;
-          width:30px;
-          text-align:center;
+          line-height: 23px;
+          width: 30px;
+          text-align: center;
           cursor: pointer;
         }
       }

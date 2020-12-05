@@ -1,14 +1,9 @@
 import React from "react";
 import "./style/OrderHistory.scss";
 import CrumbHeader from "../../components/CrumbHeader";
+import { connect } from "react-redux";
 
 class OrderHistory extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-
-  
   render() {
     return (
       <section className='order-history'>
@@ -115,4 +110,19 @@ class OrderHistory extends React.Component {
   }
 }
 
-export default OrderHistory;
+const mapStateToProps = (state) => {
+  const {
+    orderCreatedReducer: { orderList, _id, orderPlacedTime },
+  } = state;
+  return {
+    orderList,
+    _id,
+    orderPlacedTime,
+  };
+};
+
+const mapActionToProps = {
+
+}
+
+export default connect(mapStateToProps,mapActionToProps)(OrderHistory);

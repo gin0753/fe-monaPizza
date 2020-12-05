@@ -20,6 +20,7 @@ import Media from "./components/Media/Media";
 import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
 import Mydetails from "./pages/Dashboard/mydetails/mydetails"
+import changePassword from "./pages/Dashboard/changePassword/changePassword";
 import ManageAccount from './pages/manageAccount/manageAccount';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import OrderHistory from './pages/OrderHistory';
@@ -90,7 +91,8 @@ class App extends React.Component {
                         <Route path="/sign-in" component={SignIn} />
                         <Route path="/checkout" render={ history => <Checkout history={history} updateCart={this.updateCart} />}/>
                         <Route path='/order-created' component={OrderCreated} />
-                        <Route path='/mydetails' component={Mydetails} />
+                        <ProtectedRoute path='/mydetails' component={Mydetails} />
+                        <ProtectedRoute path='/change-password' component={changePassword} />
                         <ProtectedRoute path="/manage-account" component={ManageAccount} />
                         <Route path='/order-history' component={OrderHistory} />
                     </Switch>

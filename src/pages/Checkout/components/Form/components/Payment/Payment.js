@@ -59,7 +59,8 @@ class Payment extends React.Component {
                 cartSubTotal,
                 totalPrice,
                 shippingAddr,
-                orderNote
+                orderNote,
+                orderStatus: 'Unpaid'
             }
             const orderResponse = await Axios.post('/order', orderInfo);
             if(orderResponse.status === 201 && +totalPrice > 1){

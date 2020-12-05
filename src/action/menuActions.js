@@ -28,8 +28,8 @@ export const fetchPizza = () => {
             const pizzas = res.data
             await dispatch(fetchPizzaSuccess(pizzas))
         }
-        catch (e) {
-            await dispatch(fetchPizzaFaliure(e));
+        catch (err) {
+            await dispatch(fetchPizzaFaliure(err));
         }
     }
 }

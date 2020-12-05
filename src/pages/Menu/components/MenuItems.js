@@ -17,8 +17,7 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, update
     pizzaName,
     pizzaSize,
     pizzaPrice,
-    totalPrice,
-    status: "Pending"
+    totalPrice
   }
 
   const handleChange = (e) => {

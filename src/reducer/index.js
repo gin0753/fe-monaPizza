@@ -5,6 +5,7 @@ import { menuReducer } from "./menuReducer";
 import { updateOrderId } from "./updateOrderID";
 import { orderCreatedReducer } from "./orderCreatedReducer";
 import { blogReducer } from "./blogReducer";
+import { historyReducer } from './historyReducer'
 
 export default combineReducers({
   shoppingCartReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   updateOrderId,
   orderCreatedReducer,
   blogReducer,
+  historyReducer
 });

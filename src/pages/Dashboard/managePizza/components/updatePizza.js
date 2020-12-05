@@ -113,7 +113,7 @@ class UpdatePizza extends React.Component {
 
                 <div class="dashboard__managePizza--buttonWrapper">
                     <button className= {validNumber === true && validString === true ? "addBtn" : "addBtn disabled"} 
-                    disabled={validNumber === true && validString === true ? false : true} onClick={this.handleClick}>Add Pizza</button>
+                    disabled={validNumber === true && validString === true ? false : true} onClick={this.handleClick}>Update Menu</button>
                 </div>
                 {!isUpdated ? <></>:<div className="dashboard__managePizza--isUpdated">Pizza Added Successfully</div>}
                 {validString === false && <div className="dashboard__managePizza--incorrect">Invalid PizzaName or Description</div>}

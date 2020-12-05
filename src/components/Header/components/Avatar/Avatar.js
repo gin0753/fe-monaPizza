@@ -29,6 +29,7 @@ function Avatar(props) {
         {avatar && <div className="header__leftWrapper--avatar--userActions">
             <span><Link to="/mydetails">User Profile</Link></span>
             <span><Link to="/change-password">Change Password</Link></span>
+            <span><Link to="/order-history">Order History</Link></span>
             <span className={userRole === 'ROLE.ADMIN' ? "" : "disabled"}><Link to="/manage-pizza">Manage Pizza</Link></span>
             <span onClick={handleSignOut}>Sign Out</span>
         </div>}

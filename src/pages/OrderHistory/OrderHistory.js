@@ -2,107 +2,136 @@ import React from "react";
 import "./style/OrderHistory.scss";
 import CrumbHeader from "../../components/CrumbHeader";
 import { connect } from "react-redux";
+import { fetchOrder } from '../../action/historyActions';
+import OrderItem from './components/orderItem';
 
 class OrderHistory extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      orders: [],
+      filterStatus: '',
+      searchOrder: '',
+      sortOrder: 'ascend'
+    }
+  }
+
+  componentDidMount = async() => {
+    const { fetchOrder } = this.props;
+    await fetchOrder();
+    const { orders: { orders } } = this.props;
+    this.setState({
+      orders: orders
+    })
+  }
+
+  originOrder = () => {
+    this.setState({
+      filterStatus: ''
+    })
+  }
+
+  paidOrder = () => {
+    this.setState({
+      filterStatus: 'Paid'
+    })
+  }
+
+  unpaidOrder = () => {
+    this.setState({
+      filterStatus: 'Unpaid'
+    })
+  }
+
+  pendingOrder = () => {
+    this.setState({
+      filterStatus: 'Pending'
+    })
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      searchOrder: e.target.value
+    })
+  }
+
+  searchOrder = (e) => {
+    e.preventDefault();
+    let matchResult = this.state.orders.filter (
+      order => order._id.substring(order._id.length - 4) === this.state.searchOrder
+    )
+    if (matchResult.length > 0){
+      this.setState({
+        orders: matchResult
+      })
+    }
+    else{
+      const { orders: { orders } } = this.props;
+      this.setState({
+        orders: orders
+      })
+    }
+  }
+
+  ascendOrder = () => {
+    this.setState({
+      sortOrder: 'ascend'
+    })
+  }
+
+  descendOrder = () => {
+    this.setState({
+      sortOrder: 'descend'
+    })
+  }
+
   render() {
+    let filterResult = this.state.orders.filter(
+      (order) => {
+        return order.orderStatus.indexOf(this.state.filterStatus) !== -1;
+      }
+    );
     return (
       <section className='order-history'>
         <CrumbHeader thisPage='order History' path='order-history' />
         <div className='order-history__wrap'>
           <nav>
             <ul>
-              <li>All Orders</li>
-              <li>Paid</li>
-              <li>Unpaid</li>
-              <li>Pending</li>
+              <li onClick={this.originOrder}>All Orders</li>
+              <li onClick={this.paidOrder}>Paid</li>
+              <li onClick={this.unpaidOrder}>Unpaid</li>
+              <li onClick={this.pendingOrder}>Pending</li>
             </ul>
           </nav>
-          <ul className='order-history__wrap__title'>
-            <li>Items</li>
-            <li>Total</li>
-            <li>Status</li>
-          </ul>
           <div className='order-history__wrap__handle'>
             <form>
-              <input></input>
-              <button type='submit'>Search Orders</button>
+              <input onChange={this.handleChange}></input>
+              <button onClick={this.searchOrder}>Search Orders</button>
             </form>
             <aside>
               <p>Sort by Time:</p>
-              <span>↑</span>
-              <span>↓</span>
+              <span onClick={this.ascendOrder}>↑</span>
+              <span onClick={this.descendOrder}>↓</span>
             </aside>
           </div>
+          <ul className='order-history__wrap__title'>
+              <li>Items</li>
+              <li>Total</li>
+              <li>Status</li>
+          </ul>
           <ul className='order-history__wrap__orders'>
-            <li className='order-history__wrap__orders__item'>
-              <h2>
-                <strong>2020-11-17 </strong>order number: #3453
-              </h2>
-              <div className='order-bottom'>
-                <ul>
-                  <li>
-                    <span>Meat Deluxe x 1</span>
-                    <span>$20</span>
-                  </li>
-                  <li>
-                    <span>Kimchi BBQ Chicken x 1</span>
-                    <span>$31</span>
-                  </li>
-                </ul>
-                <div className='total-price'>
-                  <h3>$35</h3>
-                </div>
-                <div className='order-status'>
-                  <h3>Pending</h3>
-                </div>
-              </div>
-            </li>
-            <li className='order-history__wrap__orders__item'>
-              <h2>
-                <strong>2020-11-17 </strong>order number: #3453
-              </h2>
-              <div className='order-bottom'>
-                <ul>
-                  <li>
-                    <span>Meat Deluxe x 1</span>
-                    <span>$20</span>
-                  </li>
-                  <li>
-                    <span>Kimchi BBQ Chicken x 1</span>
-                    <span>$31</span>
-                  </li>
-                </ul>
-                <div className='total-price'>
-                  <h3>$35</h3>
-                </div>
-                <div className='order-status'>
-                  <h3>Pending</h3>
-                </div>
-              </div>
-            </li>
-            <li className='order-history__wrap__orders__item'>
-              <h2>
-                <strong>2020-11-17 </strong>order number: #3453
-              </h2>
-              <div className='order-bottom'>
-                <ul>
-                  <li>
-                    <span>Meat Deluxe x 1</span>
-                    <span>$20</span>
-                  </li>
-                  <li>
-                    <span>Kimchi BBQ Chicken x 1</span>
-                    <span>$31</span>
-                  </li>
-                </ul>
-                <div className='total-price'>
-                  <h3>$35</h3>
-                </div>
-                <div className='order-status'>
-                  <h3>Pending</h3>
-                </div>
-              </div>
-            </li>
+            {this.state.sortOrder === 'ascend' && 
+            filterResult.map((item) => 
+              (
+              <OrderItem details={item}/>
+              )
+              )}
+            {this.state.sortOrder === 'descend' && 
+            filterResult.reverse().map((item) => 
+              (
+              <OrderItem details={item}/>
+              )
+              )}
           </ul>
         </div>
       </section>
@@ -111,18 +140,17 @@ class OrderHistory extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const {
-    orderCreatedReducer: { orderList, _id, orderPlacedTime },
-  } = state;
+  const { historyReducer: { loading, orders } } = state;
   return {
-    orderList,
-    _id,
-    orderPlacedTime,
-  };
+    loading,
+    orders
+  }
 };
 
-const mapActionToProps = {
-
+const mapActionToProps = dispatch => {
+  return {
+    fetchOrder: () => dispatch(fetchOrder())
+  }
 }
 
 export default connect(mapStateToProps,mapActionToProps)(OrderHistory);

@@ -94,6 +94,9 @@ body {
           width: 30px;
           text-align: center;
           cursor: pointer;
+          &:hover{
+            background-color: #d94f2b;
+          }
         }
       }
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../mydetails/mydetails.css';
+import '../mydetails.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMotorcycle, faStore } from '@fortawesome/free-solid-svg-icons';
 import Axios from 'axios';
@@ -100,7 +100,7 @@ class Form extends React.Component {
     render() {
         return (
             <div className="mydetails">
-                <form>
+                <section className="rightPage">
                     <h3>My details</h3>
                     <br />
                     <hr />
@@ -236,7 +236,7 @@ class Form extends React.Component {
                             </section>
                         </div>
                     </section>
-                </form>
+                </section>
             </div>
         )
     }

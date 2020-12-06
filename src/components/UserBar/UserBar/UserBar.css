@@ -7,7 +7,7 @@
 .user nav {
   padding: 1em;
   border: solid 1 transparent;
-  width: min-content;
+  width: 100%;
 }
 
 .user ul {
@@ -29,6 +29,7 @@
   font-weight: bold;
   display: inline-block;
 }
+
 
 .user .userbar--topitems {
   border: solid 1px #FDBC2C;

@@ -24,19 +24,19 @@
 @font-face {
   font-family: "Fredericka-the-Great";
   src: local("Fredericka-the-Great"),
-    url(../../../font//Fredericka-the-Great.ttf) format("opentype");
+    url(../../../../font/Fredericka-the-Great.ttf) format("opentype");
 }
 @font-face {
   font-family: "JosefinSans-Regular";
   src: local("JosefinSans-Regular"),
-    url(../../../font/JosefinSans-Regular.ttf) format("opentype");
+    url(../../../../font/JosefinSans-Regular.ttf) format("opentype");
 }
 .breadcrumb {
   width: 100%;
   & .navigation {
     min-width: fit-content;
     height: 400px;
-    background-image: url("../../../images/pizza-header.jpg");
+    background-image: url("../../../../images/pizza-header.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -54,6 +54,7 @@
         color: #ffffff;
         font-family: "Fredericka-the-Great";
         margin-bottom: 30px;
+        font-weight: normal;
         @include mobile {
             font-size: 35px;
         }
@@ -72,7 +73,6 @@
           text-align: center;
           font-size: 16px;
           padding: 5px 50px;
-          font-weight: bold;
         }
         &--content:before,
         &--content:after {

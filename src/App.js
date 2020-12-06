@@ -90,7 +90,7 @@ class App extends React.Component {
                         <Route path="/sign-in" component={SignIn} />
                         <Route path="/checkout" render={history => <Checkout history={history} updateCart={this.updateCart} />} />
                         <Route path='/order-created' component={OrderCreated} />
-                        <Route path='/mydetails' component={Mydetails} />
+                        <ProtectedRoute path='/mydetails' component={Mydetails} />
                         <Route path='/change-password' component={changePassword} />
                         <ProtectedRoute path="/manage-account" component={ManageAccount} />
                     </Switch>

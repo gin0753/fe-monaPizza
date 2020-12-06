@@ -14,6 +14,7 @@ class Payment extends React.Component {
             readTerm: false,
             paymentSucceeded: false,
             paymentFailed: false,
+            orderPlaced: false,
             userId: sessionStorage.getItem('userID'),
             config: {
                 headers: {
@@ -62,7 +63,22 @@ class Payment extends React.Component {
     }
 
     handleClick = async () => {
-        
+        if(this.state.paymentSucceeded){
+            try{
+                const res = await Axios.put(`/order/${this.props.orderId}`, {orderStatus: 'Pending'}, this.state.config)
+                if(res.status === 200){
+                    await new Promise((resolve)=>setTimeout(() => {
+                        this.setState({
+                            orderPlaced: true
+                        });
+                        resolve();
+                        }, 2500));
+                }
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
     }
 
     render() {

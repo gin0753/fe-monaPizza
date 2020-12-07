@@ -3,7 +3,7 @@ import '../../Header.css';
 import { Link } from 'react-router-dom';
 import {FaUser} from 'react-icons/fa';
 
-function Avatar() {
+function Avatar(props) {
 
     const [avatar, setAvatar] = useState(false);
 
@@ -19,13 +19,17 @@ function Avatar() {
         window.location.reload();
     }
 
+    const userRole = sessionStorage.getItem('role');
+
     return (
         <>
         <div>
             { userJWT ? <i onClick={handleClick}><FaUser color={"#FDBC2C"} size={35}/></i> : <></>}
         </div>
         {avatar && <div className="header__leftWrapper--avatar--userActions">
-            <span><Link to="/manage-account">User Profile</Link></span>
+            <span><Link to="/mydetails">User Profile</Link></span>
+            <span><Link to="/change-password">Change Password</Link></span>
+            <span className={userRole === 'ROLE.ADMIN' ? "" : "disabled"}><Link to="/manage-pizza">Manage Pizza</Link></span>
             <span onClick={handleSignOut}>Sign Out</span>
         </div>}
         {!avatar && <></>}

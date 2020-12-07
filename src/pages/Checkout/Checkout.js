@@ -4,14 +4,7 @@ import Navigation from '../../components/Navigation/Navigation';
 import Form from './components/Form/Form';
 
 class Checkout extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sidebarIsClicked: false,
-            cartIsClicked: false
-        }
-    }
-    
+        
     render() {
         return (
             <div className="background">

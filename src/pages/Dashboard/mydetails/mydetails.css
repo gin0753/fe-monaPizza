@@ -7,7 +7,6 @@
 
 .dashboard {
   width: 100%;
-  height: 90em;
 }
 
 .dashboard h3 {
@@ -35,15 +34,15 @@
   margin-left: 3em;
 }
 
+.dashboard .form hr {
+  border: solid 1px #fdbc2c;
+}
+
 .dashboard .form .mydetails {
   color: #fdbc2c;
   width: 90%;
   display: flex;
   justify-content: center;
-}
-
-.dashboard .form .mydetails hr {
-  border: solid 1px #fdbc2c;
 }
 
 .dashboard .form .mydetails .userName {
@@ -164,7 +163,19 @@
 .dashboard .form .mydetails .myPreference {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.dashboard .form .mydetails .myPreference__successMsg {
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.dashboard .form .mydetails .myAddr__noContent {
+  text-align: center;
+  margin: 10px 0;
 }
 
 .dashboard .form .mydetails .contactoptions {

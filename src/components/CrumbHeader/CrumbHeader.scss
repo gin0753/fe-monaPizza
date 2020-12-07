@@ -1,0 +1,80 @@
+.crumbHeader_container {
+  position: relative;
+  width: 100%;
+  height: 389px;
+  background: url(./img/pizza-header.jpg) center top no-repeat;
+  .fontColor {
+    color: #fdbc2c;
+  }
+  h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Fredericka the Great", cursive;
+    font-size: 72px;
+    color: #fff;
+    line-height: 90px;
+    text-transform: capitalize;
+  }
+
+  nav {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    width: auto;
+    height: 36px;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    .border {
+      position: absolute;
+    }
+  }
+
+  ul {
+    padding:0 20px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #fdbc2c;
+    border-left:none;
+    border-right:none;
+    box-sizing: border-box;
+    &::before{
+      position: absolute;
+      left: -13px;
+      top: 5px;
+      height: 26px;
+      width: 26px;
+      border-right:1px solid #fdbc2c;
+      border-top:1px solid #fdbc2c;
+      content: '';
+      transform: rotate(45deg);
+    }    
+    &::after{
+      position: absolute;
+      right: -13px;
+      top: 5px;
+      height: 26px;
+      width: 26px;
+      border-left:1px solid #fdbc2c;
+      border-bottom:1px solid #fdbc2c;
+      content: '';
+      transform: rotate(45deg);
+    }
+    li {
+      margin:0 15px;
+      position: relative;
+      display: inline-block;
+      line-height: 36px;
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 18px;
+      text-transform: capitalize;
+    }
+    li:nth-child(2) {
+      margin:0;
+    color: #fdbc2c;
+    font-size: 10px;
+    }
+  }
+}

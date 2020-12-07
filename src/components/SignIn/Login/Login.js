@@ -3,7 +3,7 @@ import '../SignIn.css';
 import facebook from '../../../images/facebook_icon.svg';
 import wechat from '../../../images/wechat_icon.svg';
 import google from '../../../images/google_icon.svg';
-import axios from 'axios';
+import Axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import Lottie from 'react-lottie'
 import {FaTimes, FaCheck, FaEye} from 'react-icons/fa';
@@ -204,7 +204,7 @@ class Login extends React.Component{
         }
         if(this.state.checkEmail === 'Green' && this.state.checkPassword === 'Green'){
             try{
-                const response = await axios.post('/register', RegisterInfo);
+                const response = await Axios.post('/register', RegisterInfo);
                 if(response.status === 201){
                     await this.setState({isRegistered: true,
                                          userExists: false });
@@ -232,7 +232,7 @@ class Login extends React.Component{
 
         if(this.state.checkEmail === 'Green' && this.state.checkPassword === 'Green' && this.state.confirmPassword === 'Green'){
             try{
-                const response = await axios.post(
+                const response = await Axios.post(
                     '/login', 
                     LoginInfo,
                     // config
@@ -242,11 +242,11 @@ class Login extends React.Component{
                         isLogin: true,
                         isAuthenticated: true
                     });
-                    const userID = response.data.id;
-                    const userName = response.data.username;
+                    const {id, username, role} = response.data;
                     sessionStorage.setItem('login-token', response.data.token);
-                    sessionStorage.setItem('userID', userID);
-                    sessionStorage.setItem('userName', userName);
+                    sessionStorage.setItem('userID', id);
+                    sessionStorage.setItem('role', role);
+                    sessionStorage.setItem('userName', username);
                     this.handleSwitch();
                 }
                 else{
@@ -272,21 +272,22 @@ class Login extends React.Component{
         let { givenName } = name;
 
         const googleInfo = {
+            isVerified: true,
             GoogleID: googleId,
             UserName: name,
             SurName: givenName,
             Email: email,
-            Password: access_token
+            Password: '123456Abc'
         };
         
         try{
-            const response = await axios.post('/googleLogin', googleInfo);
+            const response = await Axios.post('/googleLogin', googleInfo);
             if(response.status === 200 || response.status === 201){
-                const userID = response.data._id;
-                const userName = response.data.UserName;
+                const {_id, UserName, role} = response.data;
                 sessionStorage.setItem('login-token', response.data.token);
-                sessionStorage.setItem('userID', userID);
-                sessionStorage.setItem('userName', userName);
+                sessionStorage.setItem('userID', _id);
+                sessionStorage.setItem('role', role);
+                sessionStorage.setItem('userName', UserName);
                 await this.setState({isAuthenticated: true});
                 this.handleSwitch();
             }

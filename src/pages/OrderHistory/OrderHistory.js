@@ -9,6 +9,7 @@ class OrderHistory extends React.Component {
   constructor(props){
     super(props)
     this.state = {
+      originalOrders: [],
       orders: [],
       filterStatus: '',
       searchOrder: '',
@@ -21,25 +22,29 @@ class OrderHistory extends React.Component {
     await fetchOrder();
     const { orders: { orders } } = this.props;
     this.setState({
-      orders: orders
+      orders: orders,
+      originalOrders: orders
     })
   }
 
   originOrder = () => {
     this.setState({
-      filterStatus: ''
+      filterStatus: '',
+      orders: this.state.originalOrders
     })
   }
 
   paidOrder = () => {
     this.setState({
-      filterStatus: 'Paid'
+      filterStatus: 'Paid',
+      orders: this.state.originalOrders
     })
   }
 
   unpaidOrder = () => {
     this.setState({
-      filterStatus: 'Unpaid'
+      filterStatus: 'Unpaid',
+      orders: this.state.originalOrders
     })
   }
 
@@ -57,7 +62,7 @@ class OrderHistory extends React.Component {
 
   searchOrder = (e) => {
     e.preventDefault();
-    let matchResult = this.state.orders.filter (
+    let matchResult = this.state.originalOrders.filter (
       order => order._id.substring(order._id.length - 4) === this.state.searchOrder
     )
     if (matchResult.length > 0){
@@ -66,9 +71,8 @@ class OrderHistory extends React.Component {
       })
     }
     else{
-      const { orders: { orders } } = this.props;
       this.setState({
-        orders: orders
+        orders: []
       })
     }
   }

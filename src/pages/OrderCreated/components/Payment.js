@@ -4,6 +4,7 @@ import options from '../../../images/payment-options.png';
 import { connect } from 'react-redux';
 import { updateOrderId } from '../../../action/updateOrderID';
 import * as delivering from '../../../delivering.json'
+import Lottie from 'react-lottie'
 import StripeCheckout from 'react-stripe-checkout'
 import Axios from 'axios';
 
@@ -14,6 +15,7 @@ class Payment extends React.Component {
             readTerm: false,
             paymentSucceeded: false,
             paymentFailed: false,
+            orderPlaced: false,
             userId: sessionStorage.getItem('userID'),
             config: {
                 headers: {
@@ -59,10 +61,6 @@ class Payment extends React.Component {
         catch(err){
             console.log(err)
         }
-    }
-
-    handleClick = async () => {
-        
     }
 
     render() {
@@ -113,17 +111,30 @@ class Payment extends React.Component {
                             { this.state.paymentSucceeded && <h6 className="green">Payment Succeed</h6> }
                             { this.state.paymentFailed && <h6 className="red">Payment Failed</h6> }
                         </div>
-
-                        <div className="payment__term">
-                            <input type="checkbox" id="accepterm" name="accepterm" />
-                            <label className="inlinelabel" htmlFor="accepterm" onClick={this.acceptTerm}>I have read and accept the</label>
-                            <p><span>Term & Conditions</span></p>
-                        </div>           
-
-                        {this.state.readTerm && <button className="payment__orderBtn" 
-                        type="button" onClick={this.handleClick}>PLACE ORDER</button>}
-                        {!this.state.readTerm && <button className="payment__orderBtn disabled" 
-                        type="button" onClick={this.handleClick} disabled>PLACE ORDER</button>}
+          
+                        {this.props.animation && <Lottie options={defaultOptions} width={150} height={150} />}
+                        {!this.props.animation && 
+                        <>
+                            <div className="payment__term">
+                                <input type="checkbox" id="accepterm" name="accepterm" />
+                                <label className="inlinelabel" htmlFor="accepterm" onClick={this.acceptTerm}>I have read and accept the</label>
+                                <p><span>Term & Conditions</span></p>
+                            </div> 
+                            {this.state.readTerm &&
+                            <div>
+                                {this.state.paymentSucceeded && <button className="payment__orderBtn" 
+                                type="button" onClick={this.props.clickEvent}>PLACE ORDER</button>}
+                                {!this.state.paymentSucceeded && <button className="payment__orderBtn disabled" 
+                                type="button" onClick={this.props.clickEvent} disabled>PLACE ORDER</button>}
+                            </div>
+                            }
+                            {!this.state.readTerm &&
+                                <div>
+                                    <button className="payment__orderBtn disabled" 
+                                    type="button" onClick={this.props.clickEvent} disabled>PLACE ORDER</button>
+                                </div>
+                            }
+                        </>}
 
                     </form>
                 </section>

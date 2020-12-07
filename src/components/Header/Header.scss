@@ -36,14 +36,14 @@ src: local('RoyaChicken'), url(../../font/RoyaChicken.otf) format('opentype');
                 color: #FFFFFF;
                 font-weight: 700;
                 position: absolute;
-                bottom: -102px;
+                bottom: -142px;
                 left: -85px;
                 width: 140px;
-                height: 80px;
+                height: 120px;
                 padding: 5px;
                 & span{
                     display: block;
-                    font-size: 1rem;
+                    font-size: 0.85rem;
                 }
                 & span:hover{
                     color: #d94f2b;

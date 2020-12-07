@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../Form.css';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateOrderId } from '../../../../../../action/updateOrderID';
 import Lottie from 'react-lottie'

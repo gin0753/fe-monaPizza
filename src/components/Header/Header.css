@@ -44,16 +44,16 @@
   color: #FFFFFF;
   font-weight: 700;
   position: absolute;
-  bottom: -102px;
+  bottom: -142px;
   left: -85px;
   width: 140px;
-  height: 80px;
+  height: 120px;
   padding: 5px;
 }
 
 .header__leftWrapper--avatar--userActions span {
   display: block;
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
 
 .header__leftWrapper--avatar--userActions span:hover {

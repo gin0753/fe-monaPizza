@@ -38,8 +38,19 @@ class OrderCreated extends React.Component {
                   this.setState({
                       orderPlaced: true
                   });
-                  resolve();
-                  }, 2500));
+                  const cleanCart = async() => {
+                    try{
+                        const res = await Axios.delete(`cart/`);
+                        if(res.status === 200){
+                            await this.props.updateCart();
+                        }
+                    } catch(err) {
+                        console.log(err);
+                    }
+                }
+                cleanCart();
+                resolve();
+                }, 2500));
           }
       }
       catch(err){

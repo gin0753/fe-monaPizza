@@ -27,7 +27,8 @@ class Form extends React.Component{
             shippingAddr: '',
             shippingUnit: '',
             orderNotes: '',
-            optionalAddr: false
+            optionalAddr: false,
+            saveProfile: true
         }
     }
 
@@ -42,7 +43,12 @@ class Form extends React.Component{
             {optionalAddr: !this.state.optionalAddr}
         );
     }
-    
+
+    saveProfile = () => {
+        this.setState(
+            {saveProfile: !this.state.saveProfile}
+        );
+    }
     
     async componentDidMount() {
 
@@ -119,8 +125,8 @@ class Form extends React.Component{
                                 </div>
         
                                 <div className="clear">
-                                    <input type="checkbox" id="createAccount" name="createAccount" />
-                                    <label className="inlinelabel" htmlFor="createAccount">Create an account?</label>
+                                    <input type="checkbox" id="createAccount" name="createAccount" defaultChecked onChange={this.saveProfile} />
+                                    <label className="inlinelabel" htmlFor="createAccount">Save to Profile</label>
                                 </div>
                             </form>
                         </div>  

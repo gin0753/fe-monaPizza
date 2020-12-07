@@ -22,7 +22,12 @@ class OrderCreated extends React.Component {
 
   handleClick = async () => {
       try{
-          const res = await Axios.put(`/order/${this.props.orderId}`, {orderStatus: 'Pending'}, this.state.config)
+          const d = new Date();
+          const hours = d.getHours();
+          const minutes = d.getMinutes();
+          const seconds = d.getSeconds();
+          const orderPlacedTime = `${d.toLocaleDateString()} ${hours}:${minutes}:${seconds}`;
+          const res = await Axios.put(`/order/${this.props.orderId}`, {orderStatus: 'Pending', orderPlacedTime}, this.state.config)
           if(res.status === 200){
               await new Promise((resolve) => {    
                   this.setState({isAnimated: true});

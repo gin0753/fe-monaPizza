@@ -33,26 +33,34 @@
 }
 
 .order-created {
+  display: flex;
   background: url(../img/Background.png) no-repeat center top;
-  .containerAll {
-    height: 900px;
+  .beforePayment {
+    height: 680px;
+    padding: 50px;
+    width: 70%;
+    border: 1px solid transparent;
+  }
+  .afterPayment {
+    height: 800px;
+    padding: 50px 200px;
+    width: 100%;
     border: 1px solid transparent;
   }
   .order {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 80px auto;
-    width: 80%;
-    height: 700px;
+    width: 100%;
+    height: auto;
     color: white;
     &_top {
-      margin-bottom: 85px;
+      margin-bottom: 50px;
       flex: 1;
       text-align: center;
       font-size: 18px;
       h1 {
-        margin: 20px auto;
         font-size: 36px;
       }
       h2 {
@@ -186,18 +194,19 @@
   }
 
   .payment{
+    padding: 50px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+    width: 30%;
+    height: 680px;
     color: #FFFFFF;
     font-size: 16px;
-    margin-bottom: 100px;
     line-height: 1.5rem;
     & section{
+      height: auto;
       padding: 30px;
       border: 1px solid #fdbc2c;
-      width: 25%;
+      width: 100%;
       & img{
         width: 80%;
       }
@@ -279,7 +288,6 @@
 
 @media screen and (max-width: 992px) {
   .order-created {
-    
     .containerAll {
       height: auto;
     }

@@ -60,21 +60,26 @@ class Order extends React.Component {
     const arrivalTime = this.getArrivalTime(orderPlacedTime).arrivalTime;
     const arrivalDate = this.getArrivalTime(orderPlacedTime).arrivalDate;
 
-    if (loading) return <h1 className='serverErr'>Loading...</h1>;
-    else
+    {/*if (loading) return <h1 className='serverErr'>Loading...</h1>;
+  else*/}
       return (
-        <div className='containerAll'>
+        <div className={this.props.orderPlaced ? 'afterPayment' : 'beforePayment'}>
           <div className='order'>
+          {!this.props.orderPlaced && 
+            <div className='order_top josefin'>
+              <h1 className='themeYellow abril'>Order Preview</h1>
+            </div>}
+          {this.props.orderPlaced && 
             <div className='order_top josefin'>
               <h1 className='themeYellow abril'>Thank You!</h1>
-              <h2 className='themeYellow'>
-                Your order #{orderId.substring(orderId.length - 4)} has been
-                placed.
-              </h2>
-              <p>
-                Time Placed: <span>{orderPlacedTime} AEST</span>
-              </p>
-            </div>
+                <h2 className='themeYellow'>
+                  Your order #{orderId.substring(orderId.length - 4)} has been
+                  placed.
+                </h2>
+                <p>
+                  Time Placed: <span>{orderPlacedTime} AEST</span>
+                </p>
+            </div>}
             <ul className='order_middle'>
               <li>
                 <div className='order_middle_collectMethod_icon'></div>
@@ -98,12 +103,15 @@ class Order extends React.Component {
                 </p>
                 <p>{contactNumber}</p>
               </li>
-              <li>
+              {this.props.orderPlaced && 
+                <li>
                 <div className='order_middle_estimatedArrival_icon'></div>
                 <h2>Estimated Arrival</h2>
                 <h3>{arrivalTime}</h3>
                 <p>{arrivalDate}</p>
               </li>
+              }
+              {!this.props.orderPlaced && <></>}
             </ul>
             <div className='order_bottom'>
               <div className='order_bottom_list'>

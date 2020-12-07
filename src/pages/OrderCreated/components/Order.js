@@ -6,6 +6,7 @@ class Order extends React.Component {
   constructor(props) {
     super(props);
   }
+  
   componentDidMount = async () => {
     const { updateOrderInfo, orderId } = this.props;
     await updateOrderInfo(orderId);

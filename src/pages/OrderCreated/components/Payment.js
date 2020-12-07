@@ -64,7 +64,6 @@ class Payment extends React.Component {
     }
 
     render() {
-        console.log(this.props.animation)
         const defaultOptions = {
             loop: true,
             autoplay: true, 
@@ -115,17 +114,26 @@ class Payment extends React.Component {
           
                         {this.props.animation && <Lottie options={defaultOptions} width={150} height={150} />}
                         {!this.props.animation && 
-                            
                         <>
                             <div className="payment__term">
                                 <input type="checkbox" id="accepterm" name="accepterm" />
                                 <label className="inlinelabel" htmlFor="accepterm" onClick={this.acceptTerm}>I have read and accept the</label>
                                 <p><span>Term & Conditions</span></p>
                             </div> 
-                            {this.state.readTerm && <button className="payment__orderBtn" 
-                            type="button" onClick={this.props.clickEvent}>PLACE ORDER</button>}
-                            {!this.state.readTerm && <button className="payment__orderBtn disabled" 
-                            type="button" onClick={this.props.clickEvent} disabled>PLACE ORDER</button>}
+                            {this.state.readTerm &&
+                            <div>
+                                {this.state.paymentSucceeded && <button className="payment__orderBtn" 
+                                type="button" onClick={this.props.clickEvent}>PLACE ORDER</button>}
+                                {!this.state.paymentSucceeded && <button className="payment__orderBtn disabled" 
+                                type="button" onClick={this.props.clickEvent} disabled>PLACE ORDER</button>}
+                            </div>
+                            }
+                            {!this.state.readTerm &&
+                                <div>
+                                    <button className="payment__orderBtn disabled" 
+                                    type="button" onClick={this.props.clickEvent} disabled>PLACE ORDER</button>
+                                </div>
+                            }
                         </>}
 
                     </form>

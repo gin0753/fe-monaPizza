@@ -58,27 +58,27 @@ class App extends React.Component {
     return (
       <>
         <Router>
-          {window.location.pathname !== "/sign-in" ? (
-            <>
-              <SideBar
-                sidestatus={this.state.sidebarIsClicked}
-                toggleSideBar={this.toggleSideBar}
-              />
-              <CartTotals
-                cartstatus={this.state.cartIsClicked}
-                toggleCart={this.toggleCart}
-                amountChanged={this.state.amountChanged}
-              />
-              <Header
-                toggleSideBar={this.toggleSideBar}
-                toggleCart={this.toggleCart}
-                sidestatus={this.state.sidebarIsClicked}
-                cartstatus={this.state.cartIsClicked}
-              />
-            </>
-          ) : (
-            <></>
-          )}
+          {(window.location.pathname === "/sign-in") ||
+            (window.location.pathname === "/view-order") ? (
+              <></>
+            ) : (
+              <>
+                <SideBar
+                  sidestatus={this.state.sidebarIsClicked}
+                  toggleSideBar={this.toggleSideBar}
+                />
+                <CartTotals
+                  cartstatus={this.state.cartIsClicked}
+                  toggleCart={this.toggleCart}
+                  amountChanged={this.state.amountChanged}
+                />
+                <Header
+                  toggleSideBar={this.toggleSideBar}
+                  toggleCart={this.toggleCart}
+                  sidestatus={this.state.sidebarIsClicked}
+                  cartstatus={this.state.cartIsClicked}
+                /></>
+            )}
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
@@ -119,8 +119,8 @@ class App extends React.Component {
               <Footer />
             </>
           ) : (
-            <></>
-          )}
+              <></>
+            )}
         </Router>
       </>
     );

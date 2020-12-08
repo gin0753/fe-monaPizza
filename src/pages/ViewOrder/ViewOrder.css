@@ -3,14 +3,15 @@
     font-weight: 600;
     min-height:1080px;
     min-width: 610px;
+    font-family: 'Ubuntu', sans-serif;
 }
 ul {
     list-style-type: none;
 }
 
 .viewOrder_page-title {
-    margin-left: 10px;
-    margin-right: 10px;
+    font-size: 3em;
+    margin:10px;
 }
 
 .viewOrder .title {
@@ -44,7 +45,10 @@ ul {
     width:150px;
     border-style:solid;
     border-width:1px;
-    border-color:forestgreen;    
+    border-color:forestgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
 }
 .viewOrder .navbar__element:hover {
     background-color:forestgreen;
@@ -77,6 +81,9 @@ ul {
 .viewOrder_countdown {
     margin: 10px;
 }
+.viewOrder_countdown::after {
+    content: " min"
+}
 
 .viewOrder_order-number::before {
     content: "#"
@@ -88,6 +95,7 @@ ul {
 }
 
 .viewOrder_list {
+    padding: 0.5em;
     display: flex;
     font-weight: 700;
     font-size: 24px;
@@ -123,11 +131,12 @@ ul {
     display: flex;
 }
 .viewOrder_earnings__detail {
-
+    padding: 0.2em;
 }
 
 .viewOrder_earnings__title {
     text-align: left;
+    padding: 0.2em;
 }
 .viewOrder_earnings__total {
     font-weight: 800;

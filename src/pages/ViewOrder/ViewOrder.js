@@ -14,12 +14,12 @@ class ViewOrder extends Component {
         return <div className="viewOrder">
             <div className="title">
                 <h1 className="viewOrder_page-title">Orders</h1>
-                <div className="viewOrder_navbar">
+                <nav className="viewOrder_navbar">
                     <div className="navbar__element"><p>Incoming</p></div>
                     <div className="navbar__element"><p>Preparing</p></div>
                     <div className="navbar__element"><p>Ready</p></div>
                     <div className="navbar__element"><p>History</p></div>
-                </div>
+                </nav>
             </div>
 
             <div className="viewOrder_order-container">
@@ -27,7 +27,7 @@ class ViewOrder extends Component {
                     <div className="viewOrder_order__header">
                         <h2 className="viewOrder_order-number">100</h2>
                         <h2 className="viewOrder_customer-name">Chloe</h2>
-                        <h2 className="viewOrder_countdown">10 min</h2>
+                        <h2 className="viewOrder_countdown">10</h2>
                     </div>
                     <div className="viewOrder_details">
                         <ul>
@@ -70,8 +70,8 @@ class ViewOrder extends Component {
                     </div>
                 </div>
 
-                </div>
             </div>
+        </div>
 
     }
 }

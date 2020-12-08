@@ -13,7 +13,8 @@ class Pagination extends React.Component {
     super(props)
     this.state = {
       pageNumbers: [],
-      currentPage: 1
+      currentPage: 1,
+      pageSize: 2
     }
   }
 
@@ -58,7 +59,7 @@ const mapStateToProps = (state) => {
 
 const mapActionToProps = dispatch => {
   return {
-    fetchOrder: () => dispatch(fetchOrder())
+    fetchOrder: () => dispatch(fetchOrder(1, 6))
   }
 }
 

@@ -9,31 +9,31 @@ import { faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
 export const UserBarTopItems = [
     {
         title: 'My Details',
-        path: '#my-details',
+        path: '/mydetails',
         cName: 'my-details',
         icon: faAddressCard,
         id: 'my-details'
     },
     {
-        title: 'Payment Details',
-        path: '#payment',
-        cName: 'payment',
-        icon: faMoneyCheck,
-        id: 'payment'
-    },
-    {
         title: 'Change Password',
-        path: '#password',
+        path: '/change-password',
         cName: 'password',
         icon: faUnlockAlt,
         id: 'password'
     },
     {
         title: 'Order History',
-        path: '#history',
+        path: '/order-history',
         cName: 'history',
         icon: faHistory,
         id: 'history'
+    },
+    {
+        title: 'Update Menu',
+        path: '/manage-pizza',
+        cName: 'updateMenu',
+        icon: faMoneyCheck,
+        id: 'updateMenu'
     }
 ];
 

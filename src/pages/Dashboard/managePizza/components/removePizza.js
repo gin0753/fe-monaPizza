@@ -21,7 +21,7 @@ class RemovePizza extends React.Component {
 
     checkPattern = () => {
         const pizzaName = this.pizzaName.current.value;
-        if(pizzaName.match(this.props.pattern.namePattern) && pizzaName.length > 0){
+        if(pizzaName.match(this.props.pattern.namePattern) && pizzaName.length > 0 || pizzaName.length === 0){
             this.setState({validString: true});
         }
         else{
@@ -59,7 +59,7 @@ class RemovePizza extends React.Component {
     }
 
     render() {
-        const {isRemoved, validString} = this.state;
+        const {isRemoved, validString, PizzaName} = this.state;
         return (
             <section>
                 <h3>Remove Pizza from the Menu</h3>
@@ -67,7 +67,7 @@ class RemovePizza extends React.Component {
                 <label>Pizza Name</label>
                 <input ref={this.pizzaName} name="PizzaName" placeholder="Peri-peri" onChange={this.handleChange}/>
                 <div class="dashboard__managePizza--buttonWrapper">
-                    <button className= {validString === true ? "removeBtn" : "removeBtn disabled"} 
+                    <button className= {validString === true && PizzaName.length !== 0 ? "removeBtn" : "removeBtn disabled"} 
                     disabled={validString === true ? false : true} onClick={this.handleClick}>Remove Pizza</button>
                 </div>
                 {!isRemoved ? <></>:<div className="dashboard__managePizza--isUpdated">Pizza Removed Successfully</div>}

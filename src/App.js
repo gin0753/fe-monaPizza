@@ -103,7 +103,12 @@ class App extends React.Component {
                 <Checkout history={history} updateCart={this.updateCart} />
               )}
             />
-            <Route path='/order-created' component={OrderCreated} />
+            <Route 
+              path='/order-created'
+              render={(history) => (
+                <OrderCreated history={history} updateCart={this.updateCart} />
+              )}
+            />
             <ProtectedRoute path='/order-history' component={orderHistory} />
             <ProtectedRoute path='/mydetails' component={Mydetails} />
             <ProtectedRoute

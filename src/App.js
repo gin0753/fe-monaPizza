@@ -20,7 +20,6 @@ import Media from "./components/Media/Media";
 import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
 import Mydetails from "./pages/Dashboard/mydetails/mydetails"
-import ManageAccount from './pages/manageAccount/manageAccount';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import RedirectPage from './pages/RedirectPage/RedirectPage';
 import changePassword from "./pages/Dashboard/changePassword/changePassword";
@@ -111,6 +110,7 @@ class App extends React.Component {
                 <OrderCreated history={history} updateCart={this.updateCart} />
               )}
             />
+            <Route path='/redirect' component={RedirectPage} />
             <ProtectedRoute path='/order-history' component={orderHistory} />
             <ProtectedRoute path='/mydetails' component={Mydetails} />
             <ProtectedRoute

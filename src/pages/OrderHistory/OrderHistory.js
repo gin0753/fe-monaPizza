@@ -4,6 +4,7 @@ import CrumbHeader from "../../components/CrumbHeader";
 import { connect } from "react-redux";
 import { fetchOrder } from '../../action/historyActions';
 import OrderItem from './components/orderItem';
+import Pagination from './components/pagination';
 
 class OrderHistory extends React.Component {
   constructor(props){
@@ -137,6 +138,7 @@ class OrderHistory extends React.Component {
               )
               )}
           </ul>
+          <Pagination props={this.props}/>
         </div>
       </section>
     );
@@ -153,7 +155,7 @@ const mapStateToProps = (state) => {
 
 const mapActionToProps = dispatch => {
   return {
-    fetchOrder: () => dispatch(fetchOrder())
+    fetchOrder: () => dispatch(fetchOrder(1, 6))
   }
 }
 

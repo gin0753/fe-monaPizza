@@ -29,7 +29,7 @@ class RedirectPage extends React.Component {
 
     render() {
         return (<div className="redirectpage" >
-            <h1>You Email has been verified</h1>
+            <h1>Your Email has been verified</h1>
             <h2>Redirecting in <span>{this.state.seconds}</span> seconds</h2>
             <div className="loader">Loading ...</div>
         </div>);

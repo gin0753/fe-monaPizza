@@ -5,9 +5,9 @@
 
 
 .user nav {
-  padding: 2em;
+  padding: 1em;
   border: solid 1 transparent;
-  width: min-content;
+  width: 100%;
 }
 
 .user ul {
@@ -30,6 +30,7 @@
   display: inline-block;
 }
 
+
 .user .userbar--topitems {
   border: solid 1px #FDBC2C;
   background-color: transparent;
@@ -37,6 +38,10 @@
 
 .user .userbar--topitems h6 {
   margin-left: 1em;
+}
+
+.user .my-details {
+  background-color: #FDBC2C;
 }
 
 
@@ -69,6 +74,12 @@
   top: 0;
   right: 0;
   position: absolute;
+}
+
+@media (max-width: 375px) {
+  .user ul {
+    width: 300px;
+  }
 }
 
 

@@ -83,7 +83,7 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/users' component={Users} />
-            <Route path='/viewOrder' component={ViewOrder} />
+            <Route path='/view-order' component={ViewOrder} />
             <Route path='/contact-us' component={ContactUs} />
             <Route
               path='/shopping-cart'

@@ -242,11 +242,11 @@ class Login extends React.Component{
                         isLogin: true,
                         isAuthenticated: true
                     });
-                    const userID = response.data.id;
-                    const userName = response.data.username;
+                    const {id, username, role} = response.data;
                     sessionStorage.setItem('login-token', response.data.token);
-                    sessionStorage.setItem('userID', userID);
-                    sessionStorage.setItem('userName', userName);
+                    sessionStorage.setItem('userID', id);
+                    sessionStorage.setItem('role', role);
+                    sessionStorage.setItem('userName', username);
                     this.handleSwitch();
                 }
                 else{
@@ -283,11 +283,11 @@ class Login extends React.Component{
         try{
             const response = await Axios.post('/googleLogin', googleInfo);
             if(response.status === 200 || response.status === 201){
-                const userID = response.data._id;
-                const userName = response.data.UserName;
+                const {_id, UserName, role} = response.data;
                 sessionStorage.setItem('login-token', response.data.token);
-                sessionStorage.setItem('userID', userID);
-                sessionStorage.setItem('userName', userName);
+                sessionStorage.setItem('userID', _id);
+                sessionStorage.setItem('role', role);
+                sessionStorage.setItem('userName', UserName);
                 await this.setState({isAuthenticated: true});
                 this.handleSwitch();
             }
@@ -377,7 +377,7 @@ class Login extends React.Component{
                                 {confirmPassword === '' && <i></i>}
                             </div>
                             {
-                                !this.state.isAuthenticated ? <div style={{color: "#d94f2b"}}>Incorrect Email or Password!</div> : <div></div>
+                                !this.state.isAuthenticated ? <div style={{color: "#d94f2b"}}>Invalid Username or Password</div> : <div></div>
                             }
                             {this.state.isLoading ? <span className="loading"><HashLoader loading size={48} color={"#d94f2b"}/></span> 
                             : <button>Sign In</button>}
@@ -447,7 +447,8 @@ class Login extends React.Component{
                             </div>
                                 {this.state.isRegistered && 
                                     <span className="loading">
-                                        <Lottie options={defaultOptions} width={80} height={80}/>
+                                        <Lottie options={defaultOptions} width={60} height={60}/>
+                                        <h3>A Verification Link Has Been sent to your Email</h3>
                                     </span>}
                                 {!this.state.isRegistered && 
                                     <span className="loading">

@@ -19,14 +19,15 @@ import Newsletter from "./components/Newsletter/Newsletter";
 import Media from "./components/Media/Media";
 import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
-import Mydetails from "./pages/Dashboard/mydetails/mydetails"
+// import Mydetails from "./pages/Dashboard/mydetails/mydetails"
 import ManageAccount from './pages/manageAccount/manageAccount';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import RedirectPage from './pages/RedirectPage/RedirectPage';
-import changePassword from "./pages/Dashboard/changePassword/changePassword";
+// import changePassword from "./pages/Dashboard/changePassword/changePassword";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
-import ManagePizza from "./pages/Dashboard/managePizza/managePizza";
-import orderHistory from "./pages/OrderHistory";
+// import ManagePizza from "./pages/Dashboard/managePizza/managePizza";
+// import orderHistory from "./pages/OrderHistory";
+import {ChangePassword, ManagePizza, Mydetails, OrderHistory} from './pages/Dashboard';
 
 class App extends React.Component {
   constructor(props) {
@@ -111,11 +112,11 @@ class App extends React.Component {
                 <OrderCreated history={history} updateCart={this.updateCart} />
               )}
             />
-            <ProtectedRoute path='/order-history' component={orderHistory} />
+            <ProtectedRoute path='/order-history' component={OrderHistory} />
             <ProtectedRoute path='/mydetails' component={Mydetails} />
             <ProtectedRoute
               path='/change-password'
-              component={changePassword}
+              component={ChangePassword}
             />
             <AdminRoute path='/manage-pizza' component={ManagePizza} />
           </Switch>

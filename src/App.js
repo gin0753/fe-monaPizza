@@ -110,7 +110,7 @@ class App extends React.Component {
                             )}
                         />
                         <ProtectedRoute path='/order-history' component={orderHistory} />
-                        <Route path='/mydetails' component={Mydetails} />
+                        <ProtectedRoute path='/mydetails' component={Mydetails} />
                         <ProtectedRoute
                             path='/change-password'
                             component={changePassword}

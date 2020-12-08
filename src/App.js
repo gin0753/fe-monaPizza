@@ -22,6 +22,7 @@ import OrderCreated from "./pages/OrderCreated/OrderCreated";
 import Mydetails from "./pages/Dashboard/mydetails/mydetails";
 import changePassword from "./pages/Dashboard/changePassword/changePassword";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import RedirectPage from './pages/RedirectPage/RedirectPage';
 import AdminRoute from "./components/AdminRoute/AdminRoute";
 import ManagePizza from "./pages/Dashboard/managePizza/managePizza";
 import orderHistory from "./pages/OrderHistory";
@@ -91,7 +92,7 @@ class App extends React.Component {
                         />
                         <Route path='/product-details' component={ProductDetails} />
                         <Route path='/blog' component={Blog} />
-                        <Route path='/home' component={Home} />
+                        <Route path='/redirect' component={RedirectPage} />
                         <Route
                             path='/menu'
                             render={(props) => <Menu updateCart={this.updateCart} />}

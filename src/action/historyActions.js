@@ -20,12 +20,15 @@ const fetchOrderFaliure = err => {
     }
 }
 
-export const fetchOrder = () => {
+
+
+export const fetchOrder = (page, pageSize) => {
     return async (dispatch) => {
         await dispatch(fetchOrderRequest)
-        const res = await fetchOrders(1,8);
+        const res = await fetchOrders(page, pageSize);
         try{
             const orders = res.data;
+            console.log(orders.total)
             await dispatch(fetchOrderSuccess(orders))
         }
         catch(err){

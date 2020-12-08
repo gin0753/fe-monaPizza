@@ -377,7 +377,7 @@ class Login extends React.Component{
                                 {confirmPassword === '' && <i></i>}
                             </div>
                             {
-                                !this.state.isAuthenticated ? <div style={{color: "#d94f2b"}}>Invalid Username or Password</div> : <div></div>
+                                !this.state.isAuthenticated ? <div style={{color: "#d94f2b"}}>Invalid Account or Password</div> : <div></div>
                             }
                             {this.state.isLoading ? <span className="loading"><HashLoader loading size={48} color={"#d94f2b"}/></span> 
                             : <button>Sign In</button>}

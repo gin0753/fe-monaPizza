@@ -3,7 +3,7 @@ import './CartTotal.css'
 import axios from 'axios';
 import { PizzaImages } from '../../../PizzaImages'; 
 import { Link } from 'react-router-dom';
-
+import CartItem from './components/cartItem';
 class CartTotal extends React.Component {
     constructor(props){
         super(props)
@@ -70,17 +70,10 @@ class CartTotal extends React.Component {
                 <h3>Cart Totals</h3>
                 <hr />
                 <ul className="carttotal--pizza">
-                    {orderList.map((item, index) => {
+                    {orderList.map( item => {
                         return (
                             <>
-                                <li key={index}>
-                                    <img src={item.Img} alt={item.text} />
-                                    <div>
-                                        <h5>{item.pizzaName}</h5>
-                                        <p><span className="subtitle">SIZE:</span> {item.pizzaSize}</p>
-                                        <p><span className="red">{item.qty}x</span> ${item.pizzaPrice}</p>
-                                    </div>
-                                </li>
+                                <CartItem key={item._id} details={item} />
                                 <hr />
                             </>
                         )

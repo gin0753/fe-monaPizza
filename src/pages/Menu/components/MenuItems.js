@@ -86,8 +86,8 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, update
             <option value="Large">Large</option>
           </select>
           <div className="product__button">
-            <input className="catelogue-button" value="ADD" onClick={handleAdd}/>
-            <input className="catelogue-button" value="Remove" onClick={handleRemove}/>
+            <input className="catelogue-button" defaultValue="ADD" onClick={handleAdd}/>
+            <input className="catelogue-button" defaultValue="Remove" onClick={handleRemove}/>
           </div>
         </div>
       </form>

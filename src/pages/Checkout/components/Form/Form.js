@@ -53,21 +53,21 @@ class Form extends React.Component{
     async componentDidMount() {
 
         const userId = sessionStorage.getItem('userID');
-
-        try {
-            const { data } = await Axios.get(`http://localhost:8000/cart/${userId}/1/10`);
-
-            let subPrice = 0;
-            data.map(item => {
-                subPrice = item.totalPrice + subPrice;
-            })
-
-            const action = addPizzaList(data, subPrice);
-            store.dispatch(action);
-        } catch (err) {
-            console.log(err)
+        if(userId){
+            try {
+                const { data } = await Axios.get(`http://localhost:8000/cart/${userId}/1/10`);
+    
+                let subPrice = 0;
+                data.map(item => {
+                    return subPrice = item.totalPrice + subPrice;
+                })
+    
+                const action = addPizzaList(data, subPrice);
+                store.dispatch(action);
+            } catch (err) {
+                console.log(err)
+            }
         }
-
     }
 
     render(){

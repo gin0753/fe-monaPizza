@@ -38,7 +38,7 @@ class FeedBack extends React.Component {
     let point = this.state.rollPoint;
     let percent = this.toPercent(point);
 
-    if (point == 0) {
+    if (point === 0) {
       point = -0.332;
       percent = "-33.2%";
     } else {

@@ -26,8 +26,8 @@ class MobileApp extends React.Component {
               <li>Pay directly from the app</li>
             </ul>
             <div className='appDownload'>
-              <a className='ios'>download iPhone App</a>
-              <a className='android'>download Android App</a>
+              <a href="/" className='ios'>download iPhone App</a>
+              <a href="/" className='android'>download Android App</a>
             </div>
           </main>
         </div>

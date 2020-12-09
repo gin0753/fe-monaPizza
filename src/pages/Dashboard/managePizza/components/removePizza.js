@@ -21,7 +21,10 @@ class RemovePizza extends React.Component {
 
     checkPattern = () => {
         const pizzaName = this.pizzaName.current.value;
-        if(pizzaName.match(this.props.pattern.namePattern) && pizzaName.length > 0 || pizzaName.length === 0){
+        if(pizzaName.match(this.props.pattern.namePattern) && pizzaName.length > 0){
+            this.setState({validString: true});
+        }
+        else if(pizzaName.length === 0){
             this.setState({validString: true});
         }
         else{

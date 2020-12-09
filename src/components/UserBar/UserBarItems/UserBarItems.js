@@ -1,5 +1,3 @@
-import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';

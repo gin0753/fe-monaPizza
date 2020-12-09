@@ -10,7 +10,7 @@ class Item extends React.Component {
         </article>
         <div className='placeHolder'></div>
         <section>
-          <img src={this.props.photo} />
+          <img src={this.props.photo} alt="slider_img"/>
         </section>
       </div>
     );

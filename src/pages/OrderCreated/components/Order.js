@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 import { updateOrderInfo } from "../../../action/orderCreatedAction";
 
 class Order extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   
   componentDidMount = async () => {
     const { updateOrderInfo, orderId } = this.props;
@@ -61,8 +58,8 @@ class Order extends React.Component {
     const arrivalTime = this.getArrivalTime(orderPlacedTime).arrivalTime;
     const arrivalDate = this.getArrivalTime(orderPlacedTime).arrivalDate;
 
-    {/*if (loading) return <h1 className='serverErr'>Loading...</h1>;
-  else*/}
+      if (loading) return <h1 className='serverErr'>Loading...</h1>;
+      else
       return (
         <div className={this.props.orderPlaced ? 'afterPayment' : 'beforePayment'}>
           <div className='order'>

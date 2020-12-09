@@ -40,8 +40,8 @@ class Login extends React.Component{
         };
 
         this.namePattern = /^[A-Za-z]+$/;
-        this.passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
-        this.emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+        this.passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        this.emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
         this.username = React.createRef();
         this.surname = React.createRef();
@@ -266,9 +266,8 @@ class Login extends React.Component{
     }
 
     responseGoogle = async (res) => {
-        let { googleId, profileObj, tokenObj } = res;
+        let { googleId, profileObj} = res;
         let { email, name } = profileObj;
-        let { access_token } = tokenObj;
         let { givenName } = name;
 
         const googleInfo = {
@@ -341,7 +340,7 @@ class Login extends React.Component{
                         <h1>Login to Your Account</h1>
                         <h5>Login using social networks</h5>
                         <div className="Login__login--logincontainer--social">
-                            <i><a><img src={facebook} alt="facebook_icon"/></a></i>
+                            <i><a href="/"><img src={facebook} alt="facebook_icon"/></a></i>
                             <GoogleLogin
                                 clientId="124030455752-ctj88mk1vjbueamnf47fcjsp5p4ugpqn.apps.googleusercontent.com"
                                 buttonText="Login"
@@ -349,10 +348,10 @@ class Login extends React.Component{
                                 onFailure={this.responseGoogle}
                                 cookiePolicy={'single_host_origin'}
                                 render={renderProps =>(
-                                    <i><a onClick={renderProps.onClick}><img src={google} alt="google_icon"/></a></i>
+                                    <i><a href="/" onClick={renderProps.onClick}><img src={google} alt="google_icon"/></a></i>
                                 )}
                             />
-                            <i><a><img src={wechat} alt="wechat_icon"/></a></i>
+                            <i><a href="/"><img src={wechat} alt="wechat_icon"/></a></i>
                         </div>
                         <div className="Login__login--logincontainer--titlewrapper">
                             <span>OR</span>
@@ -393,9 +392,9 @@ class Login extends React.Component{
                         <h1>Create Free Account</h1>
                         <h5>Sign up using social networks</h5>
                         <div className="Login__login--registercontainer--social">
-                            <i><a><img src={facebook} alt="facebook_icon"/></a></i>
-                            <i><a><img src={google} alt="google_icon"/></a></i>
-                            <i><a><img src={wechat} alt="wechat_icon"/></a></i>
+                            <i><a href="/"><img src={facebook} alt="facebook_icon"/></a></i>
+                            <i><a href="/"><img src={google} alt="google_icon"/></a></i>
+                            <i><a href="/"><img src={wechat} alt="wechat_icon"/></a></i>
                         </div>
                         <div className="Login__login--registercontainer--titlewrapper">
                             <span>OR</span>
@@ -443,7 +442,7 @@ class Login extends React.Component{
                             }
                             <div className="readTerm">
                                 <input type="checkbox" id="term" name="term" value="term" onChange={this.checkTerm}/>
-                                <label>I have read the <a>Term & Conditions</a></label>
+                                <label>I have read the <a href="/">Term & Conditions</a></label>
                             </div>
                                 {this.state.isRegistered && 
                                     <span className="loading">

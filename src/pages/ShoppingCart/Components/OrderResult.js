@@ -139,7 +139,7 @@ class OrderResult extends React.Component {
 
             let subPrice = 0;
             data.map(item => {
-                subPrice = item.totalPrice + subPrice;
+                return subPrice = item.totalPrice + subPrice;
             })
 
             const action = addPizzaList(data, subPrice);
@@ -195,7 +195,7 @@ class OrderResult extends React.Component {
                                                 />
                                             </div>
                                             <div className="flex-item pizza-name">
-                                                <img src={sample_pizza} />
+                                                <img src={sample_pizza} alt="sample_pizza"/>
                                                 <div className="pizza-info">
                                                     <p>{pizza.pizzaName}</p>
                                                     <p>SIZE: {pizza.pizzaSize}</p>
@@ -209,11 +209,11 @@ class OrderResult extends React.Component {
                                             <div className="hd-arrow-down">
                                                 {
                                                     this.state.downArrow &&
-                                                    <a href="javascript:;" onClick={this.handleDownClick}><FontAwesomeIcon icon={faAngleDoubleDown} /></a>
+                                                    <a href="/" onClick={this.handleDownClick}><FontAwesomeIcon icon={faAngleDoubleDown} /></a>
                                                 }
                                                 {
                                                     !this.state.downArrow &&
-                                                    <a href="javascript:;" onClick={this.handleUpClick}><FontAwesomeIcon icon={faAngleDoubleUp} /></a>
+                                                    <a href="/" onClick={this.handleUpClick}><FontAwesomeIcon icon={faAngleDoubleUp} /></a>
                                                 }
 
                                             </div>
@@ -243,7 +243,7 @@ class OrderResult extends React.Component {
                         <form>
                             <input type="text" id="country" name="country" value="United Kingdom (UK)" />
                             <input type="text" id="state" name="state" value="State / Country" />
-                            <input type="text" id="state" name="state" value="Postcode / ZIP" />
+                            <input type="text" id="postcode" name="state" value="Postcode / ZIP" />
                         </form>
                         <button>UPDATE TOTALS</button>
                     </div>

@@ -9,6 +9,7 @@ export const updateOrderId = (state = initialState, action) => {
         ...state,
         orderId: action.orderId,
       };
+      break;
     default:
       return state;
   }

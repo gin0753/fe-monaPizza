@@ -1,8 +1,7 @@
 import React from 'react';
 import './CartTotal.css'
 import axios from 'axios';
-import { PizzaImages } from '../../../PizzaImages' 
-import cross from '../../../images/times-solid.svg';
+import { PizzaImages } from '../../../PizzaImages'; 
 import { Link } from 'react-router-dom';
 
 class CartTotal extends React.Component {
@@ -22,21 +21,23 @@ class CartTotal extends React.Component {
     showPizzaList = async () => {
         const userId = sessionStorage.getItem('userID');
         try{
-            const response = await axios.get(`/cart/${userId}/1/10`);
-            if(response.status === 200){
-                const orderList = response.data;
-                const pizzaImage = PizzaImages;
-                orderList.forEach( ele => {
-                    pizzaImage.forEach( i => {
-                      if(i.PizzaName === ele.pizzaName){
-                        let index = pizzaImage.indexOf(i);
-                        ele.Img = pizzaImage[index].Img;
-                      }
+            if(userId){
+                const response = await axios.get(`/cart/${userId}/1/10`);
+                if(response.status === 200){
+                    const orderList = response.data;
+                    const pizzaImage = PizzaImages;
+                    orderList.forEach( ele => {
+                        pizzaImage.forEach( i => {
+                          if(i.PizzaName === ele.pizzaName){
+                            let index = pizzaImage.indexOf(i);
+                            ele.Img = pizzaImage[index].Img;
+                          }
+                        })
+                      })
+                    this.setState({
+                        orderList: orderList
                     })
-                  })
-                this.setState({
-                    orderList: orderList
-                })
+                }   
             }
         }
         catch(err){

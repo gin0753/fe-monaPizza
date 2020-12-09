@@ -13,17 +13,19 @@ class Order extends React.Component{
     
     showPizzaList = async () => {
         const userId = sessionStorage.getItem('userID');
-        try{
-            const response = await axios.get(`/cart/${userId}/1/10`);
-            if(response.status === 200){
-                const orderList = response.data;
-                this.setState({
-                    orderList: orderList
-                })
+        if(userId){
+            try{
+                const response = await axios.get(`/cart/${userId}/1/10`);
+                if(response.status === 200){
+                    const orderList = response.data;
+                    this.setState({
+                        orderList: orderList
+                    })
+                }
             }
-        }
-        catch(err){
-            console.log(err)
+            catch(err){
+                console.log(err)
+            }
         }
     }
 

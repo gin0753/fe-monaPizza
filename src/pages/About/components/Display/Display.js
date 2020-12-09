@@ -37,7 +37,7 @@ class Display extends React.Component {
     let point = this.state.rollPoint;
     let percent = this.toPercent(point);
 
-    if (point == 0) {
+    if (point === 0) {
       point = -0.75;
       percent = "-75%";
     } else {

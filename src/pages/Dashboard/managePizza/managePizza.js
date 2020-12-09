@@ -9,7 +9,7 @@ class managePizza extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            namePattern: /^[a-zA-Z!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?\s]*$/,
+            namePattern: /^[a-zA-Z!@#$%^&*()_+-=[\]{};':"|,.<>/?\s]*$/,
             pricePattern: /^\d+$/
         } 
     }

@@ -7,12 +7,14 @@ import * as delivering from '../../../delivering.json'
 import Lottie from 'react-lottie'
 import StripeCheckout from 'react-stripe-checkout'
 import Axios from 'axios';
+import Margherita from '../../../images/sriracha.png';
 
 class Payment extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             readTerm: false,
+            cartItem: false,
             paymentSucceeded: false,
             paymentFailed: false,
             orderPlaced: false,
@@ -59,10 +61,26 @@ class Payment extends React.Component {
             }
         }
         catch(err){
+            this.setState({
+                paymentFailed: true
+            })
             console.log(err)
         }
     }
 
+    componentDidMount = async() => {
+        try{
+            const res = await Axios.get(`/cart/${this.state.userId}/1/10`);
+            if(res.data.length > 0){
+                this.setState({
+                    cartItem: true
+                })
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
     render() {
         const defaultOptions = {
             loop: true,
@@ -94,18 +112,18 @@ class Payment extends React.Component {
                         </div>
 
                         <div className="payment__cardpayment">
-                            {(this.props.cartSubtotal - this.props.discount) * 100 > 1 &&  
+                            {this.state.cartItem &&  
                             <button onClick={this.stripeClick}>
                                 <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
-                                token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'tera'}
-                                product />
+                                token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'MonaPizza'}
+                                alipay image={Margherita} locale="en" product />
                             </button>}
 
-                            {(this.props.cartSubtotal - this.props.discount) * 100 <= 1 &&  
+                            {!this.state.cartItem &&  
                                     <button onClick={this.stripeClick}>
                                         <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
-                                        token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'tera'}
-                                        product disabled/>
+                                        token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'MonaPizza'}
+                                        alipay image={Margherita} locale="en" product disabled/>
                                     </button>}
 
                             { this.state.paymentSucceeded && <h6 className="green">Payment Succeed</h6> }

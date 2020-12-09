@@ -13,12 +13,7 @@ class Payment extends React.Component {
             finishingOrder: false,
             fieldCheck: false,
             orderCheck: false,
-            userId: sessionStorage.getItem('userID'),
-            config: {
-                headers: {
-                    Authorization: `Bearer ${sessionStorage.getItem('login-token')}`
-                }
-            }
+            userId: sessionStorage.getItem('userID')
         }
     }
     
@@ -78,19 +73,8 @@ class Payment extends React.Component {
                 });
                 
                 await new Promise((resolve)=>setTimeout(() => {
-                const cleanCart = async() => {
-                    try{
-                        const res = await Axios.delete(`cart/`);
-                        if(res.status === 200){
-                            await this.props.updateCart();
-                            const { history } = this.props.history;
-                            history.replace('/order-created');
-                        }
-                    } catch(err) {
-                        console.log(err);
-                    }
-                }
-                cleanCart();
+                const { history } = this.props.history;
+                history.replace('/order-created');
                 resolve();
                 }, 2500));
             }
@@ -107,27 +91,29 @@ class Payment extends React.Component {
             })
         }
 
-        try{
-            const userInfo = {
-                userId,
-                country,
-                clientFirstName,
-                clientLastName,
-                companyName,
-                billingAddr,
-                billingUnit,
-                city,
-                county,
-                postcode,
-                clientEmail,
-                contactNumber,
-                shippingAddr,
-                shippingUnit
+        if(this.props.inputValue.saveProfile){
+            try{
+                const userInfo = {
+                    userId,
+                    country,
+                    clientFirstName,
+                    clientLastName,
+                    companyName,
+                    billingAddr,
+                    billingUnit,
+                    city,
+                    county,
+                    postcode,
+                    clientEmail,
+                    contactNumber,
+                    shippingAddr,
+                    shippingUnit
+                }
+                await Axios.post('/client', userInfo);
             }
-            await Axios.post('/client', userInfo);
-        }
-        catch(err){
-            console.log(err.message)
+            catch(err){
+                console.log(err.message)
+            }
         }
     }
 

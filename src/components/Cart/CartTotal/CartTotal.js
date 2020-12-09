@@ -1,10 +1,9 @@
 import React from 'react';
 import './CartTotal.css'
 import axios from 'axios';
-import { PizzaImages } from '../../../PizzaImages' 
-import cross from '../../../images/times-solid.svg';
+import { PizzaImages } from '../../../PizzaImages'; 
 import { Link } from 'react-router-dom';
-
+import CartItem from './components/cartItem';
 class CartTotal extends React.Component {
     constructor(props){
         super(props)
@@ -22,21 +21,23 @@ class CartTotal extends React.Component {
     showPizzaList = async () => {
         const userId = sessionStorage.getItem('userID');
         try{
-            const response = await axios.get(`/cart/${userId}/1/10`);
-            if(response.status === 200){
-                const orderList = response.data;
-                const pizzaImage = PizzaImages;
-                orderList.forEach( ele => {
-                    pizzaImage.forEach( i => {
-                      if(i.PizzaName === ele.pizzaName){
-                        let index = pizzaImage.indexOf(i);
-                        ele.Img = pizzaImage[index].Img;
-                      }
+            if(userId){
+                const response = await axios.get(`/cart/${userId}/1/10`);
+                if(response.status === 200){
+                    const orderList = response.data;
+                    const pizzaImage = PizzaImages;
+                    orderList.forEach( ele => {
+                        pizzaImage.forEach( i => {
+                          if(i.PizzaName === ele.pizzaName){
+                            let index = pizzaImage.indexOf(i);
+                            ele.Img = pizzaImage[index].Img;
+                          }
+                        })
+                      })
+                    this.setState({
+                        orderList: orderList
                     })
-                  })
-                this.setState({
-                    orderList: orderList
-                })
+                }   
             }
         }
         catch(err){
@@ -69,17 +70,10 @@ class CartTotal extends React.Component {
                 <h3>Cart Totals</h3>
                 <hr />
                 <ul className="carttotal--pizza">
-                    {orderList.map((item, index) => {
+                    {orderList.map( item => {
                         return (
                             <>
-                                <li key={index}>
-                                    <img src={item.Img} alt={item.text} />
-                                    <div>
-                                        <h5>{item.pizzaName}</h5>
-                                        <p><span className="subtitle">SIZE:</span> {item.pizzaSize}</p>
-                                        <p><span className="red">{item.qty}x</span> ${item.pizzaPrice}</p>
-                                    </div>
-                                </li>
+                                <CartItem key={item._id} details={item} />
                                 <hr />
                             </>
                         )

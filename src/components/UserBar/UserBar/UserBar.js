@@ -4,9 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { UserBarTopItems } from '../UserBarItems/UserBarItems';
 import { UserBarMiddleItems } from '../UserBarItems/UserBarItems';
 import { UserBarBottomItems } from '../UserBarItems/UserBarItems';
-import { Link } from 'react-router-dom';
-
-
 class UserBar extends React.Component {
     render() {
         return <div className="user">
@@ -15,7 +12,7 @@ class UserBar extends React.Component {
                     {UserBarTopItems.map((item, index) => {
                         return (
                             <a href={item.path}> <li id={item.id} key={item.id} className={item.cName}>
-                                <FontAwesomeIcon icon={item.icon} fixedWidth /><a><h6>{item.title}</h6></a>
+                                <FontAwesomeIcon icon={item.icon} fixedWidth /><a href={item.path}><h6>{item.title}</h6></a>
                             </li></a>
                         )
                     })}
@@ -24,9 +21,9 @@ class UserBar extends React.Component {
                 <ul className="userbar--middleitems">
                     {UserBarMiddleItems.map((item, index) => {
                         return (
-                            <Link to={`${item.path}`}><li key={index} className="item.cName">
-                                <a><h6>{item.title}</h6></a>
-                            </li></Link>
+                            <a href={`${item.path}`}><li key={index} className="item.cName">
+                                <a href={item.path}><h6>{item.title}</h6></a>
+                            </li></a>
                         )
                     })}
                 </ul>
@@ -35,7 +32,7 @@ class UserBar extends React.Component {
                     {UserBarBottomItems.map((item, index) => {
                         return (
                             <a href={item.path}><li id={item.id} key={item.id} className="item.cName">
-                                <a><h6>{item.title}</h6></a>
+                                <a href={item.path}><h6>{item.title}</h6></a>
                             </li></a>
                         )
                     })}

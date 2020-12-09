@@ -9,9 +9,6 @@ import Display from "./components/Display/Display";
 import Questions from "./components/Questions/Questions";
 
 class About extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

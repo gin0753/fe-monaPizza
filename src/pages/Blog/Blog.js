@@ -21,7 +21,7 @@ class Blog extends Component {
       <section className='blog'>
         <CrumbHeader path='blog' thisPage='blog' />
         <div className='top'>
-          <a className='toppicture' href='#'>
+          <a className='toppicture' href='/'>
             <img src={BlogImg[4]} alt='' />
           </a>
           <p className='writers'>
@@ -40,14 +40,14 @@ class Blog extends Component {
           </p>
 
           <div className='readmore'>
-            <a href='#'>READ MORE</a>
+            <a href='/'>READ MORE</a>
           </div>
         </div>
         <ul>
           {results.map((item, index) => {
             return (
               <li key={index} className='blogContent'>
-                <a className='contentPic' href='#'>
+                <a className='contentPic' href='/'>
                   <img src={BlogImg[index]} alt='blog-img' />
                 </a>
                 <div className='blogBody'>
@@ -57,7 +57,7 @@ class Blog extends Component {
                   <p className='bigTitle'>{item.title}</p>
                   <p className='contents'>{item.body}</p>
                   <div className='readmore'>
-                    <a href='#'>READ MORE</a>
+                    <a href='/'>READ MORE</a>
                   </div>
                 </div>
               </li>

@@ -3,7 +3,7 @@ import './SideBar.css';
 import search from '../../../images/search-solid.svg'
 import { SideBarTopItems } from '../SideBarItems/SideBarItems';
 import { SideBarBottomItems } from '../SideBarItems/SideBarItems';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class SideBar extends React.Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class SideBar extends React.Component {
             <nav className={this.props.sidestatus ? "sidebar sidebaractive" : "sidebar"}>
                 <label>
                     <input type="text" name="search" placeholder="search" />
-                    <a><img src={search} alt="searchButton" /></a>
+                    <a href="/"><img src={search} alt="searchButton" /></a>
                 </label>
                 <ul className="sidebar--topitems" onClick={this.handleClick}>
                     {SideBarTopItems.map((item, index) => {

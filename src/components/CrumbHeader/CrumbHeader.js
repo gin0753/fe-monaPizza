@@ -4,10 +4,7 @@ import './CrumbHeader.scss'
 import {IoIosArrowForward} from 'react-icons/io'
 
 class CrumbHeader extends React.Component{
-    constructor(props){
-        super(props)
-    }
-
+  
     render(){
         return (
             <div className='crumbHeader_container'>

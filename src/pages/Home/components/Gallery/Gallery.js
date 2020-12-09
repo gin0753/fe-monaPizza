@@ -43,7 +43,7 @@ class Gallery extends React.Component {
     let point = this.state.rollPoint;
     let percent = this.toPercent(point);
 
-    if (point == 0) {
+    if (point === 0) {
       point = -0.5;
       percent = "-50%";
     } else {
@@ -64,20 +64,20 @@ class Gallery extends React.Component {
           className='restPage_gallery_show'
           style={{ transform: `translateX(${this.state.rollPercent})` }}
         >
-          <img src={gallery_01} />
-          <img src={gallery_02} />
-          <img src={gallery_03} />
-          <img src={gallery_04} />
-          <img src={gallery_05} />
-          <img src={gallery_06} />
-          <img src={gallery_07} />
-          <img src={gallery_06} />
-          <img src={gallery_05} />
-          <img src={gallery_02} />
-          <img src={gallery_07} />
-          <img src={gallery_03} />
-          <img src={gallery_01} />
-          <img src={gallery_04} />
+          <img src={gallery_01} alt="gallery_01"/>
+          <img src={gallery_02} alt="gallery_02"/>
+          <img src={gallery_03} alt="gallery_03"/>
+          <img src={gallery_04} alt="gallery_04"/>
+          <img src={gallery_05} alt="gallery_05"/>
+          <img src={gallery_06} alt="gallery_06"/>
+          <img src={gallery_07} alt="gallery_07"/>
+          <img src={gallery_06} alt="gallery_06"/>
+          <img src={gallery_05} alt="gallery_05"/>
+          <img src={gallery_02} alt="gallery_02"/>
+          <img src={gallery_07} alt="gallery_07"/>
+          <img src={gallery_03} alt="gallery_03"/>
+          <img src={gallery_01} alt="gallery_01"/>
+          <img src={gallery_04} alt="gallery_04"/>
         </div>
         <div className='restPage_gallery_nav'>
           <div
@@ -89,7 +89,7 @@ class Gallery extends React.Component {
             
           </div>
           <h5>
-            follow us on instagram <a href='#'>#margherita pizza</a>
+            follow us on instagram <a href='/'>#margherita pizza</a>
           </h5>
           <div
             className='nav_right'

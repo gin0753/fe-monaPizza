@@ -19,49 +19,47 @@ import Newsletter from "./components/Newsletter/Newsletter";
 import Media from "./components/Media/Media";
 import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
-import Mydetails from "./pages/Dashboard/mydetails/mydetails";
-import changePassword from "./pages/Dashboard/changePassword/changePassword";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+// import ManageAccount from './pages/manageAccount/manageAccount';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import RedirectPage from './pages/RedirectPage/RedirectPage';
 import AdminRoute from "./components/AdminRoute/AdminRoute";
-import ManagePizza from "./pages/Dashboard/managePizza/managePizza";
-import orderHistory from "./pages/OrderHistory";
+import {ChangePassword, ManagePizza, Mydetails, OrderHistory} from './pages/Dashboard';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebarIsClicked: false,
-      cartIsClicked: false,
-      amountChanged: 0,
+    constructor(props) {
+        super(props);
+        this.state = {
+            sidebarIsClicked: false,
+            cartIsClicked: false,
+            amountChanged: 0,
+        };
+    }
+
+    toggleSideBar = () => {
+        this.setState({
+            sidebarIsClicked: !this.state.sidebarIsClicked,
+        });
     };
-  }
 
-  toggleSideBar = () => {
-    this.setState({
-      sidebarIsClicked: !this.state.sidebarIsClicked,
-    });
-  };
+    toggleCart = () => {
+        this.setState({
+            cartIsClicked: !this.state.cartIsClicked,
+        });
+    };
 
-  toggleCart = () => {
-    this.setState({
-      cartIsClicked: !this.state.cartIsClicked,
-    });
-  };
-
-  updateCart = () => {
-    this.setState({
-      amountChanged: this.state.amountChanged + 1,
-    });
-  };
+    updateCart = () => {
+        this.setState({
+            amountChanged: this.state.amountChanged + 1,
+        });
+    };
 
   render() {
     return (
-      <>
         <Router>
           {(window.location.pathname === "/sign-in") ||
-            (window.location.pathname === "/view-order") ? (
+            (window.location.pathname === "/view-order") ? 
               <></>
-            ) : (
+              : 
               <>
                 <SideBar
                   sidestatus={this.state.sidebarIsClicked}
@@ -78,7 +76,7 @@ class App extends React.Component {
                   sidestatus={this.state.sidebarIsClicked}
                   cartstatus={this.state.cartIsClicked}
                 /></>
-            )}
+            }
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
@@ -104,27 +102,29 @@ class App extends React.Component {
               )}
             />
             <Route path='/order-created' component={OrderCreated} />
-            <ProtectedRoute path='/order-history' component={orderHistory} />
+            <ProtectedRoute path='/order-history' component={OrderHistory} />
             <ProtectedRoute path='/mydetails' component={Mydetails} />
             <ProtectedRoute
               path='/change-password'
-              component={changePassword}
+              component={ChangePassword}
             />
             <AdminRoute path='/manage-pizza' component={ManagePizza} />
           </Switch>
-          {window.location.pathname !== "/sign-in" ? (
+          {window.location.pathname !== "/sign-in" ? 
             <>
               <Newsletter />
               <Media />
               <Footer />
             </>
-          ) : (
-              <></>
-            )}
+            : 
+            <></>}
         </Router>
-      </>
     );
   }
 }
 
 export default App;
+
+
+
+

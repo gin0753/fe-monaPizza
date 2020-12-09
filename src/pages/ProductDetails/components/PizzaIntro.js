@@ -37,7 +37,7 @@ class PizzaIntro extends React.Component {
     }
 
     handleSmallClick = () => {
-        const { changePizzaSize, size } = this.props;
+        const { changePizzaSize} = this.props;
         changePizzaSize("Small");
         this.setState({
             smallColor: "red",
@@ -126,31 +126,31 @@ class PizzaIntro extends React.Component {
                             AVAILABLE SIZES
                         </h4>
                         <ul>
-                            <a onClick={this.handleSmallClick}>
+                            <a href="/" onClick={this.handleSmallClick}>
                                 <li>
                                     <div style={{ color: `${smallColor}`, borderColor: `${smallColor}` }}>9"</div>
                                     <p style={{ color: `${smallColor}` }}>Small</p>
                                 </li>
                             </a>
-                            <a onClick={this.handleMediumClick}>
+                            <a href="/" onClick={this.handleMediumClick}>
                                 <li>
                                     <div style={{ color: `${mediumColor}`, borderColor: `${mediumColor}` }}>12"</div>
                                     <p style={{ color: `${mediumColor}` }}>Medium</p>
                                 </li>
                             </a>
-                            <a onClick={this.handleLargeClick}>
+                            <a href="/" onClick={this.handleLargeClick}>
                                 <li>
                                     <div style={{ color: `${largeColor}`, borderColor: `${largeColor}` }}>14"</div>
                                     <p style={{ color: `${largeColor}` }}>Large</p>
                                 </li>
                             </a>
-                            <a onClick={this.handleJumboClick}>
+                            <a href="/" onClick={this.handleJumboClick}>
                                 <li>
                                     <div style={{ color: `${jumboColor}`, borderColor: `${jumboColor}` }}>16"</div>
                                     <p style={{ color: `${jumboColor}` }}>Jumbo</p>
                                 </li>
                             </a>
-                            <a onClick={this.handlePartyClick}>
+                            <a href="/" onClick={this.handlePartyClick}>
                                 <li>
                                     <div style={{ color: `${partyColor}`, borderColor: `${partyColor}` }}>18"</div>
                                     <p style={{ color: `${partyColor}` }}>Party Size</p>
@@ -160,9 +160,9 @@ class PizzaIntro extends React.Component {
                         <p className="pizza-price">Price: ${this.props.price}</p>
                         <p>QUANTITY</p>
                         <div className="pizza-quantity">
-                            <a className="flex-item" onClick={this.handleMinusClick}><div >-</div></a>
+                            <a href="/" className="flex-item" onClick={this.handleMinusClick}><div >-</div></a>
                             <div className="flex-item">{this.props.quantity}</div>
-                            <a className="flex-item" onClick={this.handlePlusClick}><div >+</div></a>
+                            <a href="/" className="flex-item" onClick={this.handlePlusClick}><div >+</div></a>
                             <button className="flex-item add-to-cart">ADD TO CART</button>
                         </div>
                     </div>

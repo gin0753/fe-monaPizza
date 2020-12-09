@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Menu.css';
-import Background from '../../images/background.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -54,16 +53,16 @@ class Menu extends Component {
           <div className="catelogue__product">
             {this.state.pizzas.map((item) =>
               (
-                <MenuItems details={item} updateCart={updateCart} />
+                <MenuItems key={item._id} details={item} updateCart={updateCart} />
               )
             )}
           </div>
           <div className="pagination">
-            <div className="previouspage"><a href="#">{ArrowLeft}</a></div>
+            <div className="previouspage"><a href="/">{ArrowLeft}</a></div>
             <div className="pagenumber">
-              <a href="#" className="actived">1</a>
+              <a href="/" className="actived">1</a>
             </div>
-            <div className="nextpage"><a href="#">{ArrowRight}</a></div>
+            <div className="nextpage"><a href="/">{ArrowRight}</a></div>
           </div>
         </div>
       </div>);

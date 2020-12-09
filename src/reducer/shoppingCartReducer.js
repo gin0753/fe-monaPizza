@@ -8,8 +8,6 @@ const defaultState = {
       totalPrice: 19.0,
     },
   ],
-
-    productList: [],
     
     discount: 0,
 

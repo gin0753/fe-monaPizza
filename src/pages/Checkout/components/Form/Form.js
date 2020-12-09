@@ -27,7 +27,8 @@ class Form extends React.Component{
             shippingAddr: '',
             shippingUnit: '',
             orderNotes: '',
-            optionalAddr: false
+            optionalAddr: false,
+            saveProfile: true
         }
     }
 
@@ -42,26 +43,31 @@ class Form extends React.Component{
             {optionalAddr: !this.state.optionalAddr}
         );
     }
-    
+
+    saveProfile = () => {
+        this.setState(
+            {saveProfile: !this.state.saveProfile}
+        );
+    }
     
     async componentDidMount() {
 
         const userId = sessionStorage.getItem('userID');
-
-        try {
-            const { data } = await Axios.get(`http://localhost:8000/cart/${userId}/1/10`);
-
-            let subPrice = 0;
-            data.map(item => {
-                subPrice = item.totalPrice + subPrice;
-            })
-
-            const action = addPizzaList(data, subPrice);
-            store.dispatch(action);
-        } catch (err) {
-            console.log(err)
+        if(userId){
+            try {
+                const { data } = await Axios.get(`http://localhost:8000/cart/${userId}/1/10`);
+    
+                let subPrice = 0;
+                data.map(item => {
+                    return subPrice = item.totalPrice + subPrice;
+                })
+    
+                const action = addPizzaList(data, subPrice);
+                store.dispatch(action);
+            } catch (err) {
+                console.log(err)
+            }
         }
-
     }
 
     render(){
@@ -119,8 +125,8 @@ class Form extends React.Component{
                                 </div>
         
                                 <div className="clear">
-                                    <input type="checkbox" id="createAccount" name="createAccount" />
-                                    <label className="inlinelabel" htmlFor="createAccount">Create an account?</label>
+                                    <input type="checkbox" id="createAccount" name="createAccount" defaultChecked onChange={this.saveProfile} />
+                                    <label className="inlinelabel" htmlFor="createAccount">Save to Profile</label>
                                 </div>
                             </form>
                         </div>  

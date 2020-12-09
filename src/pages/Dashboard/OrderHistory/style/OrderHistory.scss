@@ -9,9 +9,17 @@
   font-family: "Josefin Sans", sans-serif;
   background: black url(../../../../images/Background-Grey.png) no-repeat center
     top;
-  &__wrap {
+  &__all {
+    display: flex;
     max-width: 1720px;
     min-width: 750px;
+    margin: 20px auto;
+    width: 70%;
+    &__userBar{
+      margin-top:50px;
+    }
+  }
+  &__wrap {
     margin: 20px auto;
     width: 70%;
     nav {

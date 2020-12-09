@@ -1,5 +1,5 @@
-@import "../../../initialCSS/normalize.css";
-@import "../../../initialCSS/reset.css";
+@import "../../../../initialCSS/normalize.css";
+@import "../../../../initialCSS/reset.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
@@ -7,11 +7,19 @@
 
 .order-history {
   font-family: "Josefin Sans", sans-serif;
-  background: black url(../../../images/Background-Grey.png) no-repeat center
+  background: black url(../../../../images/Background-Grey.png) no-repeat center
     top;
-  &__wrap {
+  &__all {
+    display: flex;
     max-width: 1720px;
     min-width: 750px;
+    margin: 20px auto;
+    width: 70%;
+    &__userBar{
+      margin-top:50px;
+    }
+  }
+  &__wrap {
     margin: 20px auto;
     width: 70%;
     nav {
@@ -91,7 +99,7 @@
           width: 30px;
           text-align: center;
           cursor: pointer;
-          &:hover{
+          &:hover {
             background-color: #d94f2b;
           }
         }

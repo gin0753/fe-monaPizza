@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import './ViewOrder.css';
-import axios from 'axios';
+import { fetchOrders } from '../../api/fetchOrders';
+
 
 class ViewOrder extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            filterStatus: '',
             orders: [],
         }
+    }
+    componentDidMount = async () => {
+        const res = await fetchOrders(1, 8);
+        this.setState({
+            orders: res.data,
+        });
+        console.log(res);
+
     }
 
     render() {

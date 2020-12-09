@@ -55,9 +55,8 @@ class App extends React.Component {
 
     render() {
         return (
-            <>
                 <Router>
-                    {window.location.pathname !== "/sign-in" ? (
+                    {window.location.pathname !== "/sign-in" ? 
                         <>
                             <SideBar
                                 sidestatus={this.state.sidebarIsClicked}
@@ -75,9 +74,8 @@ class App extends React.Component {
                                 cartstatus={this.state.cartIsClicked}
                             />
                         </>
-                    ) : (
-                            <></>
-                        )}
+                        : 
+                        <></>}
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route path='/about' component={About} />
@@ -116,17 +114,15 @@ class App extends React.Component {
                         />
                         <AdminRoute path='/manage-pizza' component={ManagePizza} />
                     </Switch>
-                    {window.location.pathname !== "/sign-in" ? (
+                    {window.location.pathname !== "/sign-in" ?
                         <>
                             <Newsletter />
                             <Media />
                             <Footer />
                         </>
-                    ) : (
-                            <></>
-                        )}
+                        :  
+                        <></>}
                 </Router>
-            </>
         );
     }
 }

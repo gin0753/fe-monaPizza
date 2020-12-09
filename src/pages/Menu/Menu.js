@@ -53,7 +53,7 @@ class Menu extends Component {
           <div className="catelogue__product">
             {this.state.pizzas.map((item) =>
               (
-                <MenuItems details={item} updateCart={updateCart} />
+                <MenuItems key={item._id} details={item} updateCart={updateCart} />
               )
             )}
           </div>

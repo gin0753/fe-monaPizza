@@ -82,18 +82,20 @@ class Form extends React.Component {
     }
 
     componentDidMount = async () => {
-        try {
-            const clientInfo = await Axios.get(`/client/${this.state.userId}`);
-            this.setState({
-                clientFirstName: clientInfo.data.clientFirstName,
-                clientLastName: clientInfo.data.clientLastName,
-                clientEmail: clientInfo.data.clientEmail,
-                contactNumber: clientInfo.data.contactNumber,
-                billingAddr: clientInfo.data.billingAddr
-            })
-        }
-        catch (err) {
-            console.log(err.message)
+        if(this.state.userId){
+            try {
+                const clientInfo = await Axios.get(`/client/${this.state.userId}`);
+                this.setState({
+                    clientFirstName: clientInfo.data.clientFirstName,
+                    clientLastName: clientInfo.data.clientLastName,
+                    clientEmail: clientInfo.data.clientEmail,
+                    contactNumber: clientInfo.data.contactNumber,
+                    billingAddr: clientInfo.data.billingAddr
+                })
+            }
+            catch (err) {
+                console.log(err.message)
+            }
         }
     }
 

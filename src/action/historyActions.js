@@ -28,7 +28,6 @@ export const fetchOrder = (page, pageSize) => {
         const res = await fetchOrders(page, pageSize);
         try{
             const orders = res.data;
-            console.log(orders.total)
             await dispatch(fetchOrderSuccess(orders))
         }
         catch(err){

@@ -42,6 +42,7 @@ class OrderCreated extends React.Component {
                     try{
                         const res = await Axios.delete(`cart/`);
                         if(res.status === 200){
+                            console.log(this.props);
                             await this.props.updateCart();
                         }
                     } catch(err) {

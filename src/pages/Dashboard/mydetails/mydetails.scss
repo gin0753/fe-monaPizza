@@ -22,6 +22,7 @@
   box-sizing: border-box;
 }
 .mydetailspage {
+  font-family: "Josefin Sans", sans-serif;
   width: 100%;
   height: 135em;
   background-image: url("../../../images/Pizza-bg.png");
@@ -66,7 +67,7 @@
         width: 75%;
         display: flex;
         justify-content: center;
-        padding: 30px;
+        padding: 30px 50px;
         @include mobile {
           width: 100%;
         }

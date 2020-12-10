@@ -5,17 +5,23 @@
 }
 
 .dashboard {
+  font-family: "Josefin Sans", sans-serif;
   width: 100%;
   background-color: #181818;
   display: flex;
   justify-content: center;
-  padding: 50px 0;
+  flex-wrap: wrap;
+  &__userBar{
+    margin-top: 65px;
+    line-height: 1.5rem;
+  }
   &__changePassword,
   &__managePizza {
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    width: 55%;
     color: #ffffff;
+    margin-top: 95px;
     &--sizeWrapper {
       display: inline-flex;
       justify-content: center;
@@ -31,19 +37,19 @@
     }
     & section {
       width: 100%;
-      padding: 30px;
+      margin-left: 30px;
       & hr {
-        border: solid 1px #ffffff;
+        border: solid 1px #d94f2b;
         margin: 25px 20px;
       }
       & h3 {
-        font-size: 20px;
+        font-size: 30px;
+        color: #fdbc2c;
         margin: 0 20px;
-        font-weight: 700;
         margin-bottom: 25px;
       }
       & label {
-        font-size: 14px;
+        font-size: 16px;
         margin: 0 20px;
       }
       & input {
@@ -58,7 +64,7 @@
         border: 2px solid #ffffff;
         position: relative;
         outline: none;
-        font-size: 14px;
+        font-size: 16px;
       }
       & ::placeholder {
         color: #e0e0e0;
@@ -120,7 +126,7 @@
       .addBtn,
       .removeBtn {
         border-radius: 5px;
-        margin: 25px 0;
+        margin: 25px 20px;
         background-color: #fdbc2c;
         color: #ffffff;
         cursor: pointer;
@@ -160,7 +166,7 @@
       h4 {
         font-size: 18px;
         font-weight: 300;
-        margin-bottom: 10px;
+        margin: 10px 20px;
         & span {
           font-weight: 700;
         }

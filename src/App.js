@@ -83,6 +83,7 @@ class App extends React.Component {
             <Route path='/users' component={Users} />
             <Route path='/view-order' component={ViewOrder} />
             <Route path='/contact-us' component={ContactUs} />
+            <Route path='/redirect' component={RedirectPage} />
             <Route
               path='/shopping-cart'
               render={(props) => <ShoppingCart updateCart={this.updateCart} />}
@@ -98,10 +99,12 @@ class App extends React.Component {
             <Route
               path='/checkout'
               render={(history) => (
-                <Checkout history={history} updateCart={this.updateCart} />
+                <Checkout history={history} />
               )}
             />
-            <Route path='/order-created' component={OrderCreated} />
+            <Route path='/order-created' 
+            render={(props) => <OrderCreated updateCart={this.updateCart} />}
+            />
             <ProtectedRoute path='/order-history' component={OrderHistory} />
             <ProtectedRoute path='/mydetails' component={Mydetails} />
             <ProtectedRoute

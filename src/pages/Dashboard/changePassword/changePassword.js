@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Dashboard.css';
 import UserBar from '../../../components/UserBar/UserBar/UserBar';
+import CrumbHeader from "../../../components/CrumbHeader";
 import {FaTimes, FaCheck, FaEye, FaEyeSlash} from 'react-icons/fa';
 import Axios from 'axios';
 
@@ -159,7 +160,8 @@ class changePassword extends React.Component {
         const {newPassword, currentPassword, validPassword, incorrectPassword, isUpdated} = this.state;
         return (
             <div className="dashboard">
-                <UserBar />
+                <CrumbHeader thisPage='Change Password' path='/change-password'/>
+                <div className="dashboard__userBar"><UserBar /></div>
                 <div className="dashboard__changePassword">
                     <section>
                         <h3>Your Password</h3>
@@ -198,18 +200,18 @@ class changePassword extends React.Component {
                         </div>
 
                         <div className="dashboard__changePassword--passwordRules">
-                        <h4>Password <span>must</span> contain at least:</h4>
-                        <div className="dashboard__changePassword--passwordRules--ruleWrapper">
-                            {this.state.oneLowerCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                            {this.state.oneLowerCase ? <h5 style={{color:"#1FC36A"}}>One lowercase character</h5> : <h5>One lowercase character</h5>} 
-                            {this.state.oneUpperCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                            {this.state.oneUpperCase ? <h5 style={{color:"#1FC36A"}}>One uppercase character</h5> : <h5>One uppercase character</h5>} 
-                            {this.state.oneNumber ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                            {this.state.oneNumber ? <h5 style={{color:"#1FC36A"}} className="number">One number</h5> : <h5 className="number">One number</h5>} 
-                            {this.state.eightDigits ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                            {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
+                            <h4>Password <span>must</span> contain at least:</h4>
+                            <div className="dashboard__changePassword--passwordRules--ruleWrapper">
+                                {this.state.oneLowerCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                                {this.state.oneLowerCase ? <h5 style={{color:"#1FC36A"}}>One lowercase character</h5> : <h5>One lowercase character</h5>} 
+                                {this.state.oneUpperCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                                {this.state.oneUpperCase ? <h5 style={{color:"#1FC36A"}}>One uppercase character</h5> : <h5>One uppercase character</h5>} 
+                                {this.state.oneNumber ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                                {this.state.oneNumber ? <h5 style={{color:"#1FC36A"}} className="number">One number</h5> : <h5 className="number">One number</h5>} 
+                                {this.state.eightDigits ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                                {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
+                            </div>
                         </div>
-                    </div>
 
                         <button className={validPassword ? "updateBtn":"updateBtn disabled"} 
                         onClick={this.handleClick}>Update Password</button>

@@ -141,7 +141,7 @@ class Form extends React.Component {
                     <br />
                     <hr />
                     <br />
-                    <h4>Please send me occasional deals and offers from Pizza Hut</h4>
+                    <h4>Please send me occasional deals and offers from Mona Pizza</h4>
                     <br />
                     <div className="contactoptions">
                         <section className="emailoption">

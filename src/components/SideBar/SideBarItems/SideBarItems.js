@@ -35,7 +35,7 @@ export const SideBarBottomItems = [
     },
     {
         title: 'MY ACCOUNT',
-        path: '/manage-account',
+        path: '/mydetails',
         cName: 'nav-text'
     },
     {

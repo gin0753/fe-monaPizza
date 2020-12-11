@@ -20,7 +20,7 @@
   position: relative;
 }
 
-.user li:target {
+.active {
   background-color: #FDBC2C;
 }
 
@@ -39,11 +39,6 @@
 .user .userbar--topitems h6 {
   margin-left: 1em;
 }
-
-.user .my-details {
-  background-color: #FDBC2C;
-}
-
 
 .user .userbar--middleitems {
   border: solid 1px transparent;

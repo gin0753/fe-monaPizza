@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import './contactUs.css';
-import Navigation from './components/Navigation/Navigation';
+import CrumbHeader from "../../components/CrumbHeader/CrumbHeader";
 
 class ContactUs extends React.Component {
 
   render() {
     return (
         <Fragment>
-          <Navigation/>
+          <CrumbHeader thisPage='Contact Us' path='/contact-us'/>
           <div className='contact message-board'>
             <div className='contact location'></div>
             <div className='contact board-wrapper'>

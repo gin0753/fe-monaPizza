@@ -153,7 +153,7 @@
 .dashboard__managePizza section .addBtn,
 .dashboard__managePizza section .removeBtn {
   border-radius: 5px;
-  margin: 25px 20px;
+  margin: 20px 20px 80px 20px;
   background-color: #fdbc2c;
   color: #ffffff;
   cursor: pointer;

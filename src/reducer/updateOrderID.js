@@ -5,11 +5,10 @@ const initialState = {
 export const updateOrderId = (state = initialState, action) => {
   switch (action.type) {
     case "UPDATE_ORDER_ID":
-      state = {
+      return state = {
         ...state,
         orderId: action.orderId,
       };
-      break;
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Dashboard.css';
 import UserBar from '../../../components/UserBar/UserBar/UserBar';
+import CrumbHeader from "../../../components/CrumbHeader";
 import {FaTimes, FaCheck, FaEye, FaEyeSlash} from 'react-icons/fa';
 import Axios from 'axios';
 
@@ -15,15 +16,18 @@ class changePassword extends React.Component {
             eightDigits: false,
             cpIsVisible: false,
             npIsVisible: false,
+            cnpIsVisible: false,
             validPassword: false,
             isUpdated: false,
             incorrectPassword: false,
             currentPassword: '',
-            newPassword: ''
+            newPassword: '',
+            confirmPassword: ''
         };
 
         this.passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
         this.newPassword = React.createRef();
+        this.confirmPassword = React.createRef();
         this.currentPassword = React.createRef();
     }
 
@@ -50,6 +54,19 @@ class changePassword extends React.Component {
         }
         else{
             this.setState({newPassword: 'Red'});
+        }
+    }
+
+    confirmNewPassword = (password) => {
+        const passwordValue = password;
+        if(passwordValue === '' ){
+            this.setState({confirmPassword: ''});
+        }
+        else if(passwordValue === this.newPassword.current.value ){
+            this.setState({confirmPassword: 'Green'});
+        }
+        else{
+            this.setState({confirmPassword: 'Red'});
         }
     }
 
@@ -89,6 +106,7 @@ class changePassword extends React.Component {
 
         await this.checkCurrentPassword(this.currentPassword.current.value);
         await this.checkNewPassword(this.newPassword.current.value);
+        await this.confirmNewPassword(this.confirmPassword.current.value);
         await this.checkPattern();
 
         if(this.state.currentPassword === "Green" && this.state.newPassword === "Green"){
@@ -154,12 +172,19 @@ class changePassword extends React.Component {
             npIsVisible: !this.state.npIsVisible
         })
     }
+
+    confirmPasswordVisibility = () => {
+        this.setState({
+            cnpIsVisible: !this.state.cnpIsVisible
+        })
+    }
         
     render() {
-        const {newPassword, currentPassword, validPassword, incorrectPassword, isUpdated} = this.state;
+        const {newPassword, currentPassword, validPassword, incorrectPassword, isUpdated, confirmPassword} = this.state;
         return (
             <div className="dashboard">
-                <UserBar />
+                <CrumbHeader thisPage='Change Password' path='/change-password'/>
+                <div className="dashboard__userBar"><UserBar /></div>
                 <div className="dashboard__changePassword">
                     <section>
                         <h3>Your Password</h3>
@@ -181,6 +206,7 @@ class changePassword extends React.Component {
 
                             {!incorrectPassword ? <></>:<div className="dashboard__changePassword--incorrect">Incorrect Password</div>}
                         </div>
+
                         <div className="withIcon">
                             <label>New Password</label>
                             <input ref={this.newPassword} className={newPassword} type={this.state.npIsVisible ? "text" : "password"} 
@@ -197,19 +223,35 @@ class changePassword extends React.Component {
                             {this.state.npIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
                         </div>
 
-                        <div className="dashboard__changePassword--passwordRules">
-                        <h4>Password <span>must</span> contain at least:</h4>
-                        <div className="dashboard__changePassword--passwordRules--ruleWrapper">
-                            {this.state.oneLowerCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                            {this.state.oneLowerCase ? <h5 style={{color:"#1FC36A"}}>One lowercase character</h5> : <h5>One lowercase character</h5>} 
-                            {this.state.oneUpperCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                            {this.state.oneUpperCase ? <h5 style={{color:"#1FC36A"}}>One uppercase character</h5> : <h5>One uppercase character</h5>} 
-                            {this.state.oneNumber ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                            {this.state.oneNumber ? <h5 style={{color:"#1FC36A"}} className="number">One number</h5> : <h5 className="number">One number</h5>} 
-                            {this.state.eightDigits ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                            {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
+                        <div className="withIcon">
+                            <label>Confirm Password</label>
+                            <input ref={this.confirmPassword} className={confirmPassword} type={this.state.cnpIsVisible ? "text" : "password"} 
+                            id="confirmPassword" name="confirmPassword" placeholder="1234567" onChange={this.handleChange}/>
+                            <div className="iconField" onClick={this.confirmPasswordVisibility}></div>
+                            {confirmPassword === 'Green' && <span className="green"><FaCheck /></span>}
+                            {confirmPassword === 'Red' && <span className="red"><FaTimes /></span>}
+                            {confirmPassword === '' && <></>}
+                            {confirmPassword === 'Green' && <i onClick={this.confirmPasswordVisibility}>
+                            {this.state.cnpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+                            {confirmPassword === 'Red' && <i onClick={this.confirmPasswordVisibility}>
+                            {this.state.cnpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
+                            {confirmPassword === '' && <i onClick={this.confirmPasswordVisibility}>
+                            {this.state.cnpIsVisible ? <FaEyeSlash /> : <FaEye />}</i>}
                         </div>
-                    </div>
+
+                        <div className="dashboard__changePassword--passwordRules">
+                            <h4>Password <span>must</span> contain at least:</h4>
+                            <div className="dashboard__changePassword--passwordRules--ruleWrapper">
+                                {this.state.oneLowerCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                                {this.state.oneLowerCase ? <h5 style={{color:"#1FC36A"}}>One lowercase character</h5> : <h5>One lowercase character</h5>} 
+                                {this.state.oneUpperCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                                {this.state.oneUpperCase ? <h5 style={{color:"#1FC36A"}}>One uppercase character</h5> : <h5>One uppercase character</h5>} 
+                                {this.state.oneNumber ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                                {this.state.oneNumber ? <h5 style={{color:"#1FC36A"}} className="number">One number</h5> : <h5 className="number">One number</h5>} 
+                                {this.state.eightDigits ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
+                                {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
+                            </div>
+                        </div>
 
                         <button className={validPassword ? "updateBtn":"updateBtn disabled"} 
                         onClick={this.handleClick}>Update Password</button>

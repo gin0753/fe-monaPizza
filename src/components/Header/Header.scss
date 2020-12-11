@@ -23,9 +23,9 @@ src: local('RoyaChicken'), url(../../font/RoyaChicken.otf) format('opentype');
         &--avatar{
             margin-right: 20px;
             cursor: pointer;
-            position: relative;
             z-index: 999;
             color: #FFFFFF;
+            position: relative;
             &--userActions{
                 z-index: 3;
                 display: flex;
@@ -36,11 +36,12 @@ src: local('RoyaChicken'), url(../../font/RoyaChicken.otf) format('opentype');
                 color: #FFFFFF;
                 font-weight: 700;
                 position: absolute;
-                bottom: -142px;
-                left: -85px;
+                top: 60px;
+                right: -20px;
                 width: 140px;
-                height: 120px;
+                height: auto;
                 padding: 5px;
+                line-height: 1.5rem;
                 & span{
                     display: block;
                     font-size: 0.85rem;
@@ -48,11 +49,8 @@ src: local('RoyaChicken'), url(../../font/RoyaChicken.otf) format('opentype');
                 & span:hover{
                     color: #d94f2b;
                 }
-                & .disabled{
-                    color: #808080;
-                    opacity: 0.6;
-                    pointer-events: none;
-                    cursor: not-allowed;
+                & .d-none{
+                    display: none;
                 }
                 & a:visited{
                     color: unset;

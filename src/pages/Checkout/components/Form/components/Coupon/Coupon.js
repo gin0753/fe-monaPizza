@@ -4,7 +4,8 @@ import '../../Form.css';
 class Coupon extends React.Component{
 
     handleClick = () => {
-        this.props.history.replace('/shopping-cart');
+        const {history} = this.props.history;
+        history.replace('/shopping-cart');
     }
 
     render(){

@@ -1,5 +1,5 @@
-@import "../../../../initialCSS/normalize.css";
-@import "../../../../initialCSS/reset.css";
+@import "../../initialCSS/normalize.css";
+@import "../../initialCSS/reset.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
@@ -7,7 +7,7 @@
 
 .order-history {
   font-family: "Josefin Sans", sans-serif;
-  background: black url(../../../../images/Background-Grey.png) no-repeat center
+  background: black url(../../images/Background-Grey.png) no-repeat center
     top;
   &__all {
     display: flex;

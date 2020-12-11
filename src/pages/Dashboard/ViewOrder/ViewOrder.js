@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import { fetchOrder } from "../../../action/historyActions";
 import OrderItem from "./components/orderItem";
 import UserBar from "../../../components/UserBar/UserBar/UserBar";
+import Axios from 'axios';
 
-class OrderHistory extends React.Component {
+class ViewOrder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,15 +20,18 @@ class OrderHistory extends React.Component {
   }
 
   componentDidMount = async () => {
-    const { fetchOrder } = this.props;
-    await fetchOrder();
-    const {
-      orders: { orders },
-    } = this.props;
-    this.setState({
-      orders: orders,
-      originalOrders: orders,
-    });
+    try{
+      const status = "Pending";
+      const res = await Axios.get(`/order/${status}`);
+      const orders = res.data;
+      this.setState({
+        orders: orders,
+        originalOrders: orders,
+      });
+    }
+    catch(err){
+      console.log(err);
+    }
   };
 
   originOrder = () => {
@@ -37,23 +41,16 @@ class OrderHistory extends React.Component {
     });
   };
 
+  pendingOrder = () => {
+    this.setState({
+      filterStatus: "Pending",
+    });
+  };
+
   paidOrder = () => {
     this.setState({
       filterStatus: "Paid",
       orders: this.state.originalOrders,
-    });
-  };
-
-  unpaidOrder = () => {
-    this.setState({
-      filterStatus: "Unpaid",
-      orders: this.state.originalOrders,
-    });
-  };
-
-  pendingOrder = () => {
-    this.setState({
-      filterStatus: "Pending",
     });
   };
 
@@ -99,7 +96,7 @@ class OrderHistory extends React.Component {
     return (
       <>
         <section className='order-history'>
-          <CrumbHeader thisPage='order History' path='order-history' />
+          <CrumbHeader thisPage='View Order' path='/view-order' />
           <div className='order-history__all'>
             <div className='order-history__all__userBar'>
               <UserBar />
@@ -109,9 +106,8 @@ class OrderHistory extends React.Component {
               <nav>
                 <ul>
                   <li onClick={this.originOrder}>All Orders</li>
-                  <li onClick={this.paidOrder}>Paid</li>
-                  <li onClick={this.unpaidOrder}>Unpaid</li>
-                  <li onClick={this.pendingOrder}>Pending</li>
+                  <li onClick={this.pendingOrder}>Preparing</li>
+                  <li onClick={this.paidOrder}>Ready</li>
                 </ul>
               </nav>
               <div className='order-history__wrap__handle'>
@@ -127,7 +123,7 @@ class OrderHistory extends React.Component {
               </div>
               <ul className='order-history__wrap__title'>
                 <li>Items</li>
-                <li>Total</li>
+                <li>Toppings</li>
                 <li>Status</li>
               </ul>
               <ul className='order-history__wrap__orders'>
@@ -162,4 +158,4 @@ const mapActionToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapActionToProps)(OrderHistory);
+export default connect(mapStateToProps, mapActionToProps)(ViewOrder);

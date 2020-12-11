@@ -4,7 +4,6 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import Users from "./pages/Users/Users";
-import ViewOrder from "./pages/ViewOrder/ViewOrder";
 import ContactUs from "./pages/ContactUs/contactUs";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
@@ -19,11 +18,10 @@ import Newsletter from "./components/Newsletter/Newsletter";
 import Media from "./components/Media/Media";
 import Footer from "./components/Footer/Footer";
 import OrderCreated from "./pages/OrderCreated/OrderCreated";
-// import ManageAccount from './pages/manageAccount/manageAccount';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import RedirectPage from './pages/RedirectPage/RedirectPage';
 import AdminRoute from "./components/AdminRoute/AdminRoute";
-import {ChangePassword, ManagePizza, Mydetails, OrderHistory} from './pages/Dashboard';
+import {ChangePassword, ManagePizza, Mydetails, OrderHistory, ViewOrder} from './pages/Dashboard';
 
 class App extends React.Component {
     constructor(props) {
@@ -56,8 +54,7 @@ class App extends React.Component {
   render() {
     return (
         <Router>
-          {(window.location.pathname === "/sign-in") ||
-            (window.location.pathname === "/view-order") ? 
+          {(window.location.pathname === "/sign-in") ? 
               <></>
               : 
               <>

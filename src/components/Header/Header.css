@@ -29,9 +29,9 @@
 .header__leftWrapper--avatar {
   margin-right: 20px;
   cursor: pointer;
-  position: relative;
   z-index: 999;
   color: #FFFFFF;
+  position: relative;
 }
 
 .header__leftWrapper--avatar--userActions {
@@ -44,11 +44,12 @@
   color: #FFFFFF;
   font-weight: 700;
   position: absolute;
-  bottom: -142px;
-  left: -85px;
+  top: 60px;
+  right: -20px;
   width: 140px;
-  height: 120px;
+  height: auto;
   padding: 5px;
+  line-height: 1.5rem;
 }
 
 .header__leftWrapper--avatar--userActions span {
@@ -60,11 +61,8 @@
   color: #d94f2b;
 }
 
-.header__leftWrapper--avatar--userActions .disabled {
-  color: #808080;
-  opacity: 0.6;
-  pointer-events: none;
-  cursor: not-allowed;
+.header__leftWrapper--avatar--userActions .d-none {
+  display: none;
 }
 
 .header__leftWrapper--avatar--userActions a:visited {

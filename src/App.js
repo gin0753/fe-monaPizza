@@ -78,7 +78,6 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/users' component={Users} />
-            <Route path='/view-order' component={ViewOrder} />
             <Route path='/contact-us' component={ContactUs} />
             <Route path='/redirect' component={RedirectPage} />
             <Route
@@ -109,6 +108,7 @@ class App extends React.Component {
               component={ChangePassword}
             />
             <AdminRoute path='/manage-pizza' component={ManagePizza} />
+            <AdminRoute path='/view-order' component={ViewOrder} />
           </Switch>
           {window.location.pathname !== "/sign-in" ? 
             <>

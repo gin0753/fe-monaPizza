@@ -22,7 +22,7 @@ class ViewOrder extends React.Component {
   componentDidMount = async () => {
     try{
       const status = "Pending";
-      const res = await Axios.get(`/order/${status}`);
+      const res = await Axios.post(`/order/${status}`);
       const orders = res.data;
       this.setState({
         orders: orders,

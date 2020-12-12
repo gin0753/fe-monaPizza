@@ -13,7 +13,7 @@ class Mydetails extends Component {
             <CrumbHeader thisPage='My Details' path='mydetails'/>
             <section className="mydetails-container">
                 <section className="form">
-                    <UserBar />
+                    <UserBar props={this.props}/>
                     <Form />
                 </section>
             </section>

@@ -102,7 +102,7 @@ class OrderHistory extends React.Component {
           <CrumbHeader thisPage='order History' path='order-history' />
           <div className='order-history__all'>
             <div className='order-history__all__userBar'>
-              <UserBar />
+              <UserBar props={this.props}/>
             </div>
 
             <div className='order-history__wrap'>

@@ -184,7 +184,9 @@ class changePassword extends React.Component {
         return (
             <div className="dashboard">
                 <CrumbHeader thisPage='Change Password' path='/change-password'/>
-                <div className="dashboard__userBar"><UserBar /></div>
+                <div className="dashboard__userBar">
+                    <UserBar props={this.props}/>
+                </div>
                 <div className="dashboard__changePassword">
                     <section>
                         <h3>Your Password</h3>

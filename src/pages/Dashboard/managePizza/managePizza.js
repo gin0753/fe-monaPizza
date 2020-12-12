@@ -19,7 +19,7 @@ class managePizza extends React.Component {
             <div className="dashboard">
                 <CrumbHeader thisPage='Manage Pizza' path='/manage-pizza'/>
                 <div className="dashboard__userBar">
-                    <UserBar />
+                    <UserBar props={this.props}/>
                 </div>
                 <div className="dashboard__managePizza">
                     <AddPizza pattern={this.state}/>

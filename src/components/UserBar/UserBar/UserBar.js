@@ -12,22 +12,29 @@ class UserBar extends React.Component {
         }
     }
 
-    handleClick = (target) => {
-        return () => {
+    handleClick = (target, path) => {
+        return (e) => {
+            e.preventDefault();
+
             this.setState({
                 active: target
             })
+            
+            const {history} = this.props.props;
+            console.log(history);
+            history.replace(path);
         }
     }
 
     render() {
         const { active } = this.state;
+        console.log(active)
         return <div className="user">
             <nav>
                 <ul className="userbar--topitems">
-                    {UserBarTopItems.map((item) => {
+                    {UserBarTopItems.map((item) => {                    
                         return (
-                            <Item onClick={this.handleClick(item.title)} active={active === item.title} details={item}/>
+                            <Item onClick={this.handleClick(item.title, item.path)} active={active === item.title} details={item}/>
                         )
                     })}
                 </ul>

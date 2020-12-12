@@ -190,6 +190,7 @@ class changePassword extends React.Component {
                 <div className="dashboard__changePassword">
                     <section>
                         <h3>Your Password</h3>
+                        <hr />
                         <div className="withIcon">
                             <label>Current Password</label>
                             <input ref={this.currentPassword} className={currentPassword} type={this.state.cpIsVisible ? "text" : "password"} 

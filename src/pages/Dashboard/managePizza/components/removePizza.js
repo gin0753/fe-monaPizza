@@ -69,7 +69,7 @@ class RemovePizza extends React.Component {
                 <hr />
                 <label>Pizza Name</label>
                 <input ref={this.pizzaName} name="PizzaName" placeholder="Peri-peri" onChange={this.handleChange}/>
-                <div class="dashboard__managePizza--buttonWrapper">
+                <div className="dashboard__managePizza--buttonWrapper">
                     <button className= {validString === true && PizzaName.length !== 0 ? "removeBtn" : "removeBtn disabled"} 
                     disabled={validString === true ? false : true} onClick={this.handleClick}>Remove Pizza</button>
                 </div>

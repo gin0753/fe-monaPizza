@@ -48,7 +48,7 @@
 }
 
 .dashboard__changePassword section hr, .dashboard__managePizza section hr {
-  border: solid 1px #d94f2b;
+  border: solid 2px #d94f2b;
   margin: 25px 20px;
 }
 

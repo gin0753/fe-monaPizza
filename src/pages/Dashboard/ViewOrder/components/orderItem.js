@@ -12,7 +12,7 @@ const MenuItems = ({details: {orderPlacedTime, _id, orderList, totalPrice, order
       <ul>
         {orderList.map((pizza) => 
             (
-              <li>
+              <li key={pizza._id}>
                 <span>{pizza.pizzaName} x {pizza.qty}</span>
                 <span>${pizza.totalPrice}</span>
               </li>

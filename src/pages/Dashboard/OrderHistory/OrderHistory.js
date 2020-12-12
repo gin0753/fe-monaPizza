@@ -132,11 +132,11 @@ class OrderHistory extends React.Component {
               </ul>
               <ul className='order-history__wrap__orders'>
                 {this.state.sortOrder === "ascend" &&
-                  filterResult.map((item) => <OrderItem details={item} />)}
+                  filterResult.map((item) => <OrderItem key={item._id} details={item} />)}
                 {this.state.sortOrder === "descend" &&
                   filterResult
                     .reverse()
-                    .map((item) => <OrderItem details={item} />)}
+                    .map((item) => <OrderItem key={item._id} details={item} />)}
               </ul>
             </div>
           </div>

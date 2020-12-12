@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 class FrontPage extends React.Component {
 
@@ -12,7 +11,7 @@ class FrontPage extends React.Component {
             We create custom, personal pizzas with quality ingredients in only
             five minutes.
           </h2>
-          <Link to="/menu"><a href="/menu" className='button'>order online</a></Link>
+          <a href="/menu" className='button'>order online</a>
         </div>
       </div>
     );

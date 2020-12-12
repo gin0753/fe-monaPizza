@@ -98,20 +98,20 @@ class UpdatePizza extends React.Component {
                 <label>Description</label>
                 <input ref={this.Description} name="Description" placeholder="A very hot sauce made with red chilli peppers." onChange={this.handleChange}/>
                 
-                <div class="dashboard__managePizza--sizeWrapper">
+                <div className="dashboard__managePizza--sizeWrapper">
                     <label>Price-Small</label>
                     <input ref={this.priceSM} name="priceSM" className="input" placeholder="Price-sm" onChange={this.handleChange}/>
                 </div>
-                <div class="dashboard__managePizza--sizeWrapper">
+                <div className="dashboard__managePizza--sizeWrapper">
                     <label>Price-Medium</label>
                     <input ref={this.priceMD} name="priceMD" className="input" placeholder="Price-md" onChange={this.handleChange}/>
                 </div>
-                <div class="dashboard__managePizza--sizeWrapper">
+                <div className="dashboard__managePizza--sizeWrapper">
                     <label>Price-Large</label>
                     <input ref={this.priceLG} name="priceLG" className="input" placeholder="Price-lg" onChange={this.handleChange}/>
                 </div>
 
-                <div class="dashboard__managePizza--buttonWrapper">
+                <div className="dashboard__managePizza--buttonWrapper">
                     <button className= {validNumber === true && validString === true ? "addBtn" : "addBtn disabled"} 
                     disabled={validNumber === true && validString === true ? false : true} onClick={this.handleClick}>Update Menu</button>
                 </div>

@@ -25,6 +25,30 @@ export const UserBarTopItems = [
         cName: 'history',
         icon: faHistory,
         id: 'history'
+    }
+];
+
+export const AdminBarTopItems = [
+    {
+        title: 'My Details',
+        path: '/mydetails',
+        cName: 'my-details',
+        icon: faAddressCard,
+        id: 'my-details'
+    },
+    {
+        title: 'Change Password',
+        path: '/change-password',
+        cName: 'password',
+        icon: faUnlockAlt,
+        id: 'password'
+    },
+    {
+        title: 'Order History',
+        path: '/order-history',
+        cName: 'history',
+        icon: faHistory,
+        id: 'history'
     },
     {
         title: 'Update Menu',
@@ -32,6 +56,13 @@ export const UserBarTopItems = [
         cName: 'updateMenu',
         icon: faMoneyCheck,
         id: 'updateMenu'
+    },
+    {
+        title: 'View Order',
+        path: '/view-order',
+        cName: 'viewOrder',
+        icon: faMoneyCheck,
+        id: 'viewOrder'
     }
 ];
 
@@ -39,7 +70,8 @@ export const UserBarMiddleItems = [
     {
         title: 'Order Now',
         path: '/shopping-cart',
-        cName: 'nav-text'
+        cName: 'nav-text',
+        id: 'orderNow'
     }
 ];
 

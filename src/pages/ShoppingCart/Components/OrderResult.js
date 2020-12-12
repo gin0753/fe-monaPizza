@@ -169,7 +169,6 @@ class OrderResult extends React.Component {
         }
 
         const { productList } = this.state;
-
         return (
             <div className="order-result flex-item">
                 <div className="order-title">
@@ -184,7 +183,7 @@ class OrderResult extends React.Component {
                         {
                             productList.map((pizza, index) => {
                                 return (
-                                    <Fragment>
+                                    <Fragment key={pizza._id}>
                                         <li>
                                             <div className="flex-item">
                                                 <FontAwesomeIcon
@@ -240,9 +239,9 @@ class OrderResult extends React.Component {
                     <div className="cal-ship flex-item">
                         <p>Calculate Shipping</p>
                         <form>
-                            <input type="text" id="country" name="country" value="United Kingdom (UK)" />
-                            <input type="text" id="state" name="state" value="State / Country" />
-                            <input type="text" id="postcode" name="state" value="Postcode / ZIP" />
+                            <input type="text" id="country" name="country" defaultValue="United Kingdom (UK)" />
+                            <input type="text" id="state" name="state" defaultValue="State / Country" />
+                            <input type="text" id="postcode" name="state" defaultValue="Postcode / ZIP" />
                         </form>
                         <button>UPDATE TOTALS</button>
                     </div>

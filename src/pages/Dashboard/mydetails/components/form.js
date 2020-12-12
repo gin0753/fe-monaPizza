@@ -175,8 +175,8 @@ class Form extends React.Component {
                         {this.state.billingAddr &&
                             <section className="myAddress">
                                 <section className="deliveryAddress">
-                                    <label for="deliveryAddress" >
-                                        <input type="checkbox" id="deliveryAddress" name="deliveryAddress" value="deliveryAddress" checked={true} />
+                                    <label htmlFor="deliveryAddress" >
+                                        <input type="checkbox" id="deliveryAddress" name="deliveryAddress" value="deliveryAddress" defaultChecked />
                                         <span></span>
                                         <h4>{this.state.billingAddr}</h4>
                                     </label>
@@ -201,7 +201,7 @@ class Form extends React.Component {
                         <section>
                             <section className="mystore">
                                 <section className="deliverystore">
-                                    <label for="deliverystore">
+                                    <label htmlFor="deliverystore">
                                         <input type="checkbox" id="deliverystore" name="deliverystore" value="deliverystore" />
                                         <span></span><h4>1 Sydenham Rd MARRICKVILLE NSW 2204</h4>
                                     </label>

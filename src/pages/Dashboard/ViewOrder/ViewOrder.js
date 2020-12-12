@@ -6,6 +6,8 @@ import { fetchOrder } from "../../../action/historyActions";
 import OrderItem from "./components/orderItem";
 import UserBar from "../../../components/UserBar/UserBar/UserBar";
 import Axios from 'axios';
+import Pagination from './components/pagination';
+
 
 class ViewOrder extends React.Component {
   constructor(props) {
@@ -16,15 +18,20 @@ class ViewOrder extends React.Component {
       filterStatus: "",
       searchOrder: "",
       sortOrder: "ascend",
+      total: 0,
+      page: 1,
+      pageSize: 6
     };
   }
 
   componentDidMount = async () => {
     try{
+      const { page, pageSize } = this.state;
       const status = "Pending";
-      const res = await Axios.post(`/order/${status}`);
-      const orders = res.data;
-      this.setState({
+      const res = await Axios.post(`/order/${status}/${page}/${pageSize}`);
+      const { orders, total } = res.data;
+      await this.setState({
+        total: total,
         orders: orders,
         originalOrders: orders,
       });
@@ -33,6 +40,21 @@ class ViewOrder extends React.Component {
       console.log(err);
     }
   };
+
+  componentDidUpdate = async () => {
+    try{
+      const { page, pageSize } = this.state;
+      const status = "Pending";
+      const res = await Axios.post(`/order/${status}/${page}/${pageSize}`);
+      const { orders } = res.data;
+      await this.setState({
+        orders: orders,
+      });
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
 
   originOrder = () => {
     this.setState({
@@ -89,6 +111,31 @@ class ViewOrder extends React.Component {
     });
   };
 
+  leftArr = async(e) => {
+    e.preventDefault();
+    const { page } = this.state;
+    if(page > 1){
+      this.setState({
+        page: page - 1
+      })
+    }
+  }
+
+  rightArr = async(e) => {
+    e.preventDefault();
+    const { page, pageSize, total } = this.state;
+    const pages = total/pageSize;
+    if(page < pages){
+      this.setState({
+        page: page + 1
+      })
+    }
+  }
+
+  pagination = async() => {
+
+  }
+
   render() {
     let filterResult = this.state.orders.filter((order) => {
       return order.orderStatus.indexOf(this.state.filterStatus) !== -1;
@@ -99,7 +146,7 @@ class ViewOrder extends React.Component {
           <CrumbHeader thisPage='View Order' path='/view-order' />
           <div className='order-history__all'>
             <div className='order-history__all__userBar'>
-              <UserBar />
+              <UserBar props={this.props}/>
             </div>
 
             <div className='order-history__wrap'>
@@ -128,13 +175,16 @@ class ViewOrder extends React.Component {
               </ul>
               <ul className='order-history__wrap__orders'>
                 {this.state.sortOrder === "ascend" &&
-                  filterResult.map((item) => <OrderItem details={item} />)}
+                  filterResult.map((item) => <OrderItem key={item._id} details={item} />)}
                 {this.state.sortOrder === "descend" &&
                   filterResult
                     .reverse()
-                    .map((item) => <OrderItem details={item} />)}
+                    .map((item) => <OrderItem key={item._id} details={item} />)}
               </ul>
             </div>
+          </div>
+          <div className="order-history__footer">
+            <Pagination state={this.state} leftArr={this.leftArr} rightArr={this.rightArr}/>
           </div>
         </section>
       </>

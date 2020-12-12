@@ -8,20 +8,26 @@ class UserBar extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            active: 'My Details'
+            active: ''
         }
     }
+    
+    componentDidMount = () => {
+        const { pathname } = this.props.props.location;
+        this.setState({
+            active: pathname
+        })
+    }
 
-    handleClick = (target, path) => {
+    handleClick = (path) => {
         return (e) => {
             e.preventDefault();
 
             this.setState({
-                active: target
+                active: path
             })
             
             const {history} = this.props.props;
-            console.log(history);
             history.replace(path);
         }
     }
@@ -34,7 +40,7 @@ class UserBar extends React.Component {
                 <ul className="userbar--topitems">
                     {UserBarTopItems.map((item) => {                    
                         return (
-                            <Item onClick={this.handleClick(item.title, item.path)} active={active === item.title} details={item}/>
+                            <Item onClick={this.handleClick(item.path)} active={active === item.path} details={item}/>
                         )
                     })}
                 </ul>

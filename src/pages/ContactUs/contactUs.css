@@ -374,6 +374,10 @@
   line-height: 36px;
   text-align: center;
 }
+.feedbackPrompt{
+  margin: 20px 0;
+  color: green;
+}
 @media only screen and (min-width:769px) and (max-width: 996px) {
   .contact.message-board {
     height: 918px;

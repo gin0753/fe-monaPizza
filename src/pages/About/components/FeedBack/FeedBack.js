@@ -11,7 +11,6 @@ class FeedBack extends React.Component {
     };
   }
 
-
   toPercent(point) {
     let percent = Number(point * 100);
     percent += "%";

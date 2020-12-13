@@ -15,9 +15,9 @@ class QuestionItem extends React.Component {
   render() {
     const { expand } = this.state;
     return (
-      <li className={expand && "auto-height"}>
-        <span className={expand && "top65"}>{this.props.children}</span>
-        <i onClick={this.setExpand} className={expand && "top65"}>
+      <li className={expand ? "auto-height" : ""}>
+        <span className={expand ? "top65" : ""}>{this.props.children}</span>
+        <i onClick={this.setExpand} className={expand ? "top65" : ""}>
           {expand && "-"}
           {!expand && "+"}
         </i>

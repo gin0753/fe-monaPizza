@@ -35,15 +35,16 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, update
         pizzaSelected.totalPrice = pizzaSelected.qty * pizzaPrice;
         await axios.put(`/cart/${pizzaId}`, pizzaSelected);
       }
-    } catch(err){
-      if(err.response.data.message === 'Failed to find the record'){
+      else if(response.status === 201){
         let qty = 1;
         pizzaSelected.qty = qty;
         pizzaSelected.totalPrice = pizzaPrice;
         await axios.post('/cart', pizzaSelected);
       }
+      await updateCart();
+    } catch(err){
+      console.log(err)
     }
-    await updateCart();
   }
 
   const handleRemove = async() => {

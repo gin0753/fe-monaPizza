@@ -2,7 +2,7 @@ import React from "react";
 import "../Order.scss";
 import CrumbHeader from "../../../components/CrumbHeader";
 import { connect } from "react-redux";
-import { fetchOrder } from "../../../action/historyActions";
+import { updatePage } from "../../../action/viewOrderPagination";
 import OrderItem from "./components/orderItem";
 import UserBar from "../../../components/UserBar/UserBar/UserBar";
 import Axios from 'axios';
@@ -19,7 +19,7 @@ class ViewOrder extends React.Component {
       searchOrder: "",
       sortOrder: "ascend",
       total: 0,
-      page: 1,
+      page: this.props.pageNumber,
       pageSize: 6
     };
   }
@@ -41,7 +41,13 @@ class ViewOrder extends React.Component {
     }
   };
 
-  componentDidUpdate = async () => {
+  componentDidUpdate = async (prevPage) => {
+    if(prevPage.pageNumber !== this.props.pageNumber){
+      await this.setState({
+          page: this.props.pageNumber
+        })
+    }
+
     try{
       const { page, pageSize } = this.state;
       const status = "Pending";
@@ -115,8 +121,8 @@ class ViewOrder extends React.Component {
     e.preventDefault();
     const { page } = this.state;
     if(page > 1){
-      this.setState({
-        page: page - 1
+      this.setState((prevPage) => {
+        return {page: prevPage.page - 1}
       })
     }
   }
@@ -126,14 +132,10 @@ class ViewOrder extends React.Component {
     const { page, pageSize, total } = this.state;
     const pages = total/pageSize;
     if(page < pages){
-      this.setState({
-        page: page + 1
+      this.setState((prevPage) => {
+        return {page: prevPage.page + 1}
       })
     }
-  }
-
-  pagination = async() => {
-
   }
 
   render() {
@@ -194,18 +196,15 @@ class ViewOrder extends React.Component {
 
 const mapStateToProps = (state) => {
   const {
-    historyReducer: { loading, orders },
+    updatePage: { pageNumber },
   } = state;
   return {
-    loading,
-    orders,
+    pageNumber
   };
 };
 
-const mapActionToProps = (dispatch) => {
-  return {
-    fetchOrder: () => dispatch(fetchOrder()),
-  };
+const mapActionToProps = {
+  updatePage
 };
 
 export default connect(mapStateToProps, mapActionToProps)(ViewOrder);

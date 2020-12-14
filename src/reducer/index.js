@@ -4,7 +4,8 @@ import { menuReducer } from "./menuReducer";
 import { updateOrderId } from "./updateOrderID";
 import { orderCreatedReducer } from "./orderCreatedReducer";
 import { blogReducer } from "./blogReducer";
-import { historyReducer } from './historyReducer'
+import { historyReducer } from './historyReducer';
+import { updatePage } from './viewOrderPagination';
 
 export default combineReducers({
   shoppingCartReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   updateOrderId,
   orderCreatedReducer,
   blogReducer,
-  historyReducer
+  historyReducer,
+  updatePage
 });

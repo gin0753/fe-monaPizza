@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux";
-import { updatePage } from "../../../../action/viewOrderPagination";
+import { updatePage } from "../../action/viewOrderPagination";
 import './pagination.scss';
 import Axios from 'axios';
 

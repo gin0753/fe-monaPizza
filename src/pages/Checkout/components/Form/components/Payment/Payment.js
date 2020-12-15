@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { updateOrderId } from '../../../../../../action/updateOrderID';
 import Lottie from 'react-lottie'
 import * as delivering from '../../../../../../delivering.json'
-import Axios from 'axios';
+import { getCartItem, createOrder, storeClientInfo } from '../../../../../../api/index';
 
 class Payment extends React.Component {
     constructor(props){
@@ -31,7 +31,7 @@ class Payment extends React.Component {
         const orderPlacedTime = `${d.toLocaleDateString()} ${hours}:${minutes}:${seconds}`;
 
         const {userId} = this.state;
-        const res = await Axios.get(`/cart/${userId}/1/10`)
+        const res = await getCartItem(userId, 1, 8);
         const orderList = res.data;
         const discount = this.props.discount;
         const cartSubTotal = this.props.cartSubtotal;
@@ -56,7 +56,7 @@ class Payment extends React.Component {
                 orderNote,
                 orderStatus: 'Unpaid'
             }
-            const orderResponse = await Axios.post('/order', orderInfo);
+            const orderResponse = await createOrder(orderInfo);
             if(orderResponse.status === 201 && +totalPrice > 1){
                 const orderId = orderResponse.data._id;
                 const { updateOrderId } = this.props;
@@ -109,7 +109,7 @@ class Payment extends React.Component {
                     shippingAddr,
                     shippingUnit
                 }
-                await Axios.post('/client', userInfo);
+                await storeClientInfo(userInfo);
             }
             catch(err){
                 console.log(err.message)

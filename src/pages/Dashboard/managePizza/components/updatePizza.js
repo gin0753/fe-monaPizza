@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Dashboard.css';
-import Axios from 'axios';
+import { updateMenuItem } from '../../../../api/index';
 
 class UpdatePizza extends React.Component {
     constructor(props){
@@ -69,7 +69,7 @@ class UpdatePizza extends React.Component {
                     Large: priceLG
                 }
             }
-            const res = await Axios.put(`./menu/${userId}/${PizzaName}`, addPizza, config);
+            const res = await updateMenuItem(PizzaName, addPizza, config);
             if(res.status === 200){
                 await new Promise((resolve) => {    
                     this.setState({isUpdated: true});

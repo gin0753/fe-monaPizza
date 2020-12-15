@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import './contactUs.css';
 import CrumbHeader from "../../components/CrumbHeader/CrumbHeader";
-import Axios from 'axios';
+import { storeFeedback } from '../../api/index';
+
 
 class ContactUs extends React.Component {
   constructor(props){
@@ -31,7 +32,7 @@ class ContactUs extends React.Component {
         Subject,
         Message
       }
-      const res = await Axios.post('/feedback', feedback);
+      const res = await storeFeedback(feedback);
       if(res.status === 201){
         await new Promise((resolve) => {    
             this.setState({feedbackSaved: true});

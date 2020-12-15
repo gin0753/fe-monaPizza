@@ -3,8 +3,7 @@ import '../Dashboard.css';
 import UserBar from '../../../components/UserBar/UserBar/UserBar';
 import CrumbHeader from "../../../components/CrumbHeader";
 import {FaTimes, FaCheck, FaEye, FaEyeSlash} from 'react-icons/fa';
-import Axios from 'axios';
-
+import { findUserInfo, updateUserInfo } from '../../../api/index';
 class changePassword extends React.Component {
     constructor(props){
         super(props)
@@ -125,12 +124,12 @@ class changePassword extends React.Component {
     handleClick = async() => {
         const currentPassword = this.currentPassword.current.value;
         try{
-            const findUser = await Axios.get(`/login/${this.state.userId}/${currentPassword}`);
+            const findUser = await findUserInfo(this.state.userId, currentPassword);
             if(findUser.status === 200){
                 this.setState({incorrectPassword:false});
                 const Password = this.newPassword.current.value;
                 try{
-                    const updatePassword = await Axios.put(`/login/${this.state.userId}`, {Password});
+                    const updatePassword = await updateUserInfo(this.state.userId, Password);
                     if(updatePassword.status === 200){
                         await new Promise((resolve) => {    
                             this.setState({isUpdated: true});

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import { viewCartItem, updateCartItem, addCartItem, removeCartItem } from '../../../api/index';
 
 
 const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, updateCart}) => {
@@ -27,19 +27,19 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, update
 
   const handleAdd = async () => {
     try{
-      const response = await axios.get(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
+      const response = await viewCartItem(userId, pizzaName, pizzaSize);
       if(response.status === 200){
         const pizzaId = response.data._id;
         let qty = response.data.qty + 1;
         pizzaSelected.qty = qty;
         pizzaSelected.totalPrice = pizzaSelected.qty * pizzaPrice;
-        await axios.put(`/cart/${pizzaId}`, pizzaSelected);
+        await updateCartItem(pizzaId, pizzaSelected);
       }
       else if(response.status === 201){
         let qty = 1;
         pizzaSelected.qty = qty;
         pizzaSelected.totalPrice = pizzaPrice;
-        await axios.post('/cart', pizzaSelected);
+        await addCartItem(pizzaSelected);
       }
       await updateCart();
     } catch(err){
@@ -49,17 +49,17 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, update
 
   const handleRemove = async() => {
     try{
-      const response = await axios.get(`/cart?userId=${userId}&pizzaName=${pizzaName}&pizzaSize=${pizzaSize}`);
+      const response = await viewCartItem(userId, pizzaName, pizzaSize);
       if(response.status === 200){
         const pizzaId = response.data._id;
         if(response.data.qty <= 1){
-          await axios.delete(`/cart/${pizzaId}`);
+          await removeCartItem(pizzaId);
         }
         else{
           let qty = response.data.qty - 1;
           pizzaSelected.qty = qty;
           pizzaSelected.totalPrice = pizzaSelected.qty * pizzaPrice;
-          await axios.put(`/cart/${pizzaId}`, pizzaSelected);
+          await updateCartItem(pizzaId, pizzaSelected);
         }
       }
     } catch(err){

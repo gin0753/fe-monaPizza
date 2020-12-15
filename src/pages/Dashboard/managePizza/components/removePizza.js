@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Dashboard.css';
-import Axios from 'axios';
+import { removeMenuItem } from '../../../../api/index';
 
 class RemovePizza extends React.Component {
     constructor(props){
@@ -41,9 +41,8 @@ class RemovePizza extends React.Component {
 
     handleClick = async(e) => {
         try{
-            const {PizzaName, userId, config} = this.state;
-            console.log(userId)
-            const res = await Axios.delete(`./menu/${userId}/${PizzaName}`, config);
+            const {PizzaName, config} = this.state;
+            const res = await removeMenuItem(PizzaName, config);
             if(res.status === 200){
                 await new Promise((resolve) => {    
                     this.setState({isRemoved: true});

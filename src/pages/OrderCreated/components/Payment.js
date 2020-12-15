@@ -108,17 +108,19 @@ class Payment extends React.Component {
                         </div>
 
                         <div className="payment__cardpayment">
-                            {this.state.cartItem &&  
+                            {this.state.cartItem &&
+                            <button onClick={this.stripeClick}>  
                                 <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
                                 token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'MonaPizza'}
                                 alipay image={Margherita} locale="en" product />
-                            }
+                            </button>}
 
                             {!this.state.cartItem &&  
+                            <button onClick={this.stripeClick}>  
                                 <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
                                 token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'MonaPizza'}
                                 alipay image={Margherita} locale="en" product disabled/>
-                            }
+                            </button>}
 
                             { this.state.paymentSucceeded && <h6 className="green">Payment Succeed</h6> }
                             { this.state.paymentFailed && <h6 className="red">Payment Failed</h6> }

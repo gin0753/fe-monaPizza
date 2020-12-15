@@ -6,7 +6,7 @@ import { updateOrderId } from '../../../action/updateOrderID';
 import * as delivering from '../../../delivering.json'
 import Lottie from 'react-lottie'
 import StripeCheckout from 'react-stripe-checkout'
-import Axios from 'axios';
+import { getCartItem, checkoutPayment} from '../../../api/index';
 import Margherita from '../../../images/sriracha.png';
 
 class Payment extends React.Component {
@@ -35,7 +35,7 @@ class Payment extends React.Component {
     
     handleToken = async (token, addresses) => {
         const {userId, config} = this.state;
-        const resp = await Axios.get(`/cart/${userId}/1/10`);
+        const resp = await getCartItem(userId, 1, 8);
         const orderList = resp.data;
         const totalPrice = (this.props.cartSubtotal - this.props.discount) * 100;
         const product = {
@@ -44,7 +44,7 @@ class Payment extends React.Component {
         }
 
         try{
-            const res = await Axios.post('/checkout', {token,product}, config)
+            const res = await checkoutPayment(token, product, config);
             if(res.status === 200){
                 this.setState({
                     paymentSucceeded: true
@@ -66,7 +66,7 @@ class Payment extends React.Component {
 
     componentDidMount = async() => {
         try{
-            const res = await Axios.get(`/cart/${this.state.userId}/1/10`);
+            const res = await getCartItem(this.state.userId, 1, 10);
             if(res.data.length > 0){
                 this.setState({
                     cartItem: true

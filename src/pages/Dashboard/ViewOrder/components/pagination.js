@@ -5,7 +5,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux";
 import { updateViewOrder } from "../../../../action/paginationAction";
 import './pagination.scss';
-import Axios from 'axios';
+import { updateOrder } from '../../../../api/index';
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />
 const ArrowRight = <FontAwesomeIcon icon={faArrowRight} />
@@ -22,7 +22,7 @@ class Pagination extends React.Component {
   componentDidMount = async() => {
     const { page, pageSize } = this.props.state;
     const status = "Pending";
-    const res = await Axios.post(`/order/${status}/${page}/${pageSize}`);
+    const res = await updateOrder(status, page, pageSize);
     const { total } = res.data
     const pageNumbers = [];
     for(let i = 1; i <= Math.ceil(total/pageSize); i++){

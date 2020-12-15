@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { updateOrderHistory } from "../../../action/orderHistoryPagination";
 import OrderItem from "./components/orderItem";
 import UserBar from "../../../components/UserBar/UserBar/UserBar";
-import Axios from 'axios';
+import { getOrder } from '../../../api/index';
 import Pagination from './components/pagination';
 class OrderHistory extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class OrderHistory extends React.Component {
 
   updateHistory = async () => {
     const { page, pageSize, userId } = this.state;
-    const res = await Axios.get(`/order/${userId}/${page}/${pageSize}`);
+    const res = await getOrder(userId, page, pageSize);
     const { orders, total } = res.data;
     this.setState({
       total: total,

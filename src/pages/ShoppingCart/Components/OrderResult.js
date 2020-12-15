@@ -10,7 +10,7 @@ import store from '../../../store/index';
 import NoPizza from './NoPizza';
 import { applyPromoCode, rmProductList, addPizzaList } from '../../../action';
 
-import Axios from 'axios';
+import { removeCartItem, getPromoCode, getCartItem } from '../../../api';
 
 
 class OrderResult extends React.Component {
@@ -60,7 +60,7 @@ class OrderResult extends React.Component {
     handleRmPizzaClick = async (pizza, index) => {
         try {
             const id = pizza._id;
-            await Axios.delete(`http://localhost:8000/cart/${id}`);
+            await removeCartItem(id);
             await this.props.updateCart();
 
             const { totalPrice } = pizza;
@@ -94,7 +94,7 @@ class OrderResult extends React.Component {
             if (reg.test(codeNum) && codeNum.length === 6) {
 
                 try {
-                    const { data } = await Axios.get(`http://localhost:8000/promoCode?codeNum=${codeNum}`);
+                    const { data } = await getPromoCode(codeNum);
                     const { discount } = data;
                     const action = applyPromoCode(discount);
                     store.dispatch(action);
@@ -134,7 +134,7 @@ class OrderResult extends React.Component {
 
         try {
             // sample --- it should use userId to get the pizza list, not uuid
-            const { data } = await Axios.get(`http://localhost:8000/cart/${userId}/1/10`);
+            const { data } = await getCartItem(userId, 1, 8);
 
             let subPrice = 0;
             data.map(item => {

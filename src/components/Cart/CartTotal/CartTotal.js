@@ -1,6 +1,6 @@
 import React from 'react';
 import './CartTotal.css'
-import axios from 'axios';
+import { getCartItem } from '../../../api/index';
 import { PizzaImages } from '../../../PizzaImages'; 
 import { Link } from 'react-router-dom';
 import CartItem from './components/cartItem';
@@ -22,7 +22,7 @@ class CartTotal extends React.Component {
         const userId = sessionStorage.getItem('userID');
         try{
             if(userId){
-                const response = await axios.get(`/cart/${userId}/1/10`);
+                const response = await getCartItem(userId, 1, 8);
                 if(response.status === 200){
                     const orderList = response.data;
                     const pizzaImage = PizzaImages;

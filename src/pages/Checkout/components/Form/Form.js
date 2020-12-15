@@ -4,7 +4,7 @@ import Order from './components/Order/Order';
 import Payment from './components/Payment/Payment';
 import Loginbtn from './components/Login/Login';
 import Coupon from './components/Coupon/Coupon';
-import Axios from 'axios';
+import { getCartItem } from '../../../../api/index';
 import store from '../../../../store/index';
 import { addPizzaList } from '../../../../action';
 
@@ -55,7 +55,7 @@ class Form extends React.Component{
         const userId = sessionStorage.getItem('userID');
         if(userId){
             try {
-                const { data } = await Axios.get(`http://localhost:8000/cart/${userId}/1/10`);
+                const { data } = await getCartItem(userId, 1, 8);
     
                 let subPrice = 0;
                 data.map(item => {

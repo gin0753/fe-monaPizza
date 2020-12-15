@@ -3,7 +3,7 @@ import '../SignIn.css';
 import facebook from '../../../images/facebook_icon.svg';
 import wechat from '../../../images/wechat_icon.svg';
 import google from '../../../images/google_icon.svg';
-import Axios from 'axios';
+import { userRegistration, userLogin, googleLogin } from '../../../api/index';
 import GoogleLogin from 'react-google-login';
 import Lottie from 'react-lottie'
 import {FaTimes, FaCheck, FaEye} from 'react-icons/fa';
@@ -188,9 +188,6 @@ class Login extends React.Component{
             resolve();
         }); 
 
-        // await new Promise((resolve)=>setTimeout(() => {
-        //     resolve();
-        // }, 2500));  
     }
 
     clickRegister = async (e) => {
@@ -204,7 +201,7 @@ class Login extends React.Component{
         }
         if(this.state.checkEmail === 'Green' && this.state.checkPassword === 'Green'){
             try{
-                const response = await Axios.post('/register', RegisterInfo);
+                const response = await userRegistration(RegisterInfo);
                 if(response.status === 201){
                     await this.setState({isRegistered: true,
                                          userExists: false });
@@ -224,19 +221,9 @@ class Login extends React.Component{
             Password: this.state.Password,
         }
 
-        // const config = {
-        //     headers: {
-        //         Authorization: `Bearer ${sessionStorage.getItem('login-token')}`
-        //     }
-        // }
-
         if(this.state.checkEmail === 'Green' && this.state.checkPassword === 'Green' && this.state.confirmPassword === 'Green'){
             try{
-                const response = await Axios.post(
-                    '/login', 
-                    LoginInfo,
-                    // config
-                    );
+                const response = await userLogin(LoginInfo);
                 if(response.status === 200){
                     this.setState({
                         isLogin: true,
@@ -280,7 +267,7 @@ class Login extends React.Component{
         };
         
         try{
-            const response = await Axios.post('/googleLogin', googleInfo);
+            const response = await googleLogin(googleInfo);
             if(response.status === 200 || response.status === 201){
                 const {_id, UserName, role} = response.data;
                 sessionStorage.setItem('login-token', response.data.token);

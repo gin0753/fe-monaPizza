@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { updateViewOrder } from "../../../action/paginationAction";
 import OrderItem from "./components/orderItem";
 import UserBar from "../../../components/UserBar/UserBar/UserBar";
-import Axios from 'axios';
+import { updateOrder } from '../../../api/index';
 import Pagination from './components/pagination';
 class ViewOrder extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class ViewOrder extends React.Component {
   updateOrder = async () => {
     const { page, pageSize } = this.state;
     const status = "Pending";
-    const res = await Axios.post(`/order/${status}/${page}/${pageSize}`);
+    const res = await updateOrder(status, page, pageSize);
     const { orders, total } = res.data;
     this.setState({
       total: total,

@@ -5,7 +5,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux";
 import { updateOrderHistory } from "../../../../action/orderHistoryPagination";
 import './pagination.scss';
-import Axios from 'axios';
+import { getOrder } from '../../../../api/index';
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />
 const ArrowRight = <FontAwesomeIcon icon={faArrowRight} />
@@ -20,7 +20,7 @@ class Pagination extends React.Component {
 
   componentDidMount = async() => {
     const { page, pageSize, userId } = this.props.state;
-    const res = await Axios.get(`/order/${userId}/${page}/${pageSize}`);
+    const res = await getOrder(userId, page, pageSize);
     const { total } = res.data
     const pageNumbers = [];
     for(let i = 1; i <= Math.ceil(total/pageSize); i++){

@@ -64,6 +64,10 @@ class Payment extends React.Component {
         }
     }
 
+    stripeClick = (e) => {
+        e.preventDefault();
+    }
+
     componentDidMount = async() => {
         try{
             const res = await getCartItem(this.state.userId, 1, 10);
@@ -112,7 +116,7 @@ class Payment extends React.Component {
                             <button onClick={this.stripeClick}>  
                                 <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
                                 token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'MonaPizza'}
-                                alipay image={Margherita} locale="en" product />
+                                alipay image={Margherita} locale="en" product onClick={this.stripeClick}/>
                             </button>}
 
                             {!this.state.cartItem &&  

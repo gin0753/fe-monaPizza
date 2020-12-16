@@ -1,8 +1,6 @@
-import Axios from "axios";
+import Axios from 'axios';
 
-export const addMenuItem = (addPizza, config) => {
-    return Axios.post(`/menu/`, addPizza, config);
-}
+export const addMenuItem = (addPizza, config) => Axios.post('/menu/', addPizza, config);
 
 export const removeMenuItem = (userId, PizzaName, config) => {
     return Axios.delete(`/menu/${userId}/${PizzaName}`, config);

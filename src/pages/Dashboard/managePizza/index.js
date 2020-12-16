@@ -1,1 +1,1 @@
-export {default} from './managePizza';
+export { default } from './managePizza';

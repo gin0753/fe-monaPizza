@@ -1,3 +1,3 @@
-import Axios from "axios";
+import Axios from 'axios';
 
-export const fetchBlogs = () => Axios.get("/blog/1/4");
+export const fetchBlogs = () => Axios.get('/blog/1/4');

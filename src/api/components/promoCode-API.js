@@ -1,5 +1,3 @@
-import Axios from "axios";
+import Axios from 'axios';
 
-export const getPromoCode = (codeNum) => {
-    return Axios.get(`/promoCode?codeNum=${codeNum}`);
-}
+export const getPromoCode = (codeNum) => Axios.get(`/promoCode?codeNum=${codeNum}`);

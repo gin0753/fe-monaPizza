@@ -1,5 +1,5 @@
-import React from "react";
-import Margherita from "./img/Margherita.png";
+import React from 'react';
+import Margherita from './img/Margherita.png';
 
 class Header extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <img src={Margherita} alt='Margherita' />
+        <img src={Margherita} alt="Margherita" />
       </header>
     );
   }

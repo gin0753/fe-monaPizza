@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 
 class Info extends React.Component {
-
   render() {
     return (
-      <section className='restPage_info'>
-        <div className='restPage_info_wrap'>
-          <div className='restPage_info_top'>
+      <section className="restPage_info">
+        <div className="restPage_info_wrap">
+          <div className="restPage_info_top">
             <h2>
               We are pizza makers, and our mission is to make cool pizza which
               feeds all your senses.
@@ -21,9 +20,9 @@ class Info extends React.Component {
               all your senses, it’s not just great, it’s sensational.
             </p>
           </div>
-          <ul className='restPage_info_bottom'>
+          <ul className="restPage_info_bottom">
             <li>
-              <div className='icon_leaf'></div>
+              <div className="icon_leaf" />
               <h2>We’re Careful</h2>
               <p>
                 The crust is stored in a separate container, on a separate shelf
@@ -33,7 +32,7 @@ class Info extends React.Component {
               </p>
             </li>
             <li>
-              <div className='icon_badge'></div>
+              <div className="icon_badge" />
               <h2>We’re Certified</h2>
               <p>
                 Our cheese-only and cheese-and-pepperoni gluten-free pizzas are
@@ -43,7 +42,7 @@ class Info extends React.Component {
               </p>
             </li>
             <li>
-              <div className='icon_rocket'></div>
+              <div className="icon_rocket" />
               <h2>You’re Creative</h2>
               <p>
                 For those simply looking to reduce gluten in their diets, we
@@ -54,7 +53,7 @@ class Info extends React.Component {
             </li>
           </ul>
 
-          <div className='restPage_info_last'>
+          <div className="restPage_info_last">
             <h2>
               From classic pizzeria profiles, to innovative ethnic selections or
               flavourful health conscious choices, all our products reflect our

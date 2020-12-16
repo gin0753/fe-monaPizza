@@ -1,85 +1,83 @@
-import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
-import { faHistory } from '@fortawesome/free-solid-svg-icons';
-import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
-import { faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
-
+import {
+  faAddressCard, faHistory, faUnlockAlt, faMoneyCheck,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const UserBarTopItems = [
-    {
-        title: 'My Details',
-        path: '/mydetails',
-        cName: 'my-details',
-        icon: faAddressCard,
-        id: 'my-details'
-    },
-    {
-        title: 'Change Password',
-        path: '/change-password',
-        cName: 'password',
-        icon: faUnlockAlt,
-        id: 'password'
-    },
-    {
-        title: 'Order History',
-        path: '/order-history',
-        cName: 'history',
-        icon: faHistory,
-        id: 'history'
-    }
+  {
+    title: 'My Details',
+    path: '/mydetails',
+    cName: 'my-details',
+    icon: faAddressCard,
+    id: 'my-details',
+  },
+  {
+    title: 'Change Password',
+    path: '/change-password',
+    cName: 'password',
+    icon: faUnlockAlt,
+    id: 'password',
+  },
+  {
+    title: 'Order History',
+    path: '/order-history',
+    cName: 'history',
+    icon: faHistory,
+    id: 'history',
+  },
 ];
 
 export const AdminBarTopItems = [
-    {
-        title: 'My Details',
-        path: '/mydetails',
-        cName: 'my-details',
-        icon: faAddressCard,
-        id: 'my-details'
-    },
-    {
-        title: 'Change Password',
-        path: '/change-password',
-        cName: 'password',
-        icon: faUnlockAlt,
-        id: 'password'
-    },
-    {
-        title: 'Order History',
-        path: '/order-history',
-        cName: 'history',
-        icon: faHistory,
-        id: 'history'
-    },
-    {
-        title: 'Update Menu',
-        path: '/manage-pizza',
-        cName: 'updateMenu',
-        icon: faMoneyCheck,
-        id: 'updateMenu'
-    },
-    {
-        title: 'View Order',
-        path: '/view-order',
-        cName: 'viewOrder',
-        icon: faMoneyCheck,
-        id: 'viewOrder'
-    }
+  {
+    title: 'My Details',
+    path: '/mydetails',
+    cName: 'my-details',
+    icon: faAddressCard,
+    id: 'my-details',
+  },
+  {
+    title: 'Change Password',
+    path: '/change-password',
+    cName: 'password',
+    icon: faUnlockAlt,
+    id: 'password',
+  },
+  {
+    title: 'Order History',
+    path: '/order-history',
+    cName: 'history',
+    icon: faHistory,
+    id: 'history',
+  },
+  {
+    title: 'Update Menu',
+    path: '/manage-pizza',
+    cName: 'updateMenu',
+    icon: faMoneyCheck,
+    id: 'updateMenu',
+  },
+  {
+    title: 'View Order',
+    path: '/view-order',
+    cName: 'viewOrder',
+    icon: faMoneyCheck,
+    id: 'viewOrder',
+  },
 ];
 
 export const UserBarMiddleItems = [
-    {
-        title: 'Order Now',
-        path: '/shopping-cart',
-        cName: 'nav-text',
-        id: 'orderNow'
-    }
+  {
+    title: 'Order Now',
+    path: '/shopping-cart',
+    cName: 'nav-text',
+    id: 'orderNow',
+  },
 ];
 
 export const UserBarBottomItems = [
-    {
-        title: 'Logout',
-        path: '#logout',
-        cName: 'logout',
-        id: 'logout'
-    }
+  {
+    title: 'Logout',
+    path: '#logout',
+    cName: 'logout',
+    id: 'logout',
+  },
 ];

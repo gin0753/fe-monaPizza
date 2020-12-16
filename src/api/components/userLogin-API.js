@@ -1,17 +1,9 @@
-import Axios from "axios";
+import Axios from 'axios';
 
-export const userLogin = (LoginInfo) => {
-    return Axios.post('/login', LoginInfo);
-}
+export const userLogin = (LoginInfo) => Axios.post('/login', LoginInfo);
 
-export const findUserInfo = (userID, currentPassword) => {
-    return Axios.get(`/login/${userID}/${currentPassword}`);
-}
+export const findUserInfo = (userID, currentPassword) => Axios.get(`/login/${userID}/${currentPassword}`);
 
-export const updateUserInfo = (userID, Password) => {
-    return Axios.put(`/login/${userID}`, {Password});
-}
+export const updateUserInfo = (userID, Password) => Axios.put(`/login/${userID}`, { Password });
 
-export const googleLogin = (googleInfo) => {
-    return Axios.post('/googleLogin', googleInfo);
-}
+export const googleLogin = (googleInfo) => Axios.post('/googleLogin', googleInfo);

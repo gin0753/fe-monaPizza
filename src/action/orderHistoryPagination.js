@@ -1,4 +1,4 @@
-export const updateOrderHistory= ({ pageNum }) => ({
-    type: "UPDATE_PAGE",
-    pageNum
+export const updateOrderHistory = ({ pageNum }) => ({
+  type: 'UPDATE_PAGE',
+  pageNum,
 });

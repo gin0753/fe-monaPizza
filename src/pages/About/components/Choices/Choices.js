@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 
 class Choices extends React.Component {
-
   render() {
     return (
-      <section className='restPage_choices'>
+      <section className="restPage_choices">
         <span>
           <h3>5</h3>
           <p>crusts</p>

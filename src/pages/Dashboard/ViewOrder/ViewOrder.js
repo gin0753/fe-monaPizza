@@ -2,13 +2,11 @@ import React from "react";
 import "../Order.scss";
 import CrumbHeader from "../../../components/CrumbHeader";
 import { connect } from "react-redux";
-import { updatePage } from "../../../action/viewOrderPagination";
+import { updateViewOrder } from "../../../action/paginationAction";
 import OrderItem from "./components/orderItem";
 import UserBar from "../../../components/UserBar/UserBar/UserBar";
-import Axios from 'axios';
+import { updateOrder } from '../../../api/index';
 import Pagination from './components/pagination';
-
-
 class ViewOrder extends React.Component {
   constructor(props) {
     super(props);
@@ -19,22 +17,26 @@ class ViewOrder extends React.Component {
       searchOrder: "",
       sortOrder: "ascend",
       total: 0,
-      page: this.props.pageNumber,
+      page: 1,
       pageSize: 6
     };
   }
 
+  updateOrder = async () => {
+    const { page, pageSize } = this.state;
+    const status = "Pending";
+    const res = await updateOrder(status, page, pageSize);
+    const { orders, total } = res.data;
+    this.setState({
+      total: total,
+      orders: orders,
+      originalOrders: orders,
+    })
+  }
+
   componentDidMount = async () => {
     try{
-      const { page, pageSize } = this.state;
-      const status = "Pending";
-      const res = await Axios.post(`/order/${status}/${page}/${pageSize}`);
-      const { orders, total } = res.data;
-      await this.setState({
-        total: total,
-        orders: orders,
-        originalOrders: orders,
-      });
+      await this.updateOrder();
     }
     catch(err){
       console.log(err);
@@ -46,19 +48,13 @@ class ViewOrder extends React.Component {
       await this.setState({
           page: this.props.pageNumber
         })
-    }
 
-    try{
-      const { page, pageSize } = this.state;
-      const status = "Pending";
-      const res = await Axios.post(`/order/${status}/${page}/${pageSize}`);
-      const { orders } = res.data;
-      await this.setState({
-        orders: orders,
-      });
-    }
-    catch(err){
-      console.log(err)
+      try{
+        await this.updateOrder();
+      }
+      catch(err){
+        console.log(err)
+      }
     }
   }
 
@@ -124,6 +120,9 @@ class ViewOrder extends React.Component {
       this.setState((prevPage) => {
         return {page: prevPage.page - 1}
       })
+      this.props.updateViewOrder({
+        pageNumber: this.props.pageNumber - 1
+      })
     }
   }
 
@@ -134,6 +133,9 @@ class ViewOrder extends React.Component {
     if(page < pages){
       this.setState((prevPage) => {
         return {page: prevPage.page + 1}
+      })
+      this.props.updateViewOrder({
+        pageNumber: this.props.pageNumber + 1
       })
     }
   }
@@ -172,7 +174,7 @@ class ViewOrder extends React.Component {
               </div>
               <ul className='order-history__wrap__title'>
                 <li>Items</li>
-                <li>Toppings</li>
+                <li>Total</li>
                 <li>Status</li>
               </ul>
               <ul className='order-history__wrap__orders'>
@@ -196,7 +198,7 @@ class ViewOrder extends React.Component {
 
 const mapStateToProps = (state) => {
   const {
-    updatePage: { pageNumber },
+    updateViewOrder: { pageNumber },
   } = state;
   return {
     pageNumber
@@ -204,7 +206,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapActionToProps = {
-  updatePage
+  updateViewOrder
 };
 
 export default connect(mapStateToProps, mapActionToProps)(ViewOrder);

@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux";
-import { updatePage } from "../../action/viewOrderPagination";
+import { updateOrderHistory } from "../../../../action/orderHistoryPagination";
 import './pagination.scss';
-import Axios from 'axios';
+import { getOrder } from '../../../../api/index';
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />
 const ArrowRight = <FontAwesomeIcon icon={faArrowRight} />
@@ -19,10 +19,8 @@ class Pagination extends React.Component {
   }
 
   componentDidMount = async() => {
-    console.log(this.props);
-    const { page, pageSize } = this.props.state;
-    const status = "Pending";
-    const res = await Axios.post(`/order/${status}/${page}/${pageSize}`);
+    const { page, pageSize, userId } = this.props.state;
+    const res = await getOrder(userId, page, pageSize);
     const { total } = res.data
     const pageNumbers = [];
     for(let i = 1; i <= Math.ceil(total/pageSize); i++){
@@ -33,12 +31,8 @@ class Pagination extends React.Component {
     })
   }
 
-  switchPage = (e) => {
-    e.preventDefault();
-  }
-  
   render(){
-    const { updatePage, state } = this.props;
+    const { updateOrderHistory, state } = this.props;
     return (
       <div className="pagination">
           <div className="previouspage"><a href="/" onClick={this.props.leftArr}>{ArrowLeft}</a></div>
@@ -48,8 +42,8 @@ class Pagination extends React.Component {
                       <a href="/" key={index} className={page === state.page ? "actived currentPage" : "actived"} 
                       onClick={(e)=>{
                       e.preventDefault();
-                      updatePage({
-                        pageNumber: page
+                      updateOrderHistory({
+                        pageNum: page
                       })  
                       }}>{page}</a>
                     )
@@ -63,15 +57,15 @@ class Pagination extends React.Component {
 
 const mapStateToProps = (state) => {
   const {
-    updatePage: { pageNumber },
+    updateOrderHistory: { pageNum },
   } = state;
   return {
-    pageNumber
+    pageNum
   };
 };
 
 const mapActionToProps = {
-    updatePage
+    updateOrderHistory
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Pagination);

@@ -1,27 +1,27 @@
 const initialState = {
   loading: false,
   orderList: [],
-  _id: "",
-  orderPlacedTime: "",
-  clientFirstName: "",
-  clientLastName: "",
-  billingAddr: "",
-  city: "",
-  postcode: "",
-  contactNumber: "",
-  cartSubTotal: "",
-  totalPrice: "",
-  shippingAddr: "",
+  _id: '',
+  orderPlacedTime: '',
+  clientFirstName: '',
+  clientLastName: '',
+  billingAddr: '',
+  city: '',
+  postcode: '',
+  contactNumber: '',
+  cartSubTotal: '',
+  totalPrice: '',
+  shippingAddr: '',
 };
 
 export const orderCreatedReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "REQUESTED":
+    case 'REQUESTED':
       return {
         ...state,
         loading: true,
       };
-    case "SUCCESS":
+    case 'SUCCESS':
       return {
         ...state,
         loading: false,
@@ -38,22 +38,22 @@ export const orderCreatedReducer = (state = initialState, action) => {
         totalPrice: action.data.totalPrice,
         shippingAddr: action.data.shippingAddr,
       };
-    case "FAILED":
+    case 'FAILED':
       return {
         ...state,
         loading: false,
         orderList: [],
-        _id: "",
-        orderPlacedTime: "",
-        clientFirstName: "",
-        clientLastName: "",
-        billingAddr: "",
-        city: "",
-        postcode: "",
-        contactNumber: "",
-        cartSubTotal: "",
-        totalPrice: "",
-        shippingAddr: "",
+        _id: '',
+        orderPlacedTime: '',
+        clientFirstName: '',
+        clientLastName: '',
+        billingAddr: '',
+        city: '',
+        postcode: '',
+        contactNumber: '',
+        cartSubTotal: '',
+        totalPrice: '',
+        shippingAddr: '',
       };
     default:
       return state;

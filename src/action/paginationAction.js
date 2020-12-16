@@ -1,4 +1,4 @@
-export const updateViewOrder= ({ pageNumber }) => ({
-    type: "UPDATE_PAGE",
-    pageNumber
+export const updateViewOrder = ({ pageNumber }) => ({
+  type: 'UPDATE_PAGE',
+  pageNumber,
 });

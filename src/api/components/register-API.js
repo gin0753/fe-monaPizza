@@ -1,5 +1,3 @@
-import Axios from "axios";
+import Axios from 'axios';
 
-export const userRegistration = (RegisterInfo) => {
-    return Axios.post('/register', RegisterInfo);
-}
+export const userRegistration = (RegisterInfo) => Axios.post('/register', RegisterInfo);

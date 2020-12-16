@@ -1,5 +1,3 @@
-import Axios from "axios";
+import Axios from 'axios';
 
-export const storeFeedback = (feedback) => {
-    return Axios.post('/feedback', feedback);
-}
+export const storeFeedback = (feedback) => Axios.post('/feedback', feedback);

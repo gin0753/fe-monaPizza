@@ -1,28 +1,28 @@
 const initialState = {
   loading: false,
-  totalBlogs: "",
+  totalBlogs: '',
   results: [],
 };
 
 export const blogReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "REQUESTED":
+    case 'REQUESTED':
       return {
         ...state,
         loading: true,
       };
-    case "SUCCESS":
+    case 'SUCCESS':
       return {
         ...state,
         loading: false,
         totalBlogs: action.data.totalBlogs,
         results: action.data.results,
       };
-    case "FAILED":
+    case 'FAILED':
       return {
         ...state,
         loading: false,
-        totalBlogs: "",
+        totalBlogs: '',
         results: [],
       };
     default:

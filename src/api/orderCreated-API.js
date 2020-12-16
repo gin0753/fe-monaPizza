@@ -1,5 +1,3 @@
-import Axios from "axios";
+import Axios from 'axios';
 
-export const fetchOrder = async (orderId) => {
-  return await Axios.get(`/order/${orderId}`);
-};
+export const fetchOrder = async (orderId) => await Axios.get(`/order/${orderId}`);

@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 
 class MobileApp extends React.Component {
   render() {
     return (
-      <section className='restPage_mobileApp'>
-        <div className='restPage_mobileApp_wrap'>
-          <aside>
-          </aside>
+      <section className="restPage_mobileApp">
+        <div className="restPage_mobileApp_wrap">
+          <aside />
           <main>
             <h2>Get the newest version of our mobile app for your phone.</h2>
             <p>
@@ -25,9 +24,9 @@ class MobileApp extends React.Component {
               <li>Find local deals</li>
               <li>Pay directly from the app</li>
             </ul>
-            <div className='appDownload'>
-              <a href="/" className='ios'>download iPhone App</a>
-              <a href="/" className='android'>download Android App</a>
+            <div className="appDownload">
+              <a href="/" className="ios">download iPhone App</a>
+              <a href="/" className="android">download Android App</a>
             </div>
           </main>
         </div>

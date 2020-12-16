@@ -5,16 +5,15 @@ import RelatedPizza from './components/RelatedPizza';
 import './ProductDetails.css';
 
 class ProductDetails extends React.Component {
-
-    render() {
-        return (
-            <div className="product-details-page">
-                <PizzaIntro />
-                <PizzaInfo />
-                <RelatedPizza />
-            </div>
-        )
-    }
-};
+  render() {
+    return (
+      <div className="product-details-page">
+        <PizzaIntro />
+        <PizzaInfo />
+        <RelatedPizza />
+      </div>
+    );
+  }
+}
 
 export default ProductDetails;

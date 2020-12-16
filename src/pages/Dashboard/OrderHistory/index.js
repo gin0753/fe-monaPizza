@@ -1,1 +1,1 @@
-export {default} from './OrderHistory';
+export { default } from './OrderHistory';

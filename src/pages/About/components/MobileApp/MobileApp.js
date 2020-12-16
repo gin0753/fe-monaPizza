@@ -1,11 +1,11 @@
-import React from "react";
-import Iphone6Ads from "./img/iPhone6-ad.png";
+import React from 'react';
+import Iphone6Ads from './img/iPhone6-ad.png';
 
 class MobileApp extends React.Component {
   render() {
     return (
-      <section className='restPage_mobileApp'>
-        <div className='restPage_mobileApp_wrap'>
+      <section className="restPage_mobileApp">
+        <div className="restPage_mobileApp_wrap">
           <aside>
             <img src={Iphone6Ads} />
           </aside>
@@ -27,9 +27,9 @@ class MobileApp extends React.Component {
               <li>Find local deals</li>
               <li>Pay directly from the app</li>
             </ul>
-            <div className='appDownload'>
-              <a className='ios'>download iPhone App</a>
-              <a className='android'>download Android App</a>
+            <div className="appDownload">
+              <a className="ios">download iPhone App</a>
+              <a className="android">download Android App</a>
             </div>
           </main>
         </div>

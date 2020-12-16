@@ -69,7 +69,7 @@ class UpdatePizza extends React.Component {
                     Large: priceLG
                 }
             }
-            const res = await updateMenuItem(PizzaName, addPizza, config);
+            const res = await updateMenuItem(userId, PizzaName, addPizza, config);
             if(res.status === 200){
                 await new Promise((resolve) => {    
                     this.setState({isUpdated: true});
@@ -115,7 +115,7 @@ class UpdatePizza extends React.Component {
                     <button className= {validNumber === true && validString === true ? "addBtn" : "addBtn disabled"} 
                     disabled={validNumber === true && validString === true ? false : true} onClick={this.handleClick}>Update Menu</button>
                 </div>
-                {!isUpdated ? <></>:<div className="dashboard__managePizza--isUpdated">Pizza Added Successfully</div>}
+                {!isUpdated ? <></>:<div className="dashboard__managePizza--isUpdated">Pizza Updated Successfully</div>}
                 {validString === false && <div className="dashboard__managePizza--incorrect">Invalid PizzaName or Description</div>}
                 {validNumber === false && <div className="dashboard__managePizza--incorrect">Invalid Price</div>}
             </section>

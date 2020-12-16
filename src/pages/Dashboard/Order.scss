@@ -144,6 +144,20 @@
               justify-content: space-between;
             }
           }
+          .total-price,
+          .order-status {
+            position: relative;
+            flex: 1;
+            border-left: 1px solid #fdbc2c;
+
+            h3 {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 23px;
+            }
+          }
           .order-toppings{
             padding: 10px 15px;
             flex: 2;
@@ -155,9 +169,10 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-around;
-                & span{
+                & h3{
+                  font-size: 23px;
                   margin: 10px;
-                  width: 30%;
+                  width: 100%;
                 }
               }
             }

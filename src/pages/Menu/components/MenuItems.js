@@ -40,7 +40,7 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, update
         let qty = 1;
         pizzaSelected.qty = qty;
         
-        pizzaSelected.totalPrice = pizzaPrice + +(toppings.length * toppingItemPrice);
+        pizzaSelected.totalPrice = pizzaSelected.qty * pizzaPrice + +(toppings.length * toppingItemPrice);
         await addCartItem(pizzaSelected);
       }
       await updateCart();

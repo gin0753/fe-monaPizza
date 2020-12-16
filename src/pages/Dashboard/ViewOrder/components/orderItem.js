@@ -3,7 +3,6 @@ import React from "react";
 
 const MenuItems = ({details: {orderPlacedTime, _id, orderList, totalPrice, orderNotes}}) => {
   const orderNumber = _id.substring(_id.length - 4);
-  console.log(orderList);
   return (
     <li className='order-history__wrap__orders__item'>
     <h2>
@@ -27,7 +26,7 @@ const MenuItems = ({details: {orderPlacedTime, _id, orderList, totalPrice, order
                   <li key={pizza._id}>
                       {pizza.toppings.map((topping, index) => 
                         (
-                          <span key={index}>{topping}</span>
+                          <h3 key={index}>{topping}</h3>
                         )
                     )}
                   </li>

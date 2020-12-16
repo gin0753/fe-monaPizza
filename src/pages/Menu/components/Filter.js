@@ -18,7 +18,7 @@ class Filter extends React.Component {
                                     <span></span>
                                     <span></span>
                                 </li>
-                                <li className="filter__title"><h4>FILTER</h4></li>
+                                <li className="filter__title"><h4>TOPPINGS</h4></li>
                                 <li className="filter__result">Showing 1-12 of 19 results</li>
                             </ul>
                         </div>

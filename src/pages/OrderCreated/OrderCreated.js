@@ -4,7 +4,7 @@ import Order from "./components/Order";
 import Payment from './components/Payment';
 import { connect } from 'react-redux';
 import { updateOrderId } from '../../action/updateOrderID';
-import Axios from 'axios';
+import { changeOrderDetails, removeAllItems } from '../../api/index';
 class OrderCreated extends React.Component {
   constructor(props){
     super(props)
@@ -27,7 +27,7 @@ class OrderCreated extends React.Component {
           const minutes = d.getMinutes();
           const seconds = d.getSeconds();
           const orderPlacedTime = `${d.toLocaleDateString()} ${hours}:${minutes}:${seconds}`;
-          const res = await Axios.put(`/order/${this.props.orderId}`, {orderStatus: 'Pending', orderPlacedTime}, this.state.config)
+          const res = await changeOrderDetails(this.props.orderId, {orderStatus: 'Pending', orderPlacedTime}, this.state.config);
           if(res.status === 200){
               await new Promise((resolve) => {    
                   this.setState({isAnimated: true});
@@ -40,7 +40,7 @@ class OrderCreated extends React.Component {
                   });
                   const cleanCart = async() => {
                     try{
-                        const res = await Axios.delete(`cart/`);
+                        const res = await removeAllItems();
                         if(res.status === 200){
                             console.log(this.props);
                             await this.props.updateCart();

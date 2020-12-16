@@ -2,10 +2,11 @@ import React from "react";
 import "../Order.scss";
 import CrumbHeader from "../../../components/CrumbHeader";
 import { connect } from "react-redux";
-import { fetchOrder } from "../../../action/historyActions";
+import { updateOrderHistory } from "../../../action/orderHistoryPagination";
 import OrderItem from "./components/orderItem";
 import UserBar from "../../../components/UserBar/UserBar/UserBar";
-
+import { getOrder } from '../../../api/index';
+import Pagination from './components/pagination';
 class OrderHistory extends React.Component {
   constructor(props) {
     super(props);
@@ -15,20 +16,47 @@ class OrderHistory extends React.Component {
       filterStatus: "",
       searchOrder: "",
       sortOrder: "ascend",
+      userId: sessionStorage.getItem('userID'),
+      total: 0,
+      page: 1,
+      pageSize: 6
     };
   }
 
-  componentDidMount = async () => {
-    const { fetchOrder } = this.props;
-    await fetchOrder();
-    const {
-      orders: { orders },
-    } = this.props;
+  updateHistory = async () => {
+    const { page, pageSize, userId } = this.state;
+    const res = await getOrder(userId, page, pageSize);
+    const { orders, total } = res.data;
     this.setState({
+      total: total,
       orders: orders,
       originalOrders: orders,
-    });
+    })
+  }
+
+  componentDidMount = async () => {
+    try{
+      await this.updateHistory();
+    }
+    catch(err){
+      console.log(err);
+    }
   };
+
+  componentDidUpdate = async (prevPage) => {
+    if(prevPage.pageNum !== this.props.pageNum){
+      await this.setState({
+          page: this.props.pageNum
+        })
+
+      try{
+        await this.updateHistory();
+      }
+      catch(err){
+        console.log(err)
+      }
+    }
+  }
 
   originOrder = () => {
     this.setState({
@@ -92,6 +120,33 @@ class OrderHistory extends React.Component {
     });
   };
 
+  leftArr = async(e) => {
+    e.preventDefault();
+    const { page } = this.state;
+    if(page > 1){
+      this.setState((prevPage) => {
+        return {page: prevPage.page - 1}
+      })
+      this.props.updateOrderHistory({
+        pageNum: this.props.pageNum - 1
+      })
+    }
+  }
+
+  rightArr = async(e) => {
+    e.preventDefault();
+    const { page, pageSize, total } = this.state;
+    const pages = total/pageSize;
+    if(page < pages){
+      this.setState((prevPage) => {
+        return {page: prevPage.page + 1}
+      })
+      this.props.updateOrderHistory({
+        pageNum: this.props.pageNum + 1
+      })
+    }
+  }
+
   render() {
     let filterResult = this.state.orders.filter((order) => {
       return order.orderStatus.indexOf(this.state.filterStatus) !== -1;
@@ -99,7 +154,7 @@ class OrderHistory extends React.Component {
     return (
       <>
         <section className='order-history'>
-          <CrumbHeader thisPage='order History' path='order-history' />
+          <CrumbHeader thisPage='Order History' path='order-history' />
           <div className='order-history__all'>
             <div className='order-history__all__userBar'>
               <UserBar props={this.props}/>
@@ -140,6 +195,9 @@ class OrderHistory extends React.Component {
               </ul>
             </div>
           </div>
+          <div className="order-history__footer">
+              <Pagination state={this.state} leftArr={this.leftArr} rightArr={this.rightArr}/>
+          </div>
         </section>
       </>
     );
@@ -148,18 +206,16 @@ class OrderHistory extends React.Component {
 
 const mapStateToProps = (state) => {
   const {
-    historyReducer: { loading, orders },
+    updateOrderHistory: { pageNum },
   } = state;
   return {
-    loading,
-    orders,
+    pageNum
   };
 };
 
-const mapActionToProps = (dispatch) => {
-  return {
-    fetchOrder: () => dispatch(fetchOrder()),
-  };
+const mapActionToProps = {
+  updateOrderHistory
 };
 
 export default connect(mapStateToProps, mapActionToProps)(OrderHistory);
+

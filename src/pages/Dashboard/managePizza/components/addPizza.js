@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Dashboard.css';
-import Axios from 'axios';
+import { addMenuItem } from '../../../../api/index';
 
 class AddPizza extends React.Component {
     constructor(props){
@@ -83,7 +83,7 @@ class AddPizza extends React.Component {
                     Large: priceLG
                 }
             }
-            const res = await Axios.post('./menu', addPizza, config);
+            const res = await addMenuItem(addPizza, config);
             if(res.status === 201){
                 await new Promise((resolve) => {    
                     this.setState({isAdded: true});

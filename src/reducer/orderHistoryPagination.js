@@ -1,16 +1,15 @@
 const initialState = {
-    pageNumber: 1,
+    pageNum: 1,
   };
-  
-  export const updatePage = (state = initialState, action) => {
+
+  export const updateOrderHistory = (state = initialState, action) => {
     switch (action.type) {
       case "UPDATE_PAGE":
         return state = {
           ...state,
-          pageNumber: action.pageNumber,
+          pageNum: action.pageNum,
         };
       default:
         return state;
     }
   };
-  

@@ -1,8 +1,7 @@
 import React from 'react';
 import '../../Form.css';
 import { connect } from 'react-redux';
-import axios from 'axios';
-
+import { getCartItem } from '../../../../../../api/index';
 class Order extends React.Component{
     constructor(props){
         super(props)
@@ -15,7 +14,7 @@ class Order extends React.Component{
         const userId = sessionStorage.getItem('userID');
         if(userId){
             try{
-                const response = await axios.get(`/cart/${userId}/1/10`);
+                const response = await getCartItem(userId, 1, 8);
                 if(response.status === 200){
                     const orderList = response.data;
                     this.setState({

@@ -2,7 +2,7 @@ import React from 'react';
 import '../mydetails/mydetails.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMotorcycle, faStore } from '@fortawesome/free-solid-svg-icons';
-import Axios from 'axios';
+import { updateClientInfo, getClientInfo } from '../../../api/index';
 
 class Form extends React.Component {
     constructor(props){
@@ -40,7 +40,7 @@ class Form extends React.Component {
                 contactNumber,
                 billingAddr
             }
-            const updateResponse = await Axios.put(`/client/${userId}`, updateInfo);
+            const updateResponse = await updateClientInfo(userId, updateInfo);
             if(updateResponse.status === 200){
                 this.setState({
                     isUpdated: true
@@ -64,7 +64,7 @@ class Form extends React.Component {
 
     removeBillingAddr = async() => {
         try{
-            const addrResponse = await Axios.put(`/client/${this.state.userId}`,{billingAddr: ''});
+            const addrResponse = await updateClientInfo(this.state.userId, {billingAddr: ''});
             if(addrResponse.status === 200){
                 this.setState({
                     billingAddr: ''
@@ -79,7 +79,7 @@ class Form extends React.Component {
     addBillingAddr = async(e) => {
         e.preventDefault();
         try{
-            await Axios.put(`/client/${this.state.userId}`,{billingAddr: this.state.billingAddr});
+            await updateClientInfo(this.state.userId, {billingAddr: this.state.billingAddr});
         }
         catch(err){
             console.log(err.message)
@@ -88,7 +88,7 @@ class Form extends React.Component {
 
     componentDidMount = async() => {
         try{
-            const clientInfo = await Axios.get(`/client/${this.state.userId}`);
+            const clientInfo = await getClientInfo(this.state.userId);
             this.setState({
                 clientFirstName: clientInfo.data.clientFirstName,
                 clientLastName: clientInfo.data.clientLastName,

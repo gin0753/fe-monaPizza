@@ -6,7 +6,7 @@ import { updateOrderId } from '../../../action/updateOrderID';
 import * as delivering from '../../../delivering.json'
 import Lottie from 'react-lottie'
 import StripeCheckout from 'react-stripe-checkout'
-import Axios from 'axios';
+import { getCartItem, checkoutPayment} from '../../../api/index';
 import Margherita from '../../../images/sriracha.png';
 
 class Payment extends React.Component {
@@ -35,7 +35,7 @@ class Payment extends React.Component {
     
     handleToken = async (token, addresses) => {
         const {userId, config} = this.state;
-        const resp = await Axios.get(`/cart/${userId}/1/10`);
+        const resp = await getCartItem(userId, 1, 8);
         const orderList = resp.data;
         const totalPrice = (this.props.cartSubtotal - this.props.discount) * 100;
         const product = {
@@ -44,7 +44,7 @@ class Payment extends React.Component {
         }
 
         try{
-            const res = await Axios.post('/checkout', {token,product}, config)
+            const res = await checkoutPayment(token, product, config);
             if(res.status === 200){
                 this.setState({
                     paymentSucceeded: true
@@ -64,9 +64,13 @@ class Payment extends React.Component {
         }
     }
 
+    stripeClick = (e) => {
+        e.preventDefault();
+    }
+
     componentDidMount = async() => {
         try{
-            const res = await Axios.get(`/cart/${this.state.userId}/1/10`);
+            const res = await getCartItem(this.state.userId, 1, 10);
             if(res.data.length > 0){
                 this.setState({
                     cartItem: true
@@ -108,17 +112,19 @@ class Payment extends React.Component {
                         </div>
 
                         <div className="payment__cardpayment">
-                            {this.state.cartItem &&  
+                            {this.state.cartItem &&
+                            <button onClick={this.stripeClick}>  
                                 <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
                                 token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'MonaPizza'}
-                                alipay image={Margherita} locale="en" product />
-                            }
+                                alipay image={Margherita} locale="en" product onClick={this.stripeClick}/>
+                            </button>}
 
                             {!this.state.cartItem &&  
+                            <button onClick={this.stripeClick}>  
                                 <StripeCheckout stripeKey="pk_test_51Hqd19DahGEftvCwCfESiCwRc4gDqRPDAFXKu25hQTIly6eww8VGDPefwMTumyF5juGykHRiEN8DKsDh7yf8iDUZ00E7uLGGX4"
                                 token={this.handleToken} amount={(this.props.cartSubtotal - this.props.discount) * 100} billingAddress shippingAddress name={'MonaPizza'}
                                 alipay image={Margherita} locale="en" product disabled/>
-                            }
+                            </button>}
 
                             { this.state.paymentSucceeded && <h6 className="green">Payment Succeed</h6> }
                             { this.state.paymentFailed && <h6 className="red">Payment Failed</h6> }

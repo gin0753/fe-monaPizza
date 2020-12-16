@@ -18,7 +18,7 @@ class Payment extends React.Component {
     }
     
     handleClick = async () => {
-        let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr, orderNote,
+        let { clientFirstName, clientLastName, billingAddr, city, postcode, clientEmail, contactNumber, shippingAddr, orderNotes,
         country, companyName, billingUnit, county, shippingUnit} = this.props.inputValue;
         if(shippingAddr === ''){
             shippingAddr = billingAddr
@@ -53,7 +53,7 @@ class Payment extends React.Component {
                 cartSubTotal,
                 totalPrice,
                 shippingAddr,
-                orderNote,
+                orderNotes,
                 orderStatus: 'Unpaid'
             }
             const orderResponse = await createOrder(orderInfo);

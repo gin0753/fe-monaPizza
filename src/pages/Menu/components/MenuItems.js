@@ -42,8 +42,8 @@ const MenuItems = ({
       } else if (response.status === 201) {
         const qty = 1;
         pizzaSelected.qty = qty;
-
-        pizzaSelected.totalPrice = pizzaPrice + +(toppings.length * toppingItemPrice);
+        
+        pizzaSelected.totalPrice = pizzaSelected.qty * pizzaPrice + +(toppings.length * toppingItemPrice);
         await addCartItem(pizzaSelected);
       }
       await updateCart();

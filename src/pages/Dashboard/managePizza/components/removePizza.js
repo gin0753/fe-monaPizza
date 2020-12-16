@@ -41,8 +41,8 @@ class RemovePizza extends React.Component {
 
     handleClick = async(e) => {
         try{
-            const {PizzaName, config} = this.state;
-            const res = await removeMenuItem(PizzaName, config);
+            const {PizzaName, config, userId} = this.state;
+            const res = await removeMenuItem(userId, PizzaName, config);
             if(res.status === 200){
                 await new Promise((resolve) => {    
                     this.setState({isRemoved: true});

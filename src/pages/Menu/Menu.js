@@ -17,7 +17,42 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pizzas: []
+      pizzas: [],
+      Toppings: [],
+      Marinara: null,
+      Icing: null,
+      Barbeque: null,
+      Cheese: null,
+      Ranch: null,
+      'Olive Oil': null,
+      GarlicSauce: null,
+      Mozzarella: null,
+      'Goat Cheese': null,
+      Mascarpone: null,
+      Gorgonzola: null,
+      'Feta Cheese': null,
+      Cheddar: null,
+      Parmigiano: null,
+      Pepperoni: null,
+      'Grilled Chicken': null,
+      Ham: null,
+      Beef: null,
+      'Italian Sausage': null,
+      Bacon: null,
+      Meatballs: null,
+      Onions: null,
+      Mushrooms: null,
+      'Black Olives': null,
+      Tomatoes: null,
+      Pineapple: null,
+      Peppers: null,
+      Aubergines: null,
+      'Hot Chillies': null,
+      Spinach: null,
+      Broccoli: null,
+      Cucumber: null,
+      Garlic: null,
+      'Sweet Corn': null
     }
   }
 
@@ -43,13 +78,33 @@ class Menu extends Component {
     await this.displayContent();
   }
 
+  handleClick = (e) => {
+    const { Toppings } = this.state
+    if(this.state.[e.target.name]){
+        this.setState({
+            [e.target.name]: null
+        })
+        let index = Toppings.indexOf(e.target.name);
+        if(index !== -1){
+          Toppings.splice(index, 1);
+        }
+    }
+    else{
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        Toppings.push(e.target.value);
+    }
+}
+
   render() {
     const updateCart = this.props.updateCart
+    console.log(this.state)
     return (
       <div className="menu">
         <CrumbHeader thisPage='Menu' path='/menu'/>
         <div className="catelogue">
-          <Filter />
+          <Filter clickEvent={this.handleClick}/>
           <div className="catelogue__product">
             {this.state.pizzas.map((item) =>
               (

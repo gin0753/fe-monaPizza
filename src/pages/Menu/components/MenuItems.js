@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { viewCartItem, updateCartItem, addCartItem, removeCartItem } from '../../../api/index';
 
 
-const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, updateCart}) => {
+const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, updateCart, toppings, toppingItemPrice}) => {
 
   const [currentSize, setCurrentSize] = useState('Small');
 
@@ -17,7 +17,8 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, update
     pizzaName,
     pizzaSize,
     pizzaPrice,
-    totalPrice
+    totalPrice,
+    toppings
   }
 
   const handleChange = (e) => {
@@ -32,13 +33,14 @@ const MenuItems = ({ details: { _id, Img, PizzaName, Description, Price}, update
         const pizzaId = response.data._id;
         let qty = response.data.qty + 1;
         pizzaSelected.qty = qty;
-        pizzaSelected.totalPrice = pizzaSelected.qty * pizzaPrice;
+        pizzaSelected.totalPrice = pizzaSelected.qty * pizzaPrice + +(toppings.length * toppingItemPrice);
         await updateCartItem(pizzaId, pizzaSelected);
       }
       else if(response.status === 201){
         let qty = 1;
         pizzaSelected.qty = qty;
-        pizzaSelected.totalPrice = pizzaPrice;
+        
+        pizzaSelected.totalPrice = pizzaPrice + +(toppings.length * toppingItemPrice);
         await addCartItem(pizzaSelected);
       }
       await updateCart();

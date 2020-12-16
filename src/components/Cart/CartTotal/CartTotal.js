@@ -84,7 +84,7 @@ class CartTotal extends React.Component {
                         <h4><span className="red">Order Total</span></h4>
                     </dt>
                     <dd>
-                        <h4><span className="red">${totalPrice}</span></h4>
+                        <h4><span className="red">${totalPrice}.00</span></h4>
                     </dd>
                 </dl>
                 <Link to="/shopping-cart"><button className="buttonblack" onClick={this.handleClick}>VIEW SHOPPING CART</button></Link>

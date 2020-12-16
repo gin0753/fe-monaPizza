@@ -18,7 +18,7 @@ class Menu extends Component {
     super(props);
     this.state = {
       pizzas: [],
-      Toppings: [],
+      toppings: [],
       Marinara: null,
       Icing: null,
       Barbeque: null,
@@ -52,7 +52,8 @@ class Menu extends Component {
       Broccoli: null,
       Cucumber: null,
       Garlic: null,
-      'Sweet Corn': null
+      'Sweet Corn': null,
+      toppingItemPrice: 2
     }
   }
 
@@ -79,27 +80,27 @@ class Menu extends Component {
   }
 
   handleClick = (e) => {
-    const { Toppings } = this.state
+    const { toppings } = this.state
     if(this.state.[e.target.name]){
         this.setState({
             [e.target.name]: null
         })
-        let index = Toppings.indexOf(e.target.name);
+        let index = toppings.indexOf(e.target.name);
         if(index !== -1){
-          Toppings.splice(index, 1);
+          toppings.splice(index, 1);
         }
     }
     else{
         this.setState({
             [e.target.name]: e.target.value
         })
-        Toppings.push(e.target.value);
+        toppings.push(e.target.value);
     }
 }
 
   render() {
     const updateCart = this.props.updateCart
-    console.log(this.state)
+    const { toppings, toppingItemPrice } = this.state;
     return (
       <div className="menu">
         <CrumbHeader thisPage='Menu' path='/menu'/>
@@ -108,7 +109,7 @@ class Menu extends Component {
           <div className="catelogue__product">
             {this.state.pizzas.map((item) =>
               (
-                <MenuItems key={item._id} details={item} updateCart={updateCart} />
+                <MenuItems key={item._id} details={item} updateCart={updateCart} toppings={toppings} toppingItemPrice={toppingItemPrice}/>
               )
             )}
           </div>

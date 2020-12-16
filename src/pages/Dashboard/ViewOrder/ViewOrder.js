@@ -174,8 +174,8 @@ class ViewOrder extends React.Component {
               </div>
               <ul className='order-history__wrap__title'>
                 <li>Items</li>
-                <li>Total</li>
-                <li>Status</li>
+                <li>Toppings</li>
+                <li>Order Notes</li>
               </ul>
               <ul className='order-history__wrap__orders'>
                 {this.state.sortOrder === "ascend" &&

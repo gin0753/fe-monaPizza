@@ -1,8 +1,9 @@
 import React from "react";
 
 
-const MenuItems = ({details: {orderPlacedTime, _id, orderList, totalPrice, orderStatus}}) => {
+const MenuItems = ({details: {orderPlacedTime, _id, orderList, totalPrice, orderNotes}}) => {
   const orderNumber = _id.substring(_id.length - 4);
+  console.log(orderList);
   return (
     <li className='order-history__wrap__orders__item'>
     <h2>
@@ -19,11 +20,23 @@ const MenuItems = ({details: {orderPlacedTime, _id, orderList, totalPrice, order
             )
         )}
       </ul>
-      <div className='total-price'>
-        <h3>${totalPrice}</h3>
+      <div className='order-toppings'>
+          <ul>
+            {orderList.map((pizza) => 
+                (
+                  <li key={pizza._id}>
+                      {pizza.toppings.map((topping, index) => 
+                        (
+                          <span key={index}>{topping}</span>
+                        )
+                    )}
+                  </li>
+                )
+            )}
+        </ul>
       </div>
-      <div className='order-status'>
-        <h3>{orderStatus}</h3>
+      <div className='order-notes'>
+        <h3>{orderNotes}</h3>
       </div>
     </div>
   </li>

@@ -32,8 +32,8 @@ class Form extends React.Component{
         }
     }
 
-    handleChange = (e) => {
-        this.setState({
+    handleChange = async (e) => {
+        await this.setState({
             [e.target.name]: e.target.value
         })
     }
@@ -51,7 +51,6 @@ class Form extends React.Component{
     }
     
     async componentDidMount() {
-
         const userId = sessionStorage.getItem('userID');
         if(userId){
             try {

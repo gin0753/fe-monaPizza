@@ -6,19 +6,25 @@ class Order extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            orderList: []
+            orderList: [],
+            toppings: 0,
+            pizzaPrice: 0,
+            totalPrice: 0,
+            userId: sessionStorage.getItem('userID')
         }
     }
     
     showPizzaList = async () => {
-        const userId = sessionStorage.getItem('userID');
+        const { userId, toppings } = this.state;
         if(userId){
             try{
                 const response = await getCartItem(userId, 1, 8);
                 if(response.status === 200){
                     const orderList = response.data;
+                    let totalToppings = orderList.reduce((acc, {toppings}) => acc + toppings.length, toppings)
                     this.setState({
-                        orderList: orderList
+                        orderList: orderList,
+                        toppings: totalToppings
                     })
                 }
             }
@@ -33,11 +39,14 @@ class Order extends React.Component{
     }
 
     render(){
-        const orderList = this.state.orderList;
+        const { orderList, toppings} = this.state;
         let totalPrice = 0;
         for(const i of orderList){
             totalPrice += i.totalPrice;
         }
+        let pizzaPrice = orderList.reduce((acc, {pizzaPrice}) =>
+            acc + pizzaPrice, 0);
+        const toppingPrice = totalPrice -pizzaPrice;
         return <div className="ordercontainer__order">
                     <h3>Your Order</h3>
                     <dl>
@@ -48,10 +57,14 @@ class Order extends React.Component{
                     {orderList.map((item) =>{
                         return  <dl>
                                     <dt>{item.pizzaName}<span> x{item.qty}</span></dt>
-                                    <dd>${item.pizzaPrice}</dd>
+                                    <dd>${item.pizzaPrice}.00</dd>
                                 </dl>
                     })
                     }
+                    <dl>
+                        <dt><h6><span>Toppings x{toppings}</span></h6></dt>
+                        <dd><h6><span>${toppingPrice}.00</span></h6></dd>
+                    </dl>
                     <dl>
                         <dt><h6><span>Shipping and Handling</span></h6></dt>
                         <dd><h6><span>Free Shipping</span></h6></dd>
@@ -76,11 +89,12 @@ class Order extends React.Component{
 
 const mapStateToProps = state => {
     const { updateOrderId:{orderId} } = state;
-    const { shoppingCartReducer:{discount, cartSubtotal} } = state;
+    const { shoppingCartReducer:{discount, cartSubtotal, productList} } = state;
     return {
       orderId,
       discount,
-      cartSubtotal
+      cartSubtotal,
+      productList
     }
   }
 

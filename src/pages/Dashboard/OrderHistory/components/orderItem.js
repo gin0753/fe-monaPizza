@@ -2,7 +2,7 @@ import React from 'react';
 
 const MenuItems = ({
   details: {
-    orderPlacedTime, _id, orderList, totalPrice, orderStatus,
+    orderPlacedTime, _id, orderList, totalPrice, orderStatus, discount
   },
 }) => {
   const orderNumber = _id.substring(_id.length - 4);
@@ -13,6 +13,9 @@ const MenuItems = ({
         order number:
         {orderNumber}
       </h2>
+      <h2>        
+      discount: 
+      ${discount}.00</h2>
       <div className="order-bottom">
         <ul>
           {orderList.map((pizza) => (

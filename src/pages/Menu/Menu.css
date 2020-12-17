@@ -88,6 +88,10 @@ body {
   font-weight: 900;
 }
 
+.menu .filter__title h4{
+  cursor: pointer;
+}
+
 .menu .filter__result {
   font-size: 18px;
   margin-left: 20px;
@@ -110,6 +114,7 @@ body {
 
 .menu .filter__button {
   width: 20px;
+  cursor: pointer;
 }
 
 .menu .filter__items {
@@ -143,6 +148,7 @@ body {
 
 .menu .filter__options {
   margin: 20px 4px;
+  cursor: pointer;
 }
 
 .menu .filter__options input {
@@ -227,6 +233,7 @@ body {
 
 .menu .filter__options h4 {
   padding-left: 40px;
+  cursor: pointer;
 }
 
 .menu .filter--selected {
@@ -242,6 +249,7 @@ body {
   color: #000000;
   font-size: 10px;
   margin: 40px;
+  cursor: pointer;
 }
 
 .menu .catelogue__default {
@@ -266,6 +274,7 @@ body {
   border: none;
   background-color: rgba(240, 222, 222, 0);
   color: #fff;
+  cursor: pointer;
 }
 
 .menu .catelogue__product {
@@ -357,6 +366,7 @@ body {
   font-size: 16px;
   box-sizing: border-box;
   background-color: #fdbc2c;
+  margin-top: 5px;
 }
 
 .menu .catelogue__product--name:hover {

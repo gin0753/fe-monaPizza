@@ -19,7 +19,7 @@ class Filter extends React.Component {
                                     <span></span>
                                 </li>
                                 <li className="filter__title"><h4>TOPPINGS</h4></li>
-                                <li className="filter__result">Showing 1-12 of 19 results</li>
+                                <li className="filter__result">Showing 1-3 of 3 results</li>
                             </ul>
                         </div>
                     </label>
@@ -100,7 +100,7 @@ class Filter extends React.Component {
                         <div className="filter--selected">
                             <button className="filter__button--selected">
                                 FILTER SELECTED
-              </button>
+                            </button>
                         </div>
                     </div>
                 </header>

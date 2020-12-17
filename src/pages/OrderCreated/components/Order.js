@@ -137,8 +137,12 @@ class Order extends React.Component {
                     </li>
                     <li>
                       <span>Shipping:</span>
-                      <span>${cartSubTotal - totalPrice}.00</span>
+                      <span>$0.00</span>
                     </li>
+                    <li>
+                    <span>Discount:</span>
+                    <span>${cartSubTotal - totalPrice}.00</span>
+                  </li>
                     <li>
                       <span>Total:</span>
                       <span>${totalPrice}.00</span>

@@ -185,7 +185,7 @@ class OrderResult extends React.Component {
                                 return (
                                     <Fragment key={pizza._id}>
                                         <li>
-                                            <div className="flex-item">
+                                            <div className="flex-item fa-times">
                                                 <FontAwesomeIcon
                                                     className="close"
                                                     icon={faTimes}

@@ -46,7 +46,8 @@ class Order extends React.Component{
         }
         let pizzaPrice = orderList.reduce((acc, {pizzaPrice}) =>
             acc + pizzaPrice, 0);
-        const toppingPrice = totalPrice -pizzaPrice;
+        const toppingPrice = totalPrice - pizzaPrice;
+        const finalPrice = totalPrice - this.props.discount;
         return <div className="ordercontainer__order">
                     <h3>Your Order</h3>
                     <dl>
@@ -71,7 +72,7 @@ class Order extends React.Component{
                     </dl>
                     <dl>
                         <dt><h6><span>Discount</span></h6></dt>
-                        <dd><h6><span>{this.props.discount}</span></h6></dd>
+                        <dd><h6><span>${this.props.discount}.00</span></h6></dd>
                     </dl>
                     <hr/>
                     <dl>
@@ -79,7 +80,7 @@ class Order extends React.Component{
                             <h3><span>ORDER TOTAL</span></h3>
                         </dt>
                         <dd>
-                            <h3><span>${totalPrice}</span></h3>
+                            <h3><span>${finalPrice}</span></h3>
                             </dd>
                     </dl>
                </div>     

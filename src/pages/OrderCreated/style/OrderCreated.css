@@ -182,7 +182,7 @@
 
 .order-created .order_bottom_summary_wrap {
   padding: 10px;
-  height: 180px;
+  height: auto;
   background-color: black;
 }
 

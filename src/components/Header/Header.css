@@ -54,7 +54,7 @@
 
 .header__leftWrapper--avatar--userActions span {
   display: block;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .header__leftWrapper--avatar--userActions span:hover {

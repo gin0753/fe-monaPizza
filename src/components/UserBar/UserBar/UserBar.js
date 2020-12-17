@@ -34,6 +34,11 @@ class UserBar extends React.Component {
         }
     }
 
+    handleSignOut = () => {
+        sessionStorage.clear();
+        window.location.reload();
+      };
+
     render() {
         const { active, role } = this.state;
         return <div className="user">
@@ -68,8 +73,8 @@ class UserBar extends React.Component {
                 <ul className="userbar--bottomitems">
                     {UserBarBottomItems.map((item) => {
                         return (
-                            <a href={item.path} key={item.id}><li className="item.cName">
-                               <h6>{item.title}</h6>
+                            <a href={item.path} key={item.id}><li className="item.cName" onClick={this.handleSignOut}>
+                               <h6 >{item.title}</h6>
                             </li></a>
                         )
                     })}

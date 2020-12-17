@@ -21,7 +21,7 @@
     flex-wrap: wrap;
     width: 55%;
     color: #ffffff;
-    margin-top: 95px;
+    margin: 95px 0;
     &--sizeWrapper {
       display: inline-flex;
       justify-content: center;
@@ -37,7 +37,7 @@
     }
     & section {
       width: 100%;
-      margin-left: 30px;
+      margin: 0 0 30px 30px;
       & hr {
         border: solid 2px #d94f2b;
         margin: 25px 20px;
@@ -126,7 +126,7 @@
       .addBtn,
       .removeBtn {
         border-radius: 5px;
-        margin: 20px 20px 80px 20px;
+        margin: 20px;
         background-color: #fdbc2c;
         color: #ffffff;
         cursor: pointer;

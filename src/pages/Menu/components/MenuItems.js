@@ -96,7 +96,7 @@ const MenuItems = ({
           </select>
           <div className="product__button">
             <input className="catelogue-button" defaultValue="ADD" onClick={handleAdd} />
-            <input className="catelogue-button" defaultValue="Remove" onClick={handleRemove} />
+            <input className="catelogue-button" defaultValue="REMOVE" onClick={handleRemove} />
           </div>
         </div>
       </form>

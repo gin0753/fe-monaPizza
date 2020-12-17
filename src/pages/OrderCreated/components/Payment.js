@@ -28,11 +28,10 @@ class Payment extends React.Component {
     }
     
     acceptTerm = () => {
-        this.setState({
-            readTerm: !this.state.readTerm
-        });
+        this.setState((prevState) => {
+            return { readTerm: !prevState.readTerm }
+        })
     }
-    
     handleToken = async (token, addresses) => {
         const {userId, config} = this.state;
         const resp = await getCartItem(userId, 1, 8);

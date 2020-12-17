@@ -23,7 +23,7 @@
   flex-wrap: wrap;
   width: 55%;
   color: #ffffff;
-  margin-top: 95px;
+  margin: 95px 0;
 }
 
 .dashboard__changePassword--sizeWrapper, .dashboard__managePizza--sizeWrapper {
@@ -44,7 +44,7 @@
 
 .dashboard__changePassword section, .dashboard__managePizza section {
   width: 100%;
-  margin-left: 30px;
+  margin: 0 0 30px 30px;
 }
 
 .dashboard__changePassword section hr, .dashboard__managePizza section hr {
@@ -153,7 +153,7 @@
 .dashboard__managePizza section .addBtn,
 .dashboard__managePizza section .removeBtn {
   border-radius: 5px;
-  margin: 20px 20px 80px 20px;
+  margin: 20px;
   background-color: #fdbc2c;
   color: #ffffff;
   cursor: pointer;

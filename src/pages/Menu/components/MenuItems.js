@@ -22,7 +22,7 @@ const MenuItems = ({
     pizzaSize,
     pizzaPrice,
     totalPrice,
-    toppings,
+    toppings
   };
 
   const handleChange = (e) => {

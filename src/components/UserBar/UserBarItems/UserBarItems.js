@@ -1,5 +1,5 @@
 import {
-  faAddressCard, faHistory, faUnlockAlt, faMoneyCheck,
+  faAddressCard, faHistory, faUnlockAlt, faBookOpen, faBullseye
 } from '@fortawesome/free-solid-svg-icons';
 
 export const UserBarTopItems = [
@@ -52,14 +52,14 @@ export const AdminBarTopItems = [
     title: 'Update Menu',
     path: '/manage-pizza',
     cName: 'updateMenu',
-    icon: faMoneyCheck,
+    icon: faBookOpen,
     id: 'updateMenu',
   },
   {
     title: 'View Order',
     path: '/view-order',
     cName: 'viewOrder',
-    icon: faMoneyCheck,
+    icon: faBullseye,
     id: 'viewOrder',
   },
 ];

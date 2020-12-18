@@ -74,8 +74,7 @@ class App extends React.Component {
                   cartstatus={this.state.cartIsClicked}
                 /></>
             }
-          <Switch>
-            <Route path='/index' component={Home} />
+          <Switch>            
             <Route path='/about' component={About} />
             <Route path='/users' component={Users} />
             <Route path='/contact-us' component={ContactUs} />
@@ -109,6 +108,7 @@ class App extends React.Component {
             />
             <AdminRoute path='/manage-pizza' component={ManagePizza} />
             <AdminRoute path='/view-order' component={ViewOrder} />
+            <Route path='/' component={Home} />
           </Switch>
           {window.location.pathname !== "/sign-in" ? 
             <>

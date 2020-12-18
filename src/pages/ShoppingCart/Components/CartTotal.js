@@ -52,7 +52,7 @@ class CartTotal extends React.Component {
                     </li>
                     <li className="flex-container">
                         <span className="discount-label flex-item">DISCOUNT</span>
-                        <span className="discount-value flex-item">{discount}</span>
+                        <span className="discount-value flex-item">${discount}.00</span>
                     </li>
                 </ul>
                 <div className="order-total">

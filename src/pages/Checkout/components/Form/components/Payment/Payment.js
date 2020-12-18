@@ -139,12 +139,14 @@ class Payment extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log(state)
     const { updateOrderId:{orderId} } = state;
-    const { shoppingCartReducer:{discount, cartSubtotal} } = state;
+    const { shoppingCartReducer:{discount, cartSubtotal, productList} } = state;
     return {
       orderId,
       discount,
-      cartSubtotal
+      cartSubtotal,
+      productList
     }
   }
   

@@ -75,7 +75,7 @@ class App extends React.Component {
                 /></>
             }
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route path='/index' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/users' component={Users} />
             <Route path='/contact-us' component={ContactUs} />

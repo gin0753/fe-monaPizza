@@ -85,7 +85,6 @@ class App extends React.Component {
             />
             <Route path='/product-details' component={ProductDetails} />
             <Route path='/blog' component={Blog} />
-            <Route path='/home' component={Home} />
             <Route
               path='/menu'
               render={(props) => <Menu updateCart={this.updateCart} />}
@@ -108,7 +107,7 @@ class App extends React.Component {
             />
             <AdminRoute path='/manage-pizza' component={ManagePizza} />
             <AdminRoute path='/view-order' component={ViewOrder} />
-            <Route path='/' component={Home} />
+            <Route path='/index.html' component={Home} />
           </Switch>
           {window.location.pathname !== "/sign-in" ? 
             <>

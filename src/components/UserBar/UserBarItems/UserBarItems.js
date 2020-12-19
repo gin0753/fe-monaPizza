@@ -76,7 +76,7 @@ export const UserBarMiddleItems = [
 export const UserBarBottomItems = [
   {
     title: 'Logout',
-    path: '#logout',
+    path: '/index.html',
     cName: 'logout',
     id: 'logout',
   },

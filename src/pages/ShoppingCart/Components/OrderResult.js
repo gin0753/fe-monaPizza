@@ -183,8 +183,8 @@ class OrderResult extends React.Component {
                         {
                             productList.map((pizza, index) => {
                                 return (
-                                    <Fragment key={pizza._id}>
-                                        <li>
+                                    <Fragment>
+                                        <li key={index}>
                                             <div className="flex-item fa-times">
                                                 <FontAwesomeIcon
                                                     className="close"

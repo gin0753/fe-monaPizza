@@ -172,7 +172,7 @@ class ViewOrder extends React.Component {
                   <span onClick={this.descendOrder}>↓</span>
                 </aside>
               </div>
-              <ul className='order-history__wrap__title'>
+              <ul className='order-history__wrap__tit'>
                 <li>Items</li>
                 <li>Toppings</li>
                 <li>Order Notes</li>

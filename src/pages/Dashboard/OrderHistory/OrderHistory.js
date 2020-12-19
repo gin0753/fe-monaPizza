@@ -67,21 +67,19 @@ class OrderHistory extends React.Component {
 
   paidOrder = () => {
     this.setState({
-      filterStatus: "Paid",
-      orders: this.state.originalOrders,
+      filterStatus: "Paid"
     });
   };
 
   unpaidOrder = () => {
     this.setState({
-      filterStatus: "Unpaid",
-      orders: this.state.originalOrders,
+      filterStatus: "Unpaid"
     });
   };
 
   pendingOrder = () => {
     this.setState({
-      filterStatus: "Pending",
+      filterStatus: "Pending"
     });
   };
 
@@ -151,6 +149,7 @@ class OrderHistory extends React.Component {
     let filterResult = this.state.orders.filter((order) => {
       return order.orderStatus.indexOf(this.state.filterStatus) !== -1;
     });
+    console.log(filterResult)
     return (
       <>
         <section className='order-history'>

@@ -47,7 +47,7 @@
       }
     }
 
-    &__title {
+    &__title, &__tit {
       display: flex;
       justify-content: space-between;
       margin-top: 15px;
@@ -58,10 +58,14 @@
         flex: 1;
         text-align: center;
       }
+    }
+
+    &__title {
       li:first-child {
         flex: 2;
       }
     }
+
     &__handle {
       margin-top: 15px;
       display: flex;
@@ -161,17 +165,17 @@
           }
           .order-toppings{
             padding: 10px 15px;
+            text-align: center;
             flex: 2;
             display: flex;
             border-left: 1px solid #fdbc2c;
             ul {
-              flex: 2;
+              flex: 1;
               li {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-around;
                 & h3{
-                  font-size: 23px;
                   margin: 10px;
                   width: 100%;
                 }
@@ -182,16 +186,11 @@
             position: relative;
             display: flex;
             flex-wrap: wrap;
-            flex: 1;
+            align-items: center;
+            justify-content: center;
+            flex: 2;
             border-left: 1px solid #fdbc2c;
-
-            h3 {
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-              font-size: 23px;
-            }
+            padding: 25px;
           }
         }
       }

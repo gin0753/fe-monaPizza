@@ -55,8 +55,8 @@ class Order extends React.Component{
                         <dd><h4>TOTAL</h4></dd>
                     </dl>
                     <hr/>
-                    {orderList.map((item) =>{
-                        return  <dl>
+                    {orderList.map((item, index) =>{
+                        return  <dl key={index}>
                                     <dt>{item.pizzaName}<span> x{item.qty}</span></dt>
                                     <dd>${item.pizzaPrice}.00</dd>
                                 </dl>

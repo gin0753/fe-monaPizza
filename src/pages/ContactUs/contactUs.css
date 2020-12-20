@@ -221,6 +221,7 @@
   border: none;
   line-height: 30px;
   padding-left: 10px;
+  cursor: pointer;
 }
 .contact.board-right {
   width: 308px;
@@ -303,6 +304,7 @@
   color: #FDBC2C;
   font-size: 12px;
   font-family: JosefinSans-Bold;
+  cursor: pointer;
 }
 .contact.footer {
   width: 100%;

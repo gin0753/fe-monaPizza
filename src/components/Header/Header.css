@@ -38,7 +38,6 @@
   z-index: 3;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   background-color: #FDBC2C;
   color: #FFFFFF;
@@ -49,7 +48,7 @@
   width: 140px;
   height: auto;
   padding: 5px;
-  line-height: 1.5rem;
+  line-height: 1.75rem;
 }
 
 .header__leftWrapper--avatar--userActions span {
@@ -66,7 +65,7 @@
 }
 
 .header__leftWrapper--avatar--userActions a:visited {
-  color: unset;
+  color: #FFFFFF;
 }
 
 .header .navbar button, .header .cart button {

@@ -107,7 +107,7 @@ class App extends React.Component {
             />
             <AdminRoute path='/manage-pizza' component={ManagePizza} />
             <AdminRoute path='/view-order' component={ViewOrder} />
-            <Route path='/index.html' component={Home} />
+            <Route path='/' component={Home} />
           </Switch>
           {window.location.pathname !== "/sign-in" ? 
             <>

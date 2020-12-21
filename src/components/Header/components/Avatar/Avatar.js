@@ -14,7 +14,6 @@ function Avatar(props) {
 
   const handleSignOut = () => {
     sessionStorage.clear();
-    window.location.reload();
   };
 
   const userRole = sessionStorage.getItem('role');
@@ -31,7 +30,7 @@ function Avatar(props) {
         <span onClick={handleClick}><Link to="/order-history">Order History</Link></span>
         <span className={userRole === 'ROLE.ADMIN' ? '' : 'd-none'} onClick={handleClick}><Link to="/manage-pizza">Manage Pizza</Link></span>
         <span className={userRole === 'ROLE.ADMIN' ? '' : 'd-none'} onClick={handleClick}><Link to="/view-order">View Order</Link></span>
-        <span onClick={handleSignOut}>Sign Out</span>
+        <span onClick={handleSignOut}><Link to="/index.html">Sign Out</Link></span>
       </div>
       )}
       {!avatar && <></>}

@@ -36,7 +36,6 @@ class UserBar extends React.Component {
 
     handleSignOut = () => {
         sessionStorage.clear();
-        window.location.reload();
       };
 
     render() {

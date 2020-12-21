@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+* a, * a:visited, * a:hover a:active {
+  color: inherit;
+}
+
 @font-face {
   font-family: 'RoyaChicken';
   src: local("RoyaChicken"), url(../../font/RoyaChicken.otf) format("opentype");
@@ -54,6 +58,10 @@
 .header__leftWrapper--avatar--userActions span {
   display: block;
   font-size: 1rem;
+}
+
+.header__leftWrapper--avatar--userActions span:visited {
+  color: #FFFFFF;
 }
 
 .header__leftWrapper--avatar--userActions span:hover {

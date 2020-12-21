@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    a, a:visited, a:hover a:active{
+        color: inherit;
+    }
 }
 @font-face {
 font-family: 'RoyaChicken';
@@ -44,6 +47,9 @@ src: local('RoyaChicken'), url(../../font/RoyaChicken.otf) format('opentype');
                 & span{
                     display: block;
                     font-size: 1rem;
+                }
+                & span:visited{
+                    color: #FFFFFF;
                 }
                 & span:hover{
                     color: #d94f2b;

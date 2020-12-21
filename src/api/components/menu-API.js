@@ -1,11 +1,12 @@
 import Axios from 'axios';
+import API from '../../config/app';
 
-export const addMenuItem = (addPizza, config) => Axios.post('/menu/', addPizza, config);
+export const addMenuItem = (addPizza, config) => Axios.post(API.backend_api + '/menu/', addPizza, config);
 
 export const removeMenuItem = (userId, PizzaName, config) => {
-    return Axios.delete(`/menu/${userId}/${PizzaName}`, config);
+    return Axios.delete(API.backend_api + `/menu/${userId}/${PizzaName}`, config);
 }
 
 export const updateMenuItem = (userId, PizzaName, addPizza, config) => {
-    return Axios.put(`/menu/${userId}/${PizzaName}`, addPizza, config);
+    return Axios.put(API.backend_api + `/menu/${userId}/${PizzaName}`, addPizza, config);
 }

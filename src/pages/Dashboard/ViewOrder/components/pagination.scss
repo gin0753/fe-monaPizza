@@ -9,3 +9,12 @@
     color: #FFFFFF;
     font-weight: 700;
 }
+
+.order-history__footer{
+    display: flex;
+    justify-content: center;
+    margin-left: 320px;
+    & .pagination{
+        width: 940px;
+    }    
+}

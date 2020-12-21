@@ -85,7 +85,6 @@ class App extends React.Component {
             />
             <Route path='/product-details' component={ProductDetails} />
             <Route path='/blog' component={Blog} />
-            <Route path='/home' component={Home} />
             <Route
               path='/menu'
               render={(props) => <Menu updateCart={this.updateCart} />}

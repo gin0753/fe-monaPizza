@@ -1,7 +1,5 @@
 import React from 'react';
 import '../../SignIn.scss';
-import GoogleLogin from 'react-google-login';
-import {HashLoader} from 'react-spinners';
 import facebook from '../../../../images/facebook_icon.svg';
 import wechat from '../../../../images/wechat_icon.svg';
 import google from '../../../../images/google_icon.svg';
@@ -10,9 +8,6 @@ import Lottie from 'react-lottie';
 import * as success from '../../../../../src/success.json';
 
 class SignupForm extends React.Component {
-    constructor(props){
-        super(props)
-    }
 
     render() {
         const { checkPassword, checkUsername, checkEmail, checkSurname, isVisible, readTerm,
@@ -60,9 +55,9 @@ class SignupForm extends React.Component {
                             </div>
                             <div className="withIcon">
                                 <input ref={password} className={checkPassword} type={isVisible ? "text" : "password"} id="password" name="Password" placeholder="Password*" onChange={handleChange}/>
-                                {checkPassword === 'Green' && <i id="visibility3" className={checkPassword} onClick={visibility}><FaEye /></i>}
-                                {checkPassword === 'Red' && <i id="visibility3" className={checkPassword} onClick={visibility}><FaEye /></i>}
-                                {checkPassword === '' && <i id="visibility3" onClick={visibility}><FaEye /></i>}
+                                {checkPassword === 'Green' && <i id="visible" className={checkPassword} onClick={visibility}><FaEye /></i>}
+                                {checkPassword === 'Red' && <i id="visible" className={checkPassword} onClick={visibility}><FaEye /></i>}
+                                {checkPassword === '' && <i id="visible" onClick={visibility}><FaEye /></i>}
                             </div>
                             <div className="passwordRules">
                                 <h3>Password <span>must</span> contain at least:</h3>

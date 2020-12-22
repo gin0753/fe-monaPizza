@@ -4,11 +4,11 @@ import facebook from '../../../images/facebook_icon.svg';
 import wechat from '../../../images/wechat_icon.svg';
 import google from '../../../images/google_icon.svg';
 import { userRegistration, userLogin, googleLogin } from '../../../api/index';
-import GoogleLogin from 'react-google-login';
-import Lottie from 'react-lottie'
+import Lottie from 'react-lottie';
 import {FaTimes, FaCheck, FaEye} from 'react-icons/fa';
-import {HashLoader} from 'react-spinners'
-import * as success from '../../../../src/success.json'
+import * as success from '../../../../src/success.json';
+import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
 
 class Login extends React.Component{
     constructor(props){
@@ -311,138 +311,32 @@ class Login extends React.Component{
     }
 
     toggleLogin = (props) => {
-        const {checkEmail, checkPassword, confirmPassword, checkUsername, checkSurname} = this.state;
-        const defaultOptions = {
-            loop: false,
-            autoplay: true, 
-            animationData: success.default,
-            rendererSettings: {
-              preserveAspectRatio: 'xMidYMid slice'
-            }
-          };
+        const reference = {
+            form: this.form,
+            loginEmail: this.loginEmail,
+            loginPassword: this.loginPassword,
+            confirmPWD: this.confirmPassword,
+            username: this.username,
+            surname: this.surname,
+            email: this.email,
+            password: this.password
+        }
+        const funcs = {
+            handleSubmit: this.handleSubmit,
+            loginChange: this.loginChange,
+            checkTerm: this.checkTerm,
+            clickRegister: this.clickRegister,
+            visibility: this.visibility,
+            handleChange: this.handleChange
+        }
         if(!this.props.SignupClicked){
             return(
-                <div className="Login__login container-left">
-                    <div className="Login__login--logincontainer move-left">
-                        <h1>Login to Your Account</h1>
-                        <h5>Login using social networks</h5>
-                        <div className="Login__login--logincontainer--social">
-                            <i><a href="/"><img src={facebook} alt="facebook_icon"/></a></i>
-                            <GoogleLogin
-                                clientId="124030455752-ctj88mk1vjbueamnf47fcjsp5p4ugpqn.apps.googleusercontent.com"
-                                buttonText="Login"
-                                onSuccess={this.responseGoogle}
-                                onFailure={this.responseGoogle}
-                                cookiePolicy={'single_host_origin'}
-                                render={renderProps =>(
-                                    <i><a href="/" onClick={renderProps.onClick}><img src={google} alt="google_icon"/></a></i>
-                                )}
-                            />
-                            <i><a href="/"><img src={wechat} alt="wechat_icon"/></a></i>
-                        </div>
-                        <div className="Login__login--logincontainer--titlewrapper">
-                            <span>OR</span>
-                        </div>
-                        <form ref={this.form} onSubmit={this.handleSubmit}>
-                            <div className="withIcon">
-                                <input ref={this.loginEmail} className={checkEmail} type="text" name="Email" placeholder="Email*" onChange={this.loginChange}/>
-                                {checkEmail === 'Green' && <i className={checkEmail}><FaCheck /></i>}
-                                {checkEmail === 'Red' && <i className={checkEmail}><FaTimes /></i>}
-                                {checkEmail === '' && <i></i>}
-                            </div>
-                            <div className="withIcon">
-                                <input ref={this.loginPassword} className={checkPassword} type="password" name="Password" placeholder="Password*" onChange={this.loginChange}/>
-                                {checkPassword === 'Green' && <i className={checkPassword}><FaCheck /></i>}
-                                {checkPassword === 'Red' && <i className={checkPassword}><FaTimes /></i>}
-                                {checkPassword === '' && <i></i>}
-                            </div>
-                            <div className="withIcon">
-                                <input ref={this.confirmPassword} className={confirmPassword} type="password" name="confirmPassword" placeholder="Confirm Login*" onChange={this.loginChange}/>
-                                {confirmPassword === 'Green' && <i className={confirmPassword}><FaCheck /></i>}
-                                {confirmPassword === 'Red' && <i className={confirmPassword}><FaTimes /></i>}
-                                {confirmPassword === '' && <i></i>}
-                            </div>
-                            {
-                                !this.state.isAuthenticated ? <div style={{color: "#d94f2b"}}>Invalid Account or Password</div> : <div></div>
-                            }
-                            {this.state.isLoading ? <span className="loading"><HashLoader loading size={48} color={"#d94f2b"}/></span> 
-                            : <button>Sign In</button>}
-                        </form>
-                    </div>
-                </div>
+               <LoginForm state={this.state} reference={reference} funcs={funcs}/>
             )
         }
         else{
             return (
-                <div className="Login__login container-right">
-                    <div className="Login__login--registercontainer move-right">
-                        <h1>Create Free Account</h1>
-                        <h5>Sign up using social networks</h5>
-                        <div className="Login__login--registercontainer--social">
-                            <i><a href="/"><img src={facebook} alt="facebook_icon"/></a></i>
-                            <i><a href="/"><img src={google} alt="google_icon"/></a></i>
-                            <i><a href="/"><img src={wechat} alt="wechat_icon"/></a></i>
-                        </div>
-                        <div className="Login__login--registercontainer--titlewrapper">
-                            <span>OR</span>
-                        </div>
-                        <form  ref={this.form}>
-                            <div className="withIcon">
-                                <input ref={this.username} className={checkUsername} type="text" id="username" name="Username" placeholder="Username*" onChange={this.handleChange}/>
-                                {checkUsername === 'Green' && <i className={checkUsername}><FaCheck /></i>}
-                                {checkUsername === 'Red' && <i className={checkUsername}><FaTimes /></i>}
-                                {checkUsername === '' && <i></i>}
-                            </div>
-                            <div className="withIcon">
-                                <input ref={this.surname} className={checkSurname} type="text" id="surname" name="Surname" placeholder="Surname" onChange={this.handleChange}/>
-                                {checkSurname === 'Green' && <i className={checkSurname}><FaCheck /></i>}
-                                {checkSurname === 'Red' && <i className={checkSurname}><FaTimes /></i>}
-                                {checkSurname === '' && <i></i>}
-                            </div>
-                            <div className="withIcon">
-                                <input ref={this.email} className={checkEmail} type="text" id="email" name="Email" placeholder="Email*" onChange={this.handleChange}/>
-                                {checkEmail === 'Green' && <i className={checkEmail}><FaCheck /></i>}
-                                {checkEmail === 'Red' && <i className={checkEmail}><FaTimes /></i>}
-                                {checkEmail === '' && <i></i>}
-                            </div>
-                            <div className="withIcon">
-                                <input ref={this.password} className={checkPassword} type={this.state.isVisible ? "text" : "password"} id="password" name="Password" placeholder="Password*" onChange={this.handleChange}/>
-                                {checkPassword === 'Green' && <i id="visibility3" className={checkPassword} onClick={this.visibility}><FaEye /></i>}
-                                {checkPassword === 'Red' && <i id="visibility3" className={checkPassword} onClick={this.visibility}><FaEye /></i>}
-                                {checkPassword === '' && <i id="visibility3" onClick={this.visibility}><FaEye /></i>}
-                            </div>
-                            <div className="passwordRules">
-                                <h3>Password <span>must</span> contain at least:</h3>
-                                <div className="passwordRules--ruleWrapper">
-                                    {this.state.oneLowerCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                                    {this.state.oneLowerCase ? <h5 style={{color:"#1FC36A"}}>One lowercase character</h5> : <h5>One lowercase character</h5>} 
-                                    {this.state.oneUpperCase ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                                    {this.state.oneUpperCase ? <h5 style={{color:"#1FC36A"}}>One uppercase character</h5> : <h5>One uppercase character</h5>} 
-                                    {this.state.oneNumber ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                                    {this.state.oneNumber ? <h5 style={{color:"#1FC36A"}} className="number">One number</h5> : <h5 className="number">One number</h5>} 
-                                    {this.state.eightDigits ? <FaCheck style={{color:"#1FC36A"}}/> : <FaTimes />} 
-                                    {this.state.eightDigits ? <h5 style={{color:"#1FC36A"}}>8 characters minimum</h5> : <h5>8 characters minimum</h5>} 
-                                </div>
-                            </div>
-                            {
-                                this.state.userExists? <span style={{color: "#d94f2b"}}>This Email has already been used!</span> : <span></span>
-                            }
-                            <div className="readTerm">
-                                <input type="checkbox" id="term" name="term" value="term" onChange={this.checkTerm}/>
-                                <label>I have read the <a href="/">Term & Conditions</a></label>
-                            </div>
-                                {this.state.isRegistered && 
-                                    <span className="loading">
-                                        <Lottie options={defaultOptions} width={60} height={60}/>
-                                        <h3>A Verification Link Has Been sent to your Email</h3>
-                                    </span>}
-                                {!this.state.isRegistered && 
-                                    <span className="loading">
-                                        <button onClick={this.clickRegister} className={this.state.readTerm ? "" : "btnDisabled"} disabled={this.state.readTerm ? false : true}>Sign Up</button>
-                                    </span>}
-                        </form>
-                    </div>
-                </div>
+               <SignupForm state={this.state} reference={reference} funcs={funcs}/>
             )
         }
     }

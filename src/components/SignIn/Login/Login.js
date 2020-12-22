@@ -1,12 +1,6 @@
 import React from 'react';
 import '../SignIn.scss';
-import facebook from '../../../images/facebook_icon.svg';
-import wechat from '../../../images/wechat_icon.svg';
-import google from '../../../images/google_icon.svg';
 import { userRegistration, userLogin, googleLogin } from '../../../api/index';
-import Lottie from 'react-lottie';
-import {FaTimes, FaCheck, FaEye} from 'react-icons/fa';
-import * as success from '../../../../src/success.json';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 
@@ -53,9 +47,8 @@ class Login extends React.Component{
         this.confirmPassword = React.createRef();
     }
 
-    checkUsername = () =>{
-        const userValue = this.username.current.value;
-        if(userValue === '' ){
+    checkUsername = (username) =>{
+        if(username === '' ){
             this.setState({checkUsername: ''});
         }
         else{
@@ -63,12 +56,11 @@ class Login extends React.Component{
         }
     }
 
-    checkSurname = () =>{
-        const surnameValue = this.surname.current.value;
-        if(surnameValue === '' ){
+    checkSurname = (surname) =>{
+        if(surname === '' ){
             this.setState({checkSurname: ''});
         }
-        else if(surnameValue.match(this.namePattern)){
+        else if(surname.match(this.namePattern)){
             this.setState({checkSurname: 'Green'});
         }
         else{
@@ -77,66 +69,49 @@ class Login extends React.Component{
     }
 
     checkEmail = (email) =>{
-        const emailValue = email;
-        if(emailValue === '' ){
+        if(email === '' ){
             this.setState({checkEmail: ''});
         }
-        else if(emailValue.match(this.emailPattern)){
+        else if(email.match(this.emailPattern)){
             this.setState({checkEmail: 'Green'});
         }
         else{
             this.setState({checkEmail: 'Red'});
         }
     }
-    
-    checkPassword = (password) => {
-        const passwordValue = password;
-        if(passwordValue === '' ){
-            this.setState({checkPassword: ''});
+
+    checkPassword = (password, state, pattern) => {
+        if(password === '' ){
+            this.setState({[state]: ''});
         }
-        else if(passwordValue.length > 8 && passwordValue.length < 25 && passwordValue.match(this.passwordPattern)){
-            this.setState({checkPassword: 'Green'});
+        else if(password.length > 8 && password.length < 25 && password.match(pattern)){
+            this.setState({[state]: 'Green'});
         }
         else{
-            this.setState({checkPassword: 'Red'});
+            this.setState({[state]: 'Red'});
         }
     }
 
-    verifyPassword = (password) => {
-        const passwordValue = password;
-        if(passwordValue === '' ){
-            this.setState({confirmPassword: ''});
-        }
-        else if(passwordValue.length > 8 && passwordValue.length < 25 && passwordValue.match(this.passwordPattern)
-        && passwordValue === this.loginPassword.current.value){
-            this.setState({confirmPassword: 'Green'});
-        }
-        else{
-            this.setState({confirmPassword: 'Red'});
-        }
-    }
-
-    checkPattern = () => {
-        const passwordValue = this.password.current.value;
-        if(passwordValue.match(/(?=.*\d)/)){
+    checkPattern = (password) => {
+        if(password.match(/(?=.*\d)/)){
             this.setState({oneNumber: true});
         }
         else{
             this.setState({oneNumber: false});
         }
-        if(passwordValue.match(/(?=.*[a-z])/)){
+        if(password.match(/(?=.*[a-z])/)){
             this.setState({oneLowerCase: true});
         }
         else{
             this.setState({oneLowerCase: false});
         }
-        if(passwordValue.match(/(?=.*[A-Z])/)){
+        if(password.match(/(?=.*[A-Z])/)){
             this.setState({oneUpperCase: true});
         }
         else{
             this.setState({oneUpperCase: false});
         }
-        if(passwordValue.match(/.{8,}/)){
+        if(password.match(/.{8,}/)){
             this.setState({eightDigits: true});
         }
         else{
@@ -150,11 +125,11 @@ class Login extends React.Component{
             [e.target.name]: e.target.value
         });
 
-        this.checkUsername();
-        this.checkSurname();
+        this.checkUsername(this.username.current.value);
+        this.checkSurname(this.surname.current.value);
         this.checkEmail(this.email.current.value);
-        this.checkPassword(this.password.current.value);
-        this.checkPattern();
+        this.checkPassword(this.password.current.value, 'checkPassword', this.passwordPattern);
+        this.checkPattern(this.password.current.value);
     }
 
     loginChange = (e) => {
@@ -164,8 +139,8 @@ class Login extends React.Component{
         });
 
         this.checkEmail(this.loginEmail.current.value);
-        this.checkPassword(this.loginPassword.current.value);
-        this.verifyPassword(this.confirmPassword.current.value);
+        this.checkPassword(this.loginPassword.current.value, 'checkPassword', this.passwordPattern);
+        this.checkPassword(this.confirmPassword.current.value, 'confirmPassword', this.passwordPattern);
     }
 
     handleSwitch = async () => {
@@ -297,17 +272,25 @@ class Login extends React.Component{
             checkUsername: '',
             checkSurname: '',
             checkPassword: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            oneLowerCase: false,
+            oneUpperCase: false,
+            oneNumber: false,
+            eightDigits: false,
         });
         this.form.current.reset();
     }
 
     visibility = () => {
-        this.setState({isVisible: !this.state.isVisible});
+        this.setState((prevState) => {
+            return {isVisible: !prevState.isVisible}
+        })
     }
 
     checkTerm = () => {
-        this.setState({readTerm: !this.state.readTerm});
+        this.setState((prevState) => {
+            return {readTerm: !prevState.readTerm}
+        })
     }
 
     toggleLogin = (props) => {

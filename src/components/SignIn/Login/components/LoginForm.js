@@ -13,7 +13,6 @@ class LoginForm extends React.Component {
         const { checkPassword, confirmPassword, checkEmail, isAuthenticated, isLoading} = this.props.state;
         const { form, loginEmail, loginPassword, confirmPWD} = this.props.reference;
         const { handleSubmit, loginChange } = this.props.funcs;
-        console.log(this.props)
         return <div className="Login__login container-left">
                     <div className="Login__login--logincontainer move-left">
                         <h1>Login to Your Account</h1>
@@ -57,8 +56,10 @@ class LoginForm extends React.Component {
                             {
                                 !isAuthenticated ? <div style={{color: "#d94f2b"}}>Invalid Account or Password</div> : <div></div>
                             }
-                            {isLoading ? <span className="loading"><HashLoader loading size={48} color={"#d94f2b"}/></span> 
-                            : <button>Sign In</button>}
+                            {
+                                isLoading ? <span className="loading"><HashLoader loading size={48} color={"#d94f2b"}/></span> 
+                                : <button>Sign In</button>
+                            }
                         </form>
                     </div>
                 </div>

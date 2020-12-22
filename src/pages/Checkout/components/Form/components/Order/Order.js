@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Form.css';
+import '../../Form.scss';
 import { connect } from 'react-redux';
 import { getCartItem } from '../../../../../../api/index';
 class Order extends React.Component{

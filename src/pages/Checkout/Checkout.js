@@ -1,5 +1,5 @@
 import React from 'react';
-import './Checkout.css';
+import './Checkout.scss';
 import CrumbHeader from '../../components/CrumbHeader/CrumbHeader';
 import Form from './components/Form/Form';
 

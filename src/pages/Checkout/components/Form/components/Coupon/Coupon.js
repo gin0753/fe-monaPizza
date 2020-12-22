@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Form.css';
+import '../../Form.scss';
 
 class Coupon extends React.Component{
 

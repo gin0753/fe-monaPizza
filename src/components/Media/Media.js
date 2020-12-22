@@ -1,5 +1,5 @@
 import React from 'react';
-import './Media.css';
+import './Media.scss';
 import Contact from './components/Contact/Contact';
 import Social from './components/Social/Social';
 

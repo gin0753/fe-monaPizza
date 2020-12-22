@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/OrderCreated.css';
+import '../style/OrderCreated.scss';
 import options from '../../../images/payment-options.png';
 import { connect } from 'react-redux';
 import { updateOrderId } from '../../../action/updateOrderID';

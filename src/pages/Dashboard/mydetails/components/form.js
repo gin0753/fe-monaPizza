@@ -1,5 +1,5 @@
 import React from 'react';
-import '../mydetails.css';
+import '../mydetails.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMotorcycle, faStore } from '@fortawesome/free-solid-svg-icons';
 import { updateClientInfo, getClientInfo } from '../../../../api/index';

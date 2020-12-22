@@ -1,5 +1,5 @@
 import React from 'react';
-import './Form.css'
+import './Form.scss'
 import Order from './components/Order/Order';
 import Payment from './components/Payment/Payment';
 import Loginbtn from './components/Login/Login';

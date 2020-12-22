@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Dashboard.css';
+import '../Dashboard.scss';
 import UserBar from '../../../components/UserBar/UserBar/UserBar';
 import AddPizza from './components/addPizza';
 import CrumbHeader from '../../../components/CrumbHeader';

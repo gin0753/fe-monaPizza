@@ -1,5 +1,5 @@
 import React from 'react';
-import './CartTotal.css'
+import './CartTotal.scss'
 import { getCartItem } from '../../../api/index';
 import { PizzaImages } from '../../../PizzaImages'; 
 import { Link } from 'react-router-dom';

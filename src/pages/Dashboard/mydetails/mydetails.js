@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserBar from '../../../components/UserBar/UserBar/UserBar';
 import CrumbHeader from '../../../components/CrumbHeader';
-import './mydetails.css';
+import './mydetails.scss';
 import Form from './components/form';
 
 class Mydetails extends Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Media.css';
+import '../../Media.scss';
 
 class Social extends React.Component {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Dashboard.css';
+import '../../Dashboard.scss';
 import { removeMenuItem } from '../../../../api/index';
 
 class RemovePizza extends React.Component {

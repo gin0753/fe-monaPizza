@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Dashboard.css';
+import '../Dashboard.scss';
 import UserBar from '../../../components/UserBar/UserBar/UserBar';
 import CrumbHeader from "../../../components/CrumbHeader";
 import {FaTimes, FaCheck, FaEye, FaEyeSlash} from 'react-icons/fa';

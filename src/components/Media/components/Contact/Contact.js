@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Media.css';
+import '../../Media.scss';
 import logo from '../../../../images/media-logo.png';
 
 class Contact extends React.Component {

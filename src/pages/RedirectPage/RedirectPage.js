@@ -1,5 +1,5 @@
 import React from 'react';
-import './RedirectPage.css';
+import './RedirectPage.scss';
 
 class RedirectPage extends React.Component {
     constructor(props) {

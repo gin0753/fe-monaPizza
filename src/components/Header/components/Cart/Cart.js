@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Header.css';
+import '../../Header.scss';
 import cart from '../../../../images/shopping-cart-solid.svg';
 
 class Cart extends React.Component {

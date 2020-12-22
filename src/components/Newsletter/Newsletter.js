@@ -1,5 +1,5 @@
 import React from 'react';
-import './Newsletter.css';
+import './Newsletter.scss';
 import Email from './components/Email/Email';
 
 class Newsletter extends React.Component {

@@ -4,6 +4,7 @@ import UserBar from '../../../components/UserBar/UserBar/UserBar';
 import CrumbHeader from "../../../components/CrumbHeader";
 import {FaTimes, FaCheck, FaEye, FaEyeSlash} from 'react-icons/fa';
 import { findUserInfo, updateUserInfo } from '../../../api/index';
+import { Password } from '../../../utils/index';
 class changePassword extends React.Component {
     constructor(props){
         super(props)
@@ -30,83 +31,16 @@ class changePassword extends React.Component {
         this.currentPassword = React.createRef();
     }
 
-    checkCurrentPassword = (password) => {
-        const passwordValue = password;
-        if(passwordValue === '' ){
-            this.setState({currentPassword: ''});
-        }
-        else if(passwordValue.length > 8 && passwordValue.length < 25 && passwordValue.match(this.passwordPattern)){
-            this.setState({currentPassword: 'Green'});
-        }
-        else{
-            this.setState({currentPassword: 'Red'});
-        }
-    }
-
-    checkNewPassword = (password) => {
-        const passwordValue = password;
-        if(passwordValue === '' ){
-            this.setState({newPassword: ''});
-        }
-        else if(passwordValue.length > 8 && passwordValue.length < 25 && passwordValue.match(this.passwordPattern)){
-            this.setState({newPassword: 'Green'});
-        }
-        else{
-            this.setState({newPassword: 'Red'});
-        }
-    }
-
-    confirmNewPassword = (password) => {
-        const passwordValue = password;
-        if(passwordValue === '' ){
-            this.setState({confirmPassword: ''});
-        }
-        else if(passwordValue === this.newPassword.current.value ){
-            this.setState({confirmPassword: 'Green'});
-        }
-        else{
-            this.setState({confirmPassword: 'Red'});
-        }
-    }
-
-    checkPattern = () => {
-        const passwordValue = this.newPassword.current.value;
-        if(passwordValue.match(/(?=.*\d)/)){
-            this.setState({oneNumber: true});
-        }
-        else{
-            this.setState({oneNumber: false});
-        }
-        if(passwordValue.match(/(?=.*[a-z])/)){
-            this.setState({oneLowerCase: true});
-        }
-        else{
-            this.setState({oneLowerCase: false});
-        }
-        if(passwordValue.match(/(?=.*[A-Z])/)){
-            this.setState({oneUpperCase: true});
-        }
-        else{
-            this.setState({oneUpperCase: false});
-        }
-        if(passwordValue.match(/.{8,}/)){
-            this.setState({eightDigits: true});
-        }
-        else{
-            this.setState({eightDigits: false});
-        }
-    }
-
     handleChange = async (e) => {
         e.preventDefault();
         this.setState({
             [e.target.name]: e.target.value
         });
 
-        await this.checkCurrentPassword(this.currentPassword.current.value);
-        await this.checkNewPassword(this.newPassword.current.value);
-        await this.confirmNewPassword(this.confirmPassword.current.value);
-        await this.checkPattern();
+        Password.checkPassword(this.currentPassword.current.value, this, 'currentPassword', this.passwordPattern);
+        Password.checkPassword(this.newPassword.current.value, this, 'newPassword', this.passwordPattern);
+        Password.confirmPassword(this.confirmPassword.current.value, this, 'confirmPassword', this.newPassword.current.value);
+        Password.checkPattern(this.newPassword.current.value, this);
 
         if(this.state.currentPassword === "Green" && this.state.newPassword === "Green"){
             this.setState({
@@ -118,7 +52,6 @@ class changePassword extends React.Component {
                 validPassword: false
             })
         }
-
     }
 
     handleClick = async() => {

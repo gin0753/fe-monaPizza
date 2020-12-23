@@ -1,9 +1,9 @@
 import React from 'react';
 import '../SignIn.scss';
 import { userRegistration, userLogin, googleLogin } from '../../../api/index';
+import { Password } from '../../../utils/index';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
-
 class Login extends React.Component{
     constructor(props){
         super(props)
@@ -55,67 +55,16 @@ class Login extends React.Component{
             this.setState({checkUsername: 'Green'});
         }
     }
-
-    checkSurname = (surname) =>{
-        if(surname === '' ){
-            this.setState({checkSurname: ''});
-        }
-        else if(surname.match(this.namePattern)){
-            this.setState({checkSurname: 'Green'});
-        }
-        else{
-            this.setState({checkSurname: 'Red'});
-        }
-    }
-
-    checkEmail = (email) =>{
-        if(email === '' ){
-            this.setState({checkEmail: ''});
-        }
-        else if(email.match(this.emailPattern)){
-            this.setState({checkEmail: 'Green'});
-        }
-        else{
-            this.setState({checkEmail: 'Red'});
-        }
-    }
-
-    checkPassword = (password, state, pattern) => {
-        if(password === '' ){
+    
+    checkField = (input, state, pattern) => {
+        if(input === '' ){
             this.setState({[state]: ''});
         }
-        else if(password.length > 8 && password.length < 25 && password.match(pattern)){
+        else if(input.match(pattern)){
             this.setState({[state]: 'Green'});
         }
         else{
             this.setState({[state]: 'Red'});
-        }
-    }
-
-    checkPattern = (password) => {
-        if(password.match(/(?=.*\d)/)){
-            this.setState({oneNumber: true});
-        }
-        else{
-            this.setState({oneNumber: false});
-        }
-        if(password.match(/(?=.*[a-z])/)){
-            this.setState({oneLowerCase: true});
-        }
-        else{
-            this.setState({oneLowerCase: false});
-        }
-        if(password.match(/(?=.*[A-Z])/)){
-            this.setState({oneUpperCase: true});
-        }
-        else{
-            this.setState({oneUpperCase: false});
-        }
-        if(password.match(/.{8,}/)){
-            this.setState({eightDigits: true});
-        }
-        else{
-            this.setState({eightDigits: false});
         }
     }
 
@@ -126,10 +75,10 @@ class Login extends React.Component{
         });
 
         this.checkUsername(this.username.current.value);
-        this.checkSurname(this.surname.current.value);
-        this.checkEmail(this.email.current.value);
-        this.checkPassword(this.password.current.value, 'checkPassword', this.passwordPattern);
-        this.checkPattern(this.password.current.value);
+        this.checkField(this.surname.current.value, 'checkSurname', this.namePattern);
+        this.checkField(this.email.current.value, 'checkEmail', this.emailPattern);
+        Password.checkPassword(this.password.current.value, this, 'checkPassword', this.passwordPattern);
+        Password.checkPattern(this.password.current.value, this, 'oneNumber', 'oneLowerCase', 'oneUpperCase', 'eightDigits');
     }
 
     loginChange = (e) => {
@@ -138,9 +87,9 @@ class Login extends React.Component{
             [e.target.name]: e.target.value
         });
 
-        this.checkEmail(this.loginEmail.current.value);
-        this.checkPassword(this.loginPassword.current.value, 'checkPassword', this.passwordPattern);
-        this.checkPassword(this.confirmPassword.current.value, 'confirmPassword', this.passwordPattern);
+        this.checkField(this.loginEmail.current.value, 'checkEmail', this.emailPattern);
+        Password.checkPassword(this.loginPassword.current.value, this, 'checkPassword', this.passwordPattern);
+        Password.confirmPassword(this.confirmPassword.current.value, this, 'confirmPassword', this.loginPassword.current.value);
     }
 
     handleSwitch = async () => {
@@ -162,7 +111,6 @@ class Login extends React.Component{
             })
             resolve();
         }); 
-
     }
 
     clickRegister = async (e) => {

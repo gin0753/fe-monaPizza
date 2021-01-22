@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Media.scss';
-import logo from '../../../../images/media-logo.png';
+import logo from 'images/media-logo.png';
 
 class Contact extends React.Component {
   render() {

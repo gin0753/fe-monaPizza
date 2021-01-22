@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Dashboard.scss';
-import { removeMenuItem } from '../../../../api/index';
+import { removeMenuItem } from 'api/index';
 
 class RemovePizza extends React.Component {
     constructor(props){

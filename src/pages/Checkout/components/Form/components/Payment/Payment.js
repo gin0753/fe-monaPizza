@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../Form.scss';
 import { connect } from 'react-redux';
-import { updateOrderId } from '../../../../../../action/updateOrderID';
+import { updateOrderId } from 'action/updateOrderID';
 import Lottie from 'react-lottie'
-import * as delivering from '../../../../../../delivering.json'
-import { getCartItem, createOrder, storeClientInfo } from '../../../../../../api/index';
+import * as delivering from 'delivering.json'
+import { getCartItem, createOrder, storeClientInfo } from 'api/index';
 
 class Payment extends React.Component {
     constructor(props){

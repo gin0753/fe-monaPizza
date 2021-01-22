@@ -1,11 +1,11 @@
 import React from "react";
 import "../Order.scss";
-import CrumbHeader from "../../../components/CrumbHeader";
+import CrumbHeader from "components/CrumbHeader";
 import { connect } from "react-redux";
-import { updateViewOrder } from "../../../action/paginationAction";
+import { updateViewOrder } from "action/paginationAction";
 import OrderItem from "./components/orderItem";
-import UserBar from "../../../components/UserBar/UserBar/UserBar";
-import { updateOrder } from '../../../api/index';
+import UserBar from "components/UserBar/UserBar/UserBar";
+import { updateOrder } from 'api/index';
 import Pagination from './components/pagination';
 class ViewOrder extends React.Component {
   constructor(props) {

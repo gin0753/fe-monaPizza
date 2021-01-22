@@ -4,9 +4,9 @@ import Order from './components/Order/Order';
 import Payment from './components/Payment/Payment';
 import Loginbtn from './components/Login/Login';
 import Coupon from './components/Coupon/Coupon';
-import { getCartItem } from '../../../../api/index';
-import store from '../../../../store/index';
-import { addPizzaList } from '../../../../action';
+import { getCartItem } from 'api/index';
+import store from 'store/index';
+import { addPizzaList } from 'action';
 
 class Form extends React.Component{
 

@@ -5,12 +5,12 @@ import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 import sample_pizza from './../images/sample_pizza.png';
 
-import store from '../../../store/index';
+import store from 'store/index';
 
 import NoPizza from './NoPizza';
-import { applyPromoCode, rmProductList, addPizzaList } from '../../../action';
+import { applyPromoCode, rmProductList, addPizzaList } from 'action';
 
-import { removeCartItem, getPromoCode, getCartItem } from '../../../api';
+import { removeCartItem, getPromoCode, getCartItem } from 'api';
 
 
 class OrderResult extends React.Component {

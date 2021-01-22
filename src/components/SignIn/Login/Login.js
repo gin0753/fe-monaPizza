@@ -1,7 +1,7 @@
 import React from 'react';
 import '../SignIn.scss';
-import { userRegistration, userLogin, googleLogin } from '../../../api/index';
-import { Password } from '../../../utils/index';
+import { userRegistration, userLogin, googleLogin } from 'api/index';
+import { Password } from 'utils/index';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 class Login extends React.Component{

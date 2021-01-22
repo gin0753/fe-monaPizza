@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../SignIn.scss';
-import facebook from '../../../../images/facebook_icon.svg';
-import wechat from '../../../../images/wechat_icon.svg';
-import google from '../../../../images/google_icon.svg';
+import facebook from 'images/facebook_icon.svg';
+import wechat from 'images/wechat_icon.svg';
+import google from 'images/google_icon.svg';
 import {FaTimes, FaCheck, FaEye} from 'react-icons/fa';
 import Lottie from 'react-lottie';
-import * as success from '../../../../../src/success.json';
+import * as success from 'success.json';
 
 class SignupForm extends React.Component {
 

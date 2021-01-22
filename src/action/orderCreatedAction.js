@@ -1,4 +1,4 @@
-import { fetchOrder } from '../api/orderCreated-API';
+import { fetchOrder } from 'api/orderCreated-API';
 
 export const updateOrderInfo = (orderId) => async (dispatch) => {
   await dispatch(updateOrderInfoRequested());

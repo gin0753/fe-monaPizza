@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateOrderInfo } from "../../../action/orderCreatedAction";
+import { updateOrderInfo } from "action/orderCreatedAction";
 
 class Order extends React.Component {
   

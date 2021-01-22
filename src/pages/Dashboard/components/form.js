@@ -2,7 +2,7 @@ import React from 'react';
 import '../mydetails/mydetails.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMotorcycle, faStore } from '@fortawesome/free-solid-svg-icons';
-import { updateClientInfo, getClientInfo } from '../../../api/index';
+import { updateClientInfo, getClientInfo } from 'api/index';
 
 class Form extends React.Component {
     constructor(props){

@@ -1,11 +1,11 @@
 import React from "react";
 import "../Order.scss";
-import CrumbHeader from "../../../components/CrumbHeader";
+import CrumbHeader from "components/CrumbHeader";
 import { connect } from "react-redux";
-import { updateOrderHistory } from "../../../action/orderHistoryPagination";
+import { updateOrderHistory } from "action/orderHistoryPagination";
 import OrderItem from "./components/orderItem";
-import UserBar from "../../../components/UserBar/UserBar/UserBar";
-import { getOrder } from '../../../api/index';
+import UserBar from "components/UserBar/UserBar/UserBar";
+import { getOrder } from 'api/index';
 import Pagination from './components/pagination';
 class OrderHistory extends React.Component {
   constructor(props) {

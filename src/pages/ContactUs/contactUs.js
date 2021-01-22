@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import './contactUs.css';
-import CrumbHeader from "../../components/CrumbHeader/CrumbHeader";
-import { storeFeedback } from '../../api/index';
+import CrumbHeader from "components/CrumbHeader/CrumbHeader";
+import { storeFeedback } from 'api/index';
 
 
 class ContactUs extends React.Component {

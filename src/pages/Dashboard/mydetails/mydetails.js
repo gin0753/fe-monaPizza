@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import UserBar from '../../../components/UserBar/UserBar/UserBar';
-import CrumbHeader from '../../../components/CrumbHeader';
+import UserBar from 'components/UserBar/UserBar/UserBar';
+import CrumbHeader from 'components/CrumbHeader';
 import './mydetails.scss';
 import Form from './components/form';
 

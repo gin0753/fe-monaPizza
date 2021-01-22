@@ -1,6 +1,6 @@
 import React from 'react';
 import './Checkout.scss';
-import CrumbHeader from '../../components/CrumbHeader/CrumbHeader';
+import CrumbHeader from 'components/CrumbHeader/CrumbHeader';
 import Form from './components/Form/Form';
 
 class Checkout extends React.Component {

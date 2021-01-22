@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   viewCartItem, updateCartItem, addCartItem, removeCartItem,
-} from '../../../api/index';
+} from 'api/index';
 
 const MenuItems = ({
   details: {

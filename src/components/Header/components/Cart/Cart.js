@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Header.scss';
-import cart from '../../../../images/shopping-cart-solid.svg';
+import cart from 'images/shopping-cart-solid.svg';
 
 class Cart extends React.Component {
   constructor(props) {

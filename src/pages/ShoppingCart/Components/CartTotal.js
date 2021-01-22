@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import store from '../../../store/index';
+import store from 'store/index';
 
-import { updateOrderTotal } from "../../../action/shoppingCartCreator";
+import { updateOrderTotal } from "action/shoppingCartCreator";
 
 
 class CartTotal extends React.Component {

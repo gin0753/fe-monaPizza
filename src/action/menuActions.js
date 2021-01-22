@@ -1,4 +1,4 @@
-import { fetchPizzas } from '../api/fetchPizzas';
+import { fetchPizzas } from 'api/fetchPizzas';
 
 const fetchPizzaRequest = () => ({
   type: 'FETCH_PIZZA_REQUREST',

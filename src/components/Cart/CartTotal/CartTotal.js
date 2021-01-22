@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartTotal.scss'
-import { getCartItem } from '../../../api/index';
-import { PizzaImages } from '../../../PizzaImages'; 
+import { getCartItem } from 'api/index';
+import { PizzaImages } from 'PizzaImages'; 
 import { Link } from 'react-router-dom';
 import CartItem from './components/cartItem';
 class CartTotal extends React.Component {

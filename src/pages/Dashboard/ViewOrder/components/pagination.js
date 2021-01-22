@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux";
-import { updateViewOrder } from "../../../../action/paginationAction";
+import { updateViewOrder } from "action/paginationAction";
 import './pagination.scss';
-import { updateOrder } from '../../../../api/index';
+import { updateOrder } from 'api/index';
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />
 const ArrowRight = <FontAwesomeIcon icon={faArrowRight} />

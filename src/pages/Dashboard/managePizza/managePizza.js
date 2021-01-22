@@ -1,8 +1,8 @@
 import React from 'react';
 import '../Dashboard.scss';
-import UserBar from '../../../components/UserBar/UserBar/UserBar';
+import UserBar from 'components/UserBar/UserBar/UserBar';
 import AddPizza from './components/addPizza';
-import CrumbHeader from '../../../components/CrumbHeader';
+import CrumbHeader from 'components/CrumbHeader';
 import RemovePizza from './components/removePizza';
 import UpdatePizza from './components/updatePizza';
 

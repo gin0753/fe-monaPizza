@@ -3,12 +3,12 @@ import './Menu.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { PizzaImages } from '../../PizzaImages'
+import { PizzaImages } from 'PizzaImages'
 import { connect } from 'react-redux'
-import { fetchPizza } from '../../action/menuActions'
+import { fetchPizza } from 'action/menuActions'
 import MenuItems from './components/MenuItems'
 import Filter from './components/Filter'
-import CrumbHeader from "../../components/CrumbHeader/CrumbHeader";
+import CrumbHeader from "components/CrumbHeader/CrumbHeader";
 
 const ArrowLeft = <FontAwesomeIcon icon={faArrowLeft} />
 const ArrowRight = <FontAwesomeIcon icon={faArrowRight} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Dashboard.scss';
-import { updateMenuItem } from '../../../../api/index';
+import { updateMenuItem } from 'api/index';
 
 class UpdatePizza extends React.Component {
     constructor(props){

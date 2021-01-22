@@ -1,7 +1,7 @@
 import React from 'react';
 import './SideBar.scss';
 import { Link } from 'react-router-dom';
-import search from '../../../images/search-solid.svg';
+import search from 'images/search-solid.svg';
 import { SideBarTopItems, SideBarBottomItems } from '../SideBarItems/SideBarItems';
 
 class SideBar extends React.Component {

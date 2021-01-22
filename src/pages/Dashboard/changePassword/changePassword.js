@@ -1,10 +1,10 @@
 import React from 'react';
 import '../Dashboard.scss';
-import UserBar from '../../../components/UserBar/UserBar/UserBar';
-import CrumbHeader from "../../../components/CrumbHeader";
+import UserBar from 'components/UserBar/UserBar/UserBar';
+import CrumbHeader from "components/CrumbHeader";
 import {FaTimes, FaCheck, FaEye, FaEyeSlash} from 'react-icons/fa';
-import { findUserInfo, updateUserInfo } from '../../../api/index';
-import { Password } from '../../../utils/index';
+import { findUserInfo, updateUserInfo } from 'api/index';
+import { Password } from 'utils/index';
 class changePassword extends React.Component {
     constructor(props){
         super(props)

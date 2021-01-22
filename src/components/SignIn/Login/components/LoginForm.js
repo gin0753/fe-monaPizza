@@ -2,9 +2,9 @@ import React from 'react';
 import '../../SignIn.scss';
 import GoogleLogin from 'react-google-login';
 import {HashLoader} from 'react-spinners';
-import facebook from '../../../../images/facebook_icon.svg';
-import wechat from '../../../../images/wechat_icon.svg';
-import google from '../../../../images/google_icon.svg';
+import facebook from 'images/facebook_icon.svg';
+import wechat from 'images/wechat_icon.svg';
+import google from 'images/google_icon.svg';
 import {FaTimes, FaCheck} from 'react-icons/fa';
 
 class LoginForm extends React.Component {

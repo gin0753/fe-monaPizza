@@ -1,13 +1,13 @@
 import React from 'react';
 import '../style/OrderCreated.scss';
-import options from '../../../images/payment-options.png';
+import options from 'images/payment-options.png';
 import { connect } from 'react-redux';
-import { updateOrderId } from '../../../action/updateOrderID';
-import * as delivering from '../../../delivering.json'
+import { updateOrderId } from 'action/updateOrderID';
+import * as delivering from 'delivering.json'
 import Lottie from 'react-lottie'
 import StripeCheckout from 'react-stripe-checkout'
-import { getCartItem, checkoutPayment} from '../../../api/index';
-import Margherita from '../../../images/sriracha.png';
+import { getCartItem, checkoutPayment} from 'api/index';
+import Margherita from 'images/sriracha.png';
 
 class Payment extends React.Component {
     constructor(props){

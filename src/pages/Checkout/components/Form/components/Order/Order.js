@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../Form.scss';
 import { connect } from 'react-redux';
-import { getCartItem } from '../../../../../../api/index';
+import { getCartItem } from 'api/index';
 class Order extends React.Component{
     constructor(props){
         super(props)

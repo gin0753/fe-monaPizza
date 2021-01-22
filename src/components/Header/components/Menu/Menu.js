@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Header.scss';
-import bars from '../../../../images/bars-solid.svg';
+import bars from 'images/bars-solid.svg';
 
 class Menu extends React.Component {
   constructor(props) {

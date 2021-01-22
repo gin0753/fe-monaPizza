@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './style/Blog.scss';
 import { connect } from 'react-redux';
 import CrumbHeader from '../../components/CrumbHeader';
-import { loadBlogs } from '../../action/blogAction';
-
+import { loadBlogs } from 'action/blogAction';
+ 
 import BlogImg from './img/BlogImg';
 
 class Blog extends Component {
@@ -16,7 +16,6 @@ class Blog extends Component {
     const { loading, results } = this.props;
 
     if (loading) return <h1>Loading...</h1>;
-    // console.log("22222222", results[0].author);
     return (
       <section className="blog">
         <CrumbHeader path="blog" thisPage="blog" />

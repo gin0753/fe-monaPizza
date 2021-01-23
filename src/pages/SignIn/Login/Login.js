@@ -109,6 +109,7 @@ class Login extends React.Component{
             this.setState({
                 pageSwitch: !this.state.pageSwitch
             })
+            // window.location.reload();
             resolve();
         }); 
     }

@@ -149,7 +149,6 @@ class OrderHistory extends React.Component {
     let filterResult = this.state.orders.filter((order) => {
       return order.orderStatus.indexOf(this.state.filterStatus) !== -1;
     });
-    console.log(filterResult)
     return (
       <>
         <section className='order-history'>

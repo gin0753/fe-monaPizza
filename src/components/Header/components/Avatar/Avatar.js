@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../../Header.scss';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
@@ -20,10 +20,6 @@ function Avatar(props) {
     setLogin(false);
     setAvatar(false);
   };
-
-  useEffect(userRole => {
-      setLogin((prev) => !prev);
-  }, [])  
 
   return (
     <>

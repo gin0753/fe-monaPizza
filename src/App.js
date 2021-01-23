@@ -52,10 +52,10 @@ class App extends React.Component {
     };
 
   render() {
-    console.log(window.location)
     return (
         <Router>
-          {(window.location.pathname === "/sign-in") ? 
+          {/*
+            (window.location.pathname === "/sign-in") ? 
               <></>
               : 
               <>
@@ -74,7 +74,22 @@ class App extends React.Component {
                   sidestatus={this.state.sidebarIsClicked}
                   cartstatus={this.state.cartIsClicked}
                 /></>
-            }
+          */}
+          <SideBar
+            sidestatus={this.state.sidebarIsClicked}
+            toggleSideBar={this.toggleSideBar}
+          />
+          <CartTotals
+            cartstatus={this.state.cartIsClicked}
+            toggleCart={this.toggleCart}
+            amountChanged={this.state.amountChanged}
+          />
+          <Header
+            toggleSideBar={this.toggleSideBar}
+            toggleCart={this.toggleCart}
+            sidestatus={this.state.sidebarIsClicked}
+            cartstatus={this.state.cartIsClicked}
+          />
           <Switch>            
             <Route path='/about' component={About} />
             <Route path='/users' component={Users} />
@@ -110,14 +125,19 @@ class App extends React.Component {
             <AdminRoute path='/view-order' component={ViewOrder} />
             <Route path='/' component={Home} />
           </Switch>
-          {window.location.pathname !== "/sign-in" ? 
+          <Newsletter />
+          <Media />
+          <Footer />
+          {/*
+            window.location.pathname !== "/sign-in" ? 
             <>
               <Newsletter />
               <Media />
               <Footer />
             </>
             : 
-            <></>}
+            <></>
+          */}
         </Router>
     );
   }

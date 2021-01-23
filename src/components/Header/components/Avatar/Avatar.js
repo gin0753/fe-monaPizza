@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../Header.scss';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
@@ -6,7 +6,10 @@ import { FaUser } from 'react-icons/fa';
 function Avatar(props) {
   const [avatar, setAvatar] = useState(false);
 
+  const [login, setLogin] = useState(false);
+
   const userJWT = sessionStorage.getItem('login-token');
+  const userRole = sessionStorage.getItem('role');
 
   const handleClick = () => {
     setAvatar((prev) => !prev);
@@ -14,9 +17,13 @@ function Avatar(props) {
 
   const handleSignOut = () => {
     sessionStorage.clear();
+    setLogin(false);
+    setAvatar(false);
   };
 
-  const userRole = sessionStorage.getItem('role');
+  useEffect(userRole => {
+      setLogin((prev) => !prev);
+  }, [])  
 
   return (
     <>

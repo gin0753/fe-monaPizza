@@ -9,7 +9,7 @@ import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Blog from "./pages/Blog/Blog";
 import Menu from "./pages/Menu/Menu";
-import SignIn from "./components/SignIn/SignIn";
+import SignIn from "./pages/SignIn/SignIn";
 import Checkout from "./pages/Checkout/Checkout";
 import SideBar from "./components/SideBar/SideBar/SideBar";
 import CartTotals from "./components/Cart/CartTotal/CartTotal";
@@ -52,6 +52,7 @@ class App extends React.Component {
     };
 
   render() {
+    console.log(window.location)
     return (
         <Router>
           {(window.location.pathname === "/sign-in") ? 
